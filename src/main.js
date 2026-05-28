@@ -1,4 +1,5 @@
 const KEY = 'recettes-app-premium-v1';
+const BACKUP_FILENAME = 'maison-saison-recettes.json';
 
 const seedRecipes = [
   {
@@ -197,6 +198,46 @@ function save() {
   localStorage.setItem(KEY, JSON.stringify(state));
 }
 
+function exportRecipes() {
+  const payload = {
+    exportedAt: new Date().toISOString(),
+    recipes: state.recipes,
+    shopping: state.shopping,
+  };
+  const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = BACKUP_FILENAME;
+  link.click();
+  URL.revokeObjectURL(url);
+}
+
+async function importRecipes(file) {
+  if (!file) return;
+  try {
+    const content = await file.text();
+    const payload = JSON.parse(content);
+    const recipes = Array.isArray(payload) ? payload : payload.recipes;
+    if (!Array.isArray(recipes)) throw new Error('Format invalide');
+    state.recipes = mergeRecipes(state.recipes, recipes);
+    if (Array.isArray(payload.shopping)) state.shopping = payload.shopping;
+    state.activeCategory = 'Tout voir';
+    state.editingId = null;
+    save();
+    render();
+    alert('Recettes importées dans ce navigateur.');
+  } catch {
+    alert('Import impossible : choisissez un fichier JSON exporté depuis Maison Saison.');
+  }
+}
+
+function updateShoppingPanel() {
+  const shoppingList = document.querySelector('.shopping-list');
+  if (!shoppingList) return;
+  shoppingList.innerHTML = renderShopping() || '<p class="small">Liste vide. Ouvrez une recette et cochez uniquement ce qu’il vous manque.</p>';
+}
+
 function uid(prefix = 'id') {
   return `${prefix}-${Math.random().toString(36).slice(2, 9)}`;
 }
@@ -286,6 +327,10 @@ function render() {
             <a class="button-link" href="#recettes">Explorer les menus</a>
             <a class="button-link secondary-link" href="#ajouter">Créer une recette</a>
           </div>
+          <div class="storage-notice">
+            <strong>☁️ Sauvegarde locale</strong>
+            <span>Les recettes créées ici sont enregistrées dans ce navigateur. Pour les retrouver ailleurs, exportez le fichier JSON puis importez-le sur l’autre appareil.</span>
+          </div>
         </div>
         <aside class="hero-card">
           <span>Tableau de bord</span>
@@ -328,15 +373,22 @@ function render() {
             <label>URL vidéo<input id="r-video" placeholder="YouTube, Vimeo, MP4..." /></label>
             <label>URL source / site<input id="r-source" placeholder="https://site-de-recette.fr/..." /></label>
           </div>
-          <div class="ingredients-head"><div><h3>Ingrédients</h3><p class="small">Ajoutez autant de lignes que nécessaire : les champs déjà saisis sont conservés.</p></div><button class="secondary" id="add-ing">+ ingrédient</button></div>
-          <div id="ingredients"></div>
-          <div class="row"><button class="secondary" id="reset-form">Réinitialiser</button><button id="save-recipe">${state.editingId ? 'Mettre à jour' : 'Enregistrer la recette'}</button></div>
+          <div class="ingredients-head"><div><h3>Ingrédients</h3><p class="small">Ajoutez autant de lignes que nécessaire : les champs déjà saisis sont conservés.</p></div><button class="secondary add-ing-top" id="add-ing">+ ingrédient</button></div>
+          <div id="ingredients" class="ingredients-editor"></div>
+          <div class="ingredient-actions"><button class="secondary" id="add-ing-bottom">+ Ajouter un ingrédient</button></div>
+          <div class="row form-actions"><button class="secondary" id="reset-form">Réinitialiser</button><button id="save-recipe">${state.editingId ? 'Mettre à jour' : 'Enregistrer la recette'}</button></div>
         </article>
 
         <aside id="courses" class="panel sticky-panel">
           <p class="eyebrow">Organisation</p>
           <h2>Liste de courses</h2>
           <p class="small">Les ingrédients identiques sont regroupés lorsque l’unité est la même.</p>
+          <div class="backup-actions">
+            <button class="secondary" id="export-recipes">Exporter</button>
+            <label class="button-link secondary-link import-label" for="import-recipes">Importer</label>
+            <input class="visually-hidden" id="import-recipes" type="file" accept="application/json,.json" />
+          </div>
+          <p class="small">Important : une recette ajoutée n’est pas écrite automatiquement dans un fichier GitHub ; elle reste dans le stockage local du navigateur.</p>
           <div class="shopping-list">${renderShopping() || '<p class="small">Liste vide. Ouvrez une recette et cochez uniquement ce qu’il vous manque.</p>'}</div>
           <button id="clear-shopping">Vider la liste</button>
         </aside>
@@ -405,11 +457,15 @@ function bindEvents(root) {
     };
   });
 
-  document.getElementById('add-ing').onclick = () => {
+  const addIngredient = () => {
     captureIngredientRows();
-    ingredientRows.push(emptyIngredient());
-    drawIngredientRows();
+    const next = emptyIngredient();
+    ingredientRows.push(next);
+    drawIngredientRows(next.id);
   };
+
+  document.getElementById('add-ing').onclick = addIngredient;
+  document.getElementById('add-ing-bottom').onclick = addIngredient;
 
   document.getElementById('reset-form').onclick = () => {
     state.editingId = null;
@@ -444,8 +500,11 @@ function bindEvents(root) {
   document.getElementById('clear-shopping').onclick = () => {
     state.shopping = [];
     save();
-    render();
+    updateShoppingPanel();
   };
+
+  document.getElementById('export-recipes').onclick = exportRecipes;
+  document.getElementById('import-recipes').onchange = (event) => importRecipes(event.target.files[0]);
 }
 
 function hydrateForm() {
@@ -477,20 +536,26 @@ function captureIngredientRows() {
   }));
 }
 
-function drawIngredientRows() {
+function drawIngredientRows(focusId) {
   const container = document.getElementById('ingredients');
   if (!container) return;
   container.innerHTML = ingredientRows
     .map(
-      (r, index) => `<div class="ingredient-row">
-        <input data-in="name-${r.id}" placeholder="Ingrédient" value="${esc(r.name)}" />
-        <input data-in="qty-${r.id}" type="number" min="0" step="0.1" value="${esc(r.qty)}" />
-        <input data-in="unit-${r.id}" placeholder="unité" value="${esc(r.unit)}" />
+      (r, index) => `<div class="ingredient-row" data-row-id="${esc(r.id)}">
+        <label><span>Ingrédient</span><input data-in="name-${r.id}" placeholder="Ex : Tomates" value="${esc(r.name)}" /></label>
+        <label><span>Quantité</span><input data-in="qty-${r.id}" type="number" min="0" step="0.1" value="${esc(r.qty)}" /></label>
+        <label><span>Unité</span><input data-in="unit-${r.id}" placeholder="g, pièce..." value="${esc(r.unit)}" /></label>
         <button class="secondary tiny" data-remove-ing="${esc(r.id)}" ${ingredientRows.length === 1 ? 'disabled' : ''}>Retirer</button>
         <small>Ligne ${index + 1}</small>
       </div>`,
     )
     .join('');
+
+  if (focusId) {
+    const row = container.querySelector(`[data-row-id="${focusId}"]`);
+    row?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    row?.querySelector('input')?.focus({ preventScroll: true });
+  }
 
   container.querySelectorAll('[data-remove-ing]').forEach((button) => {
     button.onclick = () => {
@@ -608,8 +673,8 @@ function openRecipe(recipeId) {
           state.shopping.push({ recipeId: recipe.id, ingredientId, recipeName: recipe.name, name: ingredient.name, qtyNumber, unit: ingredient.unit });
         }
         save();
-        render();
-        openRecipe(recipeId);
+        redraw();
+        updateShoppingPanel();
       };
     });
   };
