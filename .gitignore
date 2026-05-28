@@ -1,0 +1,4 @@
+# Generated brand assets are intentionally kept out of pull requests.
+# Generate them locally with: python3 scripts/generate_brand_assets.py --output assets
+/assets/*.png
+/assets/*.ico
