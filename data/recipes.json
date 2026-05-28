@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-05-28T16:18:40.998Z",
+  "exportedAt": "2026-05-28T16:23:14.157Z",
   "recipes": [
     {
       "badge": "Signature",
@@ -324,6 +324,32 @@
       "description": "Une boisson minute, ultra fraîche, idéale pour brunchs et goûters.",
       "steps": "Mixer mangue, banane, jus d’orange, yaourt et pulpe de passion. Ajouter quelques glaçons et mixer à nouveau. Servir immédiatement.",
       "notes": "Remplacez le yaourt par du lait de coco pour une version vegan."
+    },
+    {
+      "badge": "Nouveau",
+      "difficulty": "Maison",
+      "baseServings": 2,
+      "time": 20,
+      "ingredients": [
+        {
+          "id": "ing-3m21l25",
+          "name": "Test d",
+          "qty": 1,
+          "unit": "g"
+        }
+      ],
+      "id": "recipe-2ivox66",
+      "name": "Test3",
+      "category": "Mes recettes",
+      "description": "",
+      "steps": "",
+      "notes": "",
+      "photoUrl": "",
+      "photoData": "",
+      "videoUrl": "",
+      "sourceUrl": "",
+      "sourceName": "",
+      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)"
     },
     {
       "badge": "Nouveau",
