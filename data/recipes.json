@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-05-28T16:44:14.548Z",
+  "exportedAt": "2026-05-28T16:45:05.494Z",
   "recipes": [
     {
       "badge": "Signature",
@@ -327,64 +327,6 @@
     },
     {
       "badge": "Nouveau",
-      "difficulty": "Maison",
-      "baseServings": 2,
-      "time": 20,
-      "ingredients": [
-        {
-          "id": "ing-169cfeq",
-          "name": "Test",
-          "qty": 1,
-          "unit": "g"
-        }
-      ],
-      "id": "recipe-tueb0ce",
-      "name": "Ouvrai test",
-      "category": "Mes recettes",
-      "description": "",
-      "steps": "",
-      "notes": "",
-      "photoUrl": "",
-      "photoData": "",
-      "videoUrl": "",
-      "sourceUrl": "",
-      "sourceName": "",
-      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)"
-    },
-    {
-      "badge": "Nouveau",
-      "difficulty": "Maison",
-      "baseServings": 2,
-      "time": 20,
-      "ingredients": [
-        {
-          "id": "ing-7ykb7mz",
-          "name": "test",
-          "qty": 1,
-          "unit": "g"
-        },
-        {
-          "id": "ing-v0q8fkf",
-          "name": "test2",
-          "qty": 1,
-          "unit": "g"
-        }
-      ],
-      "id": "recipe-7sxqtls",
-      "name": "test sauvegarde",
-      "category": "Mes recettes",
-      "description": "",
-      "steps": "",
-      "notes": "",
-      "photoUrl": "",
-      "photoData": "",
-      "videoUrl": "",
-      "sourceUrl": "",
-      "sourceName": "",
-      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)"
-    },
-    {
-      "badge": "Nouveau",
       "difficulty": "Facile",
       "baseServings": 4,
       "time": 30,
@@ -476,30 +418,5 @@
       "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)"
     }
   ],
-  "shopping": [
-    {
-      "recipeId": "tarte-fraises",
-      "ingredientId": "fraises",
-      "recipeName": "Tarte aux fraises pâtissière",
-      "name": "Fraises",
-      "qtyNumber": 650,
-      "unit": "g"
-    },
-    {
-      "recipeId": "tarte-fraises",
-      "ingredientId": "oeufs",
-      "recipeName": "Tarte aux fraises pâtissière",
-      "name": "Jaunes d’œufs",
-      "qtyNumber": 4,
-      "unit": "pièces"
-    },
-    {
-      "recipeId": "tarte-fraises",
-      "ingredientId": "sucre",
-      "recipeName": "Tarte aux fraises pâtissière",
-      "name": "Sucre",
-      "qtyNumber": 110,
-      "unit": "g"
-    }
-  ]
+  "shopping": []
 }
