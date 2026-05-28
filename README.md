@@ -24,7 +24,7 @@ Application frontend statique pour gérer un carnet de recettes complet, compati
 - Fiche recette détaillée avec couverture photo, vidéo intégrée, source web et notes
 - Ajustement automatique des quantités selon le nombre de personnes
 - Liste de courses unifiée : cochez uniquement les ingrédients voulus et l’application regroupe les éléments identiques par unité
-- Sauvegarde locale dans le navigateur via `localStorage`
+- Sauvegarde locale dans le navigateur via `localStorage`, export/import manuel et synchronisation automatique dans un JSON GitHub avec token personnel
 - Balises de partage social Open Graph / Twitter et icônes d’installation mobile avec favicon SVG dédié; les PNG/ICO sont générables à part pour intégration manuelle
 - Thème centralisé via `src/theme.css`
 
@@ -39,7 +39,9 @@ Application frontend statique pour gérer un carnet de recettes complet, compati
 
 ## Déploiement GitHub Pages
 
-Le projet est 100 % statique : publiez simplement la branche sur GitHub Pages. Les données créées par l’utilisateur sont conservées dans le navigateur courant grâce à `localStorage`.
+Le projet est 100 % statique : publiez simplement la branche sur GitHub Pages. Les données créées par l’utilisateur sont conservées dans le navigateur courant grâce à `localStorage`. Pour ce site personnel, l’interface peut aussi enregistrer automatiquement les recettes dans un fichier JSON du dépôt GitHub grâce à un token personnel renseigné dans le panneau **Courses → Synchronisation GitHub automatique**.
+
+Par défaut, la synchronisation GitHub écrit dans `data/recipes.json`. Le détail de configuration du token et du fichier est documenté dans [`docs/github-json-sync.md`](docs/github-json-sync.md).
 
 ## Images de partage et icônes
 
