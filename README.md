@@ -25,6 +25,7 @@ Application frontend statique pour gérer un carnet de recettes complet, compati
 - Ajustement automatique des quantités selon le nombre de personnes
 - Liste de courses unifiée : cochez uniquement les ingrédients voulus et l’application regroupe les éléments identiques par unité
 - Sauvegarde locale dans le navigateur via `localStorage`
+- Balises de partage social Open Graph / Twitter et icônes d’installation mobile avec favicon SVG dédié; les PNG/ICO sont générables à part pour intégration manuelle
 - Thème centralisé via `src/theme.css`
 
 ## Recettes préchargées
@@ -39,3 +40,12 @@ Application frontend statique pour gérer un carnet de recettes complet, compati
 ## Déploiement GitHub Pages
 
 Le projet est 100 % statique : publiez simplement la branche sur GitHub Pages. Les données créées par l’utilisateur sont conservées dans le navigateur courant grâce à `localStorage`.
+
+## Images de partage et icônes
+
+Pour éviter les blocages de demande d’extraction liés aux fichiers binaires, les PNG/ICO ne sont pas versionnés. Les noms attendus sont documentés dans `assets/README.md` et peuvent être générés localement avec :
+
+```bash
+python3 scripts/generate_brand_assets.py --output assets
+```
+

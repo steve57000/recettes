@@ -1,0 +1,26 @@
+{
+  "name": "Maison Saison — Carnet de recettes",
+  "short_name": "Maison Saison",
+  "description": "Carnet de recettes premium avec portions dynamiques, médias et liste de courses intelligente.",
+  "lang": "fr-FR",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fff8ed",
+  "theme_color": "#f05a37",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "./assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
