@@ -1,6 +1,32 @@
 {
-  "exportedAt": "2026-05-28T16:32:31.529Z",
+  "exportedAt": "2026-05-28T16:33:45.608Z",
   "recipes": [
+    {
+      "badge": "Nouveau",
+      "difficulty": "Maison",
+      "baseServings": 2,
+      "time": 20,
+      "ingredients": [
+        {
+          "id": "ing-15qd90q",
+          "name": "Sal",
+          "qty": 1,
+          "unit": "g"
+        }
+      ],
+      "id": "recipe-8r4l7ga",
+      "name": "Test nouveau",
+      "category": "Mes recettes",
+      "description": "",
+      "steps": "",
+      "notes": "",
+      "photoUrl": "",
+      "photoData": "",
+      "videoUrl": "",
+      "sourceUrl": "",
+      "sourceName": "",
+      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)"
+    },
     {
       "badge": "Signature",
       "difficulty": "Facile",
