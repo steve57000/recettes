@@ -1,0 +1,403 @@
+{
+  "exportedAt": "2026-05-28T16:18:27.945Z",
+  "recipes": [
+    {
+      "badge": "Signature",
+      "difficulty": "Facile",
+      "baseServings": 4,
+      "time": 25,
+      "ingredients": [
+        {
+          "id": "salade",
+          "name": "Salade romaine",
+          "qty": 1,
+          "unit": "pièce"
+        },
+        {
+          "id": "tomates",
+          "name": "Tomates",
+          "qty": 4,
+          "unit": "pièces"
+        },
+        {
+          "id": "thon",
+          "name": "Thon",
+          "qty": 240,
+          "unit": "g"
+        },
+        {
+          "id": "oeufs",
+          "name": "Œufs",
+          "qty": 4,
+          "unit": "pièces"
+        },
+        {
+          "id": "olives",
+          "name": "Olives noires",
+          "qty": 80,
+          "unit": "g"
+        },
+        {
+          "id": "huile",
+          "name": "Huile d’olive",
+          "qty": 3,
+          "unit": "c. à soupe"
+        }
+      ],
+      "id": "salade-nicoise-premium",
+      "name": "Salade niçoise grand soleil",
+      "category": "Salades",
+      "image": "linear-gradient(135deg, rgba(255, 209, 102, 0.92), rgba(246, 114, 128, 0.86)), url(https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1200&q=80)",
+      "photoUrl": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1200&q=80",
+      "videoUrl": "https://www.youtube.com/watch?v=dA0VGEbbw4g",
+      "sourceName": "Inspiration méditerranéenne",
+      "sourceUrl": "https://www.marmiton.org/recettes/recette_salade-nicoise_87933.aspx",
+      "description": "Une salade complète, colorée et généreuse avec thon, œufs, légumes croquants et olives noires.",
+      "steps": "Cuire les œufs 9 minutes puis les refroidir. Couper tomates, concombre, poivron et oignon. Disposer la salade, ajouter thon, olives et anchois. Assaisonner avec huile d’olive, vinaigre, sel et poivre. Servir très frais.",
+      "notes": "Ajoutez les œufs au dernier moment pour une présentation impeccable."
+    },
+    {
+      "badge": "Comfort food",
+      "difficulty": "Moyen",
+      "baseServings": 4,
+      "time": 40,
+      "ingredients": [
+        {
+          "id": "riz",
+          "name": "Riz arborio",
+          "qty": 320,
+          "unit": "g"
+        },
+        {
+          "id": "champignons",
+          "name": "Champignons",
+          "qty": 450,
+          "unit": "g"
+        },
+        {
+          "id": "bouillon",
+          "name": "Bouillon de légumes",
+          "qty": 1.1,
+          "unit": "L"
+        },
+        {
+          "id": "parmesan",
+          "name": "Parmesan",
+          "qty": 90,
+          "unit": "g"
+        },
+        {
+          "id": "vin",
+          "name": "Vin blanc",
+          "qty": 12,
+          "unit": "cl"
+        },
+        {
+          "id": "oignon",
+          "name": "Oignon",
+          "qty": 1,
+          "unit": "pièce"
+        }
+      ],
+      "id": "risotto-champignons",
+      "name": "Risotto crémeux aux champignons",
+      "category": "Plats",
+      "image": "linear-gradient(135deg, rgba(91, 62, 43, 0.75), rgba(242, 177, 109, 0.74)), url(https://images.unsplash.com/photo-1476124369491-e7addf5db371?auto=format&fit=crop&w=1200&q=80)",
+      "photoUrl": "https://images.unsplash.com/photo-1476124369491-e7addf5db371?auto=format&fit=crop&w=1200&q=80",
+      "videoUrl": "",
+      "sourceName": "Technique maison",
+      "sourceUrl": "",
+      "description": "Un plat principal onctueux, parfumé au parmesan, parfait pour un dîner premium sans complication.",
+      "steps": "Faire revenir l’oignon dans l’huile. Ajouter le riz et le nacrer 2 minutes. Verser le vin blanc, puis incorporer le bouillon louche par louche. Poêler les champignons à part. Terminer avec parmesan, beurre, champignons et persil.",
+      "notes": "Le secret : remuer souvent et garder le bouillon bien chaud."
+    },
+    {
+      "badge": "Voyage",
+      "difficulty": "Moyen",
+      "baseServings": 4,
+      "time": 55,
+      "ingredients": [
+        {
+          "id": "poulet",
+          "name": "Cuisses de poulet",
+          "qty": 4,
+          "unit": "pièces"
+        },
+        {
+          "id": "oignons",
+          "name": "Oignons",
+          "qty": 5,
+          "unit": "pièces"
+        },
+        {
+          "id": "citrons",
+          "name": "Citrons",
+          "qty": 3,
+          "unit": "pièces"
+        },
+        {
+          "id": "moutarde",
+          "name": "Moutarde",
+          "qty": 3,
+          "unit": "c. à soupe"
+        },
+        {
+          "id": "riz",
+          "name": "Riz",
+          "qty": 300,
+          "unit": "g"
+        },
+        {
+          "id": "ail",
+          "name": "Ail",
+          "qty": 2,
+          "unit": "gousses"
+        }
+      ],
+      "id": "poulet-yassa",
+      "name": "Poulet yassa citronné",
+      "category": "Plats",
+      "image": "linear-gradient(135deg, rgba(255, 212, 59, 0.86), rgba(43, 138, 62, 0.8)), url(https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=1200&q=80)",
+      "photoUrl": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=1200&q=80",
+      "videoUrl": "",
+      "sourceName": "",
+      "sourceUrl": "",
+      "description": "Un grand plat familial avec oignons fondants, citron et moutarde, à servir avec du riz parfumé.",
+      "steps": "Mariner le poulet avec citron, moutarde, ail, sel et poivre pendant 30 minutes. Faire dorer le poulet. Faire compoter les oignons, ajouter la marinade et un peu d’eau. Remettre le poulet et mijoter jusqu’à tendreté.",
+      "notes": "Excellent réchauffé le lendemain."
+    },
+    {
+      "badge": "Pâtisserie",
+      "difficulty": "Chef",
+      "baseServings": 8,
+      "time": 75,
+      "ingredients": [
+        {
+          "id": "pate",
+          "name": "Pâte sablée",
+          "qty": 1,
+          "unit": "pièce"
+        },
+        {
+          "id": "fraises",
+          "name": "Fraises",
+          "qty": 650,
+          "unit": "g"
+        },
+        {
+          "id": "lait",
+          "name": "Lait",
+          "qty": 50,
+          "unit": "cl"
+        },
+        {
+          "id": "oeufs",
+          "name": "Jaunes d’œufs",
+          "qty": 4,
+          "unit": "pièces"
+        },
+        {
+          "id": "sucre",
+          "name": "Sucre",
+          "qty": 110,
+          "unit": "g"
+        },
+        {
+          "id": "vanille",
+          "name": "Vanille",
+          "qty": 1,
+          "unit": "gousse"
+        }
+      ],
+      "id": "tarte-fraises",
+      "name": "Tarte aux fraises pâtissière",
+      "category": "Desserts",
+      "image": "linear-gradient(135deg, rgba(255, 107, 107, 0.8), rgba(255, 236, 153, 0.76)), url(https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?auto=format&fit=crop&w=1200&q=80)",
+      "photoUrl": "https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?auto=format&fit=crop&w=1200&q=80",
+      "videoUrl": "",
+      "sourceName": "",
+      "sourceUrl": "",
+      "description": "Un dessert vitrine avec pâte croustillante, crème vanillée et fraises brillantes.",
+      "steps": "Cuire la pâte à blanc. Préparer une crème pâtissière vanillée et la refroidir. Garnir le fond de tarte, disposer les fraises coupées et napper légèrement. Réserver au frais avant dégustation.",
+      "notes": "Pour un rendu pro, alternez les pointes des fraises vers l’extérieur."
+    },
+    {
+      "badge": "Douceur",
+      "difficulty": "Facile",
+      "baseServings": 4,
+      "time": 35,
+      "ingredients": [
+        {
+          "id": "potimarron",
+          "name": "Potimarron",
+          "qty": 1,
+          "unit": "pièce"
+        },
+        {
+          "id": "carottes",
+          "name": "Carottes",
+          "qty": 3,
+          "unit": "pièces"
+        },
+        {
+          "id": "bouillon",
+          "name": "Bouillon de légumes",
+          "qty": 80,
+          "unit": "cl"
+        },
+        {
+          "id": "creme",
+          "name": "Crème",
+          "qty": 15,
+          "unit": "cl"
+        },
+        {
+          "id": "noisettes",
+          "name": "Noisettes",
+          "qty": 50,
+          "unit": "g"
+        },
+        {
+          "id": "oignon",
+          "name": "Oignon",
+          "qty": 1,
+          "unit": "pièce"
+        }
+      ],
+      "id": "soupe-potimarron",
+      "name": "Velouté potimarron & noisettes",
+      "category": "Entrées",
+      "image": "linear-gradient(135deg, rgba(240, 90, 55, 0.86), rgba(255, 190, 118, 0.76)), url(https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=80)",
+      "photoUrl": "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=80",
+      "videoUrl": "",
+      "sourceName": "",
+      "sourceUrl": "",
+      "description": "Une entrée veloutée, rapide et élégante, avec une finition noisette qui change tout.",
+      "steps": "Couper le potimarron et les carottes. Faire suer l’oignon, ajouter les légumes et couvrir de bouillon. Cuire 25 minutes puis mixer avec crème. Servir avec noisettes torréfiées.",
+      "notes": "Inutile d’éplucher le potimarron si la peau est fine."
+    },
+    {
+      "badge": "Vitaminé",
+      "difficulty": "Facile",
+      "baseServings": 2,
+      "time": 8,
+      "ingredients": [
+        {
+          "id": "mangue",
+          "name": "Mangue",
+          "qty": 1,
+          "unit": "pièce"
+        },
+        {
+          "id": "banane",
+          "name": "Banane",
+          "qty": 1,
+          "unit": "pièce"
+        },
+        {
+          "id": "orange",
+          "name": "Jus d’orange",
+          "qty": 25,
+          "unit": "cl"
+        },
+        {
+          "id": "passion",
+          "name": "Fruit de la passion",
+          "qty": 2,
+          "unit": "pièces"
+        },
+        {
+          "id": "yaourt",
+          "name": "Yaourt grec",
+          "qty": 120,
+          "unit": "g"
+        }
+      ],
+      "id": "smoothie-mangue",
+      "name": "Smoothie mangue passion",
+      "category": "Boissons",
+      "image": "linear-gradient(135deg, rgba(255, 193, 7, 0.85), rgba(255, 111, 97, 0.72)), url(https://images.unsplash.com/photo-1502741224143-90386d7f8c82?auto=format&fit=crop&w=1200&q=80)",
+      "photoUrl": "https://images.unsplash.com/photo-1502741224143-90386d7f8c82?auto=format&fit=crop&w=1200&q=80",
+      "videoUrl": "",
+      "sourceName": "",
+      "sourceUrl": "",
+      "description": "Une boisson minute, ultra fraîche, idéale pour brunchs et goûters.",
+      "steps": "Mixer mangue, banane, jus d’orange, yaourt et pulpe de passion. Ajouter quelques glaçons et mixer à nouveau. Servir immédiatement.",
+      "notes": "Remplacez le yaourt par du lait de coco pour une version vegan."
+    },
+    {
+      "badge": "Nouveau",
+      "difficulty": "Maison",
+      "baseServings": 2,
+      "time": 20,
+      "ingredients": [
+        {
+          "id": "ing-7ykb7mz",
+          "name": "test",
+          "qty": 1,
+          "unit": "g"
+        },
+        {
+          "id": "ing-v0q8fkf",
+          "name": "test2",
+          "qty": 1,
+          "unit": "g"
+        }
+      ],
+      "id": "recipe-7sxqtls",
+      "name": "test sauvegarde",
+      "category": "Mes recettes",
+      "description": "",
+      "steps": "",
+      "notes": "",
+      "photoUrl": "",
+      "photoData": "",
+      "videoUrl": "",
+      "sourceUrl": "",
+      "sourceName": "",
+      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)"
+    }
+  ],
+  "shopping": [
+    {
+      "recipeId": "recipe-7sxqtls",
+      "ingredientId": "ing-7ykb7mz",
+      "recipeName": "test sauvegarde",
+      "name": "test",
+      "qtyNumber": 1,
+      "unit": "g"
+    },
+    {
+      "recipeId": "tarte-fraises",
+      "ingredientId": "fraises",
+      "recipeName": "Tarte aux fraises pâtissière",
+      "name": "Fraises",
+      "qtyNumber": 650,
+      "unit": "g"
+    },
+    {
+      "recipeId": "tarte-fraises",
+      "ingredientId": "oeufs",
+      "recipeName": "Tarte aux fraises pâtissière",
+      "name": "Jaunes d’œufs",
+      "qtyNumber": 4,
+      "unit": "pièces"
+    },
+    {
+      "recipeId": "tarte-fraises",
+      "ingredientId": "sucre",
+      "recipeName": "Tarte aux fraises pâtissière",
+      "name": "Sucre",
+      "qtyNumber": 110,
+      "unit": "g"
+    },
+    {
+      "recipeId": "recipe-7sxqtls",
+      "ingredientId": "ing-v0q8fkf",
+      "recipeName": "test sauvegarde",
+      "name": "test2",
+      "qtyNumber": 1,
+      "unit": "g"
+    }
+  ]
+}
