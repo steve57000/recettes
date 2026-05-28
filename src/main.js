@@ -1,55 +1,203 @@
-import React, { useMemo, useState } from 'https://esm.sh/react@18.3.1';
-import { createRoot } from 'https://esm.sh/react-dom@18.3.1/client';
+const KEY = 'recettes-app-v2';
 
-const KEY='recettes-app-v1';
-const defaultState={users:[{username:'admin',password:'admin123'}],recipes:[],shopping:[]};
-const load=()=>JSON.parse(localStorage.getItem(KEY)||'null')||defaultState;
-const save=(s)=>localStorage.setItem(KEY,JSON.stringify(s));
-const uid=()=>Math.random().toString(36).slice(2,10);
+const defaultState = {
+  users: [{ username: 'admin', password: 'admin123' }],
+  recipes: [],
+  shopping: [],
+  sessionUser: null,
+};
 
-function App(){
-  const [db,setDb]=useState(load());
-  const [user,setUser]=useState(null);
-  const [sel,setSel]=useState(null);
-  const [servings,setServings]=useState(2);
-  const persist=(next)=>{setDb(next);save(next)};
+const state = load();
 
-  if(!user) return <Login db={db} onLogin={setUser}/>;
-
-  const selected=db.recipes.find(r=>r.id===sel);
-  const scale=selected?servings/selected.baseServings:1;
-  const scaledIngredients=selected?selected.ingredients.map(i=>({...i,scaledQty:(i.qty*scale).toFixed(2)})):[];
-
-  return <div className="container grid grid-2">
-    <div className="card">
-      <h2>Recettes</h2>
-      <RecipeForm onCreate={(recipe)=>persist({...db,recipes:[...db.recipes,recipe]})}/>
-      <div className="list">{db.recipes.map(r=><div className="recipe-item" key={r.id}><span onClick={()=>{setSel(r.id);setServings(r.baseServings)}}>{r.name} <span className="small">({r.baseServings} pers.)</span></span><button className="secondary" onClick={()=>persist({...db,recipes:db.recipes.filter(x=>x.id!==r.id)})}>Supprimer</button></div>)}</div>
-      {selected && <div className="card" style={{marginTop:'1rem'}}>
-        <h3>{selected.name}</h3>
-        <div className="row"><label>Personnes:</label><input type="number" min="1" value={servings} onChange={e=>setServings(Number(e.target.value)||1)}/></div>
-        <p>{selected.steps}</p>
-        <ul>{scaledIngredients.map(i=><li key={i.id}><label><input type="checkbox" checked={db.shopping.some(s=>s.recipeId===selected.id && s.ingredientId===i.id)} onChange={e=>{
-          const exist=db.shopping.some(s=>s.recipeId===selected.id && s.ingredientId===i.id);
-          const shopping=exist?db.shopping.filter(s=>!(s.recipeId===selected.id&&s.ingredientId===i.id)):[...db.shopping,{recipeId:selected.id,ingredientId:i.id,name:i.name,qty:`${i.scaledQty} ${i.unit}`}];
-          persist({...db,shopping});
-        }}/>{i.name} - {i.scaledQty} {i.unit}</label></li>)}</ul>
-      </div>}
-    </div>
-    <div className="card">
-      <h2>Liste de course unique</h2>
-      <div className="list">{db.shopping.map((s,idx)=><div key={idx} className="recipe-item"><span>{s.name} ({s.qty})</span><button className="secondary" onClick={()=>persist({...db,shopping:db.shopping.filter((_,i)=>i!==idx)})}>Retirer</button></div>)}</div>
-      <button onClick={()=>persist({...db,shopping:[]})}>Vider</button>
-      <p className="small">Prototype localStorage. Pour GitHub Pages, connecter ce front à Supabase/Firebase + OAuth GitHub pour une sécurité réelle.</p>
-    </div>
-  </div>
+function load() {
+  try {
+    return { ...defaultState, ...JSON.parse(localStorage.getItem(KEY) || '{}') };
+  } catch {
+    return { ...defaultState };
+  }
 }
 
-function Login({db,onLogin}){const [u,setU]=useState('');const [p,setP]=useState('');const ok=db.users.find(x=>x.username===u&&x.password===p);return <div className="container"><div className="card"><h2>Connexion</h2><div className="row"><input placeholder="Utilisateur" value={u} onChange={e=>setU(e.target.value)}/><input type="password" placeholder="Mot de passe" value={p} onChange={e=>setP(e.target.value)}/><button onClick={()=>ok?onLogin(u):alert('Identifiants invalides')}>Se connecter</button></div><p className="small">Identifiants démo: admin / admin123</p></div></div>}
+function save() {
+  localStorage.setItem(KEY, JSON.stringify(state));
+}
 
-function RecipeForm({onCreate}){const [name,setName]=useState('');const [base,setBase]=useState(2);const [steps,setSteps]=useState('');const [ing,setIng]=useState([{id:uid(),name:'',qty:1,unit:'g'}]);
-return <div className="card"><h3>Ajouter recette</h3><div className="row"><input placeholder="Nom" value={name} onChange={e=>setName(e.target.value)}/><input type="number" min="1" value={base} onChange={e=>setBase(Number(e.target.value)||1)}/></div><textarea placeholder="Étapes" value={steps} onChange={e=>setSteps(e.target.value)}/>
-{ing.map((it,i)=><div className="row" key={it.id}><input placeholder="Ingrédient" value={it.name} onChange={e=>setIng(ing.map((x,idx)=>idx===i?{...x,name:e.target.value}:x))}/><input type="number" value={it.qty} onChange={e=>setIng(ing.map((x,idx)=>idx===i?{...x,qty:Number(e.target.value)||0}:x))}/><input placeholder="unité" value={it.unit} onChange={e=>setIng(ing.map((x,idx)=>idx===i?{...x,unit:e.target.value}:x))}/></div>)}
-<div className="row"><button className="secondary" onClick={()=>setIng([...ing,{id:uid(),name:'',qty:1,unit:'g'}])}>+ ingrédient</button><button onClick={()=>{if(!name.trim())return;onCreate({id:uid(),name,baseServings:base,steps,ingredients:ing.filter(i=>i.name.trim())});setName('');setSteps('');setIng([{id:uid(),name:'',qty:1,unit:'g'}]);}}>Enregistrer</button></div></div>}
+function uid() {
+  return Math.random().toString(36).slice(2, 10);
+}
 
-createRoot(document.getElementById('root')).render(<App/>);
+function esc(s) {
+  return String(s)
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;');
+}
+
+function render() {
+  const root = document.getElementById('root');
+  if (!state.sessionUser) {
+    root.innerHTML = `
+      <div class="container">
+        <div class="card">
+          <h2>Connexion</h2>
+          <div class="row">
+            <input id="login-user" placeholder="Utilisateur" />
+            <input id="login-pass" type="password" placeholder="Mot de passe" />
+            <button id="login-btn">Se connecter</button>
+          </div>
+          <p class="small">Démo: admin / admin123</p>
+        </div>
+      </div>`;
+    document.getElementById('login-btn').onclick = () => {
+      const u = document.getElementById('login-user').value;
+      const p = document.getElementById('login-pass').value;
+      const ok = state.users.find((x) => x.username === u && x.password === p);
+      if (!ok) return alert('Identifiants invalides');
+      state.sessionUser = u;
+      save();
+      render();
+    };
+    return;
+  }
+
+  const recipeList = state.recipes
+    .map(
+      (r) => `<div class="recipe-item">
+      <button class="secondary" data-open="${r.id}">${esc(r.name)} (${r.baseServings} pers.)</button>
+      <button class="secondary" data-del="${r.id}">Supprimer</button>
+    </div>`,
+    )
+    .join('');
+
+  const shopping = state.shopping
+    .map(
+      (s, i) => `<div class="recipe-item"><span>${esc(s.recipeName)} · ${esc(s.name)} (${esc(s.qty)})</span>
+      <button class="secondary" data-rm-shop="${i}">Retirer</button></div>`,
+    )
+    .join('');
+
+  root.innerHTML = `
+    <div class="container grid grid-2">
+      <div class="card">
+        <h2>Ajouter une recette</h2>
+        <div class="row"><input id="r-name" placeholder="Nom" /><input id="r-base" type="number" min="1" value="2" /></div>
+        <textarea id="r-steps" placeholder="Étapes"></textarea>
+        <div id="ingredients"></div>
+        <div class="row"><button class="secondary" id="add-ing">+ ingrédient</button><button id="save-recipe">Enregistrer</button></div>
+        <h3>Recettes</h3>
+        <div class="list">${recipeList || '<p class="small">Aucune recette pour le moment.</p>'}</div>
+        <div id="selected"></div>
+      </div>
+      <div class="card">
+        <h2>Liste de course unique</h2>
+        <div class="list">${shopping || '<p class="small">Liste vide.</p>'}</div>
+        <button id="clear-shopping">Vider</button>
+        <p class="small">Pour GitHub Pages: frontend statique oui, backend/base de données non (pas directement). Utiliser Supabase/Firebase/API externe.</p>
+      </div>
+    </div>`;
+
+  let ingredientRows = [{ id: uid() }];
+  const drawIngredients = () => {
+    document.getElementById('ingredients').innerHTML = ingredientRows
+      .map(
+        (r) => `<div class="row"><input data-in="name-${r.id}" placeholder="Ingrédient" /><input data-in="qty-${r.id}" type="number" value="1" /><input data-in="unit-${r.id}" placeholder="unité" value="g" /></div>`,
+      )
+      .join('');
+  };
+  drawIngredients();
+
+  document.getElementById('add-ing').onclick = () => {
+    ingredientRows.push({ id: uid() });
+    drawIngredients();
+  };
+
+  document.getElementById('save-recipe').onclick = () => {
+    const name = document.getElementById('r-name').value.trim();
+    const base = Number(document.getElementById('r-base').value) || 1;
+    const steps = document.getElementById('r-steps').value.trim();
+    if (!name) return alert('Nom requis');
+    const ingredients = ingredientRows
+      .map((r) => ({
+        id: r.id,
+        name: document.querySelector(`[data-in="name-${r.id}"]`).value.trim(),
+        qty: Number(document.querySelector(`[data-in="qty-${r.id}"]`).value) || 0,
+        unit: document.querySelector(`[data-in="unit-${r.id}"]`).value.trim() || 'u',
+      }))
+      .filter((x) => x.name);
+    state.recipes.push({ id: uid(), name, baseServings: base, steps, ingredients });
+    save();
+    render();
+  };
+
+  root.querySelectorAll('[data-del]').forEach((b) => {
+    b.onclick = () => {
+      const id = b.getAttribute('data-del');
+      state.recipes = state.recipes.filter((r) => r.id !== id);
+      state.shopping = state.shopping.filter((s) => s.recipeId !== id);
+      save();
+      render();
+    };
+  });
+
+  root.querySelectorAll('[data-rm-shop]').forEach((b) => {
+    b.onclick = () => {
+      state.shopping.splice(Number(b.getAttribute('data-rm-shop')), 1);
+      save();
+      render();
+    };
+  });
+
+  document.getElementById('clear-shopping').onclick = () => {
+    state.shopping = [];
+    save();
+    render();
+  };
+
+  root.querySelectorAll('[data-open]').forEach((b) => {
+    b.onclick = () => openRecipe(b.getAttribute('data-open'));
+  });
+}
+
+function openRecipe(recipeId) {
+  const recipe = state.recipes.find((r) => r.id === recipeId);
+  if (!recipe) return;
+  const selected = document.getElementById('selected');
+  selected.innerHTML = `<div class="card" style="margin-top:1rem">
+    <h3>${esc(recipe.name)}</h3>
+    <div class="row"><label>Personnes:</label><input id="servings" type="number" min="1" value="${recipe.baseServings}" /></div>
+    <p>${esc(recipe.steps || '—')}</p>
+    <ul id="ing-list"></ul>
+  </div>`;
+
+  const redraw = () => {
+    const servings = Number(document.getElementById('servings').value) || 1;
+    document.getElementById('ing-list').innerHTML = recipe.ingredients
+      .map((i) => {
+        const qty = ((i.qty * servings) / recipe.baseServings).toFixed(2);
+        const checked = state.shopping.some((s) => s.recipeId === recipe.id && s.ingredientId === i.id);
+        return `<li><label><input type="checkbox" data-check="${recipe.id}:${i.id}:${qty}:${esc(i.unit)}" ${checked ? 'checked' : ''}/> ${esc(i.name)} - ${qty} ${esc(i.unit)}</label></li>`;
+      })
+      .join('');
+
+    document.querySelectorAll('[data-check]').forEach((c) => {
+      c.onchange = () => {
+        const [rid, iid, qty, unit] = c.getAttribute('data-check').split(':');
+        const exists = state.shopping.find((s) => s.recipeId === rid && s.ingredientId === iid);
+        if (exists) {
+          state.shopping = state.shopping.filter((s) => !(s.recipeId === rid && s.ingredientId === iid));
+        } else {
+          const ing = recipe.ingredients.find((x) => x.id === iid);
+          state.shopping.push({ recipeId: rid, ingredientId: iid, recipeName: recipe.name, name: ing.name, qty: `${qty} ${unit}` });
+        }
+        save();
+        render();
+        openRecipe(recipeId);
+      };
+    });
+  };
+
+  document.getElementById('servings').oninput = redraw;
+  redraw();
+}
+
+render();
