@@ -1,6 +1,22 @@
 const KEY = 'recettes-app-premium-v1';
 const BACKUP_FILENAME = 'maison-saison-recettes.json';
 
+const githubDefaults = {
+  enabled: false,
+  owner: '',
+  repo: '',
+  branch: 'main',
+  path: 'data/recipes.json',
+  token: '',
+  lastSync: '',
+};
+
+let githubStatus = 'Non configuré';
+let githubSyncTimer = null;
+let githubSyncRunning = false;
+let githubSyncQueued = false;
+let githubAutoLoadStarted = false;
+
 const seedRecipes = [
   {
     id: 'salade-nicoise-premium',
@@ -157,6 +173,7 @@ const defaultState = {
   users: [{ username: 'admin', password: 'admin123' }],
   recipes: seedRecipes,
   shopping: [],
+  github: githubDefaults,
   sessionUser: null,
   activeCategory: 'Tout voir',
   editingId: null,
@@ -170,7 +187,9 @@ function load() {
     const saved = JSON.parse(localStorage.getItem(KEY) || '{}');
     const savedRecipes = Array.isArray(saved.recipes) && saved.recipes.length ? saved.recipes : [];
     const recipes = mergeRecipes(seedRecipes, savedRecipes);
-    return { ...defaultState, ...saved, recipes, shopping: Array.isArray(saved.shopping) ? saved.shopping : [] };
+    const github = { ...githubDefaults, ...(saved.github || {}) };
+    githubStatus = github.lastSync ? `Dernière synchro GitHub : ${new Date(github.lastSync).toLocaleString('fr-FR')}` : 'GitHub prêt à configurer';
+    return { ...defaultState, ...saved, github, recipes, shopping: Array.isArray(saved.shopping) ? saved.shopping : [] };
   } catch {
     return { ...defaultState };
   }
@@ -196,6 +215,171 @@ function normalizeRecipe(recipe) {
 
 function save() {
   localStorage.setItem(KEY, JSON.stringify(state));
+}
+
+
+function githubConfig() {
+  return { ...githubDefaults, ...(state.github || {}) };
+}
+
+function githubConfigured() {
+  const config = githubConfig();
+  return Boolean(config.owner && config.repo && config.branch && config.path && config.token);
+}
+
+function setGithubStatus(message, shouldRender = false) {
+  githubStatus = message;
+  if (!shouldRender) {
+    const status = document.getElementById('github-status');
+    if (status) status.textContent = githubStatus;
+    return;
+  }
+  render();
+}
+
+function encodeBase64(text) {
+  const bytes = new TextEncoder().encode(text);
+  let binary = '';
+  bytes.forEach((byte) => {
+    binary += String.fromCharCode(byte);
+  });
+  return btoa(binary);
+}
+
+function decodeBase64(text) {
+  const binary = atob(text.replace(/\s/g, ''));
+  const bytes = Uint8Array.from(binary, (char) => char.charCodeAt(0));
+  return new TextDecoder().decode(bytes);
+}
+
+function githubApiUrl(config) {
+  return `https://api.github.com/repos/${encodeURIComponent(config.owner)}/${encodeURIComponent(config.repo)}/contents/${config.path.split('/').map(encodeURIComponent).join('/')}`;
+}
+
+async function readGithubFile(config) {
+  const response = await fetch(`${githubApiUrl(config)}?ref=${encodeURIComponent(config.branch)}`, {
+    headers: {
+      Accept: 'application/vnd.github+json',
+      Authorization: `Bearer ${config.token}`,
+      'X-GitHub-Api-Version': '2022-11-28',
+    },
+  });
+  if (response.status === 404) return { sha: null, payload: null };
+  if (!response.ok) throw new Error(`GitHub lecture ${response.status}`);
+  const file = await response.json();
+  return { sha: file.sha, payload: JSON.parse(decodeBase64(file.content || '')) };
+}
+
+async function writeGithubFile(config, sha, message) {
+  const response = await fetch(githubApiUrl(config), {
+    method: 'PUT',
+    headers: {
+      Accept: 'application/vnd.github+json',
+      Authorization: `Bearer ${config.token}`,
+      'Content-Type': 'application/json',
+      'X-GitHub-Api-Version': '2022-11-28',
+    },
+    body: JSON.stringify({
+      message,
+      content: encodeBase64(backupText()),
+      branch: config.branch,
+      ...(sha ? { sha } : {}),
+    }),
+  });
+  if (!response.ok) {
+    const detail = await response.json().catch(() => ({}));
+    throw new Error(detail.message || `GitHub écriture ${response.status}`);
+  }
+}
+
+function mergeGithubPayload(payload) {
+  if (!payload) return;
+  const recipes = Array.isArray(payload) ? payload : payload.recipes;
+  if (Array.isArray(recipes)) state.recipes = mergeRecipes(state.recipes, recipes);
+  if (!Array.isArray(payload) && Array.isArray(payload.shopping)) state.shopping = payload.shopping;
+}
+
+async function syncToGitHub(reason = 'Synchronisation des recettes') {
+  const config = githubConfig();
+  if (!config.enabled || !githubConfigured()) return;
+  if (githubSyncRunning) {
+    githubSyncQueued = true;
+    return;
+  }
+  githubSyncRunning = true;
+  setGithubStatus('Synchronisation GitHub en cours…');
+  try {
+    const remote = await readGithubFile(config);
+    await writeGithubFile(config, remote.sha, reason);
+    state.github = { ...config, lastSync: new Date().toISOString() };
+    save();
+    setGithubStatus(`Dernière synchro GitHub : ${new Date(state.github.lastSync).toLocaleString('fr-FR')}`);
+  } catch (error) {
+    setGithubStatus(`Erreur GitHub : ${error.message}`);
+  } finally {
+    githubSyncRunning = false;
+    if (githubSyncQueued) {
+      githubSyncQueued = false;
+      scheduleGithubSync(reason);
+    }
+  }
+}
+
+function scheduleGithubSync(reason) {
+  const config = githubConfig();
+  if (!config.enabled || !githubConfigured()) return;
+  clearTimeout(githubSyncTimer);
+  githubSyncTimer = setTimeout(() => syncToGitHub(reason), 900);
+}
+
+async function loadFromGitHub(silent = false) {
+  const config = githubConfig();
+  if (!githubConfigured()) {
+    if (!silent) alert('Renseignez propriétaire, dépôt, branche, chemin JSON et token GitHub.');
+    return;
+  }
+  setGithubStatus('Chargement depuis GitHub…');
+  try {
+    const remote = await readGithubFile(config);
+    if (!remote.payload) {
+      setGithubStatus('Le fichier JSON GitHub n’existe pas encore.');
+      if (!silent) alert('Le fichier JSON GitHub n’existe pas encore. Cliquez sur Enregistrer maintenant pour le créer.');
+      return;
+    }
+    mergeGithubPayload(remote.payload);
+    state.activeCategory = 'Tout voir';
+    state.github = { ...config, enabled: true, lastSync: new Date().toISOString() };
+    save();
+    render();
+    if (!silent) alert('Recettes chargées depuis GitHub.');
+  } catch (error) {
+    setGithubStatus(`Erreur GitHub : ${error.message}`);
+    if (!silent) alert(`Chargement GitHub impossible : ${error.message}`);
+  }
+}
+
+async function saveNowToGitHub() {
+  const config = githubConfig();
+  if (!githubConfigured()) return alert('Renseignez propriétaire, dépôt, branche, chemin JSON et token GitHub.');
+  state.github = { ...config, enabled: true };
+  save();
+  await syncToGitHub('Mise à jour des recettes Maison Saison');
+  alert(githubStatus.startsWith('Erreur') ? githubStatus : 'Recettes enregistrées sur GitHub.');
+}
+
+function saveGithubSettings() {
+  state.github = {
+    enabled: document.getElementById('github-enabled').checked,
+    owner: document.getElementById('github-owner').value.trim(),
+    repo: document.getElementById('github-repo').value.trim(),
+    branch: document.getElementById('github-branch').value.trim() || 'main',
+    path: document.getElementById('github-path').value.trim() || 'data/recipes.json',
+    token: document.getElementById('github-token').value.trim(),
+    lastSync: githubConfig().lastSync,
+  };
+  save();
+  setGithubStatus(state.github.enabled ? 'Synchronisation GitHub activée.' : 'Synchronisation GitHub désactivée.', true);
+  if (state.github.enabled) scheduleGithubSync('Activation de la synchronisation Maison Saison');
 }
 
 function buildBackupPayload() {
@@ -365,7 +549,7 @@ function render() {
           </div>
           <div class="storage-notice">
             <strong>☁️ Sauvegarde locale</strong>
-            <span>Les recettes créées ici restent dans ce navigateur. Pour écrire automatiquement dans un JSON GitHub, il faut une API sécurisée ou un jeton GitHub personnel : un site GitHub Pages ne doit pas contenir de jeton secret.</span>
+            <span>Les recettes sont gardées localement puis, si vous activez la synchronisation GitHub, automatiquement enregistrées dans le JSON de votre dépôt personnel.</span>
           </div>
         </div>
         <aside class="hero-card">
@@ -420,16 +604,33 @@ function render() {
           <h2>Liste de courses</h2>
           <p class="small">Les ingrédients identiques sont regroupés lorsque l’unité est la même.</p>
           <div class="sync-box">
-            <strong>Synchroniser un autre appareil</strong>
-            <p class="small">Votre ordinateur et votre téléphone ont chacun leur stockage local. L’écriture directe dans un JSON GitHub est possible seulement avec une API sécurisée ou un jeton personnel très limité ; sans cela, utilisez l’export ou la copie de sauvegarde.</p>
-            <div class="backup-actions">
-              <button class="secondary" id="export-recipes">Exporter JSON</button>
-              <button class="secondary" id="copy-backup">Copier sauvegarde</button>
-              <label class="button-link secondary-link import-label" for="import-recipes">Importer fichier</label>
-              <input class="visually-hidden" id="import-recipes" type="file" accept="application/json,.json" />
+            <strong>Synchronisation GitHub automatique</strong>
+            <p class="small">Pour ce site personnel, vous pouvez enregistrer automatiquement les recettes dans un fichier JSON de votre dépôt GitHub. Créez un token GitHub finement limité au dépôt, cochez l’option, puis chaque ajout/modification/suppression sera envoyé vers GitHub.</p>
+            <div class="github-grid">
+              <label>Propriétaire<input id="github-owner" placeholder="Ex : steve57000" value="${esc(githubConfig().owner)}" /></label>
+              <label>Dépôt<input id="github-repo" placeholder="Ex : recettes" value="${esc(githubConfig().repo)}" /></label>
+              <label>Branche<input id="github-branch" placeholder="main" value="${esc(githubConfig().branch)}" /></label>
+              <label>Chemin JSON<input id="github-path" placeholder="data/recipes.json" value="${esc(githubConfig().path)}" /></label>
             </div>
-            <label class="backup-text-label">Importer un texte de sauvegarde<textarea id="backup-text" placeholder="Collez ici la sauvegarde copiée depuis l’autre appareil"></textarea></label>
-            <button class="secondary" id="import-backup-text">Importer le texte</button>
+            <label>Token GitHub<input id="github-token" type="password" placeholder="github_pat_..." value="${esc(githubConfig().token)}" autocomplete="off" /></label>
+            <label class="check-row"><input id="github-enabled" type="checkbox" ${githubConfig().enabled ? 'checked' : ''} /> Activer l’enregistrement automatique sur GitHub</label>
+            <p class="small github-status" id="github-status">${esc(githubStatus)}</p>
+            <div class="backup-actions">
+              <button class="secondary" id="save-github-settings">Enregistrer réglages</button>
+              <button class="secondary" id="load-github">Charger depuis GitHub</button>
+              <button class="secondary" id="save-github-now">Enregistrer maintenant</button>
+            </div>
+            <details class="manual-backup">
+              <summary>Export / import manuel</summary>
+              <div class="backup-actions">
+                <button class="secondary" id="export-recipes">Exporter JSON</button>
+                <button class="secondary" id="copy-backup">Copier sauvegarde</button>
+                <label class="button-link secondary-link import-label" for="import-recipes">Importer fichier</label>
+                <input class="visually-hidden" id="import-recipes" type="file" accept="application/json,.json" />
+              </div>
+              <label class="backup-text-label">Importer un texte de sauvegarde<textarea id="backup-text" placeholder="Collez ici la sauvegarde copiée depuis l’autre appareil"></textarea></label>
+              <button class="secondary" id="import-backup-text">Importer le texte</button>
+            </details>
           </div>
           <div class="shopping-list">${renderShopping() || '<p class="small">Liste vide. Ouvrez une recette et cochez uniquement ce qu’il vous manque.</p>'}</div>
           <button id="clear-shopping">Vider la liste</button>
@@ -442,6 +643,10 @@ function render() {
   bindEvents(root);
   hydrateForm();
   drawIngredientRows();
+  if (!githubAutoLoadStarted && githubConfig().enabled && githubConfigured()) {
+    githubAutoLoadStarted = true;
+    setTimeout(() => loadFromGitHub(true), 0);
+  }
 }
 
 function login() {
@@ -528,6 +733,7 @@ function bindEvents(root) {
       if (state.editingId === id) state.editingId = null;
       save();
       render();
+      scheduleGithubSync('Suppression de recette Maison Saison');
     };
   });
 
@@ -543,8 +749,12 @@ function bindEvents(root) {
     state.shopping = [];
     save();
     updateShoppingPanel();
+    scheduleGithubSync('Mise à jour de la liste de courses Maison Saison');
   };
 
+  document.getElementById('save-github-settings').onclick = saveGithubSettings;
+  document.getElementById('load-github').onclick = () => loadFromGitHub();
+  document.getElementById('save-github-now').onclick = saveNowToGitHub;
   document.getElementById('export-recipes').onclick = exportRecipes;
   document.getElementById('copy-backup').onclick = copyBackup;
   document.getElementById('import-recipes').onchange = (event) => importRecipes(event.target.files[0]);
@@ -658,6 +868,7 @@ async function saveRecipeFromForm() {
   save();
   render();
   openRecipe(recipe.id);
+  scheduleGithubSync('Enregistrement de recette Maison Saison');
 }
 
 function editRecipe(recipeId) {
@@ -719,6 +930,7 @@ function openRecipe(recipeId) {
         save();
         redraw();
         updateShoppingPanel();
+        scheduleGithubSync('Mise à jour de la liste de courses Maison Saison');
       };
     });
   };

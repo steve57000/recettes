@@ -1,27 +1,37 @@
-# Enregistrer les recettes dans un JSON GitHub
+# Enregistrer automatiquement les recettes dans un JSON GitHub
 
-Oui, c’est possible d’avoir un fichier JSON commun dans le dépôt GitHub, mais **pas directement et proprement depuis une page GitHub Pages publique**.
+Le site est personnel : l’application peut donc écrire directement dans un fichier JSON du dépôt GitHub avec un **token personnel GitHub** renseigné dans l’interface.
 
-## Pourquoi l’app ne peut pas écrire directement dans GitHub
+## Fonctionnement ajouté dans l’application
 
-L’application actuelle est un site statique : tout le code JavaScript est téléchargé dans le navigateur. Pour modifier un fichier du dépôt GitHub depuis ce navigateur, il faudrait appeler l’API GitHub avec un jeton d’écriture.
+Dans le panneau **Courses → Synchronisation GitHub automatique** :
 
-Ce jeton ne doit pas être mis dans le code du site, car n’importe quel visiteur pourrait le récupérer et modifier le dépôt.
+1. renseignez le propriétaire du dépôt, par exemple `steve57000` ;
+2. renseignez le dépôt, par exemple `recettes` ;
+3. laissez la branche `main` ou indiquez votre branche de publication ;
+4. laissez le chemin `data/recipes.json` ou choisissez un autre fichier JSON ;
+5. collez un token GitHub ;
+6. cochez **Activer l’enregistrement automatique sur GitHub** ;
+7. cliquez sur **Enregistrer réglages** puis **Enregistrer maintenant**.
 
-## Solution recommandée
+Ensuite, chaque ajout, modification ou suppression de recette déclenche une sauvegarde automatique dans le JSON GitHub. Le bouton **Charger depuis GitHub** permet de récupérer le JSON sur un autre appareil.
 
-La solution propre est d’ajouter une petite API sécurisée entre l’application et GitHub :
+## Token GitHub conseillé
 
-1. L’utilisateur ajoute ou modifie une recette dans l’app.
-2. L’app envoie la recette à une API privée, par exemple une fonction Netlify, Vercel, Cloudflare Worker ou Supabase Edge Function.
-3. Cette API garde le jeton GitHub côté serveur, jamais dans le navigateur.
-4. L’API met à jour un fichier comme `data/recipes.json` via l’API GitHub Contents.
-5. Tous les appareils relisent le même JSON publié.
+Créez un token finement limité au dépôt de recettes :
 
-## Variante possible mais moins sûre
+- accès uniquement au dépôt concerné ;
+- permission **Contents: Read and write** ;
+- durée d’expiration courte ou adaptée à votre usage.
 
-Pour un usage strictement personnel, on peut aussi demander un jeton GitHub dans l’interface et l’utiliser depuis le navigateur. Cette variante est plus rapide à développer, mais elle expose le jeton dans la session du navigateur et doit utiliser un jeton GitHub très limité au dépôt concerné.
+Le token est stocké dans le `localStorage` du navigateur pour ce site personnel. Si le site devient public, il faudra éviter de partager ce token avec d’autres utilisateurs.
 
-## État actuel
+## Fichier créé ou mis à jour
 
-En attendant une API sécurisée, l’app garde les recettes localement dans le navigateur et permet de transférer les données avec l’export JSON ou la copie de sauvegarde.
+Par défaut, l’application écrit dans :
+
+```text
+data/recipes.json
+```
+
+Si ce fichier n’existe pas encore, GitHub le crée au premier clic sur **Enregistrer maintenant** ou à la première sauvegarde automatique.
