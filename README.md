@@ -41,6 +41,8 @@ Application frontend statique pour gérer un carnet de recettes complet, compati
 
 Le projet est 100 % statique : publiez simplement la branche sur GitHub Pages. Les données créées par l’utilisateur sont conservées dans le navigateur courant grâce à `localStorage`. Elles ne se synchronisent donc pas automatiquement entre ordinateur et téléphone : utilisez **Exporter JSON**, **Copier sauvegarde** puis **Importer fichier / Importer le texte** sur l’autre appareil.
 
+Pour enregistrer directement les recettes dans un fichier JSON du dépôt GitHub, il faut ajouter une API sécurisée qui garde le jeton GitHub côté serveur. Le détail des options est documenté dans [`docs/github-json-sync.md`](docs/github-json-sync.md).
+
 ## Images de partage et icônes
 
 Pour éviter les blocages de demande d’extraction liés aux fichiers binaires, les PNG/ICO ne sont pas versionnés. Les noms attendus sont documentés dans `assets/README.md` et peuvent être générés localement avec :

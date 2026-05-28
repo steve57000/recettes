@@ -365,7 +365,7 @@ function render() {
           </div>
           <div class="storage-notice">
             <strong>☁️ Sauvegarde locale</strong>
-            <span>Les recettes créées ici restent dans ce navigateur : elles ne se synchronisent pas automatiquement avec le téléphone. Utilisez Exporter/Copier puis Importer sur l’autre appareil.</span>
+            <span>Les recettes créées ici restent dans ce navigateur. Pour écrire automatiquement dans un JSON GitHub, il faut une API sécurisée ou un jeton GitHub personnel : un site GitHub Pages ne doit pas contenir de jeton secret.</span>
           </div>
         </div>
         <aside class="hero-card">
@@ -421,7 +421,7 @@ function render() {
           <p class="small">Les ingrédients identiques sont regroupés lorsque l’unité est la même.</p>
           <div class="sync-box">
             <strong>Synchroniser un autre appareil</strong>
-            <p class="small">Votre ordinateur et votre téléphone ont chacun leur stockage local. Pour voir une recette ajoutée sur mobile, exportez ou copiez la sauvegarde depuis l’ordinateur, puis importez-la sur le téléphone.</p>
+            <p class="small">Votre ordinateur et votre téléphone ont chacun leur stockage local. L’écriture directe dans un JSON GitHub est possible seulement avec une API sécurisée ou un jeton personnel très limité ; sans cela, utilisez l’export ou la copie de sauvegarde.</p>
             <div class="backup-actions">
               <button class="secondary" id="export-recipes">Exporter JSON</button>
               <button class="secondary" id="copy-backup">Copier sauvegarde</button>
