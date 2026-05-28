@@ -664,6 +664,30 @@ label {
   margin: 0.9rem 0;
 }
 
+.sync-box {
+  display: grid;
+  gap: 0.7rem;
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 1px solid rgba(240, 90, 55, 0.2);
+  border-radius: 22px;
+  background: rgba(255, 248, 237, 0.78);
+}
+
+.sync-box strong {
+  color: var(--text);
+}
+
+.backup-text-label {
+  margin-top: 0.35rem;
+}
+
+.backup-text-label textarea {
+  min-height: 86px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.78rem;
+}
+
 .import-label {
   cursor: pointer;
 }
