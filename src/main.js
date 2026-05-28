@@ -198,13 +198,20 @@ function save() {
   localStorage.setItem(KEY, JSON.stringify(state));
 }
 
-function exportRecipes() {
-  const payload = {
+function buildBackupPayload() {
+  return {
     exportedAt: new Date().toISOString(),
     recipes: state.recipes,
     shopping: state.shopping,
   };
-  const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+}
+
+function backupText() {
+  return JSON.stringify(buildBackupPayload(), null, 2);
+}
+
+function exportRecipes() {
+  const blob = new Blob([backupText()], { type: 'application/json' });
   const url = URL.createObjectURL(blob);
   const link = document.createElement('a');
   link.href = url;
@@ -213,22 +220,51 @@ function exportRecipes() {
   URL.revokeObjectURL(url);
 }
 
+async function copyBackup() {
+  const content = backupText();
+  try {
+    await navigator.clipboard.writeText(content);
+    alert('Sauvegarde copiée. Envoyez ce texte à votre téléphone, puis collez-le dans Importer un texte de sauvegarde.');
+  } catch {
+    const textarea = document.getElementById('backup-text');
+    if (textarea) {
+      textarea.value = content;
+      textarea.select();
+    }
+    alert('Copie automatique impossible : le texte de sauvegarde est affiché, copiez-le manuellement.');
+  }
+}
+
+function importPayload(payload) {
+  const recipes = Array.isArray(payload) ? payload : payload.recipes;
+  if (!Array.isArray(recipes)) throw new Error('Format invalide');
+  state.recipes = mergeRecipes(state.recipes, recipes);
+  if (!Array.isArray(payload) && Array.isArray(payload.shopping)) state.shopping = payload.shopping;
+  state.activeCategory = 'Tout voir';
+  state.editingId = null;
+  save();
+  render();
+}
+
 async function importRecipes(file) {
   if (!file) return;
   try {
-    const content = await file.text();
-    const payload = JSON.parse(content);
-    const recipes = Array.isArray(payload) ? payload : payload.recipes;
-    if (!Array.isArray(recipes)) throw new Error('Format invalide');
-    state.recipes = mergeRecipes(state.recipes, recipes);
-    if (Array.isArray(payload.shopping)) state.shopping = payload.shopping;
-    state.activeCategory = 'Tout voir';
-    state.editingId = null;
-    save();
-    render();
+    importPayload(JSON.parse(await file.text()));
     alert('Recettes importées dans ce navigateur.');
   } catch {
     alert('Import impossible : choisissez un fichier JSON exporté depuis Maison Saison.');
+  }
+}
+
+function importBackupText() {
+  const textarea = document.getElementById('backup-text');
+  const content = textarea?.value.trim();
+  if (!content) return alert('Collez d’abord le texte de sauvegarde exporté depuis l’autre appareil.');
+  try {
+    importPayload(JSON.parse(content));
+    alert('Recettes importées depuis le texte de sauvegarde.');
+  } catch {
+    alert('Import impossible : le texte collé ne correspond pas à une sauvegarde Maison Saison valide.');
   }
 }
 
@@ -329,7 +365,7 @@ function render() {
           </div>
           <div class="storage-notice">
             <strong>☁️ Sauvegarde locale</strong>
-            <span>Les recettes créées ici sont enregistrées dans ce navigateur. Pour les retrouver ailleurs, exportez le fichier JSON puis importez-le sur l’autre appareil.</span>
+            <span>Les recettes créées ici restent dans ce navigateur : elles ne se synchronisent pas automatiquement avec le téléphone. Utilisez Exporter/Copier puis Importer sur l’autre appareil.</span>
           </div>
         </div>
         <aside class="hero-card">
@@ -383,12 +419,18 @@ function render() {
           <p class="eyebrow">Organisation</p>
           <h2>Liste de courses</h2>
           <p class="small">Les ingrédients identiques sont regroupés lorsque l’unité est la même.</p>
-          <div class="backup-actions">
-            <button class="secondary" id="export-recipes">Exporter</button>
-            <label class="button-link secondary-link import-label" for="import-recipes">Importer</label>
-            <input class="visually-hidden" id="import-recipes" type="file" accept="application/json,.json" />
+          <div class="sync-box">
+            <strong>Synchroniser un autre appareil</strong>
+            <p class="small">Votre ordinateur et votre téléphone ont chacun leur stockage local. Pour voir une recette ajoutée sur mobile, exportez ou copiez la sauvegarde depuis l’ordinateur, puis importez-la sur le téléphone.</p>
+            <div class="backup-actions">
+              <button class="secondary" id="export-recipes">Exporter JSON</button>
+              <button class="secondary" id="copy-backup">Copier sauvegarde</button>
+              <label class="button-link secondary-link import-label" for="import-recipes">Importer fichier</label>
+              <input class="visually-hidden" id="import-recipes" type="file" accept="application/json,.json" />
+            </div>
+            <label class="backup-text-label">Importer un texte de sauvegarde<textarea id="backup-text" placeholder="Collez ici la sauvegarde copiée depuis l’autre appareil"></textarea></label>
+            <button class="secondary" id="import-backup-text">Importer le texte</button>
           </div>
-          <p class="small">Important : une recette ajoutée n’est pas écrite automatiquement dans un fichier GitHub ; elle reste dans le stockage local du navigateur.</p>
           <div class="shopping-list">${renderShopping() || '<p class="small">Liste vide. Ouvrez une recette et cochez uniquement ce qu’il vous manque.</p>'}</div>
           <button id="clear-shopping">Vider la liste</button>
         </aside>
@@ -504,7 +546,9 @@ function bindEvents(root) {
   };
 
   document.getElementById('export-recipes').onclick = exportRecipes;
+  document.getElementById('copy-backup').onclick = copyBackup;
   document.getElementById('import-recipes').onchange = (event) => importRecipes(event.target.files[0]);
+  document.getElementById('import-backup-text').onclick = importBackupText;
 }
 
 function hydrateForm() {
