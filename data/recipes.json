@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-05-28T16:40:33.448Z",
+  "exportedAt": "2026-05-28T16:42:27.084Z",
   "recipes": [
     {
       "badge": "Signature",
@@ -324,6 +324,98 @@
       "description": "Une boisson minute, ultra fraîche, idéale pour brunchs et goûters.",
       "steps": "Mixer mangue, banane, jus d’orange, yaourt et pulpe de passion. Ajouter quelques glaçons et mixer à nouveau. Servir immédiatement.",
       "notes": "Remplacez le yaourt par du lait de coco pour une version vegan."
+    },
+    {
+      "badge": "Nouveau",
+      "difficulty": "Facile",
+      "baseServings": 4,
+      "time": 30,
+      "ingredients": [
+        {
+          "id": "ing-ve66sr4",
+          "name": "Persil plat",
+          "qty": 1,
+          "unit": "Botte"
+        },
+        {
+          "id": "ing-k5b9fhe",
+          "name": "Menthe",
+          "qty": 0.5,
+          "unit": "Botte"
+        },
+        {
+          "id": "ing-qa4dcyb",
+          "name": "Coriandre",
+          "qty": 0.5,
+          "unit": "Botte"
+        },
+        {
+          "id": "ing-zpenfg6",
+          "name": "Tomate(s)",
+          "qty": 2,
+          "unit": "Unité"
+        },
+        {
+          "id": "ing-bwzfwgw",
+          "name": "Concombre",
+          "qty": 1,
+          "unit": "Unité"
+        },
+        {
+          "id": "ing-s90dps4",
+          "name": "Oignon rouge",
+          "qty": 0.5,
+          "unit": "Unité"
+        },
+        {
+          "id": "ing-60svpat",
+          "name": "Boulgour cuit",
+          "qty": 100,
+          "unit": "g"
+        },
+        {
+          "id": "ing-r18drqr",
+          "name": "Grenade",
+          "qty": 70,
+          "unit": "g"
+        },
+        {
+          "id": "ing-lg49yb5",
+          "name": "Jus de citron",
+          "qty": 1,
+          "unit": "Unité"
+        },
+        {
+          "id": "ing-xmyew02",
+          "name": "Huile d’holive",
+          "qty": 4,
+          "unit": "Cuillère à soupe"
+        },
+        {
+          "id": "ing-yxlllvj",
+          "name": "Cumin en poudre",
+          "qty": 1,
+          "unit": "Pincée"
+        },
+        {
+          "id": "ing-16b6jdd",
+          "name": "Sel, poivre",
+          "qty": 0,
+          "unit": "g"
+        }
+      ],
+      "id": "recipe-r94y23w",
+      "name": "Taboulé libanais",
+      "category": "Salades",
+      "description": "",
+      "steps": "1. Rincez les herbes et ciselez-les. Lavez les tomates et épluchez le concombre puis coupez-les en petits cubes. Épluchez l’oignon et coupez-le en petits dés.\n\n2. Dans un grand saladier, mélangez tous les ingrédients.\n\n3. Assaisonnez ensuite avec le jus de citron, le cumin, l’huile d’olive, le sel et le poivre. Mélangez bien et réservez au frais.",
+      "notes": "",
+      "photoUrl": "",
+      "photoData": "",
+      "videoUrl": "",
+      "sourceUrl": "",
+      "sourceName": "",
+      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)"
     }
   ],
   "shopping": [
