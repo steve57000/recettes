@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-05-28T16:37:59.224Z",
+  "exportedAt": "2026-05-28T16:40:33.448Z",
   "recipes": [
     {
       "badge": "Signature",
@@ -324,49 +324,9 @@
       "description": "Une boisson minute, ultra fraîche, idéale pour brunchs et goûters.",
       "steps": "Mixer mangue, banane, jus d’orange, yaourt et pulpe de passion. Ajouter quelques glaçons et mixer à nouveau. Servir immédiatement.",
       "notes": "Remplacez le yaourt par du lait de coco pour une version vegan."
-    },
-    {
-      "badge": "Nouveau",
-      "difficulty": "Maison",
-      "baseServings": 2,
-      "time": 20,
-      "ingredients": [
-        {
-          "id": "ing-7ykb7mz",
-          "name": "test",
-          "qty": 1,
-          "unit": "g"
-        },
-        {
-          "id": "ing-v0q8fkf",
-          "name": "test2",
-          "qty": 1,
-          "unit": "g"
-        }
-      ],
-      "id": "recipe-7sxqtls",
-      "name": "test sauvegarde",
-      "category": "Mes recettes",
-      "description": "",
-      "steps": "",
-      "notes": "",
-      "photoUrl": "",
-      "photoData": "",
-      "videoUrl": "",
-      "sourceUrl": "",
-      "sourceName": "",
-      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)"
     }
   ],
   "shopping": [
-    {
-      "recipeId": "recipe-7sxqtls",
-      "ingredientId": "ing-7ykb7mz",
-      "recipeName": "test sauvegarde",
-      "name": "test",
-      "qtyNumber": 1,
-      "unit": "g"
-    },
     {
       "recipeId": "tarte-fraises",
       "ingredientId": "fraises",
@@ -389,14 +349,6 @@
       "recipeName": "Tarte aux fraises pâtissière",
       "name": "Sucre",
       "qtyNumber": 110,
-      "unit": "g"
-    },
-    {
-      "recipeId": "recipe-7sxqtls",
-      "ingredientId": "ing-v0q8fkf",
-      "recipeName": "test sauvegarde",
-      "name": "test2",
-      "qtyNumber": 1,
       "unit": "g"
     }
   ]
