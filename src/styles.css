@@ -954,3 +954,203 @@ label {
     font-size: 1.55rem;
   }
 }
+
+/* Navigation and page organization improvements */
+.menu-toggle {
+  display: none;
+}
+
+.logout-button {
+  white-space: nowrap;
+}
+
+.top-menu .nav-action {
+  min-height: auto;
+  padding: 0.65rem 0.95rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--text);
+  color: #fff;
+  box-shadow: none;
+}
+
+.tool-grid {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.78fr) minmax(0, 1.22fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.panel-intro {
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+}
+
+.panel-intro h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1.45rem;
+  letter-spacing: -0.04em;
+}
+
+.panel-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 52px;
+  width: 52px;
+  height: 52px;
+  border-radius: 18px;
+  background: var(--surface-muted);
+  font-size: 1.45rem;
+}
+
+.backup-panel {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.backup-layout {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.manual-sync-box {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.86), rgba(255, 244, 226, 0.74));
+}
+
+.recipe-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  padding: clamp(0.45rem, 2vw, 1.2rem);
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(36, 20, 13, 0.5);
+  backdrop-filter: blur(12px);
+}
+
+.modal-panel {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  width: min(1180px, 100%);
+  height: min(920px, calc(100dvh - 1.2rem));
+  padding: 0;
+  overflow: hidden;
+  border-radius: 32px;
+}
+
+.modal-toolbar,
+.modal-actions {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem clamp(1rem, 3vw, 1.4rem);
+  background: rgba(255, 250, 245, 0.94);
+  border-bottom: 1px solid var(--border);
+}
+
+.modal-toolbar h2 {
+  margin: 0;
+}
+
+.modal-close {
+  flex: 0 0 48px;
+  width: 48px;
+  padding: 0;
+  font-size: 1.6rem;
+}
+
+.form-scroll {
+  display: grid;
+  gap: 0.9rem;
+  overflow: auto;
+  padding: 1rem clamp(1rem, 3vw, 1.4rem) 1.4rem;
+}
+
+.modal-actions {
+  border-top: 1px solid var(--border);
+  border-bottom: 0;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 1081px) {
+  .backup-layout {
+    grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+  }
+}
+
+@media (max-width: 920px) {
+  .tool-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .site-header {
+    position: sticky;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+  }
+
+  .top-menu,
+  .logout-button {
+    display: none;
+  }
+
+  .site-header.is-menu-open .top-menu,
+  .site-header.is-menu-open .logout-button {
+    display: grid;
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+
+  .site-header.is-menu-open .top-menu {
+    grid-template-columns: 1fr;
+    border-radius: 24px;
+  }
+
+  .site-header.is-menu-open .top-menu a,
+  .site-header.is-menu-open .top-menu .nav-action {
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+  }
+
+  .modal-panel {
+    width: 100%;
+    height: 100dvh;
+    border-radius: 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .site-header .brand {
+    justify-content: flex-start;
+  }
+
+  .top-menu .nav-action {
+    min-height: 48px;
+  }
+
+  .modal-toolbar,
+  .modal-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .modal-close {
+    width: 100%;
+    flex-basis: auto;
+  }
+}

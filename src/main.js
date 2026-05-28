@@ -177,6 +177,8 @@ const defaultState = {
   sessionUser: null,
   activeCategory: 'Tout voir',
   editingId: null,
+  formOpen: false,
+  menuOpen: false,
 };
 
 const state = load();
@@ -527,14 +529,16 @@ function render() {
   const totalIngredients = state.recipes.reduce((sum, recipe) => sum + recipe.ingredients.length, 0);
 
   root.innerHTML = `
-    <header class="site-header">
+    <header class="site-header ${state.menuOpen ? 'is-menu-open' : ''}">
       <a class="brand" href="#top"><span class="brand-mark">✦</span><span>Maison Saison <small>Premium</small></span></a>
-      <nav class="top-menu" aria-label="Menu principal">
-        <a href="#recettes">Menus</a>
-        <a href="#ajouter">Ajouter / modifier</a>
+      <button class="menu-toggle ghost" id="menu-toggle" aria-expanded="${state.menuOpen ? 'true' : 'false'}" aria-controls="top-menu"><span>☰</span> Menu</button>
+      <nav id="top-menu" class="top-menu" aria-label="Menu principal">
+        <a href="#recettes">Recettes</a>
         <a href="#courses">Courses</a>
+        <a href="#sauvegarde">Sauvegarde</a>
+        <button class="nav-action" data-create>+ Recette</button>
       </nav>
-      <button class="ghost" id="logout">Déconnexion</button>
+      <button class="ghost logout-button" id="logout">Déconnexion</button>
     </header>
 
     <main id="top" class="page-shell">
@@ -545,7 +549,7 @@ function render() {
           <p class="lead">Créez des fiches riches avec photos, vidéos et URLs, corrigez vos recettes, adaptez les portions et cochez uniquement les ingrédients à acheter.</p>
           <div class="hero-actions">
             <a class="button-link" href="#recettes">Explorer les menus</a>
-            <a class="button-link secondary-link" href="#ajouter">Créer une recette</a>
+            <button class="secondary-link" data-create>Créer une recette</button>
           </div>
           <div class="storage-notice">
             <strong>☁️ Sauvegarde locale</strong>
@@ -573,55 +577,52 @@ function render() {
 
       <section class="recipe-grid">${filteredRecipes.map(recipeCard).join('') || '<p class="small">Aucune recette dans ce menu.</p>'}</section>
 
-      <section class="workspace">
-        <article id="ajouter" class="panel recipe-form-panel">
-          ${renderFormHeader()}
-          <div class="form-grid">
-            <label>Nom<input id="r-name" placeholder="Ex : Lasagnes de famille" /></label>
-            <label>Menu / catégorie<input id="r-category" placeholder="Salades, Plats, Desserts..." value="Mes recettes" /></label>
-            <label>Personnes<input id="r-base" type="number" min="1" value="2" /></label>
-            <label>Temps (min)<input id="r-time" type="number" min="1" value="20" /></label>
-            <label>Difficulté<input id="r-difficulty" placeholder="Facile, Moyen, Chef..." value="Maison" /></label>
-            <label>Badge<input id="r-badge" placeholder="Signature, Express..." value="Nouveau" /></label>
+      <section id="selected" class="selected-zone"></section>
+
+      <section id="courses" class="section-head">
+        <div><p class="eyebrow">Courses</p><h2>Liste de courses</h2></div>
+        <button class="secondary" id="clear-shopping">Vider la liste</button>
+      </section>
+
+      <section class="tool-grid">
+        <article class="panel shopping-panel">
+          <div class="panel-intro">
+            <span class="panel-icon">🛒</span>
+            <div>
+              <h3>À acheter</h3>
+              <p class="small">Ouvrez une recette, ajustez les portions, puis cochez uniquement ce qu’il vous manque.</p>
+            </div>
           </div>
-          <label>Description<textarea id="r-description" placeholder="Courte description appétissante"></textarea></label>
-          <label>Étapes<textarea id="r-steps" placeholder="Décrivez les étapes de préparation"></textarea></label>
-          <label>Notes du chef<textarea id="r-notes" placeholder="Astuce, conservation, dressage..."></textarea></label>
-          <div class="form-grid media-grid">
-            <label>URL photo<input id="r-photo" placeholder="https://...jpg" /></label>
-            <label>Ajouter une photo locale<input id="r-file" type="file" accept="image/*" /></label>
-            <label>URL vidéo<input id="r-video" placeholder="YouTube, Vimeo, MP4..." /></label>
-            <label>URL source / site<input id="r-source" placeholder="https://site-de-recette.fr/..." /></label>
-          </div>
-          <div class="ingredients-head"><div><h3>Ingrédients</h3><p class="small">Ajoutez autant de lignes que nécessaire : les champs déjà saisis sont conservés.</p></div><button class="secondary add-ing-top" id="add-ing">+ ingrédient</button></div>
-          <div id="ingredients" class="ingredients-editor"></div>
-          <div class="ingredient-actions"><button class="secondary" id="add-ing-bottom">+ Ajouter un ingrédient</button></div>
-          <div class="row form-actions"><button class="secondary" id="reset-form">Réinitialiser</button><button id="save-recipe">${state.editingId ? 'Mettre à jour' : 'Enregistrer la recette'}</button></div>
+          <div class="shopping-list">${renderShopping() || '<p class="small">Liste vide. Ouvrez une recette et cochez uniquement ce qu’il vous manque.</p>'}</div>
         </article>
 
-        <aside id="courses" class="panel sticky-panel">
-          <p class="eyebrow">Organisation</p>
-          <h2>Liste de courses</h2>
-          <p class="small">Les ingrédients identiques sont regroupés lorsque l’unité est la même.</p>
-          <div class="sync-box">
-            <strong>Synchronisation GitHub automatique</strong>
-            <p class="small">Pour ce site personnel, vous pouvez enregistrer automatiquement les recettes dans un fichier JSON de votre dépôt GitHub. Créez un token GitHub finement limité au dépôt, cochez l’option, puis chaque ajout/modification/suppression sera envoyé vers GitHub.</p>
-            <div class="github-grid">
-              <label>Propriétaire<input id="github-owner" placeholder="Ex : steve57000" value="${esc(githubConfig().owner)}" /></label>
-              <label>Dépôt<input id="github-repo" placeholder="Ex : recettes" value="${esc(githubConfig().repo)}" /></label>
-              <label>Branche<input id="github-branch" placeholder="main" value="${esc(githubConfig().branch)}" /></label>
-              <label>Chemin JSON<input id="github-path" placeholder="data/recipes.json" value="${esc(githubConfig().path)}" /></label>
-            </div>
-            <label>Token GitHub<input id="github-token" type="password" placeholder="github_pat_..." value="${esc(githubConfig().token)}" autocomplete="off" /></label>
-            <label class="check-row"><input id="github-enabled" type="checkbox" ${githubConfig().enabled ? 'checked' : ''} /> Activer l’enregistrement automatique sur GitHub</label>
-            <p class="small github-status" id="github-status">${esc(githubStatus)}</p>
-            <div class="backup-actions">
-              <button class="secondary" id="save-github-settings">Enregistrer réglages</button>
-              <button class="secondary" id="load-github">Charger depuis GitHub</button>
-              <button class="secondary" id="save-github-now">Enregistrer maintenant</button>
-            </div>
-            <details class="manual-backup">
-              <summary>Export / import manuel</summary>
+        <article id="sauvegarde" class="panel backup-panel">
+          <p class="eyebrow">Sauvegarde</p>
+          <h2>Import, export & GitHub</h2>
+          <p class="small">Les réglages de synchronisation et les sauvegardes manuelles sont séparés de la liste de courses pour garder chaque espace clair.</p>
+          <div class="backup-layout">
+            <section class="sync-box">
+              <strong>Synchronisation GitHub automatique</strong>
+              <p class="small">Enregistrez automatiquement les recettes dans un fichier JSON de votre dépôt GitHub personnel.</p>
+              <div class="github-grid">
+                <label>Propriétaire<input id="github-owner" placeholder="Ex : steve57000" value="${esc(githubConfig().owner)}" /></label>
+                <label>Dépôt<input id="github-repo" placeholder="Ex : recettes" value="${esc(githubConfig().repo)}" /></label>
+                <label>Branche<input id="github-branch" placeholder="main" value="${esc(githubConfig().branch)}" /></label>
+                <label>Chemin JSON<input id="github-path" placeholder="data/recipes.json" value="${esc(githubConfig().path)}" /></label>
+              </div>
+              <label>Token GitHub<input id="github-token" type="password" placeholder="github_pat_..." value="${esc(githubConfig().token)}" autocomplete="off" /></label>
+              <label class="check-row"><input id="github-enabled" type="checkbox" ${githubConfig().enabled ? 'checked' : ''} /> Activer l’enregistrement automatique sur GitHub</label>
+              <p class="small github-status" id="github-status">${esc(githubStatus)}</p>
+              <div class="backup-actions">
+                <button class="secondary" id="save-github-settings">Enregistrer réglages</button>
+                <button class="secondary" id="load-github">Charger depuis GitHub</button>
+                <button class="secondary" id="save-github-now">Enregistrer maintenant</button>
+              </div>
+            </section>
+
+            <section class="sync-box manual-sync-box">
+              <strong>Export / import manuel</strong>
+              <p class="small">Téléchargez un JSON ou collez une sauvegarde copiée depuis un autre appareil.</p>
               <div class="backup-actions">
                 <button class="secondary" id="export-recipes">Exporter JSON</button>
                 <button class="secondary" id="copy-backup">Copier sauvegarde</button>
@@ -630,14 +631,12 @@ function render() {
               </div>
               <label class="backup-text-label">Importer un texte de sauvegarde<textarea id="backup-text" placeholder="Collez ici la sauvegarde copiée depuis l’autre appareil"></textarea></label>
               <button class="secondary" id="import-backup-text">Importer le texte</button>
-            </details>
+            </section>
           </div>
-          <div class="shopping-list">${renderShopping() || '<p class="small">Liste vide. Ouvrez une recette et cochez uniquement ce qu’il vous manque.</p>'}</div>
-          <button id="clear-shopping">Vider la liste</button>
-        </aside>
+        </article>
       </section>
 
-      <section id="selected" class="selected-zone"></section>
+      ${renderRecipeModal()}
     </main>`;
 
   bindEvents(root);
@@ -661,7 +660,46 @@ function login() {
 
 function renderFormHeader() {
   const recipe = state.recipes.find((r) => r.id === state.editingId);
-  return `<p class="eyebrow">${recipe ? 'Modification' : 'Création'}</p><h2>${recipe ? `Modifier : ${esc(recipe.name)}` : 'Ajouter une recette'}</h2>${recipe ? '<p class="small">Vous éditez une fiche existante. Enregistrez pour remplacer la version actuelle.</p>' : '<p class="small">Créez une fiche complète avec ingrédients, média, source et notes.</p>'}`;
+  return `<p class="eyebrow">${recipe ? 'Modification' : 'Création'}</p><h2 id="recipe-modal-title">${recipe ? `Modifier : ${esc(recipe.name)}` : 'Ajouter une recette'}</h2>${recipe ? '<p class="small">Vous éditez une fiche existante. Enregistrez pour remplacer la version actuelle.</p>' : '<p class="small">Créez une fiche complète avec ingrédients, média, source et notes.</p>'}`;
+}
+
+function renderRecipeModal() {
+  if (!state.formOpen && !state.editingId) return '';
+  return `<section class="recipe-modal" role="dialog" aria-modal="true" aria-labelledby="recipe-modal-title">
+    <div class="modal-backdrop" data-close-form></div>
+    <article id="ajouter" class="panel recipe-form-panel modal-panel">
+      <div class="modal-toolbar">
+        <div>${renderFormHeader()}</div>
+        <button class="ghost modal-close" id="close-form" aria-label="Fermer le formulaire">×</button>
+      </div>
+      <div class="form-scroll">
+        <div class="form-grid">
+          <label>Nom<input id="r-name" placeholder="Ex : Lasagnes de famille" /></label>
+          <label>Menu / catégorie<input id="r-category" placeholder="Salades, Plats, Desserts..." value="Mes recettes" /></label>
+          <label>Personnes<input id="r-base" type="number" min="1" value="2" /></label>
+          <label>Temps (min)<input id="r-time" type="number" min="1" value="20" /></label>
+          <label>Difficulté<input id="r-difficulty" placeholder="Facile, Moyen, Chef..." value="Maison" /></label>
+          <label>Badge<input id="r-badge" placeholder="Signature, Express..." value="Nouveau" /></label>
+        </div>
+        <label>Description<textarea id="r-description" placeholder="Courte description appétissante"></textarea></label>
+        <label>Étapes<textarea id="r-steps" placeholder="Décrivez les étapes de préparation"></textarea></label>
+        <label>Notes du chef<textarea id="r-notes" placeholder="Astuce, conservation, dressage..."></textarea></label>
+        <div class="form-grid media-grid">
+          <label>URL photo<input id="r-photo" placeholder="https://...jpg" /></label>
+          <label>Ajouter une photo locale<input id="r-file" type="file" accept="image/*" /></label>
+          <label>URL vidéo<input id="r-video" placeholder="YouTube, Vimeo, MP4..." /></label>
+          <label>URL source / site<input id="r-source" placeholder="https://site-de-recette.fr/..." /></label>
+        </div>
+        <div class="ingredients-head"><div><h3>Ingrédients</h3><p class="small">Ajoutez autant de lignes que nécessaire : les champs déjà saisis sont conservés.</p></div><button class="secondary add-ing-top" id="add-ing">+ ingrédient</button></div>
+        <div id="ingredients" class="ingredients-editor"></div>
+      </div>
+      <div class="modal-actions">
+        <button class="secondary" id="add-ing-bottom">+ Ajouter un ingrédient</button>
+        <button class="secondary" id="reset-form">Réinitialiser</button>
+        <button id="save-recipe">${state.editingId ? 'Mettre à jour' : 'Enregistrer la recette'}</button>
+      </div>
+    </article>
+  </section>`;
 }
 
 function recipeCard(r) {
@@ -696,6 +734,25 @@ function bindEvents(root) {
     render();
   };
 
+  document.getElementById('menu-toggle').onclick = () => {
+    state.menuOpen = !state.menuOpen;
+    save();
+    render();
+  };
+
+  root.querySelectorAll('.top-menu a').forEach((link) => {
+    link.onclick = () => {
+      state.menuOpen = false;
+      save();
+      document.querySelector('.site-header')?.classList.remove('is-menu-open');
+      document.getElementById('menu-toggle')?.setAttribute('aria-expanded', 'false');
+    };
+  });
+
+  root.querySelectorAll('[data-create]').forEach((button) => {
+    button.onclick = () => openRecipeForm();
+  });
+
   root.querySelectorAll('[data-cat]').forEach((b) => {
     b.onclick = () => {
       state.activeCategory = b.getAttribute('data-cat');
@@ -711,18 +768,34 @@ function bindEvents(root) {
     drawIngredientRows(next.id);
   };
 
-  document.getElementById('add-ing').onclick = addIngredient;
-  document.getElementById('add-ing-bottom').onclick = addIngredient;
+  const addTop = document.getElementById('add-ing');
+  const addBottom = document.getElementById('add-ing-bottom');
+  if (addTop) addTop.onclick = addIngredient;
+  if (addBottom) addBottom.onclick = addIngredient;
 
-  document.getElementById('reset-form').onclick = () => {
-    state.editingId = null;
-    ingredientRows = [emptyIngredient()];
-    save();
-    render();
-    document.getElementById('ajouter').scrollIntoView({ behavior: 'smooth' });
+  const resetForm = document.getElementById('reset-form');
+  if (resetForm) {
+    resetForm.onclick = () => {
+      state.editingId = null;
+      state.formOpen = true;
+      ingredientRows = [emptyIngredient()];
+      save();
+      render();
+    };
+  }
+
+  const saveRecipe = document.getElementById('save-recipe');
+  if (saveRecipe) saveRecipe.onclick = saveRecipeFromForm;
+
+  root.querySelectorAll('[data-close-form]').forEach((button) => {
+    button.onclick = closeRecipeForm;
+  });
+
+  const closeForm = document.getElementById('close-form');
+  if (closeForm) closeForm.onclick = closeRecipeForm;
+  window.onkeydown = (event) => {
+    if (event.key === 'Escape' && (state.formOpen || state.editingId)) closeRecipeForm();
   };
-
-  document.getElementById('save-recipe').onclick = saveRecipeFromForm;
 
   root.querySelectorAll('[data-del]').forEach((b) => {
     b.onclick = () => {
@@ -762,6 +835,7 @@ function bindEvents(root) {
 }
 
 function hydrateForm() {
+  if (!document.getElementById('r-name')) return;
   const recipe = state.recipes.find((r) => r.id === state.editingId);
   if (!recipe) return;
   document.getElementById('r-name').value = recipe.name || '';
@@ -864,6 +938,7 @@ async function saveRecipeFromForm() {
   if (existingIndex >= 0) state.recipes[existingIndex] = recipe;
   else state.recipes.unshift(recipe);
   state.editingId = null;
+  state.formOpen = false;
   ingredientRows = [emptyIngredient()];
   save();
   render();
@@ -871,11 +946,29 @@ async function saveRecipeFromForm() {
   scheduleGithubSync('Enregistrement de recette Maison Saison');
 }
 
-function editRecipe(recipeId) {
-  state.editingId = recipeId;
+function openRecipeForm() {
+  state.editingId = null;
+  state.formOpen = true;
+  state.menuOpen = false;
+  ingredientRows = [emptyIngredient()];
   save();
   render();
-  document.getElementById('ajouter').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function closeRecipeForm() {
+  state.editingId = null;
+  state.formOpen = false;
+  ingredientRows = [emptyIngredient()];
+  save();
+  render();
+}
+
+function editRecipe(recipeId) {
+  state.editingId = recipeId;
+  state.formOpen = true;
+  state.menuOpen = false;
+  save();
+  render();
 }
 
 function videoEmbed(url) {
