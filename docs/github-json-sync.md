@@ -14,7 +14,7 @@ Dans le panneau **Courses → Synchronisation GitHub automatique** :
 6. cochez **Activer l’enregistrement automatique sur GitHub** ;
 7. cliquez sur **Enregistrer réglages** puis **Enregistrer maintenant**.
 
-Ensuite, chaque ajout, modification ou suppression de recette déclenche une sauvegarde automatique dans le JSON GitHub. Le bouton **Charger depuis GitHub** permet de récupérer le JSON sur un autre appareil.
+Ensuite, chaque ajout, modification ou suppression de recette déclenche une sauvegarde automatique dans le JSON GitHub. Si GitHub signale qu’une autre sauvegarde a modifié `data/recipes.json` entre la lecture et l’écriture, l’application relit automatiquement la dernière version du fichier et retente l’enregistrement afin d’éviter l’erreur `does not match ...`. Le bouton **Charger depuis GitHub** permet de récupérer le JSON sur un autre appareil.
 
 ## Token GitHub conseillé
 

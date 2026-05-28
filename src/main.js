@@ -9,6 +9,7 @@ const githubDefaults = {
   path: 'data/recipes.json',
   token: '',
   lastSync: '',
+  lastSha: '',
 };
 
 let githubStatus = 'Non configuré';
@@ -272,7 +273,7 @@ async function readGithubFile(config) {
   return { sha: file.sha, payload: JSON.parse(decodeBase64(file.content || '')) };
 }
 
-async function writeGithubFile(config, sha, message) {
+async function writeGithubFile(config, sha, message, content) {
   const response = await fetch(githubApiUrl(config), {
     method: 'PUT',
     headers: {
@@ -283,15 +284,47 @@ async function writeGithubFile(config, sha, message) {
     },
     body: JSON.stringify({
       message,
-      content: encodeBase64(backupText()),
+      content: encodeBase64(content),
       branch: config.branch,
       ...(sha ? { sha } : {}),
     }),
   });
+  const detail = await response.json().catch(() => ({}));
   if (!response.ok) {
-    const detail = await response.json().catch(() => ({}));
-    throw new Error(detail.message || `GitHub écriture ${response.status}`);
+    const error = new Error(detail.message || `GitHub écriture ${response.status}`);
+    error.status = response.status;
+    error.githubMessage = detail.message || '';
+    throw error;
   }
+  return detail;
+}
+
+function isGithubShaConflict(error) {
+  return error?.status === 409 || /does not match|sha/i.test(error?.githubMessage || error?.message || '');
+}
+
+function friendlyGithubError(error) {
+  if (isGithubShaConflict(error)) {
+    return 'conflit de version du fichier GitHub. Réessayez dans quelques secondes.';
+  }
+  return error.message;
+}
+
+async function writeGithubFileWithRetry(config, message, content) {
+  let remote = await readGithubFile(config);
+  const maxAttempts = 3;
+
+  for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
+    try {
+      const result = await writeGithubFile(config, remote.sha, message, content);
+      return result.content?.sha || remote.sha || '';
+    } catch (error) {
+      if (!isGithubShaConflict(error) || attempt === maxAttempts) throw error;
+      setGithubStatus('Conflit GitHub détecté, nouvelle tentative…');
+      remote = await readGithubFile(config);
+    }
+  }
+  return remote.sha || '';
 }
 
 function mergeGithubPayload(payload) {
@@ -311,13 +344,13 @@ async function syncToGitHub(reason = 'Synchronisation des recettes') {
   githubSyncRunning = true;
   setGithubStatus('Synchronisation GitHub en cours…');
   try {
-    const remote = await readGithubFile(config);
-    await writeGithubFile(config, remote.sha, reason);
-    state.github = { ...config, lastSync: new Date().toISOString() };
+    const content = backupText();
+    const latestSha = await writeGithubFileWithRetry(config, reason, content);
+    state.github = { ...config, lastSync: new Date().toISOString(), lastSha: latestSha };
     save();
     setGithubStatus(`Dernière synchro GitHub : ${new Date(state.github.lastSync).toLocaleString('fr-FR')}`);
   } catch (error) {
-    setGithubStatus(`Erreur GitHub : ${error.message}`);
+    setGithubStatus(`Erreur GitHub : ${friendlyGithubError(error)}`);
   } finally {
     githubSyncRunning = false;
     if (githubSyncQueued) {
@@ -350,13 +383,13 @@ async function loadFromGitHub(silent = false) {
     }
     mergeGithubPayload(remote.payload);
     state.activeCategory = 'Tout voir';
-    state.github = { ...config, enabled: true, lastSync: new Date().toISOString() };
+    state.github = { ...config, enabled: true, lastSync: new Date().toISOString(), lastSha: remote.sha || config.lastSha || '' };
     save();
     render();
     if (!silent) alert('Recettes chargées depuis GitHub.');
   } catch (error) {
-    setGithubStatus(`Erreur GitHub : ${error.message}`);
-    if (!silent) alert(`Chargement GitHub impossible : ${error.message}`);
+    setGithubStatus(`Erreur GitHub : ${friendlyGithubError(error)}`);
+    if (!silent) alert(`Chargement GitHub impossible : ${friendlyGithubError(error)}`);
   }
 }
 
@@ -378,6 +411,7 @@ function saveGithubSettings() {
     path: document.getElementById('github-path').value.trim() || 'data/recipes.json',
     token: document.getElementById('github-token').value.trim(),
     lastSync: githubConfig().lastSync,
+    lastSha: githubConfig().lastSha,
   };
   save();
   setGithubStatus(state.github.enabled ? 'Synchronisation GitHub activée.' : 'Synchronisation GitHub désactivée.', true);
