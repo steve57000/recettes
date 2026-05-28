@@ -1,24 +1,41 @@
-# Recettes d’été (GitHub Pages ready)
+# Maison Saison — livre de recettes premium
 
-Application frontend statique pour gérer un carnet de recettes, ajuster les portions et consolider une liste de courses unique. Le site a été refondu avec une direction artistique plus professionnelle : hero, navigation, menus par catégories, cartes recettes, fiche détaillée et formulaire enrichi.
+Application frontend statique pour gérer un carnet de recettes complet, compatible GitHub Pages. L’interface a été transformée en véritable livre de recettes premium : menus par catégories, fiches enrichies, médias, édition complète, portions dynamiques et liste de courses intelligente.
 
-## Fonctionnalités
-- Connexion simple de démonstration : `admin` / `admin123`
-- Navigation principale : Recettes, Ajouter, Courses
-- Menus par catégories : salades fraîches, entrées glacées, barbecue et recettes personnelles
-- Recettes d’été préchargées avec liens vers les sources d’inspiration web
-- Ajout/suppression de recettes personnelles
-- Ingrédients avec quantités de base liées au nombre de personnes
-- Ajustement dynamique des quantités selon les portions choisies
-- Liste de courses unique, avec cases à cocher par ingrédient
+## Connexion de démonstration
+
+- Utilisateur : `admin`
+- Mot de passe : `admin123`
+
+> Cette connexion reste volontairement locale pour une démo statique. Pour un produit réel, il faut brancher un backend d’authentification comme Supabase, Firebase ou Auth0.
+
+## Fonctionnalités principales
+
+- Navigation premium : Menus, Ajouter / modifier, Courses
+- Collection enrichie de recettes préchargées : salades, entrées, plats, desserts et boissons
+- Création de recettes avec :
+  - nom, catégorie/menu, temps, difficulté, badge
+  - description, étapes et notes du chef
+  - ingrédients illimités avec quantités et unités
+  - URL de photo, upload de photo locale, URL vidéo et URL source
+- Correction du système d’ingrédients : ajouter une ligne ne supprime plus les ingrédients déjà saisis
+- Modification complète d’une recette existante depuis la carte ou la fiche détail
+- Suppression des recettes
+- Fiche recette détaillée avec couverture photo, vidéo intégrée, source web et notes
+- Ajustement automatique des quantités selon le nombre de personnes
+- Liste de courses unifiée : cochez uniquement les ingrédients voulus et l’application regroupe les éléments identiques par unité
+- Sauvegarde locale dans le navigateur via `localStorage`
 - Thème centralisé via `src/theme.css`
 
-## Recettes d’été préchargées
-- Salade pastèque, feta & menthe — inspiration Yuka
-- Gaspacho tomate, concombre & basilic — inspiration Croq’Kilos
-- Brochettes de poulet citron & herbes — inspiration Recettes100faim
+## Recettes préchargées
+
+- Salade niçoise grand soleil — Salades
+- Risotto crémeux aux champignons — Plats
+- Poulet yassa citronné — Plats
+- Tarte aux fraises pâtissière — Desserts
+- Velouté potimarron & noisettes — Entrées
+- Smoothie mangue passion — Boissons
 
 ## Déploiement GitHub Pages
-Comme l’application est statique, vous pouvez publier la branche sur GitHub Pages directement.
 
-> Important sécurité : pour un vrai système de connexion sécurisé sur GitHub Pages, il faut brancher un backend auth (GitHub OAuth via Supabase/Firebase/Auth0), car les secrets côté front ne sont pas réellement secrets.
+Le projet est 100 % statique : publiez simplement la branche sur GitHub Pages. Les données créées par l’utilisateur sont conservées dans le navigateur courant grâce à `localStorage`.
