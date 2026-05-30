@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-05-28T17:45:42.094Z",
+  "exportedAt": "2026-05-30T08:56:44.042Z",
   "recipes": [
     {
       "badge": "Signature",
@@ -419,5 +419,30 @@
       "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)"
     }
   ],
-  "shopping": []
+  "shopping": [
+    {
+      "recipeId": "tarte-fraises",
+      "ingredientId": "oeufs",
+      "recipeName": "Tarte aux fraises pâtissière",
+      "name": "Jaunes d’œufs",
+      "qtyNumber": 2,
+      "unit": "pièces"
+    },
+    {
+      "recipeId": "tarte-fraises",
+      "ingredientId": "sucre",
+      "recipeName": "Tarte aux fraises pâtissière",
+      "name": "Sucre",
+      "qtyNumber": 55,
+      "unit": "g"
+    },
+    {
+      "recipeId": "tarte-fraises",
+      "ingredientId": "vanille",
+      "recipeName": "Tarte aux fraises pâtissière",
+      "name": "Vanille",
+      "qtyNumber": 0.5,
+      "unit": "gousse"
+    }
+  ]
 }
