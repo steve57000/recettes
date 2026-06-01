@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-01T16:00:03.334Z",
+  "exportedAt": "2026-06-01T16:01:33.047Z",
   "recipes": [
     {
       "badge": "Signature",
@@ -91,10 +91,10 @@
       "category": "Salades",
       "image": "linear-gradient(135deg, rgba(255, 209, 102, 0.92), rgba(246, 114, 128, 0.86)), url(https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1200&q=80)",
       "photoUrl": "https://img.cuisineaz.com/660x495/2013/12/20/i34581-salade-nicoise-rapide.webp",
-      "videoUrl": "https://www.youtube.com/watch?v=dA0VGEbbw4g",
+      "videoUrl": "",
       "sourceName": "Source web",
-      "sourceUrl": "https://www.marmiton.org/recettes/recette_salade-nicoise_87933.aspx",
-      "description": "À l'origine, la salade niçoise se composait uniquement de tomates, d'anchois et d'huile d'olive. Mais la cuisine est bel et bien vivante, et comme toutes les recettes traditionnelles, la salade niçoise connaît de nombreuses variantes, pour notre plus grand plaisir ! Nous vous proposons ici une version qui comprend également du thon, des olives, du poivron et des radis. Embarquement immédiat pour la Côte d'Azur avec cette salade niçoise rapide et facile à réaliser",
+      "sourceUrl": "https://www.cuisineaz.com/recettes/salade-nicoise-rapide-17452.aspx",
+      "description": "À l'origine, la salade niçoise se composait uniquement de tomates, d'anchois et d'huile d'olive. Mais la cuisine est bel et bien vivante, et comme toutes les recettes traditionnelles, la salade niçoise connaît de nombreuses variantes, pour notre plus grand plaisir !",
       "steps": "Étape 1\nFaites durcir les œufs 9 min dans une casserole d'eau frémissante, refroidissez-les rapidement dans l'eau froide puis écalez-les et coupez-les en quartiers. Pendant ce temps, coupez les tomates en quartiers, le poivron en lamelles, les olives et les radis en fines rondelles. Égouttez le thon et les les filets d'anchois.\n\nÉtape 2\nDressez la salade niçoise directement dans les assiettes : déposez d'abord quelques feuilles de mesclun, puis les quartiers de tomates en étoile. Répartissez ensuite le poivron, les filets d'anchois et le thon émietté. Terminez avec les radis, les œufs et les olives.\n\nÉtape 3\nPréparez la vinaigrette en émulsionnant dans un bol la moutarde, le vinaigre, l'huile d'olive, un peu de sel et de poivre. Nappez-en les assiettes, et dégustez immédiatement.",
       "notes": "Parmi les aliments homologués pour une salade niçoise encore plus gourmande, savoureuse et colorée, on trouve les artichauts, les fèves, l'ail, la cébette, et parfois même du céleri ! À vous de jouer ! Pour accompagner la salade niçoise, rien de tel qu'une belle tranche de pain frais ou légèrement grillé, voire même du pain à l'ail. Ça sent déjà les vacances !",
       "photoData": ""
