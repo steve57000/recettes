@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-01T16:01:33.047Z",
+  "exportedAt": "2026-06-01T16:05:21.614Z",
   "recipes": [
     {
       "badge": "Signature",
@@ -146,13 +146,14 @@
       "name": "Risotto crémeux aux champignons",
       "category": "Plats",
       "image": "linear-gradient(135deg, rgba(91, 62, 43, 0.75), rgba(242, 177, 109, 0.74)), url(https://images.unsplash.com/photo-1476124369491-e7addf5db371?auto=format&fit=crop&w=1200&q=80)",
-      "photoUrl": "https://images.unsplash.com/photo-1476124369491-e7addf5db371?auto=format&fit=crop&w=1200&q=80",
+      "photoUrl": "https://img.cuisineaz.com/660x495/2015/08/14/i73707-risotto-onctueux-aux-champignon-de-paris.webp",
       "videoUrl": "",
-      "sourceName": "Technique maison",
+      "sourceName": "",
       "sourceUrl": "",
       "description": "Un plat principal onctueux, parfumé au parmesan, parfait pour un dîner premium sans complication.",
       "steps": "Faire revenir l’oignon dans l’huile. Ajouter le riz et le nacrer 2 minutes. Verser le vin blanc, puis incorporer le bouillon louche par louche. Poêler les champignons à part. Terminer avec parmesan, beurre, champignons et persil.",
-      "notes": "Le secret : remuer souvent et garder le bouillon bien chaud."
+      "notes": "Le secret : remuer souvent et garder le bouillon bien chaud.",
+      "photoData": ""
     },
     {
       "badge": "Voyage",
