@@ -1,62 +1,6 @@
 {
-  "exportedAt": "2026-06-01T16:42:00.010Z",
+  "exportedAt": "2026-06-01T18:05:30.527Z",
   "recipes": [
-    {
-      "badge": "Nouveau",
-      "difficulty": "Maison",
-      "baseServings": 4,
-      "time": 10,
-      "ingredients": [
-        {
-          "id": "ing-xngx7a8",
-          "name": "Tortilla de blé",
-          "qty": 4,
-          "unit": "pièces"
-        },
-        {
-          "id": "ing-3joiqq5",
-          "name": "Blanc de poulet",
-          "qty": 2,
-          "unit": "pièces"
-        },
-        {
-          "id": "ing-0phpfxh",
-          "name": "Salade Laitue",
-          "qty": 4,
-          "unit": "feuilles"
-        },
-        {
-          "id": "ing-79tdgk2",
-          "name": "Tomates",
-          "qty": 1,
-          "unit": "pièces"
-        },
-        {
-          "id": "ing-0x15naj",
-          "name": "Moutarde",
-          "qty": 1,
-          "unit": "u"
-        },
-        {
-          "id": "ing-mfge441",
-          "name": "Huile d'olive",
-          "qty": 1,
-          "unit": "c. à soupe"
-        }
-      ],
-      "id": "recipe-o2vtqlc",
-      "name": "Wraps au poulet",
-      "category": "Pic-nic",
-      "description": "Un petit repas sur le pouce, un pique-nique ou un apéro dinatoire ? Pensez aux wraps au poulet, tellement plus sympas que les sandwichs traditionnels, mais aussi plus pratiques ! Cette recette toute simple allie poulet, salade, tomate et moutarde ou mayonnaise.",
-      "steps": "Étape 1\nCoupez la tomate en fines tranches. Épépinez-les et faites-les dégorger en les plaçant dans une passoire saupoudrées de sel.\nÉtape 2\nTaillez les filets de poulet en fines lanières et faites-les cuire à la poêle avec l'huile d'olive.\nÉtape 3\nTartinez les tortillas de moutarde. Disposez ensuite la laitue, les morceaux de poulet et les rondelles de tomate dégorgées que vous aurez pris soin de bien rincer. Salez et poivrez à votre convenance.\nÉtape 4\nEnroulez ensuite fermement et placez le tout au réfrigérateur dans du film alimentaire pour garder le wrap bien compact.",
-      "notes": "Vous pouvez choisir toutes sortes de sauces et d’accompagnements pour vos wraps au poulet : mayonnaise, huile d’olive, béarnaise, sauce au curry, vinaigrette, sauce au fromage frais et ciboulette, crème fraîche et jus de citron… Vous pouvez également ajouter d'autres crudités comme des bâtonnets de concombre, des oignons rouges, des lamelles de poivrons… au gré des saisons !",
-      "photoUrl": "https://img.cuisineaz.com/660x495/2013/12/20/i97834-wraps-poulet.webp",
-      "photoData": "",
-      "videoUrl": "",
-      "sourceUrl": "",
-      "sourceName": "",
-      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)"
-    },
     {
       "badge": "Signature",
       "difficulty": "Facile",
@@ -142,6 +86,20 @@
           "unit": "convenance"
         }
       ],
+      "steps": [
+        {
+          "id": "step-ayiyx7s",
+          "text": "Faites durcir les œufs 9 min dans une casserole d'eau frémissante, refroidissez-les rapidement dans l'eau froide puis écalez-les et coupez-les en quartiers. Pendant ce temps, coupez les tomates en quartiers, le poivron en lamelles, les olives et les radis en fines rondelles. Égouttez le thon et les les filets d'anchois."
+        },
+        {
+          "id": "step-mbjso8v",
+          "text": "Dressez la salade niçoise directement dans les assiettes : déposez d'abord quelques feuilles de mesclun, puis les quartiers de tomates en étoile. Répartissez ensuite le poivron, les filets d'anchois et le thon émietté. Terminez avec les radis, les œufs et les olives."
+        },
+        {
+          "id": "step-eoh5nls",
+          "text": "Préparez la vinaigrette en émulsionnant dans un bol la moutarde, le vinaigre, l'huile d'olive, un peu de sel et de poivre. Nappez-en les assiettes, et dégustez immédiatement."
+        }
+      ],
       "id": "salade-nicoise-premium",
       "name": "Salade niçoise rapide",
       "category": "Salades",
@@ -151,9 +109,12 @@
       "sourceName": "Source web",
       "sourceUrl": "https://www.cuisineaz.com/recettes/salade-nicoise-rapide-17452.aspx",
       "description": "À l'origine, la salade niçoise se composait uniquement de tomates, d'anchois et d'huile d'olive. Mais la cuisine est bel et bien vivante, et comme toutes les recettes traditionnelles, la salade niçoise connaît de nombreuses variantes, pour notre plus grand plaisir !",
-      "steps": "Étape 1\nFaites durcir les œufs 9 min dans une casserole d'eau frémissante, refroidissez-les rapidement dans l'eau froide puis écalez-les et coupez-les en quartiers. Pendant ce temps, coupez les tomates en quartiers, le poivron en lamelles, les olives et les radis en fines rondelles. Égouttez le thon et les les filets d'anchois.\n\nÉtape 2\nDressez la salade niçoise directement dans les assiettes : déposez d'abord quelques feuilles de mesclun, puis les quartiers de tomates en étoile. Répartissez ensuite le poivron, les filets d'anchois et le thon émietté. Terminez avec les radis, les œufs et les olives.\n\nÉtape 3\nPréparez la vinaigrette en émulsionnant dans un bol la moutarde, le vinaigre, l'huile d'olive, un peu de sel et de poivre. Nappez-en les assiettes, et dégustez immédiatement.",
       "notes": "Parmi les aliments homologués pour une salade niçoise encore plus gourmande, savoureuse et colorée, on trouve les artichauts, les fèves, l'ail, la cébette, et parfois même du céleri ! À vous de jouer ! Pour accompagner la salade niçoise, rien de tel qu'une belle tranche de pain frais ou légèrement grillé, voire même du pain à l'ail. Ça sent déjà les vacances !",
-      "photoData": ""
+      "photoData": "",
+      "rating": 4,
+      "tags": [
+        "Signature"
+      ]
     },
     {
       "badge": "Comfort food",
@@ -222,6 +183,28 @@
           "unit": "u"
         }
       ],
+      "steps": [
+        {
+          "id": "step-9sig1o9",
+          "text": "Préparation des aliments Chauffez le bouillon de légumes dans une casserole. Rincez soigneusement les champignons, puis égouttez-les dans une passoire. Émincez-les finement. Épluchez la gousse d'ail et écrasez-la. Pelez l'oignon et coupez-le en demi-rondelles."
+        },
+        {
+          "id": "step-keexzjf",
+          "text": "Préparation de l'ail et des champignons Dans une poêle, faites revenir l'ail et les champignons avec 1 c. à soupe d'huile pendant 10 min."
+        },
+        {
+          "id": "step-ghmk624",
+          "text": "Assemblage Chauffez le reste d'huile dans une grande casserole. Faites-y sauter l'oignon durant 3 min. Ajoutez le riz, la crème fraîche et la préparation aux champignons. Mélangez."
+        },
+        {
+          "id": "step-r59waud",
+          "text": "Ajout du bouillon Incorporez progressivement le bouillon de légumes, louche par louche, en attendant que la précédente soi absorbée pour en ajouter. Laissez cuire 20 min."
+        },
+        {
+          "id": "step-k8fudeh",
+          "text": "Finition Salez et poivrez, poursuivez la cuisson 5 min. Hors du feu, saupoudrez de parmesan râpé et servez."
+        }
+      ],
       "id": "risotto-champignons",
       "name": "Risotto crémeux aux champignons",
       "category": "Plats",
@@ -231,9 +214,12 @@
       "sourceName": "Source web",
       "sourceUrl": "https://www.cuisineaz.com/recettes/risotto-onctueux-aux-champignons-de-paris-121984.aspx",
       "description": "Ce risotto propose une association simple d’ingrédients qui apportent douceur et réconfort au quotidien. Riz Arborio, bouillon, parmesan et crème fraîche créent une texture crémeuse et gourmande.",
-      "steps": "1 : Préparation des aliments\nChauffez le bouillon de légumes dans une casserole. Rincez soigneusement les champignons, puis égouttez-les dans une passoire. Émincez-les finement. Épluchez la gousse d'ail et écrasez-la. Pelez l'oignon et coupez-le en demi-rondelles.\n2 : Préparation de l'ail et des champignons\nDans une poêle, faites revenir l'ail et les champignons avec 1 c. à soupe d'huile pendant 10 min.\n3 : Assemblage\nChauffez le reste d'huile dans une grande casserole. Faites-y sauter l'oignon durant 3 min. Ajoutez le riz, la crème fraîche et la préparation aux champignons. Mélangez.\n4 : Ajout du bouillon\nIncorporez progressivement le bouillon de légumes, louche par louche, en attendant que la précédente soi absorbée pour en ajouter. Laissez cuire 20 min.\n5 : Finition\nSalez et poivrez, poursuivez la cuisson 5 min. Hors du feu, saupoudrez de parmesan râpé et servez.",
       "notes": "Pour un risotto encore plus parfumé, faites revenir vos champignons dans une poêle bien chaude jusqu’à ce qu’ils soient dorés avant de les ajouter au riz. Cela va intensifier leur saveur et apporter une touche gourmande à votre plat ! Si vous aimez les herbes, ajoutez quelques brins de thym frais ou de la ciboulette ciselée juste avant de servir : effet waouh garanti.",
-      "photoData": ""
+      "photoData": "",
+      "rating": 3,
+      "tags": [
+        "Comfort food"
+      ]
     },
     {
       "badge": "Mission maillot de bain",
@@ -296,6 +282,20 @@
           "unit": "u"
         }
       ],
+      "steps": [
+        {
+          "id": "step-ukk1mn5",
+          "text": "Préparation des concombres Épluchez les concombres, ôtez les graines et coupez-les en fines rondelles bien régulières. Puis disposez-les dans un plat (un plat à gratin est parfait pour pouvoir bien étaler toutes les rondelles de concombre), saupoudrez-les de gros sel et remuez délicatement. Laissez les concombres dégorger pendant 15 min environ, puis passez-les sous l'eau claire pour éliminer le sel. Enfin, épongez-les bien à l'aide d'un linge propre ou de papier absorbant."
+        },
+        {
+          "id": "step-90kjaa0",
+          "text": "Préparation de la sauce au yaourt et mélange Versez le yaourt dans un saladier. Ajoutez la gousse d'ail écrasée, puis ajoutez ensuite l'huile d'olive, le jus de citron et le vinaigre. Salez, poivrez et mélangez. Incorporez les rondelles de concombre et l'aneth délicatement ciselée à la préparation. Mélangez à nouveau le tout de façon à ce que la sauce enveloppe bien le concombre."
+        },
+        {
+          "id": "step-ucodp11",
+          "text": "Finition et service Décorez de quelques brins d'aneth et servez bien frais."
+        }
+      ],
       "id": "poulet-yassa",
       "name": "Salade de concombre au yaourt",
       "category": "Salades",
@@ -305,9 +305,12 @@
       "sourceName": "Source web",
       "sourceUrl": "https://www.cuisineaz.com/recettes/salade-de-concombre-au-yaourt-122708.aspx",
       "description": "La salade de concombres au yaourt, une recette grecque \"fraîcheur\", parfaite pour les beaux jours ! Rafraîchissante et healthy, elle est peu calorique",
-      "steps": "1 : Préparation des concombres\nÉpluchez les concombres, ôtez les graines et coupez-les en fines rondelles bien régulières. Puis disposez-les dans un plat (un plat à gratin est parfait pour pouvoir bien étaler toutes les rondelles de concombre), saupoudrez-les de gros sel et remuez délicatement. Laissez les concombres dégorger pendant 15 min environ, puis passez-les sous l'eau claire pour éliminer le sel. Enfin, épongez-les bien à l'aide d'un linge propre ou de papier absorbant.\n2 : Préparation de la sauce au yaourt et mélange\nVersez le yaourt dans un saladier. Ajoutez la gousse d'ail écrasée, puis ajoutez ensuite l'huile d'olive, le jus de citron et le vinaigre. Salez, poivrez et mélangez. Incorporez les rondelles de concombre et l'aneth délicatement ciselée à la préparation. Mélangez à nouveau le tout de façon à ce que la sauce enveloppe bien le concombre.\n3 : Finition et service\nDécorez de quelques brins d'aneth et servez bien frais.",
       "notes": "Pour une touche encore plus gourmande, ajoutez quelques éclats de noix ou des graines de sésame grillées juste avant de servir. Vous pouvez aussi mélanger un peu de feta émiettée pour une version plus savoureuse, ou râper légèrement le concombre pour une texture différente et une meilleure imprégnation de la sauce.",
-      "photoData": ""
+      "photoData": "",
+      "rating": 3,
+      "tags": [
+        "Mission maillot de bain"
+      ]
     },
     {
       "badge": "Pâtisserie",
@@ -352,6 +355,12 @@
           "unit": "gousse"
         }
       ],
+      "steps": [
+        {
+          "id": "step-c1p5gb4",
+          "text": "Cuire la pâte à blanc. Préparer une crème pâtissière vanillée et la refroidir. Garnir le fond de tarte, disposer les fraises coupées et napper légèrement. Réserver au frais avant dégustation."
+        }
+      ],
       "id": "tarte-fraises",
       "name": "Tarte aux fraises pâtissière",
       "category": "Desserts",
@@ -361,8 +370,11 @@
       "sourceName": "",
       "sourceUrl": "",
       "description": "Un dessert vitrine avec pâte croustillante, crème vanillée et fraises brillantes.",
-      "steps": "Cuire la pâte à blanc. Préparer une crème pâtissière vanillée et la refroidir. Garnir le fond de tarte, disposer les fraises coupées et napper légèrement. Réserver au frais avant dégustation.",
-      "notes": "Pour un rendu pro, alternez les pointes des fraises vers l’extérieur."
+      "notes": "Pour un rendu pro, alternez les pointes des fraises vers l’extérieur.",
+      "rating": 3,
+      "tags": [
+        "Pâtisserie"
+      ]
     },
     {
       "badge": "Douceur",
@@ -407,6 +419,12 @@
           "unit": "pièce"
         }
       ],
+      "steps": [
+        {
+          "id": "step-z83p5ij",
+          "text": "Couper le potimarron et les carottes. Faire suer l’oignon, ajouter les légumes et couvrir de bouillon. Cuire 25 minutes puis mixer avec crème. Servir avec noisettes torréfiées."
+        }
+      ],
       "id": "soupe-potimarron",
       "name": "Velouté potimarron & noisettes",
       "category": "Entrées",
@@ -416,8 +434,11 @@
       "sourceName": "",
       "sourceUrl": "",
       "description": "Une entrée veloutée, rapide et élégante, avec une finition noisette qui change tout.",
-      "steps": "Couper le potimarron et les carottes. Faire suer l’oignon, ajouter les légumes et couvrir de bouillon. Cuire 25 minutes puis mixer avec crème. Servir avec noisettes torréfiées.",
-      "notes": "Inutile d’éplucher le potimarron si la peau est fine."
+      "notes": "Inutile d’éplucher le potimarron si la peau est fine.",
+      "rating": 3,
+      "tags": [
+        "Douceur"
+      ]
     },
     {
       "badge": "Vitaminé",
@@ -456,6 +477,12 @@
           "unit": "g"
         }
       ],
+      "steps": [
+        {
+          "id": "step-3kmoj3j",
+          "text": "Mixer mangue, banane, jus d’orange, yaourt et pulpe de passion. Ajouter quelques glaçons et mixer à nouveau. Servir immédiatement."
+        }
+      ],
       "id": "smoothie-mangue",
       "name": "Smoothie mangue passion",
       "category": "Boissons fraiches",
@@ -465,9 +492,12 @@
       "sourceName": "",
       "sourceUrl": "",
       "description": "Une boisson minute, ultra fraîche, idéale pour brunchs et goûters.",
-      "steps": "Mixer mangue, banane, jus d’orange, yaourt et pulpe de passion. Ajouter quelques glaçons et mixer à nouveau. Servir immédiatement.",
       "notes": "Remplacez le yaourt par du lait de coco pour une version vegan.",
-      "photoData": ""
+      "photoData": "",
+      "rating": 3,
+      "tags": [
+        "Vitaminé"
+      ]
     },
     {
       "badge": "Nouveau",
@@ -548,18 +578,128 @@
           "unit": "u"
         }
       ],
+      "steps": [
+        {
+          "id": "step-7lka0ld",
+          "text": "Avant de commencer mettre une poignée de boulghour dans un bol d'eau pendant 15 mn et laisser ramollir."
+        },
+        {
+          "id": "step-msju49k",
+          "text": "Rincez les herbes et ciselez-les."
+        },
+        {
+          "id": "step-6chgo07",
+          "text": "Lavez les tomates et épluchez le concombre puis coupez-les en petits cubes."
+        },
+        {
+          "id": "step-23tvb5o",
+          "text": "Épluchez l’oignon et coupez-le en petits dés très fin."
+        },
+        {
+          "id": "step-kolz2ni",
+          "text": "Dans un grand saladier, mélangez tous les ingrédients."
+        },
+        {
+          "id": "step-a7osowf",
+          "text": "Lorsque le boulghour ne croque plus, le sortir de l'eau, et le presser entre les mains pour l'essorer. Le mettre dans le saladier avec le reste."
+        },
+        {
+          "id": "step-zso385o",
+          "text": "Assaisonnez ensuite avec le jus d'un citron, le cumin, l’huile d’olive, le sel et le poivre. Mélangez bien et réservez au frais."
+        }
+      ],
       "id": "recipe-r94y23w",
       "name": "Taboulé libanais",
       "category": "Salades",
       "description": "",
-      "steps": "Avant de commencer mettre une poignée de boulghour dans un bol d'eau pendant 15 mn et laisser ramollir.\n1. Rincez les herbes et ciselez-les. \n2. Lavez les tomates et épluchez le concombre puis coupez-les en petits cubes. \n3. Épluchez l’oignon et coupez-le en petits dés très fin.\n4. Dans un grand saladier, mélangez tous les ingrédients.\n5. Lorsque le boulghour ne croque plus, le sortir de l'eau, et le presser entre les mains pour l'essorer. Le mettre dans le saladier avec le reste.\n6. Assaisonnez ensuite avec le jus d'un citron, le cumin, l’huile d’olive, le sel et le poivre. Mélangez bien et réservez au frais.",
       "notes": "",
       "photoUrl": "https://assets.afcdn.com/recipe/20190704/94646_w600.jpg",
       "photoData": "",
       "videoUrl": "",
       "sourceUrl": "https://www.marmiton.org/recettes/recette_le-vrai-taboule-libanais_26796.aspx#d94646-p2",
       "sourceName": "Source web",
-      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)"
+      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
+      "rating": 3,
+      "tags": [
+        "Nouveau"
+      ]
+    },
+    {
+      "badge": "Nouveau",
+      "difficulty": "Maison",
+      "baseServings": 4,
+      "time": 10,
+      "ingredients": [
+        {
+          "id": "ing-xngx7a8",
+          "name": "Tortilla de blé",
+          "qty": 4,
+          "unit": "pièces"
+        },
+        {
+          "id": "ing-3joiqq5",
+          "name": "Blanc de poulet",
+          "qty": 2,
+          "unit": "pièces"
+        },
+        {
+          "id": "ing-0phpfxh",
+          "name": "Salade Laitue",
+          "qty": 4,
+          "unit": "feuilles"
+        },
+        {
+          "id": "ing-79tdgk2",
+          "name": "Tomates",
+          "qty": 1,
+          "unit": "pièces"
+        },
+        {
+          "id": "ing-0x15naj",
+          "name": "Moutarde",
+          "qty": 1,
+          "unit": "u"
+        },
+        {
+          "id": "ing-mfge441",
+          "name": "Huile d'olive",
+          "qty": 1,
+          "unit": "c. à soupe"
+        }
+      ],
+      "steps": [
+        {
+          "id": "step-5i6a3u8",
+          "text": "Coupez la tomate en fines tranches. Épépinez-les et faites-les dégorger en les plaçant dans une passoire saupoudrées de sel."
+        },
+        {
+          "id": "step-vcm5d1b",
+          "text": "Taillez les filets de poulet en fines lanières et faites-les cuire à la poêle avec l'huile d'olive."
+        },
+        {
+          "id": "step-23rd1db",
+          "text": "Tartinez les tortillas de moutarde. Disposez ensuite la laitue, les morceaux de poulet et les rondelles de tomate dégorgées que vous aurez pris soin de bien rincer. Salez et poivrez à votre convenance."
+        },
+        {
+          "id": "step-wjue1sd",
+          "text": "Enroulez ensuite fermement et placez le tout au réfrigérateur dans du film alimentaire pour garder le wrap bien compact."
+        }
+      ],
+      "id": "recipe-o2vtqlc",
+      "name": "Wraps au poulet",
+      "category": "Pic-nic",
+      "description": "Un petit repas sur le pouce, un pique-nique ou un apéro dinatoire ? Pensez aux wraps au poulet, tellement plus sympas que les sandwichs traditionnels, mais aussi plus pratiques ! Cette recette toute simple allie poulet, salade, tomate et moutarde ou mayonnaise.",
+      "notes": "Vous pouvez choisir toutes sortes de sauces et d’accompagnements pour vos wraps au poulet : mayonnaise, huile d’olive, béarnaise, sauce au curry, vinaigrette, sauce au fromage frais et ciboulette, crème fraîche et jus de citron… Vous pouvez également ajouter d'autres crudités comme des bâtonnets de concombre, des oignons rouges, des lamelles de poivrons… au gré des saisons !",
+      "photoUrl": "https://img.cuisineaz.com/660x495/2013/12/20/i97834-wraps-poulet.webp",
+      "photoData": "",
+      "videoUrl": "",
+      "sourceUrl": "",
+      "sourceName": "",
+      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
+      "rating": 3,
+      "tags": [
+        "Nouveau"
+      ]
     }
   ],
   "shopping": []
