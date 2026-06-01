@@ -1181,10 +1181,6 @@ label {
   .page-shell {
     width: min(1760px, calc(100% - 6rem));
   }
-
-  .recipe-grid {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-  }
 }
 
 .page-hero {
