@@ -445,6 +445,7 @@ function currentRoute() {
   const hash = decodeURIComponent(window.location.hash || '#top');
   if (hash.startsWith('#recette/')) return { page: 'recipe', id: hash.slice('#recette/'.length) };
   if (hash === '#sauvegarde') return { page: 'backup' };
+  if (hash === '#courses') return { page: 'shopping' };
   return { page: 'home', anchor: hash };
 }
 
@@ -453,7 +454,7 @@ function renderHeader() {
       <a class="brand" href="#top"><span class="brand-mark">✦</span><span>Maison Saison <small>Premium</small></span></a>
       <button class="menu-toggle ghost" id="menu-toggle" aria-expanded="${state.menuOpen ? 'true' : 'false'}" aria-controls="top-menu"><span>☰</span> Menu</button>
       <nav id="top-menu" class="top-menu" aria-label="Menu principal">
-        <a href="#recettes">Recettes</a>
+        <a href="#top">Recettes</a>
         <a href="#courses">Courses</a>
         <a href="#sauvegarde">Sauvegardes</a>
         <button class="nav-action" data-create>+ Recette</button>
@@ -504,12 +505,11 @@ function renderBackupPanel() {
 }
 
 function renderShoppingSection() {
-  return `<section id="courses" class="section-head">
-        <div><p class="eyebrow">Courses</p><h2>Liste de courses</h2></div>
+  return `<section class="shopping-page-actions">
         <button class="secondary" id="clear-shopping">Vider la liste</button>
       </section>
 
-      <section class="tool-grid shopping-only-grid">
+      <section class="shopping-only-grid">
         <article class="panel shopping-panel">
           <div class="panel-intro">
             <span class="panel-icon">🛒</span>
@@ -519,16 +519,6 @@ function renderShoppingSection() {
             </div>
           </div>
           <div class="shopping-list">${renderShopping() || '<p class="small">Liste vide. Ouvrez une recette et cochez uniquement ce qu’il vous manque.</p>'}</div>
-        </article>
-        <article class="panel mini-backup-card">
-          <div class="panel-intro">
-            <span class="panel-icon">☁️</span>
-            <div>
-              <h3>Sauvegardes</h3>
-              <p class="small">Import, export et GitHub sont maintenant dans une page dédiée.</p>
-              <a class="button-link secondary-link" href="#sauvegarde">Gérer les sauvegardes</a>
-            </div>
-          </div>
         </article>
       </section>`;
 }
@@ -543,10 +533,6 @@ function renderHomePage(filteredRecipes, totalIngredients) {
             <a class="button-link" href="#recettes">Explorer les menus</a>
             <button class="secondary-link" data-create>Créer une recette</button>
           </div>
-          <div class="storage-notice">
-            <strong>☁️ Sauvegarde locale</strong>
-            <span>Les sauvegardes, imports et exports sont accessibles depuis la page Sauvegardes du menu.</span>
-          </div>
         </div>
         <aside class="hero-card">
           <span>Tableau de bord</span>
@@ -559,7 +545,7 @@ function renderHomePage(filteredRecipes, totalIngredients) {
         <div><strong>📸 Médias</strong><span>photo, vidéo et source web</span></div>
         <div><strong>🧭 Étapes</strong><span>préparation structurée et lisible</span></div>
         <div><strong>🛒 Courses</strong><span>sélection ingrédient par ingrédient</span></div>
-        <div><strong>☁️ Sauvegardes</strong><span>page dédiée import/export</span></div>
+        <div><strong>🗂️ Organisation</strong><span>menus et catégories clairs</span></div>
       </section>
 
       <section id="recettes" class="section-head">
@@ -567,9 +553,15 @@ function renderHomePage(filteredRecipes, totalIngredients) {
         <div class="category-menu">${categories().map((cat) => `<button class="nav-pill ${state.activeCategory === cat ? 'is-active' : ''}" data-cat="${esc(cat)}">${esc(cat)}</button>`).join('')}</div>
       </section>
 
-      <section class="recipe-grid">${filteredRecipes.map(recipeCard).join('') || '<p class="small">Aucune recette dans ce menu.</p>'}</section>
+      <section class="recipe-grid">${filteredRecipes.map(recipeCard).join('') || '<p class="small">Aucune recette dans ce menu.</p>'}</section>`;
+}
 
-      ${renderShoppingSection()}`;
+
+function renderShoppingPage() {
+  return `<section id="courses" class="page-hero premium-glass">
+      <a class="secondary-link button-link" href="#top">← Retour aux recettes</a>
+      <div><p class="eyebrow">Courses</p><h1>Votre liste de courses claire.</h1><p class="lead">Retrouvez uniquement les ingrédients cochés depuis les fiches recettes, prêts à être achetés.</p></div>
+    </section>${renderShoppingSection()}`;
 }
 
 function renderBackupPage() {
@@ -615,7 +607,7 @@ function render() {
   const filteredRecipes = state.activeCategory === 'Tout voir' ? state.recipes : state.recipes.filter((r) => (r.category || 'Mes recettes') === state.activeCategory);
   const totalIngredients = state.recipes.reduce((sum, recipe) => sum + recipe.ingredients.length, 0);
   const route = currentRoute();
-  const content = route.page === 'backup' ? renderBackupPage() : route.page === 'recipe' ? renderRecipePage(route.id) : renderHomePage(filteredRecipes, totalIngredients);
+  const content = route.page === 'backup' ? renderBackupPage() : route.page === 'shopping' ? renderShoppingPage() : route.page === 'recipe' ? renderRecipePage(route.id) : renderHomePage(filteredRecipes, totalIngredients);
 
   root.innerHTML = `${renderHeader()}<main id="top" class="page-shell">${content}${renderRecipeModal()}</main>`;
 
