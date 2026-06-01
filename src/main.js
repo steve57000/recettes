@@ -405,7 +405,26 @@ function importBackupText() {
   }
 }
 
+function updateShoppingBadge() {
+  const shoppingLink = document.querySelector('.top-menu a[href="#courses"]');
+  if (!shoppingLink) return;
+  const shoppingItems = shoppingSummary().length;
+  const existingBadge = shoppingLink.querySelector('.shopping-badge');
+  if (!shoppingItems) {
+    existingBadge?.remove();
+    return;
+  }
+  const label = `${shoppingItems} produit${shoppingItems > 1 ? 's' : ''} à acheter`;
+  if (existingBadge) {
+    existingBadge.textContent = shoppingItems;
+    existingBadge.setAttribute('aria-label', label);
+    return;
+  }
+  shoppingLink.insertAdjacentHTML('beforeend', `<strong class="shopping-badge" aria-label="${label}">${shoppingItems}</strong>`);
+}
+
 function updateShoppingPanel() {
+  updateShoppingBadge();
   const shoppingList = document.querySelector('.shopping-list');
   if (!shoppingList) return;
   shoppingList.innerHTML = renderShopping() || '<p class="small">Liste vide. Ouvrez une recette et cochez uniquement ce qu’il vous manque.</p>';
@@ -495,13 +514,19 @@ function currentRoute() {
 }
 
 function renderHeader() {
+  const route = currentRoute();
+  const activePage = route.page === 'shopping' ? 'shopping' : route.page === 'backup' ? 'backup' : 'home';
+  const shoppingItems = shoppingSummary().length;
+  const navItems = [
+    { page: 'home', href: '#top', label: 'Recettes' },
+    { page: 'shopping', href: '#courses', label: 'Courses', badge: shoppingItems },
+    { page: 'backup', href: '#sauvegarde', label: 'Sauvegardes' },
+  ];
   return `<header class="site-header ${state.menuOpen ? 'is-menu-open' : ''}">
       <a class="brand" href="#top"><span class="brand-mark">✦</span><span>Maison Saison <small>Premium</small></span></a>
       <button class="menu-toggle ghost" id="menu-toggle" aria-expanded="${state.menuOpen ? 'true' : 'false'}" aria-controls="top-menu"><span>☰</span> Menu</button>
       <nav id="top-menu" class="top-menu" aria-label="Menu principal">
-        <a href="#top">Recettes</a>
-        <a href="#courses">Courses</a>
-        <a href="#sauvegarde">Sauvegardes</a>
+        ${navItems.map((item) => `<a class="menu-link ${activePage === item.page ? 'is-current' : ''}" href="${item.href}" ${activePage === item.page ? 'aria-current="page"' : ''}><span>${item.label}</span>${item.badge ? `<strong class="shopping-badge" aria-label="${item.badge} produit${item.badge > 1 ? 's' : ''} à acheter">${item.badge}</strong>` : ''}</a>`).join('')}
         <button class="nav-action" data-create>+ Recette</button>
       </nav>
       <button class="ghost logout-button" id="logout">Déconnexion</button>
@@ -572,7 +597,7 @@ function renderDashboard(totalIngredients) {
   const shoppingItems = shoppingSummary().length;
   const avgRating = state.recipes.length ? (state.recipes.reduce((sum, recipe) => sum + clampRating(recipe.rating), 0) / state.recipes.length).toFixed(1) : '0';
   return `<aside class="hero-card dashboard-card">
-          <div class="dashboard-top"><span>Tableau de bord</span><strong>${state.recipes.length}</strong></div>
+          <div class="dashboard-top"><span>Tableau de bord</span><strong>${state.recipes.length}<small>recettes</small></strong></div>
           <div class="dashboard-grid">
             <span><b>${categories().length - 1}</b><small>menus</small></span>
             <span><b>${totalIngredients}</b><small>ingrédients</small></span>
@@ -734,7 +759,7 @@ function renderRecipeModal() {
           <label>Note<input id="r-rating" type="hidden" value="3" /><span class="rating-picker" id="rating-picker" aria-label="Choisir une note">${[1, 2, 3, 4, 5].map((value) => `<button type="button" class="rating-button" data-rate="${value}">★</button>`).join('')}</span></label>
         </div>
         <label>Description<textarea id="r-description" placeholder="Courte description appétissante"></textarea></label>
-        <div class="steps-head"><div><h3>Déroulé de la recette</h3><p class="small">Rédigez la préparation étape par étape pour obtenir une lecture élégante et guidée.</p></div><button class="secondary add-step-top" id="add-step">+ étape</button></div>
+        <div class="steps-head"><div><h3>Déroulé de la recette</h3><p class="small">Rédigez la préparation étape par étape pour obtenir une lecture élégante et guidée.</p></div></div>
         <div id="steps" class="steps-editor"></div>
         <label>Notes du chef<textarea id="r-notes" placeholder="Astuce, conservation, dressage..."></textarea></label>
         <div class="form-grid media-grid">
@@ -743,11 +768,10 @@ function renderRecipeModal() {
           <label>URL vidéo<input id="r-video" placeholder="YouTube, Vimeo, MP4..." /></label>
           <label>URL source / site<input id="r-source" placeholder="https://site-de-recette.fr/..." /></label>
         </div>
-        <div class="ingredients-head"><div><h3>Ingrédients</h3><p class="small">Ajoutez autant de lignes que nécessaire : les champs déjà saisis sont conservés.</p></div><button class="secondary add-ing-top" id="add-ing">+ ingrédient</button></div>
+        <div class="ingredients-head"><div><h3>Ingrédients</h3><p class="small">Ajoutez autant de lignes que nécessaire : les champs déjà saisis sont conservés.</p></div></div>
         <div id="ingredients" class="ingredients-editor"></div>
       </div>
       <div class="modal-actions">
-        <button class="secondary" id="add-ing-bottom">+ Ajouter un ingrédient</button>
         <button class="secondary" id="reset-form">Réinitialiser</button>
         <button id="save-recipe">${state.editingId ? 'Mettre à jour' : 'Enregistrer la recette'}</button>
       </div>
@@ -857,27 +881,6 @@ function bindEvents(root) {
       render();
     };
   });
-
-  const addIngredient = () => {
-    captureIngredientRows();
-    const next = emptyIngredient();
-    ingredientRows.push(next);
-    drawIngredientRows(next.id);
-  };
-
-  const addTop = document.getElementById('add-ing');
-  const addBottom = document.getElementById('add-ing-bottom');
-  if (addTop) addTop.onclick = addIngredient;
-  if (addBottom) addBottom.onclick = addIngredient;
-
-  const addStep = () => {
-    captureStepRows();
-    const next = emptyStep();
-    stepRows.push(next);
-    drawStepRows(next.id);
-  };
-  const addStepTop = document.getElementById('add-step');
-  if (addStepTop) addStepTop.onclick = addStep;
 
   const resetForm = document.getElementById('reset-form');
   if (resetForm) {
@@ -1021,7 +1024,7 @@ function captureStepRows() {
 function drawStepRows(focusId) {
   const container = document.getElementById('steps');
   if (!container) return;
-  container.innerHTML = stepRows
+  container.innerHTML = `${stepRows
     .map(
       (r, index) => `<div class="step-row" data-step-row-id="${esc(r.id)}">
         <div class="step-number">${index + 1}</div>
@@ -1029,12 +1032,22 @@ function drawStepRows(focusId) {
         <button class="secondary tiny" data-remove-step="${esc(r.id)}" ${stepRows.length === 1 ? 'disabled' : ''}>Retirer</button>
       </div>`,
     )
-    .join('');
+    .join('')}<button class="secondary inline-add-button" id="add-step" type="button">+ Ajouter une étape</button>`;
 
   if (focusId) {
     const row = container.querySelector(`[data-step-row-id="${focusId}"]`);
     row?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     row?.querySelector('textarea')?.focus({ preventScroll: true });
+  }
+
+  const addStep = container.querySelector('#add-step');
+  if (addStep) {
+    addStep.onclick = () => {
+      captureStepRows();
+      const next = emptyStep();
+      stepRows.push(next);
+      drawStepRows(next.id);
+    };
   }
 
   container.querySelectorAll('[data-remove-step]').forEach((button) => {
@@ -1061,7 +1074,7 @@ function captureIngredientRows() {
 function drawIngredientRows(focusId) {
   const container = document.getElementById('ingredients');
   if (!container) return;
-  container.innerHTML = ingredientRows
+  container.innerHTML = `${ingredientRows
     .map(
       (r, index) => `<div class="ingredient-row" data-row-id="${esc(r.id)}">
         <label><span>Ingrédient</span><input data-in="name-${r.id}" placeholder="Ex : Tomates" value="${esc(r.name)}" /></label>
@@ -1071,12 +1084,22 @@ function drawIngredientRows(focusId) {
         <small>Ligne ${index + 1}</small>
       </div>`,
     )
-    .join('');
+    .join('')}<button class="secondary inline-add-button" id="add-ing" type="button">+ Ajouter un ingrédient</button>`;
 
   if (focusId) {
     const row = container.querySelector(`[data-row-id="${focusId}"]`);
     row?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     row?.querySelector('input')?.focus({ preventScroll: true });
+  }
+
+  const addIngredient = container.querySelector('#add-ing');
+  if (addIngredient) {
+    addIngredient.onclick = () => {
+      captureIngredientRows();
+      const next = emptyIngredient();
+      ingredientRows.push(next);
+      drawIngredientRows(next.id);
+    };
   }
 
   container.querySelectorAll('[data-remove-ing]').forEach((button) => {
