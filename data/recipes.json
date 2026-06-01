@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-01T06:38:07.411Z",
+  "exportedAt": "2026-06-01T15:43:49.778Z",
   "recipes": [
     {
       "badge": "Signature",
@@ -48,13 +48,14 @@
       "name": "Salade niçoise grand soleil",
       "category": "Salades",
       "image": "linear-gradient(135deg, rgba(255, 209, 102, 0.92), rgba(246, 114, 128, 0.86)), url(https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1200&q=80)",
-      "photoUrl": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1200&q=80",
+      "photoUrl": "https://img.cuisineaz.com/660x495/2013/12/20/i34581-salade-nicoise-rapide.webp",
       "videoUrl": "https://www.youtube.com/watch?v=dA0VGEbbw4g",
-      "sourceName": "Inspiration méditerranéenne",
+      "sourceName": "Source web",
       "sourceUrl": "https://www.marmiton.org/recettes/recette_salade-nicoise_87933.aspx",
       "description": "Une salade complète, colorée et généreuse avec thon, œufs, légumes croquants et olives noires.",
       "steps": "Cuire les œufs 9 minutes puis les refroidir. Couper tomates, concombre, poivron et oignon. Disposer la salade, ajouter thon, olives et anchois. Assaisonner avec huile d’olive, vinaigre, sel et poivre. Servir très frais.",
-      "notes": "Ajoutez les œufs au dernier moment pour une présentation impeccable."
+      "notes": "Ajoutez les œufs au dernier moment pour une présentation impeccable.",
+      "photoData": ""
     },
     {
       "badge": "Comfort food",
