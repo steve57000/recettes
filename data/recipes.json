@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-01T16:24:13.375Z",
+  "exportedAt": "2026-06-01T16:31:42.979Z",
   "recipes": [
     {
       "badge": "Signature",
@@ -180,59 +180,78 @@
       "photoData": ""
     },
     {
-      "badge": "Voyage",
-      "difficulty": "Moyen",
+      "badge": "Mission maillot de bain",
+      "difficulty": "Facile",
       "baseServings": 4,
-      "time": 55,
+      "time": 10,
       "ingredients": [
         {
           "id": "poulet",
-          "name": "Cuisses de poulet",
-          "qty": 4,
+          "name": "Concombre",
+          "qty": 2,
           "unit": "pièces"
         },
         {
           "id": "oignons",
-          "name": "Oignons",
-          "qty": 5,
-          "unit": "pièces"
-        },
-        {
-          "id": "citrons",
-          "name": "Citrons",
-          "qty": 3,
-          "unit": "pièces"
-        },
-        {
-          "id": "moutarde",
-          "name": "Moutarde",
-          "qty": 3,
-          "unit": "c. à soupe"
-        },
-        {
-          "id": "riz",
-          "name": "Riz",
+          "name": "Yaourt Grec",
           "qty": 300,
           "unit": "g"
         },
         {
-          "id": "ail",
+          "id": "citrons",
           "name": "Ail",
-          "qty": 2,
-          "unit": "gousses"
+          "qty": 1,
+          "unit": "gousse"
+        },
+        {
+          "id": "moutarde",
+          "name": "Jus de citron",
+          "qty": 1,
+          "unit": "c. à soupe"
+        },
+        {
+          "id": "riz",
+          "name": "Huile d'olive",
+          "qty": 3,
+          "unit": "c. à soupe"
+        },
+        {
+          "id": "ail",
+          "name": "Vinaigre",
+          "qty": 1,
+          "unit": "c. à soupe"
+        },
+        {
+          "id": "ing-ctoiia9",
+          "name": "Aneth",
+          "qty": 5,
+          "unit": "brins"
+        },
+        {
+          "id": "ing-513uiqx",
+          "name": "Gros sel",
+          "qty": 1,
+          "unit": "u"
+        },
+        {
+          "id": "ing-auw1p80",
+          "name": "Poivre",
+          "qty": 1,
+          "unit": "u"
         }
       ],
       "id": "poulet-yassa",
-      "name": "Poulet yassa citronné",
-      "category": "Plats",
+      "name": "Salade de concombre au yaourt",
+      "category": "Salades",
       "image": "linear-gradient(135deg, rgba(255, 212, 59, 0.86), rgba(43, 138, 62, 0.8)), url(https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=1200&q=80)",
-      "photoUrl": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=1200&q=80",
+      "photoUrl": "https://img.cuisineaz.com/660x495/2015/05/12/i11922-salade-de-concombre-au-yaourt.webp",
       "videoUrl": "",
-      "sourceName": "",
-      "sourceUrl": "",
-      "description": "Un grand plat familial avec oignons fondants, citron et moutarde, à servir avec du riz parfumé.",
-      "steps": "Mariner le poulet avec citron, moutarde, ail, sel et poivre pendant 30 minutes. Faire dorer le poulet. Faire compoter les oignons, ajouter la marinade et un peu d’eau. Remettre le poulet et mijoter jusqu’à tendreté.",
-      "notes": "Excellent réchauffé le lendemain."
+      "sourceName": "Source web",
+      "sourceUrl": "https://www.cuisineaz.com/recettes/salade-de-concombre-au-yaourt-122708.aspx",
+      "description": "La salade de concombres au yaourt, une recette grecque \"fraîcheur\", parfaite pour les beaux jours ! Rafraîchissante et healthy, elle est peu calorique",
+      "steps": "1 : Préparation des concombres\nÉpluchez les concombres, ôtez les graines et coupez-les en fines rondelles bien régulières. Puis disposez-les dans un plat (un plat à gratin est parfait pour pouvoir bien étaler toutes les rondelles de concombre), saupoudrez-les de gros sel et remuez délicatement. Laissez les concombres dégorger pendant 15 min environ, puis passez-les sous l'eau claire pour éliminer le sel. Enfin, épongez-les bien à l'aide d'un linge propre ou de papier absorbant.\n2 : Préparation de la sauce au yaourt et mélange\nVersez le yaourt dans un saladier. Ajoutez la gousse d'ail écrasée, puis ajoutez ensuite l'huile d'olive, le jus de citron et le vinaigre. Salez, poivrez et mélangez. Incorporez les rondelles de concombre et l'aneth délicatement ciselée à la préparation. Mélangez à nouveau le tout de façon à ce que la sauce enveloppe bien le concombre.\n3 : Finition et service\nDécorez de quelques brins d'aneth et servez bien frais.",
+      "notes": "Pour une touche encore plus gourmande, ajoutez quelques éclats de noix ou des graines de sésame grillées juste avant de servir. Vous pouvez aussi mélanger un peu de feta émiettée pour une version plus savoureuse, ou râper légèrement le concombre pour une texture différente et une meilleure imprégnation de la sauce.",
+      "photoData": ""
     },
     {
       "badge": "Pâtisserie",
