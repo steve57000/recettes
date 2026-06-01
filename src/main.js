@@ -18,161 +18,11 @@ let githubSyncRunning = false;
 let githubSyncQueued = false;
 let githubAutoLoadStarted = false;
 
-const seedRecipes = [
-  {
-    id: 'salade-nicoise-premium',
-    name: 'Salade niçoise grand soleil',
-    category: 'Salades',
-    time: 25,
-    difficulty: 'Facile',
-    badge: 'Signature',
-    baseServings: 4,
-    image: 'linear-gradient(135deg, rgba(255, 209, 102, 0.92), rgba(246, 114, 128, 0.86)), url(https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1200&q=80)',
-    photoUrl: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1200&q=80',
-    videoUrl: 'https://www.youtube.com/watch?v=dA0VGEbbw4g',
-    sourceName: 'Inspiration méditerranéenne',
-    sourceUrl: 'https://www.marmiton.org/recettes/recette_salade-nicoise_87933.aspx',
-    description: 'Une salade complète, colorée et généreuse avec thon, œufs, légumes croquants et olives noires.',
-    steps: 'Cuire les œufs 9 minutes puis les refroidir. Couper tomates, concombre, poivron et oignon. Disposer la salade, ajouter thon, olives et anchois. Assaisonner avec huile d’olive, vinaigre, sel et poivre. Servir très frais.',
-    notes: 'Ajoutez les œufs au dernier moment pour une présentation impeccable.',
-    ingredients: [
-      { id: 'salade', name: 'Salade romaine', qty: 1, unit: 'pièce' },
-      { id: 'tomates', name: 'Tomates', qty: 4, unit: 'pièces' },
-      { id: 'thon', name: 'Thon', qty: 240, unit: 'g' },
-      { id: 'oeufs', name: 'Œufs', qty: 4, unit: 'pièces' },
-      { id: 'olives', name: 'Olives noires', qty: 80, unit: 'g' },
-      { id: 'huile', name: 'Huile d’olive', qty: 3, unit: 'c. à soupe' },
-    ],
-  },
-  {
-    id: 'risotto-champignons',
-    name: 'Risotto crémeux aux champignons',
-    category: 'Plats',
-    time: 40,
-    difficulty: 'Moyen',
-    badge: 'Comfort food',
-    baseServings: 4,
-    image: 'linear-gradient(135deg, rgba(91, 62, 43, 0.75), rgba(242, 177, 109, 0.74)), url(https://images.unsplash.com/photo-1476124369491-e7addf5db371?auto=format&fit=crop&w=1200&q=80)',
-    photoUrl: 'https://images.unsplash.com/photo-1476124369491-e7addf5db371?auto=format&fit=crop&w=1200&q=80',
-    videoUrl: '',
-    sourceName: 'Technique maison',
-    sourceUrl: '',
-    description: 'Un plat principal onctueux, parfumé au parmesan, parfait pour un dîner premium sans complication.',
-    steps: 'Faire revenir l’oignon dans l’huile. Ajouter le riz et le nacrer 2 minutes. Verser le vin blanc, puis incorporer le bouillon louche par louche. Poêler les champignons à part. Terminer avec parmesan, beurre, champignons et persil.',
-    notes: 'Le secret : remuer souvent et garder le bouillon bien chaud.',
-    ingredients: [
-      { id: 'riz', name: 'Riz arborio', qty: 320, unit: 'g' },
-      { id: 'champignons', name: 'Champignons', qty: 450, unit: 'g' },
-      { id: 'bouillon', name: 'Bouillon de légumes', qty: 1.1, unit: 'L' },
-      { id: 'parmesan', name: 'Parmesan', qty: 90, unit: 'g' },
-      { id: 'vin', name: 'Vin blanc', qty: 12, unit: 'cl' },
-      { id: 'oignon', name: 'Oignon', qty: 1, unit: 'pièce' },
-    ],
-  },
-  {
-    id: 'poulet-yassa',
-    name: 'Poulet yassa citronné',
-    category: 'Plats',
-    time: 55,
-    difficulty: 'Moyen',
-    badge: 'Voyage',
-    baseServings: 4,
-    image: 'linear-gradient(135deg, rgba(255, 212, 59, 0.86), rgba(43, 138, 62, 0.8)), url(https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=1200&q=80)',
-    photoUrl: 'https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=1200&q=80',
-    videoUrl: '',
-    sourceName: '',
-    sourceUrl: '',
-    description: 'Un grand plat familial avec oignons fondants, citron et moutarde, à servir avec du riz parfumé.',
-    steps: 'Mariner le poulet avec citron, moutarde, ail, sel et poivre pendant 30 minutes. Faire dorer le poulet. Faire compoter les oignons, ajouter la marinade et un peu d’eau. Remettre le poulet et mijoter jusqu’à tendreté.',
-    notes: 'Excellent réchauffé le lendemain.',
-    ingredients: [
-      { id: 'poulet', name: 'Cuisses de poulet', qty: 4, unit: 'pièces' },
-      { id: 'oignons', name: 'Oignons', qty: 5, unit: 'pièces' },
-      { id: 'citrons', name: 'Citrons', qty: 3, unit: 'pièces' },
-      { id: 'moutarde', name: 'Moutarde', qty: 3, unit: 'c. à soupe' },
-      { id: 'riz', name: 'Riz', qty: 300, unit: 'g' },
-      { id: 'ail', name: 'Ail', qty: 2, unit: 'gousses' },
-    ],
-  },
-  {
-    id: 'tarte-fraises',
-    name: 'Tarte aux fraises pâtissière',
-    category: 'Desserts',
-    time: 75,
-    difficulty: 'Chef',
-    badge: 'Pâtisserie',
-    baseServings: 8,
-    image: 'linear-gradient(135deg, rgba(255, 107, 107, 0.8), rgba(255, 236, 153, 0.76)), url(https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?auto=format&fit=crop&w=1200&q=80)',
-    photoUrl: 'https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?auto=format&fit=crop&w=1200&q=80',
-    videoUrl: '',
-    sourceName: '',
-    sourceUrl: '',
-    description: 'Un dessert vitrine avec pâte croustillante, crème vanillée et fraises brillantes.',
-    steps: 'Cuire la pâte à blanc. Préparer une crème pâtissière vanillée et la refroidir. Garnir le fond de tarte, disposer les fraises coupées et napper légèrement. Réserver au frais avant dégustation.',
-    notes: 'Pour un rendu pro, alternez les pointes des fraises vers l’extérieur.',
-    ingredients: [
-      { id: 'pate', name: 'Pâte sablée', qty: 1, unit: 'pièce' },
-      { id: 'fraises', name: 'Fraises', qty: 650, unit: 'g' },
-      { id: 'lait', name: 'Lait', qty: 50, unit: 'cl' },
-      { id: 'oeufs', name: 'Jaunes d’œufs', qty: 4, unit: 'pièces' },
-      { id: 'sucre', name: 'Sucre', qty: 110, unit: 'g' },
-      { id: 'vanille', name: 'Vanille', qty: 1, unit: 'gousse' },
-    ],
-  },
-  {
-    id: 'soupe-potimarron',
-    name: 'Velouté potimarron & noisettes',
-    category: 'Entrées',
-    time: 35,
-    difficulty: 'Facile',
-    badge: 'Douceur',
-    baseServings: 4,
-    image: 'linear-gradient(135deg, rgba(240, 90, 55, 0.86), rgba(255, 190, 118, 0.76)), url(https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=80)',
-    photoUrl: 'https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=80',
-    videoUrl: '',
-    sourceName: '',
-    sourceUrl: '',
-    description: 'Une entrée veloutée, rapide et élégante, avec une finition noisette qui change tout.',
-    steps: 'Couper le potimarron et les carottes. Faire suer l’oignon, ajouter les légumes et couvrir de bouillon. Cuire 25 minutes puis mixer avec crème. Servir avec noisettes torréfiées.',
-    notes: 'Inutile d’éplucher le potimarron si la peau est fine.',
-    ingredients: [
-      { id: 'potimarron', name: 'Potimarron', qty: 1, unit: 'pièce' },
-      { id: 'carottes', name: 'Carottes', qty: 3, unit: 'pièces' },
-      { id: 'bouillon', name: 'Bouillon de légumes', qty: 80, unit: 'cl' },
-      { id: 'creme', name: 'Crème', qty: 15, unit: 'cl' },
-      { id: 'noisettes', name: 'Noisettes', qty: 50, unit: 'g' },
-      { id: 'oignon', name: 'Oignon', qty: 1, unit: 'pièce' },
-    ],
-  },
-  {
-    id: 'smoothie-mangue',
-    name: 'Smoothie mangue passion',
-    category: 'Boissons',
-    time: 8,
-    difficulty: 'Facile',
-    badge: 'Vitaminé',
-    baseServings: 2,
-    image: 'linear-gradient(135deg, rgba(255, 193, 7, 0.85), rgba(255, 111, 97, 0.72)), url(https://images.unsplash.com/photo-1502741224143-90386d7f8c82?auto=format&fit=crop&w=1200&q=80)',
-    photoUrl: 'https://images.unsplash.com/photo-1502741224143-90386d7f8c82?auto=format&fit=crop&w=1200&q=80',
-    videoUrl: '',
-    sourceName: '',
-    sourceUrl: '',
-    description: 'Une boisson minute, ultra fraîche, idéale pour brunchs et goûters.',
-    steps: 'Mixer mangue, banane, jus d’orange, yaourt et pulpe de passion. Ajouter quelques glaçons et mixer à nouveau. Servir immédiatement.',
-    notes: 'Remplacez le yaourt par du lait de coco pour une version vegan.',
-    ingredients: [
-      { id: 'mangue', name: 'Mangue', qty: 1, unit: 'pièce' },
-      { id: 'banane', name: 'Banane', qty: 1, unit: 'pièce' },
-      { id: 'orange', name: 'Jus d’orange', qty: 25, unit: 'cl' },
-      { id: 'passion', name: 'Fruit de la passion', qty: 2, unit: 'pièces' },
-      { id: 'yaourt', name: 'Yaourt grec', qty: 120, unit: 'g' },
-    ],
-  },
-];
+const INITIAL_RECIPES_URL = './data/recipes.json';
 
 const defaultState = {
   users: [{ username: 'admin', password: 'admin123' }],
-  recipes: seedRecipes,
+  recipes: [],
   shopping: [],
   github: githubDefaults,
   sessionUser: null,
@@ -188,8 +38,7 @@ let ingredientRows = [emptyIngredient()];
 function load() {
   try {
     const saved = JSON.parse(localStorage.getItem(KEY) || '{}');
-    const savedRecipes = Array.isArray(saved.recipes) && saved.recipes.length ? saved.recipes : [];
-    const recipes = mergeRecipes(seedRecipes, savedRecipes);
+    const recipes = Array.isArray(saved.recipes) ? saved.recipes.map(normalizeRecipe) : [];
     const github = { ...githubDefaults, ...(saved.github || {}) };
     githubStatus = github.lastSync ? `Dernière synchro GitHub : ${new Date(github.lastSync).toLocaleString('fr-FR')}` : 'GitHub prêt à configurer';
     return { ...defaultState, ...saved, github, recipes, shopping: Array.isArray(saved.shopping) ? saved.shopping : [] };
@@ -198,10 +47,28 @@ function load() {
   }
 }
 
-function mergeRecipes(seed, saved) {
-  const map = new Map(seed.map((recipe) => [recipe.id, recipe]));
-  saved.forEach((recipe) => map.set(recipe.id, normalizeRecipe(recipe)));
+function mergeRecipes(existingRecipes, incomingRecipes) {
+  const map = new Map(existingRecipes.map((recipe) => [recipe.id, normalizeRecipe(recipe)]));
+  incomingRecipes.forEach((recipe) => map.set(recipe.id, normalizeRecipe(recipe)));
   return Array.from(map.values());
+}
+
+async function loadInitialRecipes() {
+  try {
+    const response = await fetch(INITIAL_RECIPES_URL, { cache: 'no-store' });
+    if (!response.ok) throw new Error(`Chargement initial ${response.status}`);
+
+    const payload = await response.json();
+    const recipes = Array.isArray(payload) ? payload : payload.recipes;
+    if (!Array.isArray(recipes)) throw new Error('Format initial invalide');
+
+    state.recipes = mergeRecipes(state.recipes, recipes);
+    if (!state.shopping.length && !Array.isArray(payload) && Array.isArray(payload.shopping)) state.shopping = payload.shopping;
+    save();
+    render();
+  } catch (error) {
+    console.error('Chargement des recettes initiales impossible', error);
+  }
 }
 
 function normalizeRecipe(recipe) {
@@ -1067,3 +934,4 @@ function openRecipe(recipeId) {
 }
 
 render();
+loadInitialRecipes();
