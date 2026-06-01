@@ -30,6 +30,7 @@ const defaultState = {
   editingId: null,
   formOpen: false,
   menuOpen: false,
+  filters: { name: '', ingredients: [], tags: [] },
 };
 
 const state = load();
@@ -83,7 +84,24 @@ function normalizeRecipe(recipe) {
     ...recipe,
     ingredients: Array.isArray(recipe.ingredients) ? recipe.ingredients : [],
     steps: normalizeSteps(recipe.steps),
+    rating: clampRating(recipe.rating),
+    tags: normalizeTags(recipe.tags || recipe.tag || recipe.badge || recipe.category),
   };
+}
+
+function clampRating(value) {
+  const rating = Math.round(Number(value) || 0);
+  return Math.min(5, Math.max(1, rating || 3));
+}
+
+function normalizeTags(value) {
+  const raw = Array.isArray(value) ? value : String(value || '').split(/[,;#]/);
+  return Array.from(new Set(raw.map((tag) => String(tag).trim()).filter(Boolean)));
+}
+
+function renderStars(value, label = 'Note de la recette') {
+  const rating = clampRating(value);
+  return `<span class="rating-stars" aria-label="${esc(label)} : ${rating}/5">${Array.from({ length: 5 }, (_, index) => `<span class="star ${index < rating ? 'is-full' : 'is-empty'}">★</span>`).join('')}</span>`;
 }
 
 function normalizeSteps(steps) {
@@ -429,6 +447,33 @@ function categories() {
   return ['Tout voir', ...Array.from(new Set(state.recipes.map((r) => r.category || 'Mes recettes')))];
 }
 
+function currentFilters() {
+  const filters = { name: '', ingredients: [], tags: [], ...(state.filters || {}) };
+  filters.ingredients = Array.isArray(filters.ingredients) ? filters.ingredients : [];
+  filters.tags = Array.isArray(filters.tags) ? filters.tags : [];
+  return filters;
+}
+
+function ingredientOptions() {
+  return Array.from(new Set(state.recipes.flatMap((recipe) => recipe.ingredients.map((ingredient) => ingredient.name.trim()).filter(Boolean)))).sort((a, b) => a.localeCompare(b, 'fr'));
+}
+
+function tagOptions() {
+  return Array.from(new Set(state.recipes.flatMap((recipe) => normalizeTags(recipe.tags || recipe.category || recipe.badge)))).sort((a, b) => a.localeCompare(b, 'fr'));
+}
+
+function recipeMatchesFilters(recipe) {
+  const filters = currentFilters();
+  const haystack = `${recipe.name || ''} ${recipe.description || ''}`.toLowerCase();
+  const recipeIngredients = recipe.ingredients.map((ingredient) => ingredient.name.toLowerCase());
+  const recipeTags = normalizeTags(recipe.tags || recipe.category || recipe.badge).map((tag) => tag.toLowerCase());
+  const categoryMatches = state.activeCategory === 'Tout voir' || (recipe.category || 'Mes recettes') === state.activeCategory;
+  const nameMatches = !filters.name || haystack.includes(filters.name.toLowerCase());
+  const ingredientsMatch = filters.ingredients.every((selected) => recipeIngredients.some((ingredient) => ingredient.includes(selected.toLowerCase())));
+  const tagsMatch = filters.tags.every((selected) => recipeTags.includes(selected.toLowerCase()));
+  return categoryMatches && nameMatches && ingredientsMatch && tagsMatch;
+}
+
 function shoppingSummary() {
   const map = new Map();
   state.shopping.forEach((item) => {
@@ -523,6 +568,46 @@ function renderShoppingSection() {
       </section>`;
 }
 
+function renderDashboard(totalIngredients) {
+  const shoppingItems = shoppingSummary().length;
+  const avgRating = state.recipes.length ? (state.recipes.reduce((sum, recipe) => sum + clampRating(recipe.rating), 0) / state.recipes.length).toFixed(1) : '0';
+  return `<aside class="hero-card dashboard-card">
+          <div class="dashboard-top"><span>Tableau de bord</span><strong>${state.recipes.length}</strong></div>
+          <div class="dashboard-grid">
+            <span><b>${categories().length - 1}</b><small>menus</small></span>
+            <span><b>${totalIngredients}</b><small>ingrédients</small></span>
+            <span><b>${shoppingItems}</b><small>à acheter</small></span>
+            <span><b>${avgRating}</b><small>note moy.</small></span>
+          </div>
+        </aside>`;
+}
+
+function renderFilterDropdown(type, title, options, selected) {
+  return `<details class="filter-dropdown" data-filter-panel="${type}">
+    <summary><span>${title}</span><strong>${selected.length || 'Tout'}</strong></summary>
+    <div class="filter-menu">
+      ${options.map((option) => `<label class="filter-option"><input type="checkbox" data-filter-${type}="${esc(option)}" ${selected.includes(option) ? 'checked' : ''}/><span>${esc(option)}</span></label>`).join('') || '<p class="small">Aucun choix disponible.</p>'}
+    </div>
+  </details>`;
+}
+
+function renderSearchFilters() {
+  const filters = currentFilters();
+  return `<section class="search-lab panel" aria-label="Filtres de recherche">
+    <div class="search-title"><p class="eyebrow">Recherche gourmande</p><h2>Trouvez l’inspiration en quelques secondes</h2></div>
+    <label class="name-filter"><span>Nom de la recette</span><input id="filter-name" placeholder="Ex : salade, tarte, poulet..." value="${esc(filters.name)}" /></label>
+    <div class="smart-filters">
+      ${renderFilterDropdown('ingredient', 'Ingrédients', ingredientOptions(), filters.ingredients)}
+      ${renderFilterDropdown('tag', 'Tags', tagOptions(), filters.tags)}
+    </div>
+    <div class="selected-filters">
+      ${filters.ingredients.map((item) => `<button class="filter-chip" data-remove-filter="ingredient" data-value="${esc(item)}">${esc(item)} ×</button>`).join('')}
+      ${filters.tags.map((item) => `<button class="filter-chip tag-chip" data-remove-filter="tag" data-value="${esc(item)}">#${esc(item)} ×</button>`).join('')}
+      ${(filters.name || filters.ingredients.length || filters.tags.length) ? '<button class="filter-reset secondary" id="clear-filters">Réinitialiser les filtres</button>' : '<span class="small">Ajoutez des ingrédients ou tags pour composer votre menu parfait.</span>'}
+    </div>
+  </section>`;
+}
+
 function renderHomePage(filteredRecipes, totalIngredients) {
   return `<section class="hero premium-glass">
         <div>
@@ -534,19 +619,10 @@ function renderHomePage(filteredRecipes, totalIngredients) {
             <button class="secondary-link" data-create>Créer une recette</button>
           </div>
         </div>
-        <aside class="hero-card">
-          <span>Tableau de bord</span>
-          <strong>${state.recipes.length}</strong>
-          <p>recettes · ${categories().length - 1} menus · ${totalIngredients} ingrédients</p>
-        </aside>
+        ${renderDashboard(totalIngredients)}
       </section>
 
-      <section class="premium-strip" aria-label="Fonctionnalités premium">
-        <div><strong>📸 Médias</strong><span>photo, vidéo et source web</span></div>
-        <div><strong>🧭 Étapes</strong><span>préparation structurée et lisible</span></div>
-        <div><strong>🛒 Courses</strong><span>sélection ingrédient par ingrédient</span></div>
-        <div><strong>🗂️ Organisation</strong><span>menus et catégories clairs</span></div>
-      </section>
+      ${renderSearchFilters()}
 
       <section id="recettes" class="section-head">
         <div><p class="eyebrow">Menus</p><h2>Recettes disponibles</h2></div>
@@ -604,7 +680,7 @@ function render() {
     return;
   }
 
-  const filteredRecipes = state.activeCategory === 'Tout voir' ? state.recipes : state.recipes.filter((r) => (r.category || 'Mes recettes') === state.activeCategory);
+  const filteredRecipes = state.recipes.filter(recipeMatchesFilters);
   const totalIngredients = state.recipes.reduce((sum, recipe) => sum + recipe.ingredients.length, 0);
   const route = currentRoute();
   const content = route.page === 'backup' ? renderBackupPage() : route.page === 'shopping' ? renderShoppingPage() : route.page === 'recipe' ? renderRecipePage(route.id) : renderHomePage(filteredRecipes, totalIngredients);
@@ -654,6 +730,8 @@ function renderRecipeModal() {
           <label>Temps (min)<input id="r-time" type="number" min="1" value="20" /></label>
           <label>Difficulté<input id="r-difficulty" placeholder="Facile, Moyen, Chef..." value="Maison" /></label>
           <label>Badge<input id="r-badge" placeholder="Signature, Express..." value="Nouveau" /></label>
+          <label>Tags<input id="r-tags" placeholder="rapide, été, végétarien..." /></label>
+          <label>Note<input id="r-rating" type="hidden" value="3" /><span class="rating-picker" id="rating-picker" aria-label="Choisir une note">${[1, 2, 3, 4, 5].map((value) => `<button type="button" class="rating-button" data-rate="${value}">★</button>`).join('')}</span></label>
         </div>
         <label>Description<textarea id="r-description" placeholder="Courte description appétissante"></textarea></label>
         <div class="steps-head"><div><h3>Déroulé de la recette</h3><p class="small">Rédigez la préparation étape par étape pour obtenir une lecture élégante et guidée.</p></div><button class="secondary add-step-top" id="add-step">+ étape</button></div>
@@ -683,7 +761,9 @@ function recipeCard(r) {
     <div class="recipe-body">
       <div class="recipe-meta"><span>${esc(r.category || 'Mes recettes')}</span><span>${esc(r.time || 20)} min</span><span>${esc(r.difficulty || 'Facile')}</span></div>
       <h3>${esc(r.name)}</h3>
+      ${renderStars(r.rating, `Note ${r.name}`)}
       <p>${esc(r.description || 'Recette personnelle à adapter selon vos envies.')}</p>
+      <div class="tag-row">${normalizeTags(r.tags || r.category || r.badge).slice(0, 4).map((tag) => `<span>#${esc(tag)}</span>`).join('')}</div>
       <div class="card-actions">
         <button data-open="${esc(r.id)}">Voir</button>
         <button class="secondary" data-edit="${esc(r.id)}">Modifier</button>
@@ -692,6 +772,48 @@ function recipeCard(r) {
       <div class="media-links">${r.videoUrl ? '<span>🎬 vidéo</span>' : ''}${r.sourceUrl ? `<a class="source" href="${esc(r.sourceUrl)}" target="_blank" rel="noreferrer">Source web</a>` : ''}</div>
     </div>
   </article>`;
+}
+
+function updateRecipeResults() {
+  const grid = document.querySelector('.recipe-grid');
+  if (!grid) return;
+  const recipes = state.recipes.filter(recipeMatchesFilters);
+  grid.innerHTML = recipes.map(recipeCard).join('') || '<p class="small">Aucune recette ne correspond à ces filtres.</p>';
+  bindRecipeCardActions(grid);
+}
+
+function updateRatingPicker(value = 3) {
+  const rating = clampRating(value);
+  const input = document.getElementById('r-rating');
+  if (input) input.value = rating;
+  document.querySelectorAll('[data-rate]').forEach((button) => {
+    const active = Number(button.getAttribute('data-rate')) <= rating;
+    button.classList.toggle('is-active', active);
+    button.setAttribute('aria-pressed', active ? 'true' : 'false');
+  });
+}
+
+function bindRecipeCardActions(scope = document) {
+  scope.querySelectorAll('[data-del]').forEach((b) => {
+    b.onclick = () => {
+      const id = b.getAttribute('data-del');
+      if (!confirm('Supprimer cette recette ?')) return;
+      state.recipes = state.recipes.filter((r) => r.id !== id);
+      state.shopping = state.shopping.filter((s) => s.recipeId !== id);
+      if (state.editingId === id) state.editingId = null;
+      save();
+      render();
+      scheduleGithubSync('Suppression de recette Maison Saison');
+    };
+  });
+
+  scope.querySelectorAll('[data-edit]').forEach((b) => {
+    b.onclick = () => editRecipe(b.getAttribute('data-edit'));
+  });
+
+  scope.querySelectorAll('[data-open]').forEach((b) => {
+    b.onclick = () => { window.location.hash = `recette/${b.getAttribute('data-open')}`; };
+  });
 }
 
 function renderShopping() {
@@ -782,26 +904,63 @@ function bindEvents(root) {
     if (event.key === 'Escape' && (state.formOpen || state.editingId)) closeRecipeForm();
   };
 
-  root.querySelectorAll('[data-del]').forEach((b) => {
-    b.onclick = () => {
-      const id = b.getAttribute('data-del');
-      if (!confirm('Supprimer cette recette ?')) return;
-      state.recipes = state.recipes.filter((r) => r.id !== id);
-      state.shopping = state.shopping.filter((s) => s.recipeId !== id);
-      if (state.editingId === id) state.editingId = null;
+  bindRecipeCardActions(root);
+
+  const filterName = document.getElementById('filter-name');
+  if (filterName) filterName.oninput = () => {
+    state.filters = { ...currentFilters(), name: filterName.value.trim() };
+    save();
+    updateRecipeResults();
+  };
+
+  root.querySelectorAll('[data-filter-ingredient]').forEach((input) => {
+    input.onchange = () => {
+      const value = input.getAttribute('data-filter-ingredient');
+      const filters = currentFilters();
+      const set = new Set(filters.ingredients);
+      if (input.checked) set.add(value); else set.delete(value);
+      state.filters = { ...filters, ingredients: Array.from(set) };
       save();
       render();
-      scheduleGithubSync('Suppression de recette Maison Saison');
     };
   });
 
-  root.querySelectorAll('[data-edit]').forEach((b) => {
-    b.onclick = () => editRecipe(b.getAttribute('data-edit'));
+  root.querySelectorAll('[data-filter-tag]').forEach((input) => {
+    input.onchange = () => {
+      const value = input.getAttribute('data-filter-tag');
+      const filters = currentFilters();
+      const set = new Set(filters.tags);
+      if (input.checked) set.add(value); else set.delete(value);
+      state.filters = { ...filters, tags: Array.from(set) };
+      save();
+      render();
+    };
   });
 
-  root.querySelectorAll('[data-open]').forEach((b) => {
-    b.onclick = () => { window.location.hash = `recette/${b.getAttribute('data-open')}`; };
+  root.querySelectorAll('[data-remove-filter]').forEach((button) => {
+    button.onclick = () => {
+      const filters = currentFilters();
+      const kind = button.getAttribute('data-remove-filter');
+      const value = button.getAttribute('data-value');
+      if (kind === 'ingredient') filters.ingredients = filters.ingredients.filter((item) => item !== value);
+      if (kind === 'tag') filters.tags = filters.tags.filter((item) => item !== value);
+      state.filters = filters;
+      save();
+      render();
+    };
   });
+
+  const clearFilters = document.getElementById('clear-filters');
+  if (clearFilters) clearFilters.onclick = () => {
+    state.filters = { name: '', ingredients: [], tags: [] };
+    save();
+    render();
+  };
+
+  root.querySelectorAll('[data-rate]').forEach((button) => {
+    button.onclick = () => updateRatingPicker(button.getAttribute('data-rate'));
+  });
+  updateRatingPicker(document.getElementById('r-rating')?.value || 3);
 
   const clearShopping = document.getElementById('clear-shopping');
   if (clearShopping) clearShopping.onclick = () => {
@@ -838,6 +997,9 @@ function hydrateForm() {
   document.getElementById('r-difficulty').value = recipe.difficulty || 'Maison';
   document.getElementById('r-badge').value = recipe.badge || 'Nouveau';
   document.getElementById('r-description').value = recipe.description || '';
+  document.getElementById('r-tags').value = normalizeTags(recipe.tags || recipe.category || recipe.badge).join(', ');
+  document.getElementById('r-rating').value = clampRating(recipe.rating);
+  updateRatingPicker(clampRating(recipe.rating));
   stepRows = normalizeSteps(recipe.steps);
   if (!stepRows.length) stepRows = [emptyStep()];
   document.getElementById('r-notes').value = recipe.notes || '';
@@ -954,6 +1116,8 @@ async function saveRecipeFromForm() {
     time: Number(document.getElementById('r-time').value) || 20,
     difficulty: document.getElementById('r-difficulty').value.trim() || 'Maison',
     badge: document.getElementById('r-badge').value.trim() || 'Nouveau',
+    tags: normalizeTags(document.getElementById('r-tags').value),
+    rating: clampRating(document.getElementById('r-rating').value),
     description: document.getElementById('r-description').value.trim(),
     steps: stepRows.filter((x) => x.text).map((x) => ({ ...x, id: x.id || uid('step') })),
     notes: document.getElementById('r-notes').value.trim(),
@@ -1033,6 +1197,7 @@ function openRecipe(recipeId, options = {}) {
     <div class="detail-main">
       <p class="eyebrow">Fiche recette</p>
       <h2>${esc(recipe.name)}</h2>
+      ${renderStars(recipe.rating, `Note ${recipe.name}`)}
       <p class="lead">${esc(recipe.description || '')}</p>
       <div class="recipe-meta"><span>${esc(recipe.category || 'Mes recettes')}</span><span>${esc(recipe.time || 20)} min</span><span>${esc(recipe.difficulty || 'Facile')}</span></div>
       <div class="detail-actions"><button class="secondary" data-edit-detail="${esc(recipe.id)}">Modifier cette recette</button>${recipe.sourceUrl ? `<a class="button-link secondary-link" href="${esc(recipe.sourceUrl)}" target="_blank" rel="noreferrer">Ouvrir la source</a>` : ''}</div>
