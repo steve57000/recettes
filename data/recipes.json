@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-01T18:29:06.648Z",
+  "exportedAt": "2026-06-01T18:29:26.250Z",
   "recipes": [
     {
       "badge": "Signature",
@@ -710,7 +710,7 @@
       "name": "Salade mesclum",
       "qtyNumber": 1,
       "unit": "poignée",
-      "bought": false
+      "bought": true
     },
     {
       "recipeId": "salade-nicoise-premium",
@@ -719,6 +719,105 @@
       "name": "Tomates",
       "qtyNumber": 4,
       "unit": "pièce(s)",
+      "bought": false
+    },
+    {
+      "recipeId": "salade-nicoise-premium",
+      "ingredientId": "thon",
+      "recipeName": "Salade niçoise rapide",
+      "name": "Thon",
+      "qtyNumber": 200,
+      "unit": "g",
+      "bought": false
+    },
+    {
+      "recipeId": "salade-nicoise-premium",
+      "ingredientId": "oeufs",
+      "recipeName": "Salade niçoise rapide",
+      "name": "Œufs",
+      "qtyNumber": 2,
+      "unit": "pièce(s)",
+      "bought": false
+    },
+    {
+      "recipeId": "salade-nicoise-premium",
+      "ingredientId": "olives",
+      "recipeName": "Salade niçoise rapide",
+      "name": "Olives noires",
+      "qtyNumber": 15,
+      "unit": "pièce(s)",
+      "bought": false
+    },
+    {
+      "recipeId": "salade-nicoise-premium",
+      "ingredientId": "huile",
+      "recipeName": "Salade niçoise rapide",
+      "name": "Huile d’olive",
+      "qtyNumber": 3,
+      "unit": "c. à soupe",
+      "bought": false
+    },
+    {
+      "recipeId": "salade-nicoise-premium",
+      "ingredientId": "ing-9nr4stb",
+      "recipeName": "Salade niçoise rapide",
+      "name": "Anchois",
+      "qtyNumber": 1,
+      "unit": "boîte(s)",
+      "bought": false
+    },
+    {
+      "recipeId": "salade-nicoise-premium",
+      "ingredientId": "ing-b44dct6",
+      "recipeName": "Salade niçoise rapide",
+      "name": "Radis",
+      "qtyNumber": 4,
+      "unit": "pièce(s)",
+      "bought": false
+    },
+    {
+      "recipeId": "salade-nicoise-premium",
+      "ingredientId": "ing-jzfainr",
+      "recipeName": "Salade niçoise rapide",
+      "name": "Poivron vert",
+      "qtyNumber": 1,
+      "unit": "g",
+      "bought": false
+    },
+    {
+      "recipeId": "salade-nicoise-premium",
+      "ingredientId": "ing-8denkl3",
+      "recipeName": "Salade niçoise rapide",
+      "name": "Vinaigre de vin",
+      "qtyNumber": 2,
+      "unit": "c. à soupe",
+      "bought": false
+    },
+    {
+      "recipeId": "salade-nicoise-premium",
+      "ingredientId": "ing-cmq7cjm",
+      "recipeName": "Salade niçoise rapide",
+      "name": "Moutarde",
+      "qtyNumber": 1,
+      "unit": "c. à café",
+      "bought": false
+    },
+    {
+      "recipeId": "salade-nicoise-premium",
+      "ingredientId": "ing-jd7peav",
+      "recipeName": "Salade niçoise rapide",
+      "name": "Sel",
+      "qtyNumber": 1,
+      "unit": "convenance",
+      "bought": false
+    },
+    {
+      "recipeId": "salade-nicoise-premium",
+      "ingredientId": "ing-iin25ev",
+      "recipeName": "Salade niçoise rapide",
+      "name": "Poivre",
+      "qtyNumber": 1,
+      "unit": "convenance",
       "bought": false
     }
   ]
