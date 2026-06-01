@@ -43,10 +43,16 @@ function load() {
     const recipes = Array.isArray(saved.recipes) ? saved.recipes.map(normalizeRecipe) : [];
     const github = { ...githubDefaults, ...(saved.github || {}) };
     githubStatus = github.lastSync ? `Dernière synchro GitHub : ${new Date(github.lastSync).toLocaleString('fr-FR')}` : 'GitHub prêt à configurer';
-    return { ...defaultState, ...saved, github, recipes, shopping: Array.isArray(saved.shopping) ? saved.shopping : [] };
+    return { ...defaultState, ...saved, github, recipes, shopping: normalizeShoppingItems(saved.shopping) };
   } catch {
     return { ...defaultState };
   }
+}
+
+function normalizeShoppingItems(items) {
+  return Array.isArray(items)
+    ? items.map((item) => ({ ...item, bought: Boolean(item.bought) }))
+    : [];
 }
 
 function mergeRecipes(existingRecipes, incomingRecipes) {
@@ -65,7 +71,7 @@ async function loadInitialRecipes() {
     if (!Array.isArray(recipes)) throw new Error('Format initial invalide');
 
     state.recipes = mergeRecipes(state.recipes, recipes);
-    if (!state.shopping.length && !Array.isArray(payload) && Array.isArray(payload.shopping)) state.shopping = payload.shopping;
+    if (!state.shopping.length && !Array.isArray(payload) && Array.isArray(payload.shopping)) state.shopping = normalizeShoppingItems(payload.shopping);
     save();
     render();
   } catch (error) {
@@ -248,7 +254,7 @@ function mergeGithubPayload(payload) {
   if (!payload) return;
   const recipes = Array.isArray(payload) ? payload : payload.recipes;
   if (Array.isArray(recipes)) state.recipes = mergeRecipes(state.recipes, recipes);
-  if (!Array.isArray(payload) && Array.isArray(payload.shopping)) state.shopping = payload.shopping;
+  if (!Array.isArray(payload) && Array.isArray(payload.shopping)) state.shopping = normalizeShoppingItems(payload.shopping);
 }
 
 async function syncToGitHub(reason = 'Synchronisation des recettes') {
@@ -376,7 +382,7 @@ function importPayload(payload) {
   const recipes = Array.isArray(payload) ? payload : payload.recipes;
   if (!Array.isArray(recipes)) throw new Error('Format invalide');
   state.recipes = mergeRecipes(state.recipes, recipes);
-  if (!Array.isArray(payload) && Array.isArray(payload.shopping)) state.shopping = payload.shopping;
+  if (!Array.isArray(payload) && Array.isArray(payload.shopping)) state.shopping = normalizeShoppingItems(payload.shopping);
   state.activeCategory = 'Tout voir';
   state.editingId = null;
   save();
@@ -408,7 +414,7 @@ function importBackupText() {
 function updateShoppingBadge() {
   const shoppingLink = document.querySelector('.top-menu a[href="#courses"]');
   if (!shoppingLink) return;
-  const shoppingItems = shoppingSummary().length;
+  const shoppingItems = shoppingOpenCount();
   const existingBadge = shoppingLink.querySelector('.shopping-badge');
   if (!shoppingItems) {
     existingBadge?.remove();
@@ -427,7 +433,35 @@ function updateShoppingPanel() {
   updateShoppingBadge();
   const shoppingList = document.querySelector('.shopping-list');
   if (!shoppingList) return;
+  const previousItems = Array.from(shoppingList.querySelectorAll('.shopping-item'));
+  const previousPositions = new Map(previousItems.map((item) => [item.dataset.shoppingKey, item.getBoundingClientRect()]));
+  const previousBoughtStates = new Map(previousItems.map((item) => [item.dataset.shoppingKey, item.classList.contains('is-bought')]));
   shoppingList.innerHTML = renderShopping() || '<p class="small">Liste vide. Ouvrez une recette et cochez uniquement ce qu’il vous manque.</p>';
+  bindShoppingListEvents(shoppingList);
+  shoppingList.querySelectorAll('.shopping-item').forEach((item) => {
+    const wasBought = previousBoughtStates.get(item.dataset.shoppingKey);
+    const isBought = item.classList.contains('is-bought');
+    if (wasBought !== undefined && wasBought !== isBought) {
+      item.classList.add(isBought ? 'is-checking' : 'is-returning');
+      window.setTimeout(() => item.classList.remove('is-checking', 'is-returning'), 520);
+    }
+    const previous = previousPositions.get(item.dataset.shoppingKey);
+    if (!previous) {
+      item.animate([
+        { opacity: 0, transform: 'translateY(-10px) scale(0.98)' },
+        { opacity: 1, transform: 'translateY(0) scale(1)' },
+      ], { duration: 320, easing: 'cubic-bezier(.2, 1.3, .35, 1)' });
+      return;
+    }
+    const current = item.getBoundingClientRect();
+    const deltaY = previous.top - current.top;
+    if (deltaY) {
+      item.animate([
+        { transform: `translateY(${deltaY}px)` },
+        { transform: 'translateY(0)' },
+      ], { duration: 420, easing: 'cubic-bezier(.2, 1.4, .3, 1)' });
+    }
+  });
 }
 
 function uid(prefix = 'id') {
@@ -493,16 +527,37 @@ function recipeMatchesFilters(recipe) {
   return categoryMatches && nameMatches && ingredientsMatch && tagsMatch;
 }
 
+function shoppingKey(item) {
+  return `${String(item.name || '').trim().toLowerCase()}__${String(item.unit || '').trim().toLowerCase()}`;
+}
+
 function shoppingSummary() {
   const map = new Map();
   state.shopping.forEach((item) => {
-    const key = `${item.name.toLowerCase()}__${item.unit}`;
-    const existing = map.get(key) || { ...item, qtyNumber: 0, recipes: new Set() };
+    const key = shoppingKey(item);
+    const existing = map.get(key) || { ...item, key, qtyNumber: 0, recipes: new Set(), bought: true };
     existing.qtyNumber += Number(item.qtyNumber) || 0;
     existing.recipes.add(item.recipeName);
+    existing.bought = existing.bought && Boolean(item.bought);
     map.set(key, existing);
   });
-  return Array.from(map.values()).map((item) => ({ ...item, recipes: Array.from(item.recipes) }));
+  return Array.from(map.values())
+    .map((item) => ({ ...item, recipes: Array.from(item.recipes) }))
+    .sort((a, b) => Number(a.bought) - Number(b.bought) || a.name.localeCompare(b.name, 'fr'));
+}
+
+function shoppingOpenCount() {
+  return shoppingSummary().filter((item) => !item.bought).length;
+}
+
+function toggleShoppingItem(key) {
+  const summaryItem = shoppingSummary().find((item) => item.key === key);
+  if (!summaryItem) return;
+  const bought = !summaryItem.bought;
+  state.shopping = state.shopping.map((item) => (shoppingKey(item) === key ? { ...item, bought } : item));
+  save();
+  updateShoppingPanel();
+  scheduleGithubSync('Mise à jour de la liste de courses Maison Saison');
 }
 
 function currentRoute() {
@@ -516,7 +571,7 @@ function currentRoute() {
 function renderHeader() {
   const route = currentRoute();
   const activePage = route.page === 'shopping' ? 'shopping' : route.page === 'backup' ? 'backup' : 'home';
-  const shoppingItems = shoppingSummary().length;
+  const shoppingItems = shoppingOpenCount();
   const navItems = [
     { page: 'home', href: '#top', label: 'Recettes' },
     { page: 'shopping', href: '#courses', label: 'Courses', badge: shoppingItems },
@@ -594,7 +649,7 @@ function renderShoppingSection() {
 }
 
 function renderDashboard(totalIngredients) {
-  const shoppingItems = shoppingSummary().length;
+  const shoppingItems = shoppingOpenCount();
   const avgRating = state.recipes.length ? (state.recipes.reduce((sum, recipe) => sum + clampRating(recipe.rating), 0) / state.recipes.length).toFixed(1) : '0';
   return `<aside class="hero-card dashboard-card">
           <div class="dashboard-top"><span>Tableau de bord</span><strong>${state.recipes.length}<small>recettes</small></strong></div>
@@ -842,10 +897,21 @@ function bindRecipeCardActions(scope = document) {
 
 function renderShopping() {
   return shoppingSummary()
-    .map(
-      (s) => `<div class="shopping-item"><span><strong>${esc(s.name)}</strong><small>${esc(s.recipes.join(', '))}</small></span><b>${formatQty(s.qtyNumber)} ${esc(s.unit)}</b></div>`,
-    )
+    .map((s) => {
+      const label = s.bought ? `Remettre ${s.name} dans les ingrédients à acheter` : `Marquer ${s.name} comme acheté`;
+      return `<button type="button" class="shopping-item ${s.bought ? 'is-bought' : ''}" data-toggle-shopping="${esc(s.key)}" data-shopping-key="${esc(s.key)}" aria-pressed="${s.bought ? 'true' : 'false'}" aria-label="${esc(label)}">
+        <span class="shopping-check" aria-hidden="true"></span>
+        <span class="shopping-copy"><strong>${esc(s.name)}</strong><small>${esc(s.recipes.join(', '))}</small></span>
+        <b>${formatQty(s.qtyNumber)} ${esc(s.unit)}</b>
+      </button>`;
+    })
     .join('');
+}
+
+function bindShoppingListEvents(scope = document) {
+  scope.querySelectorAll('[data-toggle-shopping]').forEach((button) => {
+    button.onclick = () => toggleShoppingItem(button.getAttribute('data-toggle-shopping'));
+  });
 }
 
 function bindEvents(root) {
@@ -964,6 +1030,8 @@ function bindEvents(root) {
     button.onclick = () => updateRatingPicker(button.getAttribute('data-rate'));
   });
   updateRatingPicker(document.getElementById('r-rating')?.value || 3);
+
+  bindShoppingListEvents(root);
 
   const clearShopping = document.getElementById('clear-shopping');
   if (clearShopping) clearShopping.onclick = () => {
@@ -1252,7 +1320,7 @@ function openRecipe(recipeId, options = {}) {
         if (exists) {
           state.shopping = state.shopping.filter((s) => !(s.recipeId === recipe.id && s.ingredientId === ingredientId));
         } else {
-          state.shopping.push({ recipeId: recipe.id, ingredientId, recipeName: recipe.name, name: ingredient.name, qtyNumber, unit: ingredient.unit });
+          state.shopping.push({ recipeId: recipe.id, ingredientId, recipeName: recipe.name, name: ingredient.name, qtyNumber, unit: ingredient.unit, bought: false });
         }
         save();
         redraw();
