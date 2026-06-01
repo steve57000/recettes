@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-01T18:05:30.527Z",
+  "exportedAt": "2026-06-01T18:29:06.648Z",
   "recipes": [
     {
       "badge": "Signature",
@@ -702,5 +702,24 @@
       ]
     }
   ],
-  "shopping": []
+  "shopping": [
+    {
+      "recipeId": "salade-nicoise-premium",
+      "ingredientId": "salade",
+      "recipeName": "Salade niçoise rapide",
+      "name": "Salade mesclum",
+      "qtyNumber": 1,
+      "unit": "poignée",
+      "bought": false
+    },
+    {
+      "recipeId": "salade-nicoise-premium",
+      "ingredientId": "tomates",
+      "recipeName": "Salade niçoise rapide",
+      "name": "Tomates",
+      "qtyNumber": 4,
+      "unit": "pièce(s)",
+      "bought": false
+    }
+  ]
 }
