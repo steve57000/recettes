@@ -1,6 +1,62 @@
 {
-  "exportedAt": "2026-06-01T16:31:42.979Z",
+  "exportedAt": "2026-06-01T16:42:00.010Z",
   "recipes": [
+    {
+      "badge": "Nouveau",
+      "difficulty": "Maison",
+      "baseServings": 4,
+      "time": 10,
+      "ingredients": [
+        {
+          "id": "ing-xngx7a8",
+          "name": "Tortilla de blé",
+          "qty": 4,
+          "unit": "pièces"
+        },
+        {
+          "id": "ing-3joiqq5",
+          "name": "Blanc de poulet",
+          "qty": 2,
+          "unit": "pièces"
+        },
+        {
+          "id": "ing-0phpfxh",
+          "name": "Salade Laitue",
+          "qty": 4,
+          "unit": "feuilles"
+        },
+        {
+          "id": "ing-79tdgk2",
+          "name": "Tomates",
+          "qty": 1,
+          "unit": "pièces"
+        },
+        {
+          "id": "ing-0x15naj",
+          "name": "Moutarde",
+          "qty": 1,
+          "unit": "u"
+        },
+        {
+          "id": "ing-mfge441",
+          "name": "Huile d'olive",
+          "qty": 1,
+          "unit": "c. à soupe"
+        }
+      ],
+      "id": "recipe-o2vtqlc",
+      "name": "Wraps au poulet",
+      "category": "Pic-nic",
+      "description": "Un petit repas sur le pouce, un pique-nique ou un apéro dinatoire ? Pensez aux wraps au poulet, tellement plus sympas que les sandwichs traditionnels, mais aussi plus pratiques ! Cette recette toute simple allie poulet, salade, tomate et moutarde ou mayonnaise.",
+      "steps": "Étape 1\nCoupez la tomate en fines tranches. Épépinez-les et faites-les dégorger en les plaçant dans une passoire saupoudrées de sel.\nÉtape 2\nTaillez les filets de poulet en fines lanières et faites-les cuire à la poêle avec l'huile d'olive.\nÉtape 3\nTartinez les tortillas de moutarde. Disposez ensuite la laitue, les morceaux de poulet et les rondelles de tomate dégorgées que vous aurez pris soin de bien rincer. Salez et poivrez à votre convenance.\nÉtape 4\nEnroulez ensuite fermement et placez le tout au réfrigérateur dans du film alimentaire pour garder le wrap bien compact.",
+      "notes": "Vous pouvez choisir toutes sortes de sauces et d’accompagnements pour vos wraps au poulet : mayonnaise, huile d’olive, béarnaise, sauce au curry, vinaigrette, sauce au fromage frais et ciboulette, crème fraîche et jus de citron… Vous pouvez également ajouter d'autres crudités comme des bâtonnets de concombre, des oignons rouges, des lamelles de poivrons… au gré des saisons !",
+      "photoUrl": "https://img.cuisineaz.com/660x495/2013/12/20/i97834-wraps-poulet.webp",
+      "photoData": "",
+      "videoUrl": "",
+      "sourceUrl": "",
+      "sourceName": "",
+      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)"
+    },
     {
       "badge": "Signature",
       "difficulty": "Facile",
@@ -402,7 +458,7 @@
       ],
       "id": "smoothie-mangue",
       "name": "Smoothie mangue passion",
-      "category": "Boissons fraiche",
+      "category": "Boissons fraiches",
       "image": "linear-gradient(135deg, rgba(255, 193, 7, 0.85), rgba(255, 111, 97, 0.72)), url(https://images.unsplash.com/photo-1502741224143-90386d7f8c82?auto=format&fit=crop&w=1200&q=80)",
       "photoUrl": "https://images.unsplash.com/photo-1502741224143-90386d7f8c82?auto=format&fit=crop&w=1200&q=80",
       "videoUrl": "",
