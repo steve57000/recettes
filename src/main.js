@@ -34,6 +34,7 @@ const defaultState = {
 
 const state = load();
 let ingredientRows = [emptyIngredient()];
+let stepRows = [emptyStep()];
 
 function load() {
   try {
@@ -78,9 +79,40 @@ function normalizeRecipe(recipe) {
     baseServings: 2,
     time: 20,
     ingredients: [],
+    steps: [],
     ...recipe,
     ingredients: Array.isArray(recipe.ingredients) ? recipe.ingredients : [],
+    steps: normalizeSteps(recipe.steps),
   };
+}
+
+function normalizeSteps(steps) {
+  if (Array.isArray(steps)) {
+    return steps
+      .map((step) => (typeof step === 'string' ? { id: uid('step'), text: step } : { id: step.id || uid('step'), text: String(step.text || step.description || '') }))
+      .map((step) => ({ ...step, text: step.text.trim() }))
+      .filter((step) => step.text);
+  }
+
+  const lines = String(steps || '')
+    .split(/\n+/)
+    .map((line) => line.trim())
+    .filter(Boolean);
+  const parsed = [];
+  let buffer = [];
+
+  lines.forEach((line) => {
+    const marker = line.match(/^(?:étape\s*\d+|\d+\s*[:.)-])\s*(.*)$/i);
+    if (marker) {
+      if (buffer.length) parsed.push(buffer.join(' ').trim());
+      buffer = marker[1] ? [marker[1].trim()] : [];
+      return;
+    }
+    buffer.push(line.replace(/^[-*•]\s*/, '').trim());
+  });
+  if (buffer.length) parsed.push(buffer.join(' ').trim());
+
+  return parsed.filter(Boolean).map((text) => ({ id: uid('step'), text }));
 }
 
 function save() {
@@ -369,6 +401,10 @@ function emptyIngredient(values = {}) {
   return { id: values.id || uid('ing'), name: values.name || '', qty: values.qty ?? 1, unit: values.unit || 'g' };
 }
 
+function emptyStep(values = {}) {
+  return { id: values.id || uid('step'), text: values.text || values.description || '' };
+}
+
 function esc(s) {
   return String(s ?? '')
     .replaceAll('&', '&amp;')
@@ -405,103 +441,33 @@ function shoppingSummary() {
   return Array.from(map.values()).map((item) => ({ ...item, recipes: Array.from(item.recipes) }));
 }
 
-function render() {
-  const root = document.getElementById('root');
-  if (!state.sessionUser) {
-    root.innerHTML = `
-      <main class="auth-shell">
-        <section class="auth-card premium-glass">
-          <p class="eyebrow">Livre de recettes privé</p>
-          <h1>Maison Saison</h1>
-          <p class="lead">Votre atelier culinaire premium : recettes enrichies, médias, modifications, portions intelligentes et liste de courses unifiée.</p>
-          <div class="login-panel">
-            <input id="login-user" placeholder="Utilisateur" autocomplete="username" />
-            <input id="login-pass" type="password" placeholder="Mot de passe" autocomplete="current-password" />
-            <button id="login-btn">Entrer dans le carnet</button>
-          </div>
-          <p class="small">Démo : admin / admin123</p>
-        </section>
-      </main>`;
-    document.getElementById('login-btn').onclick = login;
-    return;
-  }
+function currentRoute() {
+  const hash = decodeURIComponent(window.location.hash || '#top');
+  if (hash.startsWith('#recette/')) return { page: 'recipe', id: hash.slice('#recette/'.length) };
+  if (hash === '#sauvegarde') return { page: 'backup' };
+  return { page: 'home', anchor: hash };
+}
 
-  const filteredRecipes = state.activeCategory === 'Tout voir' ? state.recipes : state.recipes.filter((r) => (r.category || 'Mes recettes') === state.activeCategory);
-  const totalIngredients = state.recipes.reduce((sum, recipe) => sum + recipe.ingredients.length, 0);
-
-  root.innerHTML = `
-    <header class="site-header ${state.menuOpen ? 'is-menu-open' : ''}">
+function renderHeader() {
+  return `<header class="site-header ${state.menuOpen ? 'is-menu-open' : ''}">
       <a class="brand" href="#top"><span class="brand-mark">✦</span><span>Maison Saison <small>Premium</small></span></a>
       <button class="menu-toggle ghost" id="menu-toggle" aria-expanded="${state.menuOpen ? 'true' : 'false'}" aria-controls="top-menu"><span>☰</span> Menu</button>
       <nav id="top-menu" class="top-menu" aria-label="Menu principal">
         <a href="#recettes">Recettes</a>
         <a href="#courses">Courses</a>
-        <a href="#sauvegarde">Sauvegarde</a>
+        <a href="#sauvegarde">Sauvegardes</a>
         <button class="nav-action" data-create>+ Recette</button>
       </nav>
       <button class="ghost logout-button" id="logout">Déconnexion</button>
-    </header>
+    </header>`;
+}
 
-    <main id="top" class="page-shell">
-      <section class="hero premium-glass">
-        <div>
-          <p class="eyebrow">Collection premium</p>
-          <h1>Le livre de recettes complet, élégant et prêt à cuisiner.</h1>
-          <p class="lead">Créez des fiches riches avec photos, vidéos et URLs, corrigez vos recettes, adaptez les portions et cochez uniquement les ingrédients à acheter.</p>
-          <div class="hero-actions">
-            <a class="button-link" href="#recettes">Explorer les menus</a>
-            <button class="secondary-link" data-create>Créer une recette</button>
-          </div>
-          <div class="storage-notice">
-            <strong>☁️ Sauvegarde locale</strong>
-            <span>Les recettes sont gardées localement puis, si vous activez la synchronisation GitHub, automatiquement enregistrées dans le JSON de votre dépôt personnel.</span>
-          </div>
-        </div>
-        <aside class="hero-card">
-          <span>Tableau de bord</span>
-          <strong>${state.recipes.length}</strong>
-          <p>recettes · ${categories().length - 1} menus · ${totalIngredients} ingrédients</p>
-        </aside>
-      </section>
-
-      <section class="premium-strip" aria-label="Fonctionnalités premium">
-        <div><strong>📸 Médias</strong><span>photo, vidéo et source web</span></div>
-        <div><strong>✍️ Édition</strong><span>modification complète des fiches</span></div>
-        <div><strong>🛒 Courses</strong><span>sélection ingrédient par ingrédient</span></div>
-        <div><strong>⚖️ Portions</strong><span>quantités recalculées automatiquement</span></div>
-      </section>
-
-      <section id="recettes" class="section-head">
-        <div><p class="eyebrow">Menus</p><h2>Recettes disponibles</h2></div>
-        <div class="category-menu">${categories().map((cat) => `<button class="nav-pill ${state.activeCategory === cat ? 'is-active' : ''}" data-cat="${esc(cat)}">${esc(cat)}</button>`).join('')}</div>
-      </section>
-
-      <section class="recipe-grid">${filteredRecipes.map(recipeCard).join('') || '<p class="small">Aucune recette dans ce menu.</p>'}</section>
-
-      <section id="selected" class="selected-zone"></section>
-
-      <section id="courses" class="section-head">
-        <div><p class="eyebrow">Courses</p><h2>Liste de courses</h2></div>
-        <button class="secondary" id="clear-shopping">Vider la liste</button>
-      </section>
-
-      <section class="tool-grid">
-        <article class="panel shopping-panel">
-          <div class="panel-intro">
-            <span class="panel-icon">🛒</span>
-            <div>
-              <h3>À acheter</h3>
-              <p class="small">Ouvrez une recette, ajustez les portions, puis cochez uniquement ce qu’il vous manque.</p>
-            </div>
-          </div>
-          <div class="shopping-list">${renderShopping() || '<p class="small">Liste vide. Ouvrez une recette et cochez uniquement ce qu’il vous manque.</p>'}</div>
-        </article>
-
-        <article id="sauvegarde" class="panel backup-panel">
-          <p class="eyebrow">Sauvegarde</p>
+function renderBackupPanel() {
+  return `<article id="sauvegarde" class="panel backup-panel page-panel">
+          <p class="eyebrow">Centre de sauvegarde</p>
           <h2>Import, export & GitHub</h2>
-          <p class="small">Les réglages de synchronisation et les sauvegardes manuelles sont séparés de la liste de courses pour garder chaque espace clair.</p>
-          <div class="backup-layout">
+          <p class="lead">Gérez vos sauvegardes dans un espace dédié : synchronisation GitHub, export JSON et import manuel depuis un autre appareil.</p>
+          <div class="backup-layout backup-layout-wide">
             <section class="sync-box">
               <strong>Synchronisation GitHub automatique</strong>
               <p class="small">Enregistrez automatiquement les recettes dans un fichier JSON de votre dépôt GitHub personnel.</p>
@@ -534,15 +500,130 @@ function render() {
               <button class="secondary" id="import-backup-text">Importer le texte</button>
             </section>
           </div>
-        </article>
+        </article>`;
+}
+
+function renderShoppingSection() {
+  return `<section id="courses" class="section-head">
+        <div><p class="eyebrow">Courses</p><h2>Liste de courses</h2></div>
+        <button class="secondary" id="clear-shopping">Vider la liste</button>
       </section>
 
-      ${renderRecipeModal()}
-    </main>`;
+      <section class="tool-grid shopping-only-grid">
+        <article class="panel shopping-panel">
+          <div class="panel-intro">
+            <span class="panel-icon">🛒</span>
+            <div>
+              <h3>À acheter</h3>
+              <p class="small">Ouvrez une recette, ajustez les portions, puis cochez uniquement ce qu’il vous manque.</p>
+            </div>
+          </div>
+          <div class="shopping-list">${renderShopping() || '<p class="small">Liste vide. Ouvrez une recette et cochez uniquement ce qu’il vous manque.</p>'}</div>
+        </article>
+        <article class="panel mini-backup-card">
+          <div class="panel-intro">
+            <span class="panel-icon">☁️</span>
+            <div>
+              <h3>Sauvegardes</h3>
+              <p class="small">Import, export et GitHub sont maintenant dans une page dédiée.</p>
+              <a class="button-link secondary-link" href="#sauvegarde">Gérer les sauvegardes</a>
+            </div>
+          </div>
+        </article>
+      </section>`;
+}
+
+function renderHomePage(filteredRecipes, totalIngredients) {
+  return `<section class="hero premium-glass">
+        <div>
+          <p class="eyebrow">Collection premium</p>
+          <h1>Le livre de recettes complet, élégant et prêt à cuisiner.</h1>
+          <p class="lead">Créez des fiches riches avec photos, vidéos et URLs, corrigez vos recettes, adaptez les portions et cochez uniquement les ingrédients à acheter.</p>
+          <div class="hero-actions">
+            <a class="button-link" href="#recettes">Explorer les menus</a>
+            <button class="secondary-link" data-create>Créer une recette</button>
+          </div>
+          <div class="storage-notice">
+            <strong>☁️ Sauvegarde locale</strong>
+            <span>Les sauvegardes, imports et exports sont accessibles depuis la page Sauvegardes du menu.</span>
+          </div>
+        </div>
+        <aside class="hero-card">
+          <span>Tableau de bord</span>
+          <strong>${state.recipes.length}</strong>
+          <p>recettes · ${categories().length - 1} menus · ${totalIngredients} ingrédients</p>
+        </aside>
+      </section>
+
+      <section class="premium-strip" aria-label="Fonctionnalités premium">
+        <div><strong>📸 Médias</strong><span>photo, vidéo et source web</span></div>
+        <div><strong>🧭 Étapes</strong><span>préparation structurée et lisible</span></div>
+        <div><strong>🛒 Courses</strong><span>sélection ingrédient par ingrédient</span></div>
+        <div><strong>☁️ Sauvegardes</strong><span>page dédiée import/export</span></div>
+      </section>
+
+      <section id="recettes" class="section-head">
+        <div><p class="eyebrow">Menus</p><h2>Recettes disponibles</h2></div>
+        <div class="category-menu">${categories().map((cat) => `<button class="nav-pill ${state.activeCategory === cat ? 'is-active' : ''}" data-cat="${esc(cat)}">${esc(cat)}</button>`).join('')}</div>
+      </section>
+
+      <section class="recipe-grid">${filteredRecipes.map(recipeCard).join('') || '<p class="small">Aucune recette dans ce menu.</p>'}</section>
+
+      ${renderShoppingSection()}`;
+}
+
+function renderBackupPage() {
+  return `<section class="page-hero premium-glass">
+      <a class="secondary-link button-link" href="#top">← Retour au carnet</a>
+      <div><p class="eyebrow">Sauvegardes</p><h1>Un espace clair pour protéger votre carnet.</h1><p class="lead">Centralisez les exports, imports et la synchronisation GitHub sans encombrer la page d’accueil.</p></div>
+    </section>${renderBackupPanel()}`;
+}
+
+function renderRecipePage(recipeId) {
+  const recipe = state.recipes.find((r) => r.id === recipeId);
+  if (!recipe) {
+    return `<article class="panel page-panel"><p class="eyebrow">Recette introuvable</p><h2>Impossible d’ouvrir cette fiche</h2><p class="small">La recette a peut-être été supprimée.</p><a class="button-link" href="#recettes">Retour aux recettes</a></article>`;
+  }
+  return `<section class="page-hero recipe-page-hero premium-glass">
+      <a class="secondary-link button-link" href="#recettes">← Retour aux recettes</a>
+      <div><p class="eyebrow">Lecture recette</p><h1>${esc(recipe.name)}</h1><p class="lead">Une page dédiée pour cuisiner confortablement, avec les ingrédients, les portions et les étapes en pleine largeur.</p></div>
+    </section>
+    <section id="selected" class="selected-zone recipe-page-zone"></section>`;
+}
+
+function render() {
+  const root = document.getElementById('root');
+  if (!state.sessionUser) {
+    root.innerHTML = `
+      <main class="auth-shell">
+        <section class="auth-card premium-glass">
+          <p class="eyebrow">Livre de recettes privé</p>
+          <h1>Maison Saison</h1>
+          <p class="lead">Votre atelier culinaire premium : recettes enrichies, médias, modifications, portions intelligentes et liste de courses unifiée.</p>
+          <div class="login-panel">
+            <input id="login-user" placeholder="Utilisateur" autocomplete="username" />
+            <input id="login-pass" type="password" placeholder="Mot de passe" autocomplete="current-password" />
+            <button id="login-btn">Entrer dans le carnet</button>
+          </div>
+          <p class="small">Démo : admin / admin123</p>
+        </section>
+      </main>`;
+    document.getElementById('login-btn').onclick = login;
+    return;
+  }
+
+  const filteredRecipes = state.activeCategory === 'Tout voir' ? state.recipes : state.recipes.filter((r) => (r.category || 'Mes recettes') === state.activeCategory);
+  const totalIngredients = state.recipes.reduce((sum, recipe) => sum + recipe.ingredients.length, 0);
+  const route = currentRoute();
+  const content = route.page === 'backup' ? renderBackupPage() : route.page === 'recipe' ? renderRecipePage(route.id) : renderHomePage(filteredRecipes, totalIngredients);
+
+  root.innerHTML = `${renderHeader()}<main id="top" class="page-shell">${content}${renderRecipeModal()}</main>`;
 
   bindEvents(root);
   hydrateForm();
   drawIngredientRows();
+  drawStepRows();
+  if (route.page === 'recipe') openRecipe(route.id, { scroll: false });
   if (!githubAutoLoadStarted && githubConfig().enabled && githubConfigured()) {
     githubAutoLoadStarted = true;
     setTimeout(() => loadFromGitHub(true), 0);
@@ -583,7 +664,8 @@ function renderRecipeModal() {
           <label>Badge<input id="r-badge" placeholder="Signature, Express..." value="Nouveau" /></label>
         </div>
         <label>Description<textarea id="r-description" placeholder="Courte description appétissante"></textarea></label>
-        <label>Étapes<textarea id="r-steps" placeholder="Décrivez les étapes de préparation"></textarea></label>
+        <div class="steps-head"><div><h3>Déroulé de la recette</h3><p class="small">Rédigez la préparation étape par étape pour obtenir une lecture élégante et guidée.</p></div><button class="secondary add-step-top" id="add-step">+ étape</button></div>
+        <div id="steps" class="steps-editor"></div>
         <label>Notes du chef<textarea id="r-notes" placeholder="Astuce, conservation, dressage..."></textarea></label>
         <div class="form-grid media-grid">
           <label>URL photo<input id="r-photo" placeholder="https://...jpg" /></label>
@@ -674,12 +756,22 @@ function bindEvents(root) {
   if (addTop) addTop.onclick = addIngredient;
   if (addBottom) addBottom.onclick = addIngredient;
 
+  const addStep = () => {
+    captureStepRows();
+    const next = emptyStep();
+    stepRows.push(next);
+    drawStepRows(next.id);
+  };
+  const addStepTop = document.getElementById('add-step');
+  if (addStepTop) addStepTop.onclick = addStep;
+
   const resetForm = document.getElementById('reset-form');
   if (resetForm) {
     resetForm.onclick = () => {
       state.editingId = null;
       state.formOpen = true;
       ingredientRows = [emptyIngredient()];
+      stepRows = [emptyStep()];
       save();
       render();
     };
@@ -716,23 +808,31 @@ function bindEvents(root) {
   });
 
   root.querySelectorAll('[data-open]').forEach((b) => {
-    b.onclick = () => openRecipe(b.getAttribute('data-open'));
+    b.onclick = () => { window.location.hash = `recette/${b.getAttribute('data-open')}`; };
   });
 
-  document.getElementById('clear-shopping').onclick = () => {
+  const clearShopping = document.getElementById('clear-shopping');
+  if (clearShopping) clearShopping.onclick = () => {
     state.shopping = [];
     save();
     updateShoppingPanel();
     scheduleGithubSync('Mise à jour de la liste de courses Maison Saison');
   };
 
-  document.getElementById('save-github-settings').onclick = saveGithubSettings;
-  document.getElementById('load-github').onclick = () => loadFromGitHub();
-  document.getElementById('save-github-now').onclick = saveNowToGitHub;
-  document.getElementById('export-recipes').onclick = exportRecipes;
-  document.getElementById('copy-backup').onclick = copyBackup;
-  document.getElementById('import-recipes').onchange = (event) => importRecipes(event.target.files[0]);
-  document.getElementById('import-backup-text').onclick = importBackupText;
+  const saveGithub = document.getElementById('save-github-settings');
+  if (saveGithub) saveGithub.onclick = saveGithubSettings;
+  const loadGithub = document.getElementById('load-github');
+  if (loadGithub) loadGithub.onclick = () => loadFromGitHub();
+  const saveGithubNow = document.getElementById('save-github-now');
+  if (saveGithubNow) saveGithubNow.onclick = saveNowToGitHub;
+  const exportButton = document.getElementById('export-recipes');
+  if (exportButton) exportButton.onclick = exportRecipes;
+  const copyButton = document.getElementById('copy-backup');
+  if (copyButton) copyButton.onclick = copyBackup;
+  const importInput = document.getElementById('import-recipes');
+  if (importInput) importInput.onchange = (event) => importRecipes(event.target.files[0]);
+  const importText = document.getElementById('import-backup-text');
+  if (importText) importText.onclick = importBackupText;
 }
 
 function hydrateForm() {
@@ -746,12 +846,51 @@ function hydrateForm() {
   document.getElementById('r-difficulty').value = recipe.difficulty || 'Maison';
   document.getElementById('r-badge').value = recipe.badge || 'Nouveau';
   document.getElementById('r-description').value = recipe.description || '';
-  document.getElementById('r-steps').value = recipe.steps || '';
+  stepRows = normalizeSteps(recipe.steps);
+  if (!stepRows.length) stepRows = [emptyStep()];
   document.getElementById('r-notes').value = recipe.notes || '';
   document.getElementById('r-photo').value = recipe.photoUrl || '';
   document.getElementById('r-video').value = recipe.videoUrl || '';
   document.getElementById('r-source').value = recipe.sourceUrl || '';
   ingredientRows = recipe.ingredients.length ? recipe.ingredients.map((ing) => emptyIngredient(ing)) : [emptyIngredient()];
+}
+
+function captureStepRows() {
+  const container = document.getElementById('steps');
+  if (!container) return;
+  stepRows = stepRows.map((row) => ({
+    id: row.id,
+    text: container.querySelector(`[data-step="text-${row.id}"]`)?.value.trim() || '',
+  }));
+}
+
+function drawStepRows(focusId) {
+  const container = document.getElementById('steps');
+  if (!container) return;
+  container.innerHTML = stepRows
+    .map(
+      (r, index) => `<div class="step-row" data-step-row-id="${esc(r.id)}">
+        <div class="step-number">${index + 1}</div>
+        <label><span>Étape ${index + 1}</span><textarea data-step="text-${r.id}" placeholder="Décrivez précisément cette étape de préparation">${esc(r.text)}</textarea></label>
+        <button class="secondary tiny" data-remove-step="${esc(r.id)}" ${stepRows.length === 1 ? 'disabled' : ''}>Retirer</button>
+      </div>`,
+    )
+    .join('');
+
+  if (focusId) {
+    const row = container.querySelector(`[data-step-row-id="${focusId}"]`);
+    row?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    row?.querySelector('textarea')?.focus({ preventScroll: true });
+  }
+
+  container.querySelectorAll('[data-remove-step]').forEach((button) => {
+    button.onclick = () => {
+      captureStepRows();
+      stepRows = stepRows.filter((row) => row.id !== button.getAttribute('data-remove-step'));
+      if (!stepRows.length) stepRows = [emptyStep()];
+      drawStepRows();
+    };
+  });
 }
 
 function captureIngredientRows() {
@@ -808,6 +947,7 @@ function readFileAsDataUrl(file) {
 
 async function saveRecipeFromForm() {
   captureIngredientRows();
+  captureStepRows();
   const name = document.getElementById('r-name').value.trim();
   if (!name) return alert('Nom requis');
   const file = document.getElementById('r-file').files[0];
@@ -823,7 +963,7 @@ async function saveRecipeFromForm() {
     difficulty: document.getElementById('r-difficulty').value.trim() || 'Maison',
     badge: document.getElementById('r-badge').value.trim() || 'Nouveau',
     description: document.getElementById('r-description').value.trim(),
-    steps: document.getElementById('r-steps').value.trim(),
+    steps: stepRows.filter((x) => x.text).map((x) => ({ ...x, id: x.id || uid('step') })),
     notes: document.getElementById('r-notes').value.trim(),
     photoUrl: document.getElementById('r-photo').value.trim(),
     photoData,
@@ -841,9 +981,10 @@ async function saveRecipeFromForm() {
   state.editingId = null;
   state.formOpen = false;
   ingredientRows = [emptyIngredient()];
+  stepRows = [emptyStep()];
   save();
+  window.location.hash = `recette/${recipe.id}`;
   render();
-  openRecipe(recipe.id);
   scheduleGithubSync('Enregistrement de recette Maison Saison');
 }
 
@@ -852,6 +993,7 @@ function openRecipeForm() {
   state.formOpen = true;
   state.menuOpen = false;
   ingredientRows = [emptyIngredient()];
+  stepRows = [emptyStep()];
   save();
   render();
 }
@@ -860,6 +1002,7 @@ function closeRecipeForm() {
   state.editingId = null;
   state.formOpen = false;
   ingredientRows = [emptyIngredient()];
+  stepRows = [emptyStep()];
   save();
   render();
 }
@@ -879,10 +1022,20 @@ function videoEmbed(url) {
   return `<video controls src="${esc(url)}"></video>`;
 }
 
-function openRecipe(recipeId) {
+function renderPreparationSteps(recipe) {
+  const steps = normalizeSteps(recipe.steps);
+  if (!steps.length) return '<p class="small">Aucune étape renseignée.</p>';
+  return `<ol class="preparation-steps">${steps.map((step, index) => `<li><span>${index + 1}</span><p>${esc(step.text)}</p></li>`).join('')}</ol>`;
+}
+
+function openRecipe(recipeId, options = {}) {
   const recipe = state.recipes.find((r) => r.id === recipeId);
   if (!recipe) return;
   const selected = document.getElementById('selected');
+  if (!selected) {
+    window.location.hash = `recette/${recipeId}`;
+    return;
+  }
   selected.innerHTML = `<article class="panel recipe-detail">
     <div class="detail-cover" style="background-image:${esc(asCssImage(recipe))}"></div>
     <div class="detail-main">
@@ -894,10 +1047,10 @@ function openRecipe(recipeId) {
     </div>
     <div class="serving-box"><label for="servings">Personnes</label><input id="servings" type="number" min="1" value="${esc(recipe.baseServings)}" /></div>
     <div class="detail-section"><h3>Ingrédients à sélectionner</h3><p class="small">Cochez seulement ce que vous voulez ajouter à la liste de courses.</p><ul id="ing-list" class="ingredient-list"></ul></div>
-    <div class="detail-section"><h3>Préparation</h3><p>${esc(recipe.steps || 'Aucune étape renseignée.')}</p>${recipe.notes ? `<div class="chef-note"><strong>Note du chef</strong><span>${esc(recipe.notes)}</span></div>` : ''}</div>
+    <div class="detail-section preparation-section"><h3>Préparation pas à pas</h3>${renderPreparationSteps(recipe)}${recipe.notes ? `<div class="chef-note"><strong>Note du chef</strong><span>${esc(recipe.notes)}</span></div>` : ''}</div>
     ${recipe.videoUrl ? `<div class="detail-section media-player"><h3>Vidéo</h3>${videoEmbed(recipe.videoUrl)}</div>` : ''}
   </article>`;
-  selected.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  if (options.scroll !== false) selected.scrollIntoView({ behavior: 'smooth', block: 'start' });
   selected.querySelector('[data-edit-detail]').onclick = () => editRecipe(recipe.id);
 
   const redraw = () => {
@@ -933,5 +1086,6 @@ function openRecipe(recipeId) {
   redraw();
 }
 
+window.addEventListener('hashchange', render);
 render();
 loadInitialRecipes();
