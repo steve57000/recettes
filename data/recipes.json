@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-01T16:05:21.614Z",
+  "exportedAt": "2026-06-01T16:10:56.804Z",
   "recipes": [
     {
       "badge": "Signature",
@@ -108,20 +108,20 @@
         {
           "id": "riz",
           "name": "Riz arborio",
-          "qty": 320,
+          "qty": 300,
           "unit": "g"
         },
         {
           "id": "champignons",
           "name": "Champignons",
-          "qty": 450,
+          "qty": 250,
           "unit": "g"
         },
         {
           "id": "bouillon",
           "name": "Bouillon de légumes",
-          "qty": 1.1,
-          "unit": "L"
+          "qty": 75,
+          "unit": "cl"
         },
         {
           "id": "parmesan",
@@ -131,15 +131,39 @@
         },
         {
           "id": "vin",
-          "name": "Vin blanc",
-          "qty": 12,
-          "unit": "cl"
+          "name": "Ail",
+          "qty": 1,
+          "unit": "gousse"
         },
         {
           "id": "oignon",
           "name": "Oignon",
           "qty": 1,
           "unit": "pièce"
+        },
+        {
+          "id": "ing-h0gyqcn",
+          "name": "Crème frâiche semi-épaisse",
+          "qty": 10,
+          "unit": "cl"
+        },
+        {
+          "id": "ing-w7n7jq3",
+          "name": "Huile d'olive",
+          "qty": 2,
+          "unit": "c. à soupe"
+        },
+        {
+          "id": "ing-2dzm0bw",
+          "name": "Sel",
+          "qty": 1,
+          "unit": "u"
+        },
+        {
+          "id": "ing-lo9dhui",
+          "name": "Poivre",
+          "qty": 1,
+          "unit": "u"
         }
       ],
       "id": "risotto-champignons",
@@ -148,11 +172,11 @@
       "image": "linear-gradient(135deg, rgba(91, 62, 43, 0.75), rgba(242, 177, 109, 0.74)), url(https://images.unsplash.com/photo-1476124369491-e7addf5db371?auto=format&fit=crop&w=1200&q=80)",
       "photoUrl": "https://img.cuisineaz.com/660x495/2015/08/14/i73707-risotto-onctueux-aux-champignon-de-paris.webp",
       "videoUrl": "",
-      "sourceName": "",
-      "sourceUrl": "",
-      "description": "Un plat principal onctueux, parfumé au parmesan, parfait pour un dîner premium sans complication.",
-      "steps": "Faire revenir l’oignon dans l’huile. Ajouter le riz et le nacrer 2 minutes. Verser le vin blanc, puis incorporer le bouillon louche par louche. Poêler les champignons à part. Terminer avec parmesan, beurre, champignons et persil.",
-      "notes": "Le secret : remuer souvent et garder le bouillon bien chaud.",
+      "sourceName": "Source web",
+      "sourceUrl": "https://www.cuisineaz.com/recettes/risotto-onctueux-aux-champignons-de-paris-121984.aspx",
+      "description": "Ce risotto propose une association simple d’ingrédients qui apportent douceur et réconfort au quotidien. Riz Arborio, bouillon, parmesan et crème fraîche créent une texture crémeuse et gourmande.",
+      "steps": "1 : Préparation des aliments\nChauffez le bouillon de légumes dans une casserole. Rincez soigneusement les champignons, puis égouttez-les dans une passoire. Émincez-les finement. Épluchez la gousse d'ail et écrasez-la. Pelez l'oignon et coupez-le en demi-rondelles.\n2 : Préparation de l'ail et des champignons\nDans une poêle, faites revenir l'ail et les champignons avec 1 c. à soupe d'huile pendant 10 min.\n3 : Assemblage\nChauffez le reste d'huile dans une grande casserole. Faites-y sauter l'oignon durant 3 min. Ajoutez le riz, la crème fraîche et la préparation aux champignons. Mélangez.\n4 : Ajout du bouillon\nIncorporez progressivement le bouillon de légumes, louche par louche, en attendant que la précédente soi absorbée pour en ajouter. Laissez cuire 20 min.\n5 : Finition\nSalez et poivrez, poursuivez la cuisson 5 min. Hors du feu, saupoudrez de parmesan râpé et servez.",
+      "notes": "Pour un risotto encore plus parfumé, faites revenir vos champignons dans une poêle bien chaude jusqu’à ce qu’ils soient dorés avant de les ajouter au riz. Cela va intensifier leur saveur et apporter une touche gourmande à votre plat ! Si vous aimez les herbes, ajoutez quelques brins de thym frais ou de la ciboulette ciselée juste avant de servir : effet waouh garanti.",
       "photoData": ""
     },
     {
