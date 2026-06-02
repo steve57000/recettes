@@ -1031,6 +1031,8 @@ function renderHomePage(filteredRecipes, totalIngredients) {
         ${renderDashboard(totalIngredients)}
       </section>
 
+      ${renderFavoritesSection()}
+
       ${renderSearchFilters()}
 
       <section id="recettes" class="section-head">
