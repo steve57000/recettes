@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-02T19:55:23.259Z",
+  "exportedAt": "2026-06-02T19:57:07.190Z",
   "recipes": [
     {
       "badge": "Soleil",
@@ -105,7 +105,8 @@
       "videoUrl": "",
       "sourceUrl": "https://www.marmiton.org/recettes/recette_ratatouille_23223.aspx",
       "sourceName": "Source web",
-      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)"
+      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
+      "favorite": true
     },
     {
       "badge": "Nouveau",
@@ -222,7 +223,8 @@
       "videoUrl": "",
       "sourceUrl": "https://www.grandfrais.com/recettes/smashed-potatoes-sauce-green-goddess",
       "sourceName": "Source web",
-      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)"
+      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
+      "favorite": false
     },
     {
       "badge": "Fraîcheur",
@@ -313,7 +315,8 @@
       "videoUrl": "",
       "sourceUrl": "https://www.grandfrais.com/recettes/rillettes-de-sardines-a-lestragon-1",
       "sourceName": "Source web",
-      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)"
+      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
+      "favorite": false
     },
     {
       "badge": "Veloutés & crèmes",
@@ -408,7 +411,8 @@
       "videoUrl": "",
       "sourceUrl": "https://www.marieclaire.fr/cuisine/recette-de-veloute-de-radis-roses-au-chevre-frais,1511330.asp",
       "sourceName": "Source web",
-      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)"
+      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
+      "favorite": false
     },
     {
       "badge": "Soleil",
@@ -524,7 +528,8 @@
       "videoUrl": "",
       "sourceUrl": "https://www.fresh.fr/recette/quiche-spirale-aux-legumes-du-soleil/",
       "sourceName": "Source web",
-      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)"
+      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
+      "favorite": false
     },
     {
       "badge": "Signature",
@@ -642,7 +647,8 @@
         "été",
         "salade",
         "rapide"
-      ]
+      ],
+      "favorite": false
     },
     {
       "badge": "Réconfort",
@@ -750,7 +756,8 @@
         "crémeux",
         "végétarien",
         "plat chaud"
-      ]
+      ],
+      "favorite": false
     },
     {
       "badge": "Fraîcheur",
@@ -844,7 +851,8 @@
         "léger",
         "été",
         "végétarien"
-      ]
+      ],
+      "favorite": false
     },
     {
       "badge": "Pâtisserie",
@@ -911,7 +919,8 @@
         "dessert",
         "fruité",
         "week-end"
-      ]
+      ],
+      "favorite": false
     },
     {
       "badge": "Douceur",
@@ -978,7 +987,8 @@
         "soupe",
         "automne",
         "végétarien"
-      ]
+      ],
+      "favorite": false
     },
     {
       "badge": "Vitaminé",
@@ -1040,7 +1050,8 @@
         "boisson",
         "express",
         "fruité"
-      ]
+      ],
+      "favorite": false
     },
     {
       "badge": "Soleil",
@@ -1168,7 +1179,8 @@
         "salade",
         "frais",
         "herbes"
-      ]
+      ],
+      "favorite": false
     },
     {
       "badge": "Nomade",
@@ -1248,7 +1260,8 @@
         "rapide",
         "poulet",
         "à emporter"
-      ]
+      ],
+      "favorite": false
     }
   ],
   "shoppingUpdatedAt": "",
