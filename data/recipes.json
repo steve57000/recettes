@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-02T19:57:07.190Z",
+  "exportedAt": "2026-06-02T19:58:04.031Z",
   "recipes": [
     {
       "badge": "Soleil",
@@ -106,7 +106,7 @@
       "sourceUrl": "https://www.marmiton.org/recettes/recette_ratatouille_23223.aspx",
       "sourceName": "Source web",
       "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
-      "favorite": true
+      "favorite": false
     },
     {
       "badge": "Nouveau",
@@ -224,7 +224,7 @@
       "sourceUrl": "https://www.grandfrais.com/recettes/smashed-potatoes-sauce-green-goddess",
       "sourceName": "Source web",
       "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
-      "favorite": false
+      "favorite": true
     },
     {
       "badge": "Fraîcheur",
