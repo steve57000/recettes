@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-02T14:32:37.977Z",
+  "exportedAt": "2026-06-02T14:33:16.110Z",
   "recipes": [
     {
       "badge": "Signature",
@@ -794,57 +794,21 @@
       "bought": true
     },
     {
-      "recipeId": "soupe-potimarron",
-      "ingredientId": "potimarron",
-      "recipeName": "Velouté potimarron & noisettes",
-      "name": "Potimarron",
+      "recipeId": "recipe-r94y23w",
+      "ingredientId": "ing-16b6jdd",
+      "recipeName": "Taboulé libanais",
+      "name": "Sel",
       "qtyNumber": 1,
-      "unit": "pièce",
+      "unit": "u",
       "bought": false
     },
     {
-      "recipeId": "soupe-potimarron",
-      "ingredientId": "carottes",
-      "recipeName": "Velouté potimarron & noisettes",
-      "name": "Carottes",
-      "qtyNumber": 3,
-      "unit": "pièces",
-      "bought": false
-    },
-    {
-      "recipeId": "soupe-potimarron",
-      "ingredientId": "bouillon",
-      "recipeName": "Velouté potimarron & noisettes",
-      "name": "Bouillon de légumes",
-      "qtyNumber": 80,
-      "unit": "cl",
-      "bought": false
-    },
-    {
-      "recipeId": "soupe-potimarron",
-      "ingredientId": "creme",
-      "recipeName": "Velouté potimarron & noisettes",
-      "name": "Crème",
-      "qtyNumber": 15,
-      "unit": "cl",
-      "bought": false
-    },
-    {
-      "recipeId": "soupe-potimarron",
-      "ingredientId": "noisettes",
-      "recipeName": "Velouté potimarron & noisettes",
-      "name": "Noisettes",
-      "qtyNumber": 50,
-      "unit": "g",
-      "bought": false
-    },
-    {
-      "recipeId": "soupe-potimarron",
-      "ingredientId": "oignon",
-      "recipeName": "Velouté potimarron & noisettes",
-      "name": "Oignon",
+      "recipeId": "recipe-r94y23w",
+      "ingredientId": "ing-4e1cjc9",
+      "recipeName": "Taboulé libanais",
+      "name": "Poivre",
       "qtyNumber": 1,
-      "unit": "pièce",
+      "unit": "u",
       "bought": false
     }
   ]
