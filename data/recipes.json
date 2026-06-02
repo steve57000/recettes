@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-02T20:32:27.854Z",
+  "exportedAt": "2026-06-02T20:41:20.446Z",
   "recipes": [
     {
       "badge": "Signature",
@@ -1154,7 +1154,7 @@
       "sourceUrl": "https://www.grandfrais.com/recettes/smashed-potatoes-sauce-green-goddess",
       "sourceName": "Source web",
       "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
-      "favorite": true
+      "favorite": false
     },
     {
       "badge": "Soleil",
