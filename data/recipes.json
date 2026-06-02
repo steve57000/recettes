@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-02T11:46:31.991Z",
+  "exportedAt": "2026-06-02T11:48:08.261Z",
   "recipes": [
     {
       "badge": "Signature",
@@ -728,7 +728,7 @@
       "name": "Coriandre",
       "qtyNumber": 1,
       "unit": "Botte(s)",
-      "bought": false
+      "bought": true
     },
     {
       "recipeId": "recipe-r94y23w",
@@ -755,7 +755,7 @@
       "name": "Oignon rouge",
       "qtyNumber": 0.5,
       "unit": "Unité",
-      "bought": false
+      "bought": true
     },
     {
       "recipeId": "recipe-r94y23w",
