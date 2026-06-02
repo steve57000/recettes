@@ -1,614 +1,6 @@
 {
-  "exportedAt": "2026-06-02T20:27:19.659Z",
+  "exportedAt": "2026-06-02T20:32:27.854Z",
   "recipes": [
-    {
-      "badge": "Fraîcheur",
-      "difficulty": "Facile",
-      "baseServings": 4,
-      "time": 20,
-      "ingredients": [
-        {
-          "id": "ing-xo7j6c7",
-          "name": "Gros citron",
-          "qty": 4,
-          "unit": "pièce"
-        },
-        {
-          "id": "ing-hhxfj7t",
-          "name": "Basilic",
-          "qty": 6,
-          "unit": "feuille"
-        },
-        {
-          "id": "ing-tdz8fda",
-          "name": "Eau",
-          "qty": 10,
-          "unit": "cl"
-        },
-        {
-          "id": "ing-2r87ypn",
-          "name": "Sucre",
-          "qty": 100,
-          "unit": "g"
-        },
-        {
-          "id": "ing-ije0akg",
-          "name": "Blanc d'oeuf",
-          "qty": 2,
-          "unit": "pièce"
-        }
-      ],
-      "steps": [
-        {
-          "id": "step-c9dpasf",
-          "text": "Rincez les citrons à l'eau claire et découpez un chapeau sur quatre citrons, côté queue, puis évidez-les en récupérant la pulpe à l'aide d'une petite cuillère et en veillant à ne pas endommager la peau. Réservez les citrons évidés et les chapeaux au réfrigérateur."
-        },
-        {
-          "id": "step-omv4bot",
-          "text": "Ajoutez la pulpe des citrons, le basilic et mixez le tout. Passez la préparation au tamis."
-        },
-        {
-          "id": "step-y5yqudx",
-          "text": "Dans une casserole, portez l'eau et le sucre à ébullition pendant 5 minutes. Laissez refroidir et ajoutez le jus de citron au basilic. Laissez refroidir complètement."
-        },
-        {
-          "id": "step-f9kxm8l",
-          "text": "Pendant ce temps, montez les blancs en neige et incorporez-les délicatement à la préparation."
-        },
-        {
-          "id": "step-msd2ydu",
-          "text": "Remplissez les citrons de la préparation, couvrez-les de leur chapeau et laissez prendre au congélateur 4 heures au minimum."
-        }
-      ],
-      "id": "recipe-uarmizf",
-      "name": "Citron givrés au basilic",
-      "category": "Desserts",
-      "tags": [
-        "été",
-        "frais",
-        "dessert"
-      ],
-      "rating": 3,
-      "description": "Un déssert glacé léger et rafraîchissant, où l'intensité du citron rencontre la douceur herbacée du basilic pour une explosion de fraîcheur en bouche.",
-      "notes": "Pour le service, remplis les coques de citron bien gelées et ajoute une petite feuille de basilic frais ou un zeste fin de citron juste avant de servir pour renforcer la fraîcheur.",
-      "photoUrl": "https://cache.marieclaire.fr/data/photo/w1200_h630_ci/6u/sorbet-citron-sans-sucre-citron-givre.jpg",
-      "photoData": "",
-      "videoUrl": "",
-      "sourceUrl": "https://www.grandfrais.com/recettes/citrons-givres-au-basilic",
-      "sourceName": "Source web",
-      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
-      "favorite": true
-    },
-    {
-      "badge": "Soleil",
-      "difficulty": "Facile",
-      "baseServings": 6,
-      "time": 75,
-      "ingredients": [
-        {
-          "id": "ing-ut3mwh4",
-          "name": "Poivron rouge",
-          "qty": 3,
-          "unit": "pièce"
-        },
-        {
-          "id": "ing-oy2dhpu",
-          "name": "Courgette",
-          "qty": 4,
-          "unit": "pièce"
-        },
-        {
-          "id": "ing-ddiczk3",
-          "name": "Aubergine",
-          "qty": 2,
-          "unit": "pièce"
-        },
-        {
-          "id": "ing-huw7e6l",
-          "name": "Oignon",
-          "qty": 2,
-          "unit": "pièce"
-        },
-        {
-          "id": "ing-dluxab2",
-          "name": "Ail",
-          "qty": 3,
-          "unit": "gousse"
-        },
-        {
-          "id": "ing-lpc6102",
-          "name": "Huile d'olive",
-          "qty": 1,
-          "unit": "filet"
-        },
-        {
-          "id": "ing-ij3qmdz",
-          "name": "Tomates concassées",
-          "qty": 800,
-          "unit": "g"
-        },
-        {
-          "id": "ing-9lkttno",
-          "name": "Sucre",
-          "qty": 1,
-          "unit": "pincée"
-        },
-        {
-          "id": "ing-8gljua6",
-          "name": "Sel",
-          "qty": 1,
-          "unit": "pincée"
-        },
-        {
-          "id": "ing-k48z964",
-          "name": "Poivre",
-          "qty": 1,
-          "unit": "pincée"
-        }
-      ],
-      "steps": [
-        {
-          "id": "step-c0w6jr5",
-          "text": "Rincez les poivrons, les aubergines et les courgettes à l'eau claire. Retirez les graines des poivrons, puis coupez les légumes en morceaux."
-        },
-        {
-          "id": "step-t5v3usc",
-          "text": "Epluchez les oignons, émincez-les. Passez l'ail au presse-ail."
-        },
-        {
-          "id": "step-cpnvih2",
-          "text": "Dans une cocotte ou une sauteuse, faites revenir les oignons émincés et les aunergines dans un peu d'huile d'olive. Ajoutez les courgettes, les poivrons et l'ail haché et poursuivez la cuisson pendant 15 minutes à feu vif."
-        },
-        {
-          "id": "step-9pfrcm8",
-          "text": "Ajoutez les tomates concassées. Assaisonnez de sel, de poivre et d'une pincée de sucre. Laissez mijoter à feu doux et à découvert pendant 30 minutes."
-        },
-        {
-          "id": "step-7risb2x",
-          "text": "Vous pouvez maintenant vous régaler."
-        }
-      ],
-      "id": "recipe-btaejzd",
-      "name": "Ratatouille",
-      "category": "Plats",
-      "tags": [
-        "vegétarient",
-        "soleil"
-      ],
-      "rating": 3,
-      "description": "Une ratatouille mijotée aux légumes du soleil. Un plat généreux, coloré et plein de saveurs méditerranéennes.",
-      "notes": "Poue une version express à l'apéritif, faites griller quelques tranches de baguette frottées à l'ail et disposez sur le dessus un peu de ratatouille. Ajoutez un peu de mozzarella et passez le tout au grill 2 à 3 minutes.",
-      "photoUrl": "https://lacuisinedegeraldine.fr/wp-content/uploads/2025/06/Ratatouille-333-scaled.jpg",
-      "photoData": "",
-      "videoUrl": "",
-      "sourceUrl": "https://www.marmiton.org/recettes/recette_ratatouille_23223.aspx",
-      "sourceName": "Source web",
-      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
-      "favorite": false
-    },
-    {
-      "badge": "Nouveau",
-      "difficulty": "Facile",
-      "baseServings": 4,
-      "time": 40,
-      "ingredients": [
-        {
-          "id": "ing-sa5820q",
-          "name": "Pommes de terre",
-          "qty": 8,
-          "unit": "pièce"
-        },
-        {
-          "id": "ing-mopoz2m",
-          "name": "Huile d'olive",
-          "qty": 2,
-          "unit": "c. à soupe"
-        },
-        {
-          "id": "ing-tynr3ym",
-          "name": "Ail",
-          "qty": 2,
-          "unit": "gousse"
-        },
-        {
-          "id": "ing-06jy3j9",
-          "name": "Thym",
-          "qty": 5,
-          "unit": "brin"
-        },
-        {
-          "id": "ing-60levdv",
-          "name": "Sel",
-          "qty": 2,
-          "unit": "pincée"
-        },
-        {
-          "id": "ing-qr1m0rb",
-          "name": "Persil plat",
-          "qty": 1,
-          "unit": "c. à soupe"
-        },
-        {
-          "id": "ing-ip4z769",
-          "name": "Ciboulette",
-          "qty": 1,
-          "unit": "c. à soupe"
-        },
-        {
-          "id": "ing-7e6veo0",
-          "name": "Estragon",
-          "qty": 1,
-          "unit": "c. à soupe"
-        },
-        {
-          "id": "ing-yenx0xl",
-          "name": "Basilic",
-          "qty": 1,
-          "unit": "c. à soupe"
-        },
-        {
-          "id": "ing-1kd99dl",
-          "name": "Mayonnaise",
-          "qty": 30,
-          "unit": "g"
-        },
-        {
-          "id": "ing-s3rtxu6",
-          "name": "Yaourt grec",
-          "qty": 60,
-          "unit": "g"
-        },
-        {
-          "id": "ing-16zsspi",
-          "name": "Jus de citron",
-          "qty": 0.5,
-          "unit": "pièce"
-        }
-      ],
-      "steps": [
-        {
-          "id": "step-8lcl5xm",
-          "text": "Rincez les pommes de terre à l'eau claire et placez-les dans une casserole d'eau froide salée. Portez à ébullition et laissez mijoter une vingtaine de minutes jusqu'à ce que les pommes de terre soient tendres. Egouttez-les."
-        },
-        {
-          "id": "step-f08363x",
-          "text": "Préchauffez votre four à 220°C. Disposez les pommes de terre sur une plaque recouverte de papier sulfurisé. A l'aide d'une spatule, aplatissez-les légèrement."
-        },
-        {
-          "id": "step-dy3kpqs",
-          "text": "Dans un petit bol, mélangez l'huile d'olive, l'ail émincé et les brins de thym effeuillé. Badigeonnez généreusement chaque pomme de terre de ce mélange. Assaisonnez les pommes de terre de sel et de poivre et enfournez pour 25 minutes de cuisson."
-        },
-        {
-          "id": "step-dty6ap0",
-          "text": "Pendant ce temps, préparez la sauce. Pour cela, mélangez l'ensemble des ingrédients (herbes fraîches hachées, mayonnaise, yaourt grec, jus de citron, sel, poivre) et mixez le tout pour obtenir une préparation bien homogène."
-        },
-        {
-          "id": "step-wqsdwbc",
-          "text": "Servez les pommes de terre dès la sortie du four avec la sauce."
-        }
-      ],
-      "id": "recipe-8rl1nbx",
-      "name": "Smashed potatoes sauce green goddess",
-      "category": "Accompagnement",
-      "tags": [
-        "végétarien"
-      ],
-      "rating": 3,
-      "description": "Des smashed potatoes croustillantes à l'extérieur et fondantes à coeur, accompagnées d'une sauce Green Goddess ultra fraîche aux herbes et à l'ail. Un mélange gourmand, parfumé et irrésistiblement addictif.",
-      "notes": "Ajoute quelques herbes fraîches (ciboulette, aneth ou persil), un peu de zeste de citron et une pincée de fleur de sel juste avant de servir pour relever le tout et apporter du contraste.",
-      "photoUrl": "https://iod.keplrstatic.com/api/c_fill,dpr_auto,g_north,f_auto,q_70,w_1100/mon_marche/Les_Smashed_Potatoes_Sauce_Green_Goddess_.png",
-      "photoData": "",
-      "videoUrl": "",
-      "sourceUrl": "https://www.grandfrais.com/recettes/smashed-potatoes-sauce-green-goddess",
-      "sourceName": "Source web",
-      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
-      "favorite": true
-    },
-    {
-      "badge": "Fraîcheur",
-      "difficulty": "Facile",
-      "baseServings": 4,
-      "time": 15,
-      "ingredients": [
-        {
-          "id": "ing-ekbb0i9",
-          "name": "Sardines",
-          "qty": 500,
-          "unit": "g"
-        },
-        {
-          "id": "ing-9m3e0u7",
-          "name": "Yaourt grec",
-          "qty": 2,
-          "unit": "c. à soupe"
-        },
-        {
-          "id": "ing-2qnyrmu",
-          "name": "Moutarde de dijon",
-          "qty": 1,
-          "unit": "c. à soupe"
-        },
-        {
-          "id": "ing-l75p6ov",
-          "name": "Jus de citron",
-          "qty": 0.5,
-          "unit": "pièce"
-        },
-        {
-          "id": "ing-8kp1ad5",
-          "name": "Echalotte",
-          "qty": 1,
-          "unit": "pièce"
-        },
-        {
-          "id": "ing-vcnv496",
-          "name": "Estragon",
-          "qty": 1,
-          "unit": "c. à soupe"
-        },
-        {
-          "id": "ing-u4uwizb",
-          "name": "Sel",
-          "qty": 1,
-          "unit": "pincée"
-        },
-        {
-          "id": "ing-eu18yik",
-          "name": "Poivre",
-          "qty": 1,
-          "unit": "pincée"
-        }
-      ],
-      "steps": [
-        {
-          "id": "step-juqubso",
-          "text": "Rincez les sardines à l'eau claire."
-        },
-        {
-          "id": "step-z37z3dq",
-          "text": "Faites cuire les sardines au four ou à la poêle. Une fois cuites, laissez-les refroidir légèrement. Retirez la peau et les arêtes, puis écrasez-les à la fourchette."
-        },
-        {
-          "id": "step-ls8r0nf",
-          "text": "Ajoutez le yaourt grec, la moutarde, le jus de citron frais, l'échalote hachée et l'estragon haché et mélangez tous les ingrédients jusqu'à obtenir une préparation homogène. Assaisonnez de sel et de poivre."
-        },
-        {
-          "id": "step-sf1brq4",
-          "text": "Servez les rillettes de sardines à l'estragon avec du pain grillé ou des tranches de baguette."
-        }
-      ],
-      "id": "recipe-td6d943",
-      "name": "Rillettes de sardines à l'estragon",
-      "category": "Appéro",
-      "tags": [
-        "été",
-        "frais",
-        "printemps"
-      ],
-      "rating": 3,
-      "description": "Des rillettes de sardines fraîches et onctueuses, relevées par la douceur parfumée de l'estragon. Une tartinade légère, savoureuse et pleine de fraîcheur, parfaite pour l'apéritif d'été.",
-      "notes": "Pour une texture plus lisse, vous pouvez mixer les ingrédients dans un robot culinaire.",
-      "photoUrl": "https://www.aumenuilya.com/wp-content/uploads/2024/04/1714428984_tartinable-marin-rillettes-sardines-fraiches-estragon-maison-1024x701.jpg",
-      "photoData": "",
-      "videoUrl": "",
-      "sourceUrl": "https://www.grandfrais.com/recettes/rillettes-de-sardines-a-lestragon-1",
-      "sourceName": "Source web",
-      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
-      "favorite": false
-    },
-    {
-      "badge": "Veloutés & crèmes",
-      "difficulty": "Facile",
-      "baseServings": 4,
-      "time": 20,
-      "ingredients": [
-        {
-          "id": "ing-832pfzn",
-          "name": "Radis",
-          "qty": 500,
-          "unit": "g"
-        },
-        {
-          "id": "ing-69p7lqx",
-          "name": "Pomme de terre",
-          "qty": 1,
-          "unit": "pièce"
-        },
-        {
-          "id": "ing-rxfi3ue",
-          "name": "Oignon",
-          "qty": 1,
-          "unit": "pièce"
-        },
-        {
-          "id": "ing-sszh60o",
-          "name": "Bouillon de volaille",
-          "qty": 50,
-          "unit": "cl"
-        },
-        {
-          "id": "ing-x1bft6t",
-          "name": "Chèvre frais",
-          "qty": 80,
-          "unit": "g"
-        },
-        {
-          "id": "ing-gddmmjl",
-          "name": "Huile d'olive",
-          "qty": 2,
-          "unit": "c. à soupe"
-        },
-        {
-          "id": "ing-t4ez9f9",
-          "name": "Sel",
-          "qty": 1,
-          "unit": "pincée"
-        },
-        {
-          "id": "ing-v65vton",
-          "name": "Poivre",
-          "qty": 1,
-          "unit": "pincée"
-        }
-      ],
-      "steps": [
-        {
-          "id": "step-qbmnrm7",
-          "text": "Rincez les radis à l'eau claire, coupez les fanes, puis coupez-les en morceaux."
-        },
-        {
-          "id": "step-4cgi1sr",
-          "text": "Epluchez la pomme de terre et coupez là en cubes. Emincez l'oignon."
-        },
-        {
-          "id": "step-72f5m5z",
-          "text": "Faites chauffer un peu d'huile d'olive dans une grande casserole. Ajoutez l'oignon émincé et faites-le revenir pendant quelques minutes. Ajoutez les radis et les cubes de pomme de terre. Mélangez bien, puis couvrez de bouillon de volaille."
-        },
-        {
-          "id": "step-tns7jtr",
-          "text": "Portez à ébullition, puis laissez mijoter à feu doux pendant une vingtaine de minutes."
-        },
-        {
-          "id": "step-9ks1ccs",
-          "text": "Ajoutez le chèvre frais et passez le tout au mixeur plongeant jusqu'à obtenir une préparation bien lisse. Assaisonnez de sel et de poivre. Servez sans attendre."
-        }
-      ],
-      "id": "recipe-qs46obj",
-      "name": "Velouté de radis roses au chèvre frais",
-      "category": "Entrées",
-      "tags": [
-        "entrée",
-        "velouté",
-        "printemps"
-      ],
-      "rating": 3,
-      "description": "Pour une entrée printanière, fraîche et légère, essayez ce velouté tout rose qui allie chèvre frais et radis ! Quelques minutes sur le feu, un mixeur plongeant pour lier le tout et quelques aromates pour rendre ce velouté inoubliable !",
-      "notes": "Pour plus de gourmandise ajoutez des graines de sésame sur le dessus avec un filet d'huile d'olive.",
-      "photoUrl": "https://cache.marieclaire.fr/data/photo/w1000_ci/7b/recette-de-veloute-de-radis-rose-au-chevre-frais.webp",
-      "photoData": "",
-      "videoUrl": "",
-      "sourceUrl": "https://www.marieclaire.fr/cuisine/recette-de-veloute-de-radis-roses-au-chevre-frais,1511330.asp",
-      "sourceName": "Source web",
-      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
-      "favorite": true
-    },
-    {
-      "badge": "Soleil",
-      "difficulty": "Facile",
-      "baseServings": 4,
-      "time": 30,
-      "ingredients": [
-        {
-          "id": "ing-0hmzr5a",
-          "name": "Pâte brisée",
-          "qty": 1,
-          "unit": "pièce"
-        },
-        {
-          "id": "ing-16xv028",
-          "name": "Courgette verte",
-          "qty": 1,
-          "unit": "pièce"
-        },
-        {
-          "id": "ing-4zbt6ft",
-          "name": "Courgette jaune",
-          "qty": 1,
-          "unit": "pièce"
-        },
-        {
-          "id": "ing-wgw6ez1",
-          "name": "Poivron rouge",
-          "qty": 1,
-          "unit": "pièce"
-        },
-        {
-          "id": "ing-0hxi9ph",
-          "name": "Poivron jaune",
-          "qty": 1,
-          "unit": "pièce"
-        },
-        {
-          "id": "ing-5mjwkwf",
-          "name": "Aubergine",
-          "qty": 1,
-          "unit": "pièce"
-        },
-        {
-          "id": "ing-emh3bu7",
-          "name": "Crème liquide",
-          "qty": 20,
-          "unit": "cl"
-        },
-        {
-          "id": "ing-qf1hujj",
-          "name": "Oeufs",
-          "qty": 3,
-          "unit": "pièce"
-        },
-        {
-          "id": "ing-14hwbnj",
-          "name": "Sel",
-          "qty": 1,
-          "unit": "pincée"
-        },
-        {
-          "id": "ing-tcakmya",
-          "name": "Poivre",
-          "qty": 1,
-          "unit": "pincée"
-        },
-        {
-          "id": "ing-n1ax57p",
-          "name": "Huile d’olive",
-          "qty": 1,
-          "unit": "filet"
-        }
-      ],
-      "steps": [
-        {
-          "id": "step-njtg589",
-          "text": "Découpez les légumes en fines lamelles à l'aide d'un couteau ou d'un économe dans la longueur."
-        },
-        {
-          "id": "step-rqqsyh0",
-          "text": "Portez une casserole d'eau salée à ébullition et plongez-y les légumes pendant 30 secondes. Egouttez-les."
-        },
-        {
-          "id": "step-y01i5ro",
-          "text": "Abaissez la pâte brisée dans un moule beurré. Piquez le fond de la tarte avec une fourchette."
-        },
-        {
-          "id": "step-qohqs64",
-          "text": "Préchauffez le four à 180°C."
-        },
-        {
-          "id": "step-iiei8qp",
-          "text": "Dans un bol, fouettez les œufs avec la crème et assaisonnez généreusement avec le sel et le poivre. Disposez les lamelles de légumes dans le fond de tarte de façon à former une spirale en alternant les différentes couleurs."
-        },
-        {
-          "id": "step-sgb1uhb",
-          "text": "Ajoutez délicatement l'appareil par-dessus puis enfournez pour 30 minutes de cuisson. Servez bien chaud avec une petite salade verte."
-        }
-      ],
-      "id": "recipe-3e56doy",
-      "name": "Quiche spirale aux légumes du soleil",
-      "category": "Tartes chaude",
-      "tags": [
-        "végétarien",
-        "été"
-      ],
-      "rating": 3,
-      "description": "Une délicieuse quiche spirale colorée aux légumes du soleil, fondante, parfumée, elle apporte fraîcheur et gourmandise à chaque bouchée.",
-      "notes": "",
-      "photoUrl": "https://www.fresh.fr/wp-content/uploads/2022/07/Quiche-spirale-aux-legumes-du-soleil-scaled-e1656948212616-1200x650.jpg",
-      "photoData": "",
-      "videoUrl": "",
-      "sourceUrl": "https://www.fresh.fr/recette/quiche-spirale-aux-legumes-du-soleil/",
-      "sourceName": "Source web",
-      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
-      "favorite": false
-    },
     {
       "badge": "Signature",
       "difficulty": "Facile",
@@ -1340,6 +732,614 @@
         "à emporter"
       ],
       "favorite": false
+    },
+    {
+      "badge": "Veloutés & crèmes",
+      "difficulty": "Facile",
+      "baseServings": 4,
+      "time": 20,
+      "ingredients": [
+        {
+          "id": "ing-832pfzn",
+          "name": "Radis",
+          "qty": 500,
+          "unit": "g"
+        },
+        {
+          "id": "ing-69p7lqx",
+          "name": "Pomme de terre",
+          "qty": 1,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-rxfi3ue",
+          "name": "Oignon",
+          "qty": 1,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-sszh60o",
+          "name": "Bouillon de volaille",
+          "qty": 50,
+          "unit": "cl"
+        },
+        {
+          "id": "ing-x1bft6t",
+          "name": "Chèvre frais",
+          "qty": 80,
+          "unit": "g"
+        },
+        {
+          "id": "ing-gddmmjl",
+          "name": "Huile d'olive",
+          "qty": 2,
+          "unit": "c. à soupe"
+        },
+        {
+          "id": "ing-t4ez9f9",
+          "name": "Sel",
+          "qty": 1,
+          "unit": "pincée"
+        },
+        {
+          "id": "ing-v65vton",
+          "name": "Poivre",
+          "qty": 1,
+          "unit": "pincée"
+        }
+      ],
+      "steps": [
+        {
+          "id": "step-qbmnrm7",
+          "text": "Rincez les radis à l'eau claire, coupez les fanes, puis coupez-les en morceaux."
+        },
+        {
+          "id": "step-4cgi1sr",
+          "text": "Epluchez la pomme de terre et coupez là en cubes. Emincez l'oignon."
+        },
+        {
+          "id": "step-72f5m5z",
+          "text": "Faites chauffer un peu d'huile d'olive dans une grande casserole. Ajoutez l'oignon émincé et faites-le revenir pendant quelques minutes. Ajoutez les radis et les cubes de pomme de terre. Mélangez bien, puis couvrez de bouillon de volaille."
+        },
+        {
+          "id": "step-tns7jtr",
+          "text": "Portez à ébullition, puis laissez mijoter à feu doux pendant une vingtaine de minutes."
+        },
+        {
+          "id": "step-9ks1ccs",
+          "text": "Ajoutez le chèvre frais et passez le tout au mixeur plongeant jusqu'à obtenir une préparation bien lisse. Assaisonnez de sel et de poivre. Servez sans attendre."
+        }
+      ],
+      "id": "recipe-qs46obj",
+      "name": "Velouté de radis roses au chèvre frais",
+      "category": "Entrées",
+      "tags": [
+        "entrée",
+        "velouté",
+        "printemps"
+      ],
+      "rating": 3,
+      "description": "Pour une entrée printanière, fraîche et légère, essayez ce velouté tout rose qui allie chèvre frais et radis ! Quelques minutes sur le feu, un mixeur plongeant pour lier le tout et quelques aromates pour rendre ce velouté inoubliable !",
+      "notes": "Pour plus de gourmandise ajoutez des graines de sésame sur le dessus avec un filet d'huile d'olive.",
+      "photoUrl": "https://cache.marieclaire.fr/data/photo/w1000_ci/7b/recette-de-veloute-de-radis-rose-au-chevre-frais.webp",
+      "photoData": "",
+      "videoUrl": "",
+      "sourceUrl": "https://www.marieclaire.fr/cuisine/recette-de-veloute-de-radis-roses-au-chevre-frais,1511330.asp",
+      "sourceName": "Source web",
+      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
+      "favorite": false
+    },
+    {
+      "badge": "Soleil",
+      "difficulty": "Facile",
+      "baseServings": 4,
+      "time": 30,
+      "ingredients": [
+        {
+          "id": "ing-0hmzr5a",
+          "name": "Pâte brisée",
+          "qty": 1,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-16xv028",
+          "name": "Courgette verte",
+          "qty": 1,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-4zbt6ft",
+          "name": "Courgette jaune",
+          "qty": 1,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-wgw6ez1",
+          "name": "Poivron rouge",
+          "qty": 1,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-0hxi9ph",
+          "name": "Poivron jaune",
+          "qty": 1,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-5mjwkwf",
+          "name": "Aubergine",
+          "qty": 1,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-emh3bu7",
+          "name": "Crème liquide",
+          "qty": 20,
+          "unit": "cl"
+        },
+        {
+          "id": "ing-qf1hujj",
+          "name": "Oeufs",
+          "qty": 3,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-14hwbnj",
+          "name": "Sel",
+          "qty": 1,
+          "unit": "pincée"
+        },
+        {
+          "id": "ing-tcakmya",
+          "name": "Poivre",
+          "qty": 1,
+          "unit": "pincée"
+        },
+        {
+          "id": "ing-n1ax57p",
+          "name": "Huile d’olive",
+          "qty": 1,
+          "unit": "filet"
+        }
+      ],
+      "steps": [
+        {
+          "id": "step-njtg589",
+          "text": "Découpez les légumes en fines lamelles à l'aide d'un couteau ou d'un économe dans la longueur."
+        },
+        {
+          "id": "step-rqqsyh0",
+          "text": "Portez une casserole d'eau salée à ébullition et plongez-y les légumes pendant 30 secondes. Egouttez-les."
+        },
+        {
+          "id": "step-y01i5ro",
+          "text": "Abaissez la pâte brisée dans un moule beurré. Piquez le fond de la tarte avec une fourchette."
+        },
+        {
+          "id": "step-qohqs64",
+          "text": "Préchauffez le four à 180°C."
+        },
+        {
+          "id": "step-iiei8qp",
+          "text": "Dans un bol, fouettez les œufs avec la crème et assaisonnez généreusement avec le sel et le poivre. Disposez les lamelles de légumes dans le fond de tarte de façon à former une spirale en alternant les différentes couleurs."
+        },
+        {
+          "id": "step-sgb1uhb",
+          "text": "Ajoutez délicatement l'appareil par-dessus puis enfournez pour 30 minutes de cuisson. Servez bien chaud avec une petite salade verte."
+        }
+      ],
+      "id": "recipe-3e56doy",
+      "name": "Quiche spirale aux légumes du soleil",
+      "category": "Tartes chaude",
+      "tags": [
+        "végétarien",
+        "été"
+      ],
+      "rating": 3,
+      "description": "Une délicieuse quiche spirale colorée aux légumes du soleil, fondante, parfumée, elle apporte fraîcheur et gourmandise à chaque bouchée.",
+      "notes": "",
+      "photoUrl": "https://www.fresh.fr/wp-content/uploads/2022/07/Quiche-spirale-aux-legumes-du-soleil-scaled-e1656948212616-1200x650.jpg",
+      "photoData": "",
+      "videoUrl": "",
+      "sourceUrl": "https://www.fresh.fr/recette/quiche-spirale-aux-legumes-du-soleil/",
+      "sourceName": "Source web",
+      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
+      "favorite": false
+    },
+    {
+      "badge": "Fraîcheur",
+      "difficulty": "Facile",
+      "baseServings": 4,
+      "time": 15,
+      "ingredients": [
+        {
+          "id": "ing-ekbb0i9",
+          "name": "Sardines",
+          "qty": 500,
+          "unit": "g"
+        },
+        {
+          "id": "ing-9m3e0u7",
+          "name": "Yaourt grec",
+          "qty": 2,
+          "unit": "c. à soupe"
+        },
+        {
+          "id": "ing-2qnyrmu",
+          "name": "Moutarde de dijon",
+          "qty": 1,
+          "unit": "c. à soupe"
+        },
+        {
+          "id": "ing-l75p6ov",
+          "name": "Jus de citron",
+          "qty": 0.5,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-8kp1ad5",
+          "name": "Echalotte",
+          "qty": 1,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-vcnv496",
+          "name": "Estragon",
+          "qty": 1,
+          "unit": "c. à soupe"
+        },
+        {
+          "id": "ing-u4uwizb",
+          "name": "Sel",
+          "qty": 1,
+          "unit": "pincée"
+        },
+        {
+          "id": "ing-eu18yik",
+          "name": "Poivre",
+          "qty": 1,
+          "unit": "pincée"
+        }
+      ],
+      "steps": [
+        {
+          "id": "step-juqubso",
+          "text": "Rincez les sardines à l'eau claire."
+        },
+        {
+          "id": "step-z37z3dq",
+          "text": "Faites cuire les sardines au four ou à la poêle. Une fois cuites, laissez-les refroidir légèrement. Retirez la peau et les arêtes, puis écrasez-les à la fourchette."
+        },
+        {
+          "id": "step-ls8r0nf",
+          "text": "Ajoutez le yaourt grec, la moutarde, le jus de citron frais, l'échalote hachée et l'estragon haché et mélangez tous les ingrédients jusqu'à obtenir une préparation homogène. Assaisonnez de sel et de poivre."
+        },
+        {
+          "id": "step-sf1brq4",
+          "text": "Servez les rillettes de sardines à l'estragon avec du pain grillé ou des tranches de baguette."
+        }
+      ],
+      "id": "recipe-td6d943",
+      "name": "Rillettes de sardines à l'estragon",
+      "category": "Appéro",
+      "tags": [
+        "été",
+        "frais",
+        "printemps"
+      ],
+      "rating": 3,
+      "description": "Des rillettes de sardines fraîches et onctueuses, relevées par la douceur parfumée de l'estragon. Une tartinade légère, savoureuse et pleine de fraîcheur, parfaite pour l'apéritif d'été.",
+      "notes": "Pour une texture plus lisse, vous pouvez mixer les ingrédients dans un robot culinaire.",
+      "photoUrl": "https://www.aumenuilya.com/wp-content/uploads/2024/04/1714428984_tartinable-marin-rillettes-sardines-fraiches-estragon-maison-1024x701.jpg",
+      "photoData": "",
+      "videoUrl": "",
+      "sourceUrl": "https://www.grandfrais.com/recettes/rillettes-de-sardines-a-lestragon-1",
+      "sourceName": "Source web",
+      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
+      "favorite": false
+    },
+    {
+      "badge": "Nouveau",
+      "difficulty": "Facile",
+      "baseServings": 4,
+      "time": 40,
+      "ingredients": [
+        {
+          "id": "ing-sa5820q",
+          "name": "Pommes de terre",
+          "qty": 8,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-mopoz2m",
+          "name": "Huile d'olive",
+          "qty": 2,
+          "unit": "c. à soupe"
+        },
+        {
+          "id": "ing-tynr3ym",
+          "name": "Ail",
+          "qty": 2,
+          "unit": "gousse"
+        },
+        {
+          "id": "ing-06jy3j9",
+          "name": "Thym",
+          "qty": 5,
+          "unit": "brin"
+        },
+        {
+          "id": "ing-60levdv",
+          "name": "Sel",
+          "qty": 2,
+          "unit": "pincée"
+        },
+        {
+          "id": "ing-qr1m0rb",
+          "name": "Persil plat",
+          "qty": 1,
+          "unit": "c. à soupe"
+        },
+        {
+          "id": "ing-ip4z769",
+          "name": "Ciboulette",
+          "qty": 1,
+          "unit": "c. à soupe"
+        },
+        {
+          "id": "ing-7e6veo0",
+          "name": "Estragon",
+          "qty": 1,
+          "unit": "c. à soupe"
+        },
+        {
+          "id": "ing-yenx0xl",
+          "name": "Basilic",
+          "qty": 1,
+          "unit": "c. à soupe"
+        },
+        {
+          "id": "ing-1kd99dl",
+          "name": "Mayonnaise",
+          "qty": 30,
+          "unit": "g"
+        },
+        {
+          "id": "ing-s3rtxu6",
+          "name": "Yaourt grec",
+          "qty": 60,
+          "unit": "g"
+        },
+        {
+          "id": "ing-16zsspi",
+          "name": "Jus de citron",
+          "qty": 0.5,
+          "unit": "pièce"
+        }
+      ],
+      "steps": [
+        {
+          "id": "step-8lcl5xm",
+          "text": "Rincez les pommes de terre à l'eau claire et placez-les dans une casserole d'eau froide salée. Portez à ébullition et laissez mijoter une vingtaine de minutes jusqu'à ce que les pommes de terre soient tendres. Egouttez-les."
+        },
+        {
+          "id": "step-f08363x",
+          "text": "Préchauffez votre four à 220°C. Disposez les pommes de terre sur une plaque recouverte de papier sulfurisé. A l'aide d'une spatule, aplatissez-les légèrement."
+        },
+        {
+          "id": "step-dy3kpqs",
+          "text": "Dans un petit bol, mélangez l'huile d'olive, l'ail émincé et les brins de thym effeuillé. Badigeonnez généreusement chaque pomme de terre de ce mélange. Assaisonnez les pommes de terre de sel et de poivre et enfournez pour 25 minutes de cuisson."
+        },
+        {
+          "id": "step-dty6ap0",
+          "text": "Pendant ce temps, préparez la sauce. Pour cela, mélangez l'ensemble des ingrédients (herbes fraîches hachées, mayonnaise, yaourt grec, jus de citron, sel, poivre) et mixez le tout pour obtenir une préparation bien homogène."
+        },
+        {
+          "id": "step-wqsdwbc",
+          "text": "Servez les pommes de terre dès la sortie du four avec la sauce."
+        }
+      ],
+      "id": "recipe-8rl1nbx",
+      "name": "Smashed potatoes sauce green goddess",
+      "category": "Accompagnement",
+      "tags": [
+        "végétarien"
+      ],
+      "rating": 3,
+      "description": "Des smashed potatoes croustillantes à l'extérieur et fondantes à coeur, accompagnées d'une sauce Green Goddess ultra fraîche aux herbes et à l'ail. Un mélange gourmand, parfumé et irrésistiblement addictif.",
+      "notes": "Ajoute quelques herbes fraîches (ciboulette, aneth ou persil), un peu de zeste de citron et une pincée de fleur de sel juste avant de servir pour relever le tout et apporter du contraste.",
+      "photoUrl": "https://iod.keplrstatic.com/api/c_fill,dpr_auto,g_north,f_auto,q_70,w_1100/mon_marche/Les_Smashed_Potatoes_Sauce_Green_Goddess_.png",
+      "photoData": "",
+      "videoUrl": "",
+      "sourceUrl": "https://www.grandfrais.com/recettes/smashed-potatoes-sauce-green-goddess",
+      "sourceName": "Source web",
+      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
+      "favorite": true
+    },
+    {
+      "badge": "Soleil",
+      "difficulty": "Facile",
+      "baseServings": 6,
+      "time": 75,
+      "ingredients": [
+        {
+          "id": "ing-ut3mwh4",
+          "name": "Poivron rouge",
+          "qty": 3,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-oy2dhpu",
+          "name": "Courgette",
+          "qty": 4,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-ddiczk3",
+          "name": "Aubergine",
+          "qty": 2,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-huw7e6l",
+          "name": "Oignon",
+          "qty": 2,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-dluxab2",
+          "name": "Ail",
+          "qty": 3,
+          "unit": "gousse"
+        },
+        {
+          "id": "ing-lpc6102",
+          "name": "Huile d'olive",
+          "qty": 1,
+          "unit": "filet"
+        },
+        {
+          "id": "ing-ij3qmdz",
+          "name": "Tomates concassées",
+          "qty": 800,
+          "unit": "g"
+        },
+        {
+          "id": "ing-9lkttno",
+          "name": "Sucre",
+          "qty": 1,
+          "unit": "pincée"
+        },
+        {
+          "id": "ing-8gljua6",
+          "name": "Sel",
+          "qty": 1,
+          "unit": "pincée"
+        },
+        {
+          "id": "ing-k48z964",
+          "name": "Poivre",
+          "qty": 1,
+          "unit": "pincée"
+        }
+      ],
+      "steps": [
+        {
+          "id": "step-c0w6jr5",
+          "text": "Rincez les poivrons, les aubergines et les courgettes à l'eau claire. Retirez les graines des poivrons, puis coupez les légumes en morceaux."
+        },
+        {
+          "id": "step-t5v3usc",
+          "text": "Epluchez les oignons, émincez-les. Passez l'ail au presse-ail."
+        },
+        {
+          "id": "step-cpnvih2",
+          "text": "Dans une cocotte ou une sauteuse, faites revenir les oignons émincés et les aunergines dans un peu d'huile d'olive. Ajoutez les courgettes, les poivrons et l'ail haché et poursuivez la cuisson pendant 15 minutes à feu vif."
+        },
+        {
+          "id": "step-9pfrcm8",
+          "text": "Ajoutez les tomates concassées. Assaisonnez de sel, de poivre et d'une pincée de sucre. Laissez mijoter à feu doux et à découvert pendant 30 minutes."
+        },
+        {
+          "id": "step-7risb2x",
+          "text": "Vous pouvez maintenant vous régaler."
+        }
+      ],
+      "id": "recipe-btaejzd",
+      "name": "Ratatouille",
+      "category": "Plats",
+      "tags": [
+        "vegétarient",
+        "soleil"
+      ],
+      "rating": 3,
+      "description": "Une ratatouille mijotée aux légumes du soleil. Un plat généreux, coloré et plein de saveurs méditerranéennes.",
+      "notes": "Poue une version express à l'apéritif, faites griller quelques tranches de baguette frottées à l'ail et disposez sur le dessus un peu de ratatouille. Ajoutez un peu de mozzarella et passez le tout au grill 2 à 3 minutes.",
+      "photoUrl": "https://lacuisinedegeraldine.fr/wp-content/uploads/2025/06/Ratatouille-333-scaled.jpg",
+      "photoData": "",
+      "videoUrl": "",
+      "sourceUrl": "https://www.marmiton.org/recettes/recette_ratatouille_23223.aspx",
+      "sourceName": "Source web",
+      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
+      "favorite": false
+    },
+    {
+      "badge": "Fraîcheur",
+      "difficulty": "Facile",
+      "baseServings": 4,
+      "time": 20,
+      "ingredients": [
+        {
+          "id": "ing-xo7j6c7",
+          "name": "Gros citron",
+          "qty": 4,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-hhxfj7t",
+          "name": "Basilic",
+          "qty": 6,
+          "unit": "feuille"
+        },
+        {
+          "id": "ing-tdz8fda",
+          "name": "Eau",
+          "qty": 10,
+          "unit": "cl"
+        },
+        {
+          "id": "ing-2r87ypn",
+          "name": "Sucre",
+          "qty": 100,
+          "unit": "g"
+        },
+        {
+          "id": "ing-ije0akg",
+          "name": "Blanc d'oeuf",
+          "qty": 2,
+          "unit": "pièce"
+        }
+      ],
+      "steps": [
+        {
+          "id": "step-c9dpasf",
+          "text": "Rincez les citrons à l'eau claire et découpez un chapeau sur quatre citrons, côté queue, puis évidez-les en récupérant la pulpe à l'aide d'une petite cuillère et en veillant à ne pas endommager la peau. Réservez les citrons évidés et les chapeaux au réfrigérateur."
+        },
+        {
+          "id": "step-omv4bot",
+          "text": "Ajoutez la pulpe des citrons, le basilic et mixez le tout. Passez la préparation au tamis."
+        },
+        {
+          "id": "step-y5yqudx",
+          "text": "Dans une casserole, portez l'eau et le sucre à ébullition pendant 5 minutes. Laissez refroidir et ajoutez le jus de citron au basilic. Laissez refroidir complètement."
+        },
+        {
+          "id": "step-f9kxm8l",
+          "text": "Pendant ce temps, montez les blancs en neige et incorporez-les délicatement à la préparation."
+        },
+        {
+          "id": "step-msd2ydu",
+          "text": "Remplissez les citrons de la préparation, couvrez-les de leur chapeau et laissez prendre au congélateur 4 heures au minimum."
+        }
+      ],
+      "id": "recipe-uarmizf",
+      "name": "Citron givrés au basilic",
+      "category": "Desserts",
+      "tags": [
+        "été",
+        "frais",
+        "dessert"
+      ],
+      "rating": 3,
+      "description": "Un déssert glacé léger et rafraîchissant, où l'intensité du citron rencontre la douceur herbacée du basilic pour une explosion de fraîcheur en bouche.",
+      "notes": "Pour le service, remplis les coques de citron bien gelées et ajoute une petite feuille de basilic frais ou un zeste fin de citron juste avant de servir pour renforcer la fraîcheur.",
+      "photoUrl": "https://cache.marieclaire.fr/data/photo/w1200_h630_ci/6u/sorbet-citron-sans-sucre-citron-givre.jpg",
+      "photoData": "",
+      "videoUrl": "",
+      "sourceUrl": "https://www.grandfrais.com/recettes/citrons-givres-au-basilic",
+      "sourceName": "Source web",
+      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
+      "favorite": true
     }
   ],
   "shoppingUpdatedAt": "",
