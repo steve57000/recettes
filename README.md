@@ -23,7 +23,10 @@ Application frontend statique pour gérer un carnet de recettes complet, compati
 - Suppression des recettes
 - Fiche recette détaillée avec couverture photo, vidéo intégrée, source web et notes
 - Ajustement automatique des quantités selon le nombre de personnes
-- Liste de courses unifiée : cochez uniquement les ingrédients voulus et l’application regroupe les éléments identiques par unité
+- Liste de courses unifiée : cochez les ingrédients un par un ou utilisez **Tout sélectionner / Tout désélectionner** sur une recette complète, avec regroupement automatique des éléments identiques par unité
+- Portions synchronisées : modifier le nombre de personnes dans une fiche met à jour les quantités déjà envoyées en courses
+- Actions rapides sur les courses : marquer toute la liste comme achetée ou à acheter, sans perdre les ingrédients sélectionnés
+- Interface responsive renforcée pour mobile, tablette, desktop et grands écrans : listes plus lisibles, boutons tactiles, filtres confortables et cartes plus premium
 - Sauvegarde locale dans le navigateur via `localStorage`, export/import manuel et synchronisation automatique dans un JSON GitHub avec token personnel
 - Balises de partage social Open Graph / Twitter et icônes d’installation mobile avec favicon SVG dédié; les PNG/ICO sont générables à part pour intégration manuelle
 - Thème centralisé via `src/theme.css`
