@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-02T14:36:29.404Z",
+  "exportedAt": "2026-06-02T14:38:18.181Z",
   "recipes": [
     {
       "badge": "Signature",
@@ -501,6 +501,83 @@
     },
     {
       "badge": "Nouveau",
+      "difficulty": "Maison",
+      "baseServings": 4,
+      "time": 10,
+      "ingredients": [
+        {
+          "id": "ing-xngx7a8",
+          "name": "Tortilla de blé",
+          "qty": 4,
+          "unit": "pièces"
+        },
+        {
+          "id": "ing-3joiqq5",
+          "name": "Blanc de poulet",
+          "qty": 2,
+          "unit": "pièces"
+        },
+        {
+          "id": "ing-0phpfxh",
+          "name": "Salade Laitue",
+          "qty": 4,
+          "unit": "feuilles"
+        },
+        {
+          "id": "ing-79tdgk2",
+          "name": "Tomates",
+          "qty": 1,
+          "unit": "pièces"
+        },
+        {
+          "id": "ing-0x15naj",
+          "name": "Moutarde",
+          "qty": 1,
+          "unit": "u"
+        },
+        {
+          "id": "ing-mfge441",
+          "name": "Huile d'olive",
+          "qty": 1,
+          "unit": "c. à soupe"
+        }
+      ],
+      "steps": [
+        {
+          "id": "step-5i6a3u8",
+          "text": "Coupez la tomate en fines tranches. Épépinez-les et faites-les dégorger en les plaçant dans une passoire saupoudrées de sel."
+        },
+        {
+          "id": "step-vcm5d1b",
+          "text": "Taillez les filets de poulet en fines lanières et faites-les cuire à la poêle avec l'huile d'olive."
+        },
+        {
+          "id": "step-23rd1db",
+          "text": "Tartinez les tortillas de moutarde. Disposez ensuite la laitue, les morceaux de poulet et les rondelles de tomate dégorgées que vous aurez pris soin de bien rincer. Salez et poivrez à votre convenance."
+        },
+        {
+          "id": "step-wjue1sd",
+          "text": "Enroulez ensuite fermement et placez le tout au réfrigérateur dans du film alimentaire pour garder le wrap bien compact."
+        }
+      ],
+      "id": "recipe-o2vtqlc",
+      "name": "Wraps au poulet",
+      "category": "Pic-nic",
+      "description": "Un petit repas sur le pouce, un pique-nique ou un apéro dinatoire ? Pensez aux wraps au poulet, tellement plus sympas que les sandwichs traditionnels, mais aussi plus pratiques ! Cette recette toute simple allie poulet, salade, tomate et moutarde ou mayonnaise.",
+      "notes": "Vous pouvez choisir toutes sortes de sauces et d’accompagnements pour vos wraps au poulet : mayonnaise, huile d’olive, béarnaise, sauce au curry, vinaigrette, sauce au fromage frais et ciboulette, crème fraîche et jus de citron… Vous pouvez également ajouter d'autres crudités comme des bâtonnets de concombre, des oignons rouges, des lamelles de poivrons… au gré des saisons !",
+      "photoUrl": "https://img.cuisineaz.com/660x495/2013/12/20/i97834-wraps-poulet.webp",
+      "photoData": "",
+      "videoUrl": "",
+      "sourceUrl": "",
+      "sourceName": "",
+      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
+      "rating": 3,
+      "tags": [
+        "Nouveau"
+      ]
+    },
+    {
+      "badge": "Nouveau",
       "difficulty": "Facile",
       "baseServings": 5,
       "time": 25,
@@ -623,84 +700,125 @@
       "tags": [
         "Nouveau"
       ]
-    },
-    {
-      "badge": "Nouveau",
-      "difficulty": "Maison",
-      "baseServings": 4,
-      "time": 10,
-      "ingredients": [
-        {
-          "id": "ing-xngx7a8",
-          "name": "Tortilla de blé",
-          "qty": 4,
-          "unit": "pièces"
-        },
-        {
-          "id": "ing-3joiqq5",
-          "name": "Blanc de poulet",
-          "qty": 2,
-          "unit": "pièces"
-        },
-        {
-          "id": "ing-0phpfxh",
-          "name": "Salade Laitue",
-          "qty": 4,
-          "unit": "feuilles"
-        },
-        {
-          "id": "ing-79tdgk2",
-          "name": "Tomates",
-          "qty": 1,
-          "unit": "pièces"
-        },
-        {
-          "id": "ing-0x15naj",
-          "name": "Moutarde",
-          "qty": 1,
-          "unit": "u"
-        },
-        {
-          "id": "ing-mfge441",
-          "name": "Huile d'olive",
-          "qty": 1,
-          "unit": "c. à soupe"
-        }
-      ],
-      "steps": [
-        {
-          "id": "step-5i6a3u8",
-          "text": "Coupez la tomate en fines tranches. Épépinez-les et faites-les dégorger en les plaçant dans une passoire saupoudrées de sel."
-        },
-        {
-          "id": "step-vcm5d1b",
-          "text": "Taillez les filets de poulet en fines lanières et faites-les cuire à la poêle avec l'huile d'olive."
-        },
-        {
-          "id": "step-23rd1db",
-          "text": "Tartinez les tortillas de moutarde. Disposez ensuite la laitue, les morceaux de poulet et les rondelles de tomate dégorgées que vous aurez pris soin de bien rincer. Salez et poivrez à votre convenance."
-        },
-        {
-          "id": "step-wjue1sd",
-          "text": "Enroulez ensuite fermement et placez le tout au réfrigérateur dans du film alimentaire pour garder le wrap bien compact."
-        }
-      ],
-      "id": "recipe-o2vtqlc",
-      "name": "Wraps au poulet",
-      "category": "Pic-nic",
-      "description": "Un petit repas sur le pouce, un pique-nique ou un apéro dinatoire ? Pensez aux wraps au poulet, tellement plus sympas que les sandwichs traditionnels, mais aussi plus pratiques ! Cette recette toute simple allie poulet, salade, tomate et moutarde ou mayonnaise.",
-      "notes": "Vous pouvez choisir toutes sortes de sauces et d’accompagnements pour vos wraps au poulet : mayonnaise, huile d’olive, béarnaise, sauce au curry, vinaigrette, sauce au fromage frais et ciboulette, crème fraîche et jus de citron… Vous pouvez également ajouter d'autres crudités comme des bâtonnets de concombre, des oignons rouges, des lamelles de poivrons… au gré des saisons !",
-      "photoUrl": "https://img.cuisineaz.com/660x495/2013/12/20/i97834-wraps-poulet.webp",
-      "photoData": "",
-      "videoUrl": "",
-      "sourceUrl": "",
-      "sourceName": "",
-      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
-      "rating": 3,
-      "tags": [
-        "Nouveau"
-      ]
     }
   ],
-  "shopping": []
+  "shopping": [
+    {
+      "recipeId": "salade-nicoise-premium",
+      "ingredientId": "salade",
+      "recipeName": "Salade niçoise rapide",
+      "name": "Salade mesclum",
+      "qtyNumber": 1,
+      "unit": "poignée",
+      "bought": false
+    },
+    {
+      "recipeId": "salade-nicoise-premium",
+      "ingredientId": "tomates",
+      "recipeName": "Salade niçoise rapide",
+      "name": "Tomates",
+      "qtyNumber": 4,
+      "unit": "pièce(s)",
+      "bought": false
+    },
+    {
+      "recipeId": "salade-nicoise-premium",
+      "ingredientId": "thon",
+      "recipeName": "Salade niçoise rapide",
+      "name": "Thon",
+      "qtyNumber": 200,
+      "unit": "g",
+      "bought": false
+    },
+    {
+      "recipeId": "salade-nicoise-premium",
+      "ingredientId": "oeufs",
+      "recipeName": "Salade niçoise rapide",
+      "name": "Œufs",
+      "qtyNumber": 2,
+      "unit": "pièce(s)",
+      "bought": false
+    },
+    {
+      "recipeId": "salade-nicoise-premium",
+      "ingredientId": "olives",
+      "recipeName": "Salade niçoise rapide",
+      "name": "Olives noires",
+      "qtyNumber": 15,
+      "unit": "pièce(s)",
+      "bought": false
+    },
+    {
+      "recipeId": "salade-nicoise-premium",
+      "ingredientId": "huile",
+      "recipeName": "Salade niçoise rapide",
+      "name": "Huile d’olive",
+      "qtyNumber": 3,
+      "unit": "c. à soupe",
+      "bought": false
+    },
+    {
+      "recipeId": "salade-nicoise-premium",
+      "ingredientId": "ing-9nr4stb",
+      "recipeName": "Salade niçoise rapide",
+      "name": "Anchois",
+      "qtyNumber": 1,
+      "unit": "boîte(s)",
+      "bought": false
+    },
+    {
+      "recipeId": "salade-nicoise-premium",
+      "ingredientId": "ing-b44dct6",
+      "recipeName": "Salade niçoise rapide",
+      "name": "Radis",
+      "qtyNumber": 4,
+      "unit": "pièce(s)",
+      "bought": false
+    },
+    {
+      "recipeId": "salade-nicoise-premium",
+      "ingredientId": "ing-jzfainr",
+      "recipeName": "Salade niçoise rapide",
+      "name": "Poivron vert",
+      "qtyNumber": 1,
+      "unit": "g",
+      "bought": false
+    },
+    {
+      "recipeId": "salade-nicoise-premium",
+      "ingredientId": "ing-8denkl3",
+      "recipeName": "Salade niçoise rapide",
+      "name": "Vinaigre de vin",
+      "qtyNumber": 2,
+      "unit": "c. à soupe",
+      "bought": false
+    },
+    {
+      "recipeId": "salade-nicoise-premium",
+      "ingredientId": "ing-cmq7cjm",
+      "recipeName": "Salade niçoise rapide",
+      "name": "Moutarde",
+      "qtyNumber": 1,
+      "unit": "c. à café",
+      "bought": false
+    },
+    {
+      "recipeId": "salade-nicoise-premium",
+      "ingredientId": "ing-jd7peav",
+      "recipeName": "Salade niçoise rapide",
+      "name": "Sel",
+      "qtyNumber": 1,
+      "unit": "convenance",
+      "bought": false
+    },
+    {
+      "recipeId": "salade-nicoise-premium",
+      "ingredientId": "ing-iin25ev",
+      "recipeName": "Salade niçoise rapide",
+      "name": "Poivre",
+      "qtyNumber": 1,
+      "unit": "convenance",
+      "bought": false
+    }
+  ]
 }
