@@ -59,7 +59,7 @@
           "id": "ing-jzfainr",
           "name": "Poivron vert",
           "qty": 1,
-          "unit": "g"
+          "unit": "pièce"
         },
         {
           "id": "ing-8denkl3",
@@ -76,14 +76,14 @@
         {
           "id": "ing-jd7peav",
           "name": "Sel",
-          "qty": 1,
-          "unit": "convenance"
+          "qty": 0,
+          "unit": "à convenance"
         },
         {
           "id": "ing-iin25ev",
           "name": "Poivre",
-          "qty": 1,
-          "unit": "convenance"
+          "qty": 0,
+          "unit": "à convenance"
         }
       ],
       "steps": [
@@ -113,11 +113,14 @@
       "photoData": "",
       "rating": 4,
       "tags": [
-        "signature"
+        "signature",
+        "été",
+        "salade",
+        "rapide"
       ]
     },
     {
-      "badge": "Comfort food",
+      "badge": "Réconfort",
       "difficulty": "Moyen",
       "baseServings": 4,
       "time": 70,
@@ -160,7 +163,7 @@
         },
         {
           "id": "ing-h0gyqcn",
-          "name": "Crème frâiche semi-Épaisse",
+          "name": "Crème fraîche semi-épaisse",
           "qty": 10,
           "unit": "cl"
         },
@@ -173,14 +176,14 @@
         {
           "id": "ing-2dzm0bw",
           "name": "Sel",
-          "qty": 1,
-          "unit": "pièce"
+          "qty": 0,
+          "unit": "à convenance"
         },
         {
           "id": "ing-lo9dhui",
           "name": "Poivre",
-          "qty": 1,
-          "unit": "pièce"
+          "qty": 0,
+          "unit": "à convenance"
         }
       ],
       "steps": [
@@ -218,11 +221,14 @@
       "photoData": "",
       "rating": 3,
       "tags": [
-        "réconfortant"
+        "réconfortant",
+        "crémeux",
+        "végétarien",
+        "plat chaud"
       ]
     },
     {
-      "badge": "Mission maillot de bain",
+      "badge": "Fraîcheur",
       "difficulty": "Facile",
       "baseServings": 4,
       "time": 10,
@@ -272,14 +278,14 @@
         {
           "id": "ing-513uiqx",
           "name": "Gros sel",
-          "qty": 1,
-          "unit": "pièce"
+          "qty": 0,
+          "unit": "à convenance"
         },
         {
           "id": "ing-auw1p80",
           "name": "Poivre",
-          "qty": 1,
-          "unit": "pièce"
+          "qty": 0,
+          "unit": "à convenance"
         }
       ],
       "steps": [
@@ -309,7 +315,10 @@
       "photoData": "",
       "rating": 3,
       "tags": [
-        "mission maillot de bain"
+        "frais",
+        "léger",
+        "été",
+        "végétarien"
       ]
     },
     {
@@ -373,7 +382,10 @@
       "notes": "Pour un rendu pro, alternez les pointes des fraises vers l’extérieur.",
       "rating": 3,
       "tags": [
-        "pâtisserie"
+        "pâtisserie",
+        "dessert",
+        "fruité",
+        "week-end"
       ]
     },
     {
@@ -437,7 +449,10 @@
       "notes": "Inutile d’éplucher le potimarron si la peau est fine.",
       "rating": 3,
       "tags": [
-        "douceur"
+        "douceur",
+        "soupe",
+        "automne",
+        "végétarien"
       ]
     },
     {
@@ -485,7 +500,7 @@
       ],
       "id": "smoothie-mangue",
       "name": "Smoothie mangue passion",
-      "category": "Boissons fraiches",
+      "category": "Boissons fraîches",
       "image": "linear-gradient(135deg, rgba(255, 193, 7, 0.85), rgba(255, 111, 97, 0.72)), url(https://images.unsplash.com/photo-1502741224143-90386d7f8c82?auto=format&fit=crop&w=1200&q=80)",
       "photoUrl": "https://images.unsplash.com/photo-1502741224143-90386d7f8c82?auto=format&fit=crop&w=1200&q=80",
       "videoUrl": "",
@@ -496,12 +511,15 @@
       "photoData": "",
       "rating": 3,
       "tags": [
-        "vitaminé"
+        "vitaminé",
+        "boisson",
+        "express",
+        "fruité"
       ]
     },
     {
-      "badge": "Nouveau",
-      "difficulty": "Maison",
+      "badge": "Nomade",
+      "difficulty": "Facile",
       "baseServings": 4,
       "time": 10,
       "ingredients": [
@@ -533,7 +551,7 @@
           "id": "ing-0x15naj",
           "name": "Moutarde",
           "qty": 1,
-          "unit": "pièce"
+          "unit": "c. à café"
         },
         {
           "id": "ing-mfge441",
@@ -562,7 +580,7 @@
       ],
       "id": "recipe-o2vtqlc",
       "name": "Wraps au poulet",
-      "category": "Pic-Nic",
+      "category": "Pique-nique",
       "description": "Un petit repas sur le pouce, un pique-nique ou un apéro dinatoire ? Pensez aux wraps au poulet, tellement plus sympas que les sandwichs traditionnels, mais aussi plus pratiques ! Cette recette toute simple allie poulet, salade, tomate et moutarde ou mayonnaise.",
       "notes": "Vous pouvez choisir toutes sortes de sauces et d’accompagnements pour vos wraps au poulet : mayonnaise, huile d’olive, béarnaise, sauce au curry, vinaigrette, sauce au fromage frais et ciboulette, crème fraîche et jus de citron… Vous pouvez également ajouter d'autres crudités comme des bâtonnets de concombre, des oignons rouges, des lamelles de poivrons… au gré des saisons !",
       "photoUrl": "https://img.cuisineaz.com/660x495/2013/12/20/i97834-wraps-poulet.webp",
@@ -573,11 +591,14 @@
       "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
       "rating": 3,
       "tags": [
-        "nouveau"
+        "pique-nique",
+        "rapide",
+        "poulet",
+        "à emporter"
       ]
     },
     {
-      "badge": "Nouveau",
+      "badge": "Soleil",
       "difficulty": "Facile",
       "baseServings": 5,
       "time": 25,
@@ -602,7 +623,7 @@
         },
         {
           "id": "ing-zpenfg6",
-          "name": "Tomate(s)",
+          "name": "Tomates",
           "qty": 4,
           "unit": "pièce"
         },
@@ -627,12 +648,12 @@
         {
           "id": "ing-lg49yb5",
           "name": "Jus de citron",
-          "qty": 1,
-          "unit": "pièce"
+          "qty": 3,
+          "unit": "c. à soupe"
         },
         {
           "id": "ing-xmyew02",
-          "name": "Huile d’holive",
+          "name": "Huile d’olive",
           "qty": 4,
           "unit": "c. à soupe"
         },
@@ -645,14 +666,14 @@
         {
           "id": "ing-16b6jdd",
           "name": "Sel",
-          "qty": 1,
-          "unit": "pièce"
+          "qty": 0,
+          "unit": "à convenance"
         },
         {
           "id": "ing-4e1cjc9",
           "name": "Poivre",
-          "qty": 1,
-          "unit": "pièce"
+          "qty": 0,
+          "unit": "à convenance"
         }
       ],
       "steps": [
@@ -698,7 +719,10 @@
       "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
       "rating": 3,
       "tags": [
-        "nouveau"
+        "soleil",
+        "salade",
+        "frais",
+        "herbes"
       ]
     }
   ],
@@ -781,7 +805,7 @@
       "recipeName": "Salade niçoise rapide",
       "name": "Poivron vert",
       "qtyNumber": 1,
-      "unit": "g",
+      "unit": "pièce",
       "bought": false
     },
     {
@@ -807,8 +831,8 @@
       "ingredientId": "ing-jd7peav",
       "recipeName": "Salade niçoise rapide",
       "name": "Sel",
-      "qtyNumber": 1,
-      "unit": "convenance",
+      "qtyNumber": 0,
+      "unit": "à convenance",
       "bought": false
     },
     {
@@ -816,8 +840,8 @@
       "ingredientId": "ing-iin25ev",
       "recipeName": "Salade niçoise rapide",
       "name": "Poivre",
-      "qtyNumber": 1,
-      "unit": "convenance",
+      "qtyNumber": 0,
+      "unit": "à convenance",
       "bought": false
     }
   ]

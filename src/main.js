@@ -48,7 +48,7 @@ const UNIT_OPTIONS = [
   { label: 'verre', type: 'count', aliases: ['verres'] },
   { label: 'bol', type: 'count', aliases: ['bols'] },
   { label: 'tasse', type: 'count', aliases: ['tasses', 'cup', 'cups'] },
-  { label: 'convenance', type: 'free', aliases: ['à convenance', 'a convenance', 'selon goût', 'selon gout', 'qs'] },
+  { label: 'à convenance', type: 'free', aliases: ['convenance', 'a convenance', 'selon goût', 'selon gout', 'au goût', 'au gout', 'qs'] },
 ];
 
 const UNIT_ALIASES = new Map(UNIT_OPTIONS.flatMap((unit) => [unit.label, ...(unit.aliases || [])].map((alias) => [normalizeFacetKey(alias), unit])));
@@ -589,6 +589,13 @@ function formatQty(value) {
   return Number.isInteger(n) ? String(n) : n.toFixed(2).replace(/\.00$/, '').replace(/0$/, '');
 }
 
+function formatIngredientAmount(qtyNumber, unit) {
+  const normalizedUnit = normalizeUnit(unit);
+  const info = unitInfo(normalizedUnit);
+  if (info?.type === 'free') return normalizedUnit;
+  return `${formatQty(qtyNumber)} ${normalizedUnit}`.trim();
+}
+
 function renderUnitOptions(selectedUnit) {
   const selected = normalizeUnit(selectedUnit);
   const groups = [
@@ -801,7 +808,7 @@ function renderHeader() {
       <button class="menu-toggle ghost" id="menu-toggle" aria-expanded="${state.menuOpen ? 'true' : 'false'}" aria-controls="top-menu"><span>☰</span> Menu</button>
       <nav id="top-menu" class="top-menu" aria-label="Menu principal">
         ${navItems.map((item) => `<a class="menu-link ${activePage === item.page ? 'is-current' : ''}" href="${item.href}" ${activePage === item.page ? 'aria-current="page"' : ''}><span>${item.label}</span>${item.badge ? `<strong class="shopping-badge" aria-label="${item.badge} produit${item.badge > 1 ? 's' : ''} à acheter">${item.badge}</strong>` : ''}</a>`).join('')}
-        <button class="nav-action" data-create>+ Recette</button>
+        <button class="nav-action" data-create>Ajoutez recette</button>
       </nav>
       <button class="ghost logout-button" id="logout">Déconnexion</button>
     </header>`;
@@ -1074,7 +1081,7 @@ function recipeCard(r) {
       <div class="card-actions">
         <button data-open="${esc(r.id)}">Voir</button>
         <button class="secondary" data-edit="${esc(r.id)}">Modifier</button>
-        <button class="icon-danger" title="Supprimer" data-del="${esc(r.id)}">×</button>
+        <button class="icon-danger" title="Supprimer" aria-label="Supprimer ${esc(r.name)}" data-del="${esc(r.id)}"><span aria-hidden="true">🗑</span></button>
       </div>
       <div class="media-links">${r.videoUrl ? '<span>🎬 vidéo</span>' : ''}${r.sourceUrl ? `<a class="source" href="${esc(r.sourceUrl)}" target="_blank" rel="noreferrer">Source web</a>` : ''}</div>
     </div>
@@ -1130,7 +1137,7 @@ function renderShopping() {
       return `<button type="button" class="shopping-item ${s.bought ? 'is-bought' : ''}" data-toggle-shopping="${esc(s.key)}" data-shopping-key="${esc(s.key)}" aria-pressed="${s.bought ? 'true' : 'false'}" aria-label="${esc(label)}">
         <span class="shopping-check" aria-hidden="true"></span>
         <span class="shopping-copy"><strong>${esc(s.name)}</strong><small>${esc(s.recipes.join(', '))}</small></span>
-        <b>${formatQty(s.qtyNumber)} ${esc(s.unit)}</b>
+        <b>${esc(formatIngredientAmount(s.qtyNumber, s.unit))}</b>
       </button>`;
     })
     .join('');
@@ -1571,7 +1578,7 @@ function openRecipe(recipeId, options = {}) {
       .map((i) => {
         const qtyNumber = ingredientQuantityForServings(i, recipe, servings);
         const checked = state.shopping.some(ingredientShoppingMatch(recipe.id, i.id));
-        return `<li class="ingredient-choice ${checked ? 'is-selected' : ''}"><label><input type="checkbox" data-check="${esc(i.id)}" ${checked ? 'checked' : ''}/> <span>${esc(i.name)}</span><strong>${formatQty(qtyNumber)} ${esc(i.unit)}</strong></label></li>`;
+        return `<li class="ingredient-choice ${checked ? 'is-selected' : ''}"><label><input type="checkbox" data-check="${esc(i.id)}" ${checked ? 'checked' : ''}/> <span>${esc(i.name)}</span><strong>${esc(formatIngredientAmount(qtyNumber, i.unit))}</strong></label></li>`;
       })
       .join('');
 
