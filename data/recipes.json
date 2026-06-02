@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-02T11:48:08.261Z",
+  "exportedAt": "2026-06-02T11:49:43.692Z",
   "recipes": [
     {
       "badge": "Signature",
@@ -737,7 +737,7 @@
       "name": "Tomate(s)",
       "qtyNumber": 4,
       "unit": "Pièce(s)",
-      "bought": false
+      "bought": true
     },
     {
       "recipeId": "recipe-r94y23w",
@@ -782,7 +782,7 @@
       "name": "Huile d’holive",
       "qtyNumber": 4,
       "unit": "c. à soupe",
-      "bought": false
+      "bought": true
     },
     {
       "recipeId": "recipe-r94y23w",
