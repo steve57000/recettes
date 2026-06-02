@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-02T20:43:08.310Z",
+  "exportedAt": "2026-06-02T20:43:58.962Z",
   "recipes": [
     {
       "badge": "Signature",
@@ -944,7 +944,7 @@
       "sourceUrl": "https://www.marieclaire.fr/cuisine/recette-de-veloute-de-radis-roses-au-chevre-frais,1511330.asp",
       "sourceName": "Source web",
       "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
-      "favorite": false
+      "favorite": true
     },
     {
       "badge": "Fraîcheur",
