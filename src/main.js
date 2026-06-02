@@ -923,8 +923,8 @@ function renderShoppingSection() {
           </div>
         </div>
         <div class="shopping-view-options" role="radiogroup" aria-label="Affichage de la liste de courses">
-          <label><input type="radio" name="shopping-view-mode" value="all" ${shoppingMode === 'all' ? 'checked' : ''} /> Tous les ingrédients regroupés</label>
-          <label><input type="radio" name="shopping-view-mode" value="recipes" ${shoppingMode === 'recipes' ? 'checked' : ''} /> Liste par recette(s)</label>
+          <label><input type="radio" name="shopping-view-mode" value="all" ${shoppingMode === 'all' ? 'checked' : ''} /> <span>Tous les ingrédients regroupés</span></label>
+          <label><input type="radio" name="shopping-view-mode" value="recipes" ${shoppingMode === 'recipes' ? 'checked' : ''} /> <span>Liste par recette(s)</span></label>
         </div>
         ${shoppingMode === 'recipes' ? renderShoppingRecipeChoices() : ''}
       </section>
