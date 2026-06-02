@@ -1,6 +1,61 @@
 {
-  "exportedAt": "2026-06-02T16:02:56.606Z",
+  "exportedAt": "2026-06-02T16:37:41.597Z",
   "recipes": [
+    {
+      "badge": "Soleil",
+      "difficulty": "Facile",
+      "baseServings": 4,
+      "time": 30,
+      "ingredients": [
+        {
+          "id": "ing-0hmzr5a",
+          "name": "Pâte brisée",
+          "qty": 1,
+          "unit": "pièce"
+        }
+      ],
+      "steps": [
+        {
+          "id": "step-njtg589",
+          "text": "Découpez les légumes en fines lamelles à l'aide d'un couteau ou d'un économe dans la longueur."
+        },
+        {
+          "id": "step-rqqsyh0",
+          "text": "Portez une casserole d'eau salée à ébullition et plongez-y les légumes pendant 30 secondes. Egouttez-les."
+        },
+        {
+          "id": "step-y01i5ro",
+          "text": "Abaissez la pâte brisée dans un moule beurré. Piquez le fond de la tarte avec une fourchette."
+        },
+        {
+          "id": "step-qohqs64",
+          "text": "Préchauffez le four à 180°C."
+        },
+        {
+          "id": "step-iiei8qp",
+          "text": "Dans un bol, fouettez les œufs avec la crème et assaisonnez généreusement avec le sel et le poivre. Disposez les lamelles de légumes dans le fond de tarte de façon à former une spirale en alternant les différentes couleurs."
+        },
+        {
+          "id": "step-sgb1uhb",
+          "text": "Ajoutez délicatement l'appareil par-dessus puis enfournez pour 30 minutes de cuisson. Servez bien chaud avec une petite salade verte."
+        }
+      ],
+      "id": "recipe-3e56doy",
+      "name": "Quiche spirale aux légumes du soleil",
+      "category": "Mes recettes",
+      "tags": [
+        "végétarien"
+      ],
+      "rating": 3,
+      "description": "",
+      "notes": "",
+      "photoUrl": "https://www.fresh.fr/wp-content/uploads/2022/07/Quiche-spirale-aux-legumes-du-soleil-scaled-e1656948212616-1200x650.jpg",
+      "photoData": "",
+      "videoUrl": "",
+      "sourceUrl": "",
+      "sourceName": "",
+      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)"
+    },
     {
       "badge": "Signature",
       "difficulty": "Facile",
