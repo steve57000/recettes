@@ -560,6 +560,77 @@ function toggleShoppingItem(key) {
   scheduleGithubSync('Mise à jour de la liste de courses Maison Saison');
 }
 
+
+function ingredientShoppingMatch(recipeId, ingredientId) {
+  return (item) => item.recipeId === recipeId && item.ingredientId === ingredientId;
+}
+
+function ingredientQuantityForServings(ingredient, recipe, servings) {
+  const baseServings = Number(recipe.baseServings) || 1;
+  return (Number(ingredient.qty) * (Number(servings) || baseServings)) / baseServings;
+}
+
+function selectedIngredientIds(recipe) {
+  return new Set(state.shopping.filter((item) => item.recipeId === recipe.id).map((item) => item.ingredientId));
+}
+
+function recipeSelectionStats(recipe) {
+  const selected = selectedIngredientIds(recipe).size;
+  const total = recipe.ingredients.length;
+  return { selected, total, allSelected: total > 0 && selected === total };
+}
+
+function setRecipeIngredientSelection(recipe, ingredientId, servings, shouldSelect) {
+  const ingredient = recipe.ingredients.find((item) => item.id === ingredientId);
+  if (!ingredient) return;
+  const matcher = ingredientShoppingMatch(recipe.id, ingredientId);
+  const existing = state.shopping.find(matcher);
+
+  if (!shouldSelect) {
+    state.shopping = state.shopping.filter((item) => !matcher(item));
+    return;
+  }
+
+  const nextItem = {
+    recipeId: recipe.id,
+    ingredientId,
+    recipeName: recipe.name,
+    name: ingredient.name,
+    qtyNumber: ingredientQuantityForServings(ingredient, recipe, servings),
+    unit: ingredient.unit,
+    bought: existing?.bought || false,
+  };
+
+  if (existing) state.shopping = state.shopping.map((item) => (matcher(item) ? nextItem : item));
+  else state.shopping.push(nextItem);
+}
+
+function setRecipeIngredientsSelection(recipe, servings, shouldSelect) {
+  recipe.ingredients.forEach((ingredient) => setRecipeIngredientSelection(recipe, ingredient.id, servings, shouldSelect));
+}
+
+function syncRecipeShoppingQuantities(recipe, servings) {
+  const ingredientMap = new Map(recipe.ingredients.map((ingredient) => [ingredient.id, ingredient]));
+  let changed = false;
+  state.shopping = state.shopping.map((item) => {
+    if (item.recipeId !== recipe.id || !ingredientMap.has(item.ingredientId)) return item;
+    const ingredient = ingredientMap.get(item.ingredientId);
+    const qtyNumber = ingredientQuantityForServings(ingredient, recipe, servings);
+    if (item.qtyNumber === qtyNumber && item.name === ingredient.name && item.unit === ingredient.unit && item.recipeName === recipe.name) return item;
+    changed = true;
+    return { ...item, recipeName: recipe.name, name: ingredient.name, unit: ingredient.unit, qtyNumber };
+  });
+  return changed;
+}
+
+function setAllShoppingBought(bought) {
+  if (!state.shopping.length) return;
+  state.shopping = state.shopping.map((item) => ({ ...item, bought }));
+  save();
+  updateShoppingPanel();
+  scheduleGithubSync('Mise à jour de la liste de courses Maison Saison');
+}
+
 function currentRoute() {
   const hash = decodeURIComponent(window.location.hash || '#top');
   if (hash.startsWith('#recette/')) return { page: 'recipe', id: hash.slice('#recette/'.length) };
@@ -631,7 +702,9 @@ function renderBackupPanel() {
 
 function renderShoppingSection() {
   return `<section class="shopping-page-actions">
-        <button class="secondary" id="clear-shopping">Vider la liste</button>
+        <button class="secondary" id="mark-shopping-open">Tout à acheter</button>
+        <button class="secondary" id="mark-shopping-bought">Tout acheté</button>
+        <button class="secondary danger-soft" id="clear-shopping">Vider la liste</button>
       </section>
 
       <section class="shopping-only-grid">
@@ -1033,6 +1106,12 @@ function bindEvents(root) {
 
   bindShoppingListEvents(root);
 
+  const markShoppingOpen = document.getElementById('mark-shopping-open');
+  if (markShoppingOpen) markShoppingOpen.onclick = () => setAllShoppingBought(false);
+
+  const markShoppingBought = document.getElementById('mark-shopping-bought');
+  if (markShoppingBought) markShoppingBought.onclick = () => setAllShoppingBought(true);
+
   const clearShopping = document.getElementById('clear-shopping');
   if (clearShopping) clearShopping.onclick = () => {
     state.shopping = [];
@@ -1293,45 +1372,86 @@ function openRecipe(recipeId, options = {}) {
       <div class="recipe-meta"><span>${esc(recipe.category || 'Mes recettes')}</span><span>${esc(recipe.time || 20)} min</span><span>${esc(recipe.difficulty || 'Facile')}</span></div>
       <div class="detail-actions"><button class="secondary" data-edit-detail="${esc(recipe.id)}">Modifier cette recette</button>${recipe.sourceUrl ? `<a class="button-link secondary-link" href="${esc(recipe.sourceUrl)}" target="_blank" rel="noreferrer">Ouvrir la source</a>` : ''}</div>
     </div>
-    <div class="serving-box"><label for="servings">Personnes</label><input id="servings" type="number" min="1" value="${esc(recipe.baseServings)}" /></div>
-    <div class="detail-section"><h3>Ingrédients à sélectionner</h3><p class="small">Cochez seulement ce que vous voulez ajouter à la liste de courses.</p><ul id="ing-list" class="ingredient-list"></ul></div>
+    <div class="serving-box"><label for="servings">Personnes</label><input id="servings" type="number" min="1" value="${esc(recipe.baseServings)}" /><small id="servings-hint">Quantités synchronisées avec les courses.</small></div>
+    <div class="detail-section ingredient-picker-section">
+      <div class="ingredient-toolbar">
+        <div><h3>Ingrédients à sélectionner</h3><p class="small" id="ingredient-progress">Cochez seulement ce que vous voulez ajouter à la liste de courses.</p></div>
+        <div class="ingredient-bulk-actions">
+          <button class="secondary" id="select-all-ingredients" type="button">Tout sélectionner</button>
+          <button class="secondary" id="clear-recipe-ingredients" type="button">Tout désélectionner</button>
+        </div>
+      </div>
+      <ul id="ing-list" class="ingredient-list"></ul>
+    </div>
     <div class="detail-section preparation-section"><h3>Préparation pas à pas</h3>${renderPreparationSteps(recipe)}${recipe.notes ? `<div class="chef-note"><strong>Note du chef</strong><span>${esc(recipe.notes)}</span></div>` : ''}</div>
     ${recipe.videoUrl ? `<div class="detail-section media-player"><h3>Vidéo</h3>${videoEmbed(recipe.videoUrl)}</div>` : ''}
   </article>`;
   if (options.scroll !== false) selected.scrollIntoView({ behavior: 'smooth', block: 'start' });
   selected.querySelector('[data-edit-detail]').onclick = () => editRecipe(recipe.id);
 
-  const redraw = () => {
-    const servings = Number(document.getElementById('servings').value) || 1;
+  const redraw = (options = {}) => {
+    const servingsInput = document.getElementById('servings');
+    const servings = Math.max(1, Number(servingsInput.value) || Number(recipe.baseServings) || 1);
+    const shouldSync = options.syncQuantities !== false;
+    if (shouldSync && syncRecipeShoppingQuantities(recipe, servings)) {
+      save();
+      updateShoppingPanel();
+      scheduleGithubSync('Mise à jour des portions Maison Saison');
+    }
+
+    const stats = recipeSelectionStats(recipe);
+    const progress = document.getElementById('ingredient-progress');
+    if (progress) {
+      progress.textContent = stats.total
+        ? `${stats.selected}/${stats.total} ingrédient${stats.total > 1 ? 's' : ''} sélectionné${stats.selected > 1 ? 's' : ''} pour ${servings} personne${servings > 1 ? 's' : ''}.`
+        : 'Aucun ingrédient renseigné pour cette recette.';
+    }
+
+    const selectAll = document.getElementById('select-all-ingredients');
+    const clearAll = document.getElementById('clear-recipe-ingredients');
+    if (selectAll) selectAll.disabled = !stats.total || stats.allSelected;
+    if (clearAll) clearAll.disabled = !stats.selected;
+
     document.getElementById('ing-list').innerHTML = recipe.ingredients
       .map((i) => {
-        const qtyNumber = (Number(i.qty) * servings) / recipe.baseServings;
-        const checked = state.shopping.some((s) => s.recipeId === recipe.id && s.ingredientId === i.id);
-        return `<li><label><input type="checkbox" data-check="${esc(i.id)}" ${checked ? 'checked' : ''}/> <span>${esc(i.name)}</span><strong>${formatQty(qtyNumber)} ${esc(i.unit)}</strong></label></li>`;
+        const qtyNumber = ingredientQuantityForServings(i, recipe, servings);
+        const checked = state.shopping.some(ingredientShoppingMatch(recipe.id, i.id));
+        return `<li class="ingredient-choice ${checked ? 'is-selected' : ''}"><label><input type="checkbox" data-check="${esc(i.id)}" ${checked ? 'checked' : ''}/> <span>${esc(i.name)}</span><strong>${formatQty(qtyNumber)} ${esc(i.unit)}</strong></label></li>`;
       })
       .join('');
 
     document.querySelectorAll('[data-check]').forEach((c) => {
       c.onchange = () => {
         const ingredientId = c.getAttribute('data-check');
-        const ingredient = recipe.ingredients.find((x) => x.id === ingredientId);
-        const qtyNumber = (Number(ingredient.qty) * servings) / recipe.baseServings;
-        const exists = state.shopping.find((s) => s.recipeId === recipe.id && s.ingredientId === ingredientId);
-        if (exists) {
-          state.shopping = state.shopping.filter((s) => !(s.recipeId === recipe.id && s.ingredientId === ingredientId));
-        } else {
-          state.shopping.push({ recipeId: recipe.id, ingredientId, recipeName: recipe.name, name: ingredient.name, qtyNumber, unit: ingredient.unit, bought: false });
-        }
+        setRecipeIngredientSelection(recipe, ingredientId, servings, c.checked);
         save();
-        redraw();
+        redraw({ syncQuantities: false });
         updateShoppingPanel();
         scheduleGithubSync('Mise à jour de la liste de courses Maison Saison');
       };
     });
   };
 
-  document.getElementById('servings').oninput = redraw;
-  redraw();
+  document.getElementById('select-all-ingredients').onclick = () => {
+    const servings = Math.max(1, Number(document.getElementById('servings').value) || Number(recipe.baseServings) || 1);
+    setRecipeIngredientsSelection(recipe, servings, true);
+    save();
+    redraw({ syncQuantities: false });
+    updateShoppingPanel();
+    scheduleGithubSync('Ajout complet des ingrédients Maison Saison');
+  };
+
+  document.getElementById('clear-recipe-ingredients').onclick = () => {
+    const servings = Math.max(1, Number(document.getElementById('servings').value) || Number(recipe.baseServings) || 1);
+    setRecipeIngredientsSelection(recipe, servings, false);
+    save();
+    redraw({ syncQuantities: false });
+    updateShoppingPanel();
+    scheduleGithubSync('Retrait des ingrédients Maison Saison');
+  };
+
+  document.getElementById('servings').oninput = () => redraw();
+  redraw({ syncQuantities: true });
 }
 
 window.addEventListener('hashchange', render);
