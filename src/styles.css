@@ -2749,26 +2749,38 @@ label,
 
 .shopping-view-options,
 .shopping-recipe-choices {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.7rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  gap: clamp(0.65rem, 1.8vw, 0.9rem);
   margin-top: 1rem;
+}
+
+.shopping-view-options {
+  max-width: 34rem;
 }
 
 .shopping-view-options label,
 .shopping-recipe-choice {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 0.55rem;
-  min-height: 44px;
-  padding: 0.7rem 0.95rem;
+  gap: clamp(0.55rem, 1.6vw, 0.8rem);
+  width: 100%;
+  min-height: clamp(3.3rem, 8vw, 4.8rem);
+  padding: clamp(0.85rem, 2vw, 1rem) clamp(1rem, 2.8vw, 1.25rem);
   border: 1px solid rgba(75, 44, 28, 0.12);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.74);
   color: var(--text);
   font-weight: 750;
+  line-height: 1.2;
   box-shadow: 0 12px 30px rgba(75, 44, 28, 0.08);
   cursor: pointer;
+}
+
+.shopping-view-options label span,
+.shopping-recipe-choice span {
+  flex: 1;
+  min-width: 0;
 }
 
 .shopping-view-options input,
@@ -2792,4 +2804,141 @@ label,
   margin: 0;
   color: var(--text);
   font-size: 1rem;
+}
+
+/* Ajustements bulles liste de courses et favoris */
+.shopping-view-options,
+.shopping-recipe-choices {
+  align-items: stretch;
+}
+
+.shopping-view-options label,
+.shopping-recipe-choice {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  justify-content: start;
+  justify-items: start;
+  text-align: left;
+}
+
+.shopping-view-options input,
+.shopping-recipe-choice input {
+  flex: 0 0 auto;
+  margin: 0;
+}
+
+.shopping-view-options label span,
+.shopping-recipe-choice span {
+  display: block;
+  width: 100%;
+  overflow-wrap: anywhere;
+  text-align: left;
+}
+
+@media (max-width: 520px) {
+  .shopping-view-options,
+  .shopping-recipe-choices {
+    grid-template-columns: 1fr;
+  }
+
+  .shopping-view-options label,
+  .shopping-recipe-choice {
+    min-height: 4.25rem;
+    padding-inline: 1.15rem;
+  }
+}
+
+.favorites-section {
+  margin: 1rem 0;
+}
+
+.favorites-head,
+.recipe-title-row,
+.detail-title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.85rem;
+}
+
+.favorites-head h2,
+.detail-title-row h2,
+.recipe-title-row h3 {
+  margin-top: 0;
+}
+
+.favorites-head > strong {
+  display: inline-grid;
+  place-items: center;
+  min-width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 999px;
+  background: #fff5e8;
+  color: var(--primary-hover);
+  box-shadow: inset 0 0 0 1px rgba(227, 93, 58, 0.18);
+  font-size: 1rem;
+}
+
+.favorite-grid {
+  margin-top: 1rem;
+}
+
+.favorite-toggle {
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 auto;
+  min-width: 2.65rem;
+  width: 2.65rem;
+  height: 2.65rem;
+  min-height: 2.65rem;
+  padding: 0;
+  border-radius: 999px;
+  border: 1px solid rgba(227, 93, 58, 0.2);
+  background: rgba(255, 255, 255, 0.92);
+  color: #c9c2ba;
+  box-shadow: 0 12px 30px rgba(75, 44, 28, 0.12);
+  font-size: 1.55rem;
+  line-height: 1;
+  transition: transform 0.18s ease, color 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+}
+
+.favorite-toggle:hover,
+.favorite-toggle:focus-visible {
+  transform: translateY(-1px) scale(1.04);
+  color: var(--primary-hover);
+}
+
+.favorite-toggle.is-favorite {
+  background: #fff1f1;
+  border-color: rgba(207, 48, 48, 0.35);
+  color: #cf3030;
+  text-shadow: 0 7px 16px rgba(207, 48, 48, 0.24);
+}
+
+.favorite-toggle.is-compact {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  z-index: 2;
+}
+
+.recipe-visual > .favorite-toggle.is-compact + span,
+.recipe-visual > span + .favorite-toggle.is-compact {
+  pointer-events: auto;
+}
+
+@media (max-width: 520px) {
+  .favorites-head,
+  .recipe-title-row,
+  .detail-title-row {
+    gap: 0.65rem;
+  }
+
+  .favorite-toggle:not(.is-compact) {
+    min-width: 2.45rem;
+    width: 2.45rem;
+    height: 2.45rem;
+    min-height: 2.45rem;
+    font-size: 1.4rem;
+  }
 }
