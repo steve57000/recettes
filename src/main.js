@@ -843,12 +843,13 @@ function currentRoute() {
   if (hash.startsWith('#recette/')) return { page: 'recipe', id: hash.slice('#recette/'.length) };
   if (hash === '#sauvegarde') return { page: 'backup' };
   if (hash === '#courses') return { page: 'shopping' };
+  if (hash === '#favoris') return { page: 'favorites' };
   return { page: 'home', anchor: hash };
 }
 
 function renderHeader() {
   const route = currentRoute();
-  const activePage = route.page === 'shopping' ? 'shopping' : route.page === 'backup' ? 'backup' : route.anchor === '#favoris' ? 'favorites' : 'home';
+  const activePage = route.page === 'shopping' ? 'shopping' : route.page === 'backup' ? 'backup' : route.page === 'favorites' ? 'favorites' : 'home';
   const shoppingItems = shoppingOpenCount();
   const navItems = [
     { page: 'home', href: '#top', label: 'Recettes' },
@@ -1008,6 +1009,14 @@ function renderFavoritesSection() {
   </section>`;
 }
 
+function renderFavoritesPage() {
+  return `<section class="page-hero premium-glass">
+      <a class="secondary-link button-link" href="#top">← Retour aux recettes</a>
+      <div><p class="eyebrow">Favoris</p><h1>Vos recettes à faire prochainement.</h1><p class="lead">Retrouvez uniquement les recettes marquées avec le cœur pour préparer vos prochains repas rapidement.</p></div>
+    </section>${renderFavoritesSection()}`;
+}
+
+
 function renderHomePage(filteredRecipes, totalIngredients) {
   return `<section class="hero premium-glass">
         <div>
@@ -1085,7 +1094,7 @@ function render() {
   const filteredRecipes = state.recipes.filter(recipeMatchesFilters);
   const totalIngredients = state.recipes.reduce((sum, recipe) => sum + recipe.ingredients.length, 0);
   const route = currentRoute();
-  const content = route.page === 'backup' ? renderBackupPage() : route.page === 'shopping' ? renderShoppingPage() : route.page === 'recipe' ? renderRecipePage(route.id) : renderHomePage(filteredRecipes, totalIngredients);
+  const content = route.page === 'backup' ? renderBackupPage() : route.page === 'shopping' ? renderShoppingPage() : route.page === 'favorites' ? renderFavoritesPage() : route.page === 'recipe' ? renderRecipePage(route.id) : renderHomePage(filteredRecipes, totalIngredients);
 
   root.innerHTML = `${renderHeader()}<main id="top" class="page-shell">${content}${renderRecipeModal()}</main>`;
 
