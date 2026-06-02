@@ -1,6 +1,97 @@
 {
-  "exportedAt": "2026-06-02T17:30:53.941Z",
+  "exportedAt": "2026-06-02T18:21:42.153Z",
   "recipes": [
+    {
+      "badge": "Fraîcheur",
+      "difficulty": "Facile",
+      "baseServings": 4,
+      "time": 15,
+      "ingredients": [
+        {
+          "id": "ing-ekbb0i9",
+          "name": "Sardines",
+          "qty": 500,
+          "unit": "g"
+        },
+        {
+          "id": "ing-9m3e0u7",
+          "name": "Yaourt grec",
+          "qty": 2,
+          "unit": "c. à soupe"
+        },
+        {
+          "id": "ing-2qnyrmu",
+          "name": "Moutarde de dijon",
+          "qty": 1,
+          "unit": "c. à soupe"
+        },
+        {
+          "id": "ing-l75p6ov",
+          "name": "Jus de citron",
+          "qty": 0.5,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-8kp1ad5",
+          "name": "Echalotte",
+          "qty": 1,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-vcnv496",
+          "name": "Estragon (hachée)",
+          "qty": 1,
+          "unit": "c. à soupe"
+        },
+        {
+          "id": "ing-u4uwizb",
+          "name": "Sel",
+          "qty": 1,
+          "unit": "pincée"
+        },
+        {
+          "id": "ing-eu18yik",
+          "name": "Poivre",
+          "qty": 1,
+          "unit": "pincée"
+        }
+      ],
+      "steps": [
+        {
+          "id": "step-juqubso",
+          "text": "Rincez les sardines à l'eau claire."
+        },
+        {
+          "id": "step-z37z3dq",
+          "text": "Faites cuire les sardines au four ou à la poêle. Une fois cuites, laissez-les refroidir légèrement. Retirez la peau et les arêtes, puis écrasez-les à la fourchette."
+        },
+        {
+          "id": "step-ls8r0nf",
+          "text": "Ajoutez le yaourt grec, la moutarde, le jus de citron frais, l'échalote hachée et l'éstragon haché et mélangez tous les ingrédients jusqu'à obtenir une préparation homogène. Assaisonnez de sel et de poivre."
+        },
+        {
+          "id": "step-sf1brq4",
+          "text": "Servez les rillettes de sardines à l'éstragon avec du pain grillé ou des tranches de baguette."
+        }
+      ],
+      "id": "recipe-td6d943",
+      "name": "Rillettes de sardines à l'estragon",
+      "category": "Appéro",
+      "tags": [
+        "été",
+        "frais",
+        "printemps"
+      ],
+      "rating": 3,
+      "description": "Des rillettes de sardines fraîches et onctueuses, relevées par la douceur parfumée de l'estragon. Une tartinade légère, savoureuse et pleine de fraîcheur, parfaite pour l'apéritif d'été.",
+      "notes": "Pour une texture plus lisse, vous pouvez mixer les ingrédients dans un robot culinaire.",
+      "photoUrl": "https://www.aumenuilya.com/wp-content/uploads/2024/04/1714428984_tartinable-marin-rillettes-sardines-fraiches-estragon-maison-1024x701.jpg",
+      "photoData": "",
+      "videoUrl": "",
+      "sourceUrl": "https://www.grandfrais.com/recettes/rillettes-de-sardines-a-lestragon-1",
+      "sourceName": "Source web",
+      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)"
+    },
     {
       "badge": "Veloutés & crèmes",
       "difficulty": "Facile",
