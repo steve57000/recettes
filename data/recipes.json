@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-02T15:48:22.103Z",
+  "exportedAt": "2026-06-02T16:02:56.606Z",
   "recipes": [
     {
       "badge": "Signature",
@@ -518,6 +518,134 @@
       ]
     },
     {
+      "badge": "Soleil",
+      "difficulty": "Facile",
+      "baseServings": 4,
+      "time": 25,
+      "ingredients": [
+        {
+          "id": "ing-ve66sr4",
+          "name": "Persil plat",
+          "qty": 1,
+          "unit": "botte"
+        },
+        {
+          "id": "ing-k5b9fhe",
+          "name": "Menthe",
+          "qty": 0.5,
+          "unit": "botte"
+        },
+        {
+          "id": "ing-qa4dcyb",
+          "name": "Coriandre",
+          "qty": 0.5,
+          "unit": "botte"
+        },
+        {
+          "id": "ing-zpenfg6",
+          "name": "Tomates",
+          "qty": 2,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-bwzfwgw",
+          "name": "Concombre",
+          "qty": 1,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-s90dps4",
+          "name": "Oignon rouge",
+          "qty": 0.5,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-60svpat",
+          "name": "Boulgour cuit",
+          "qty": 120,
+          "unit": "g"
+        },
+        {
+          "id": "ing-lg49yb5",
+          "name": "Jus de citron",
+          "qty": 2,
+          "unit": "c. à soupe"
+        },
+        {
+          "id": "ing-xmyew02",
+          "name": "Huile d’olive",
+          "qty": 4,
+          "unit": "c. à soupe"
+        },
+        {
+          "id": "ing-yxlllvj",
+          "name": "Cumin en poudre",
+          "qty": 1,
+          "unit": "pincée"
+        },
+        {
+          "id": "ing-16b6jdd",
+          "name": "Sel",
+          "qty": 0,
+          "unit": "à convenance"
+        },
+        {
+          "id": "ing-4e1cjc9",
+          "name": "Poivre",
+          "qty": 0,
+          "unit": "à convenance"
+        }
+      ],
+      "steps": [
+        {
+          "id": "step-7lka0ld",
+          "text": "Avant de commencer mettre une poignée de boulghour dans un bol d'eau pendant 15 mn et laisser ramollir."
+        },
+        {
+          "id": "step-msju49k",
+          "text": "Rincez les herbes et ciselez-les."
+        },
+        {
+          "id": "step-6chgo07",
+          "text": "Lavez les tomates et épluchez le concombre puis coupez-les en petits cubes."
+        },
+        {
+          "id": "step-23tvb5o",
+          "text": "Épluchez l’oignon et coupez-le en petits dés très fin."
+        },
+        {
+          "id": "step-kolz2ni",
+          "text": "Dans un grand saladier, mélangez tous les ingrédients."
+        },
+        {
+          "id": "step-a7osowf",
+          "text": "Lorsque le boulghour ne croque plus, le sortir de l'eau, et le presser entre les mains pour l'essorer. Le mettre dans le saladier avec le reste."
+        },
+        {
+          "id": "step-zso385o",
+          "text": "Assaisonnez ensuite avec le jus d'un citron, le cumin, l’huile d’olive, le sel et le poivre. Mélangez bien et réservez au frais."
+        }
+      ],
+      "id": "recipe-r94y23w",
+      "name": "Taboulé libanais",
+      "category": "Salades",
+      "description": "",
+      "notes": "Vous pouvez ajouter 70g de grains de grenade",
+      "photoUrl": "https://assets.afcdn.com/recipe/20190704/94646_w600.jpg",
+      "photoData": "",
+      "videoUrl": "",
+      "sourceUrl": "https://www.marmiton.org/recettes/recette_le-vrai-taboule-libanais_26796.aspx#d94646-p2",
+      "sourceName": "Source web",
+      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
+      "rating": 3,
+      "tags": [
+        "soleil",
+        "salade",
+        "frais",
+        "herbes"
+      ]
+    },
+    {
       "badge": "Nomade",
       "difficulty": "Facile",
       "baseServings": 4,
@@ -596,135 +724,8 @@
         "poulet",
         "à emporter"
       ]
-    },
-    {
-      "badge": "Soleil",
-      "difficulty": "Facile",
-      "baseServings": 5,
-      "time": 25,
-      "ingredients": [
-        {
-          "id": "ing-ve66sr4",
-          "name": "Persil plat",
-          "qty": 1,
-          "unit": "botte"
-        },
-        {
-          "id": "ing-k5b9fhe",
-          "name": "Menthe",
-          "qty": 0.5,
-          "unit": "botte"
-        },
-        {
-          "id": "ing-qa4dcyb",
-          "name": "Coriandre",
-          "qty": 1,
-          "unit": "botte"
-        },
-        {
-          "id": "ing-zpenfg6",
-          "name": "Tomates",
-          "qty": 4,
-          "unit": "pièce"
-        },
-        {
-          "id": "ing-bwzfwgw",
-          "name": "Concombre",
-          "qty": 1,
-          "unit": "pièce"
-        },
-        {
-          "id": "ing-s90dps4",
-          "name": "Oignon rouge",
-          "qty": 0.5,
-          "unit": "pièce"
-        },
-        {
-          "id": "ing-60svpat",
-          "name": "Boulgour cuit",
-          "qty": 120,
-          "unit": "g"
-        },
-        {
-          "id": "ing-lg49yb5",
-          "name": "Jus de citron",
-          "qty": 3,
-          "unit": "c. à soupe"
-        },
-        {
-          "id": "ing-xmyew02",
-          "name": "Huile d’olive",
-          "qty": 4,
-          "unit": "c. à soupe"
-        },
-        {
-          "id": "ing-yxlllvj",
-          "name": "Cumin en poudre",
-          "qty": 1,
-          "unit": "pincée"
-        },
-        {
-          "id": "ing-16b6jdd",
-          "name": "Sel",
-          "qty": 0,
-          "unit": "à convenance"
-        },
-        {
-          "id": "ing-4e1cjc9",
-          "name": "Poivre",
-          "qty": 0,
-          "unit": "à convenance"
-        }
-      ],
-      "steps": [
-        {
-          "id": "step-7lka0ld",
-          "text": "Avant de commencer mettre une poignée de boulghour dans un bol d'eau pendant 15 mn et laisser ramollir."
-        },
-        {
-          "id": "step-msju49k",
-          "text": "Rincez les herbes et ciselez-les."
-        },
-        {
-          "id": "step-6chgo07",
-          "text": "Lavez les tomates et épluchez le concombre puis coupez-les en petits cubes."
-        },
-        {
-          "id": "step-23tvb5o",
-          "text": "Épluchez l’oignon et coupez-le en petits dés très fin."
-        },
-        {
-          "id": "step-kolz2ni",
-          "text": "Dans un grand saladier, mélangez tous les ingrédients."
-        },
-        {
-          "id": "step-a7osowf",
-          "text": "Lorsque le boulghour ne croque plus, le sortir de l'eau, et le presser entre les mains pour l'essorer. Le mettre dans le saladier avec le reste."
-        },
-        {
-          "id": "step-zso385o",
-          "text": "Assaisonnez ensuite avec le jus d'un citron, le cumin, l’huile d’olive, le sel et le poivre. Mélangez bien et réservez au frais."
-        }
-      ],
-      "id": "recipe-r94y23w",
-      "name": "Taboulé libanais",
-      "category": "Salades",
-      "description": "",
-      "notes": "",
-      "photoUrl": "https://assets.afcdn.com/recipe/20190704/94646_w600.jpg",
-      "photoData": "",
-      "videoUrl": "",
-      "sourceUrl": "https://www.marmiton.org/recettes/recette_le-vrai-taboule-libanais_26796.aspx#d94646-p2",
-      "sourceName": "Source web",
-      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
-      "rating": 3,
-      "tags": [
-        "soleil",
-        "salade",
-        "frais",
-        "herbes"
-      ]
     }
   ],
+  "shoppingUpdatedAt": "",
   "shopping": []
 }
