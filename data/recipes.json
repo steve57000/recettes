@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-02T14:33:16.110Z",
+  "exportedAt": "2026-06-02T14:34:28.761Z",
   "recipes": [
     {
       "badge": "Signature",
@@ -705,110 +705,11 @@
   "shopping": [
     {
       "recipeId": "recipe-r94y23w",
-      "ingredientId": "ing-ve66sr4",
-      "recipeName": "Taboulé libanais",
-      "name": "Persil plat",
-      "qtyNumber": 1,
-      "unit": "Botte(s)",
-      "bought": true
-    },
-    {
-      "recipeId": "recipe-r94y23w",
-      "ingredientId": "ing-k5b9fhe",
-      "recipeName": "Taboulé libanais",
-      "name": "Menthe",
-      "qtyNumber": 0.5,
-      "unit": "Botte(s)",
-      "bought": true
-    },
-    {
-      "recipeId": "recipe-r94y23w",
       "ingredientId": "ing-qa4dcyb",
       "recipeName": "Taboulé libanais",
       "name": "Coriandre",
-      "qtyNumber": 1,
+      "qtyNumber": 0.8,
       "unit": "Botte(s)",
-      "bought": true
-    },
-    {
-      "recipeId": "recipe-r94y23w",
-      "ingredientId": "ing-zpenfg6",
-      "recipeName": "Taboulé libanais",
-      "name": "Tomate(s)",
-      "qtyNumber": 4,
-      "unit": "Pièce(s)",
-      "bought": true
-    },
-    {
-      "recipeId": "recipe-r94y23w",
-      "ingredientId": "ing-bwzfwgw",
-      "recipeName": "Taboulé libanais",
-      "name": "Concombre",
-      "qtyNumber": 1,
-      "unit": "Unité",
-      "bought": true
-    },
-    {
-      "recipeId": "recipe-r94y23w",
-      "ingredientId": "ing-s90dps4",
-      "recipeName": "Taboulé libanais",
-      "name": "Oignon rouge",
-      "qtyNumber": 0.5,
-      "unit": "Unité",
-      "bought": true
-    },
-    {
-      "recipeId": "recipe-r94y23w",
-      "ingredientId": "ing-60svpat",
-      "recipeName": "Taboulé libanais",
-      "name": "Boulgour cuit",
-      "qtyNumber": 120,
-      "unit": "g",
-      "bought": true
-    },
-    {
-      "recipeId": "recipe-r94y23w",
-      "ingredientId": "ing-lg49yb5",
-      "recipeName": "Taboulé libanais",
-      "name": "Jus de citron",
-      "qtyNumber": 1,
-      "unit": "pièce(s)",
-      "bought": true
-    },
-    {
-      "recipeId": "recipe-r94y23w",
-      "ingredientId": "ing-xmyew02",
-      "recipeName": "Taboulé libanais",
-      "name": "Huile d’holive",
-      "qtyNumber": 4,
-      "unit": "c. à soupe",
-      "bought": true
-    },
-    {
-      "recipeId": "recipe-r94y23w",
-      "ingredientId": "ing-yxlllvj",
-      "recipeName": "Taboulé libanais",
-      "name": "Cumin en poudre",
-      "qtyNumber": 1,
-      "unit": "Pincée",
-      "bought": true
-    },
-    {
-      "recipeId": "recipe-r94y23w",
-      "ingredientId": "ing-16b6jdd",
-      "recipeName": "Taboulé libanais",
-      "name": "Sel",
-      "qtyNumber": 1,
-      "unit": "u",
-      "bought": false
-    },
-    {
-      "recipeId": "recipe-r94y23w",
-      "ingredientId": "ing-4e1cjc9",
-      "recipeName": "Taboulé libanais",
-      "name": "Poivre",
-      "qtyNumber": 1,
-      "unit": "u",
       "bought": false
     }
   ]
