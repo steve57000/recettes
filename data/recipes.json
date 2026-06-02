@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-01T18:34:57.530Z",
+  "exportedAt": "2026-06-02T11:42:06.420Z",
   "recipes": [
     {
       "badge": "Signature",
@@ -818,6 +818,33 @@
       "name": "Poivre",
       "qtyNumber": 1,
       "unit": "convenance",
+      "bought": false
+    },
+    {
+      "recipeId": "recipe-r94y23w",
+      "ingredientId": "ing-ve66sr4",
+      "recipeName": "Taboulé libanais",
+      "name": "Persil plat",
+      "qtyNumber": 1,
+      "unit": "Botte(s)",
+      "bought": false
+    },
+    {
+      "recipeId": "recipe-r94y23w",
+      "ingredientId": "ing-k5b9fhe",
+      "recipeName": "Taboulé libanais",
+      "name": "Menthe",
+      "qtyNumber": 0.5,
+      "unit": "Botte(s)",
+      "bought": false
+    },
+    {
+      "recipeId": "recipe-r94y23w",
+      "ingredientId": "ing-qa4dcyb",
+      "recipeName": "Taboulé libanais",
+      "name": "Coriandre",
+      "qtyNumber": 1,
+      "unit": "Botte(s)",
       "bought": false
     }
   ]
