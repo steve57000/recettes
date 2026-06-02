@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-02T20:42:32.230Z",
+  "exportedAt": "2026-06-02T20:43:08.310Z",
   "recipes": [
     {
       "badge": "Signature",
@@ -118,7 +118,7 @@
         "salade",
         "rapide"
       ],
-      "favorite": true
+      "favorite": false
     },
     {
       "badge": "Réconfort",
