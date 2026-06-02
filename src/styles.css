@@ -2740,3 +2740,56 @@ label,
     box-shadow: 0 16px 34px rgba(69, 35, 16, 0.12);
   }
 }
+
+.shopping-view-panel {
+  max-width: 920px;
+  margin: 0 auto 1rem;
+  padding: clamp(1rem, 2.4vw, 1.4rem);
+}
+
+.shopping-view-options,
+.shopping-recipe-choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1rem;
+}
+
+.shopping-view-options label,
+.shopping-recipe-choice {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-height: 44px;
+  padding: 0.7rem 0.95rem;
+  border: 1px solid rgba(75, 44, 28, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.74);
+  color: var(--text);
+  font-weight: 750;
+  box-shadow: 0 12px 30px rgba(75, 44, 28, 0.08);
+  cursor: pointer;
+}
+
+.shopping-view-options input,
+.shopping-recipe-choice input {
+  accent-color: var(--accent);
+}
+
+.shopping-recipe-group {
+  display: grid;
+  gap: 0.7rem;
+  width: 100%;
+}
+
+.shopping-recipe-group + .shopping-recipe-group {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px dashed rgba(75, 44, 28, 0.16);
+}
+
+.shopping-recipe-group h4 {
+  margin: 0;
+  color: var(--text);
+  font-size: 1rem;
+}
