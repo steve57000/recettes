@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-02T16:52:00.748Z",
+  "exportedAt": "2026-06-02T16:54:02.033Z",
   "recipes": [
     {
       "badge": "Soleil",
@@ -104,7 +104,8 @@
       "name": "Quiche spirale aux légumes du soleil",
       "category": "Tartes chaude",
       "tags": [
-        "végétarien"
+        "végétarien",
+        "soleil"
       ],
       "rating": 3,
       "description": "",
