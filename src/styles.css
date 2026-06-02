@@ -2887,32 +2887,58 @@ label,
   display: inline-grid;
   place-items: center;
   flex: 0 0 auto;
-  min-width: 2.65rem;
-  width: 2.65rem;
-  height: 2.65rem;
-  min-height: 2.65rem;
+  min-width: 3rem;
+  width: 3rem;
+  height: 3rem;
+  min-height: 3rem;
   padding: 0;
   border-radius: 999px;
-  border: 1px solid rgba(227, 93, 58, 0.2);
-  background: rgba(255, 255, 255, 0.92);
-  color: #c9c2ba;
-  box-shadow: 0 12px 30px rgba(75, 44, 28, 0.12);
-  font-size: 1.55rem;
-  line-height: 1;
-  transition: transform 0.18s ease, color 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+  border: 1px solid rgba(227, 93, 58, 0.22);
+  background: rgba(255, 255, 255, 0.94);
+  color: #a99990;
+  box-shadow: 0 14px 32px rgba(75, 44, 28, 0.14);
+  line-height: 0;
+  overflow: visible;
+  transition: transform 0.18s ease, color 0.18s ease, background 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
 }
 
 .favorite-toggle:hover,
 .favorite-toggle:focus-visible {
-  transform: translateY(-1px) scale(1.04);
-  color: var(--primary-hover);
+  transform: translateY(-1px) scale(1.05);
+  color: #e02424;
+  background: rgba(255, 255, 255, 0.98);
 }
 
 .favorite-toggle.is-favorite {
-  background: #fff1f1;
-  border-color: rgba(207, 48, 48, 0.35);
-  color: #cf3030;
-  text-shadow: 0 7px 16px rgba(207, 48, 48, 0.24);
+  background: rgba(255, 255, 255, 0.96);
+  border-color: rgba(224, 36, 36, 0.28);
+  color: #e02424;
+  box-shadow: 0 16px 34px rgba(224, 36, 36, 0.18);
+}
+
+.favorite-icon {
+  display: block;
+  width: 1.72rem;
+  height: 1.72rem;
+  transform-origin: 50% 58%;
+}
+
+.favorite-icon-shape {
+  fill: transparent;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linejoin: round;
+  transition: fill 0.2s ease, stroke 0.2s ease, transform 0.2s ease;
+}
+
+.favorite-toggle.is-favorite .favorite-icon {
+  animation: heart-beat 0.52s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.favorite-toggle.is-favorite .favorite-icon-shape {
+  fill: currentColor;
+  stroke: currentColor;
+  animation: heart-fill 0.52s ease both;
 }
 
 .favorite-toggle.is-compact {
@@ -2920,11 +2946,29 @@ label,
   right: 1rem;
   top: 1rem;
   z-index: 2;
+  min-width: 3.2rem;
+  width: 3.2rem;
+  height: 3.2rem;
+  min-height: 3.2rem;
 }
 
 .recipe-visual > .favorite-toggle.is-compact + span,
 .recipe-visual > span + .favorite-toggle.is-compact {
   pointer-events: auto;
+}
+
+@keyframes heart-beat {
+  0% { transform: scale(0.78); }
+  38% { transform: scale(1.22); }
+  58% { transform: scale(0.94); }
+  78% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+@keyframes heart-fill {
+  0% { fill-opacity: 0; transform: scale(0.86); }
+  45% { fill-opacity: 1; transform: scale(1.04); }
+  100% { fill-opacity: 1; transform: scale(1); }
 }
 
 @media (max-width: 520px) {
@@ -2935,10 +2979,14 @@ label,
   }
 
   .favorite-toggle:not(.is-compact) {
-    min-width: 2.45rem;
-    width: 2.45rem;
-    height: 2.45rem;
-    min-height: 2.45rem;
-    font-size: 1.4rem;
+    min-width: 2.8rem;
+    width: 2.8rem;
+    height: 2.8rem;
+    min-height: 2.8rem;
+  }
+
+  .favorite-icon {
+    width: 1.55rem;
+    height: 1.55rem;
   }
 }

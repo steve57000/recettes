@@ -226,7 +226,7 @@ function isRecipeFavorite(recipe) {
 function renderFavoriteButton(recipe, compact = false) {
   const favorite = isRecipeFavorite(recipe);
   const label = favorite ? `Retirer ${recipe.name} des favoris` : `Ajouter ${recipe.name} aux favoris`;
-  return `<button type="button" class="favorite-toggle ${favorite ? 'is-favorite' : ''} ${compact ? 'is-compact' : ''}" data-fav="${esc(recipe.id)}" aria-pressed="${favorite ? 'true' : 'false'}" aria-label="${esc(label)}" title="${esc(label)}"><span aria-hidden="true">${favorite ? '♥' : '♡'}</span></button>`;
+  return `<button type="button" class="favorite-toggle ${favorite ? 'is-favorite' : ''} ${compact ? 'is-compact' : ''}" data-fav="${esc(recipe.id)}" aria-pressed="${favorite ? 'true' : 'false'}" aria-label="${esc(label)}" title="${esc(label)}"><svg class="favorite-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false"><path class="favorite-icon-shape" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.08C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" /></svg></button>`;
 }
 
 function normalizeSteps(steps) {
@@ -1030,8 +1030,6 @@ function renderHomePage(filteredRecipes, totalIngredients) {
         </div>
         ${renderDashboard(totalIngredients)}
       </section>
-
-      ${renderFavoritesSection()}
 
       ${renderSearchFilters()}
 
