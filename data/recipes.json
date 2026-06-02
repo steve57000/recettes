@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-02T11:42:39.592Z",
+  "exportedAt": "2026-06-02T11:46:31.991Z",
   "recipes": [
     {
       "badge": "Signature",
@@ -710,7 +710,7 @@
       "name": "Persil plat",
       "qtyNumber": 1,
       "unit": "Botte(s)",
-      "bought": false
+      "bought": true
     },
     {
       "recipeId": "recipe-r94y23w",
@@ -719,7 +719,7 @@
       "name": "Menthe",
       "qtyNumber": 0.5,
       "unit": "Botte(s)",
-      "bought": false
+      "bought": true
     },
     {
       "recipeId": "recipe-r94y23w",
@@ -738,6 +738,60 @@
       "qtyNumber": 4,
       "unit": "Pièce(s)",
       "bought": false
+    },
+    {
+      "recipeId": "recipe-r94y23w",
+      "ingredientId": "ing-bwzfwgw",
+      "recipeName": "Taboulé libanais",
+      "name": "Concombre",
+      "qtyNumber": 1,
+      "unit": "Unité",
+      "bought": false
+    },
+    {
+      "recipeId": "recipe-r94y23w",
+      "ingredientId": "ing-s90dps4",
+      "recipeName": "Taboulé libanais",
+      "name": "Oignon rouge",
+      "qtyNumber": 0.5,
+      "unit": "Unité",
+      "bought": false
+    },
+    {
+      "recipeId": "recipe-r94y23w",
+      "ingredientId": "ing-60svpat",
+      "recipeName": "Taboulé libanais",
+      "name": "Boulgour cuit",
+      "qtyNumber": 120,
+      "unit": "g",
+      "bought": false
+    },
+    {
+      "recipeId": "recipe-r94y23w",
+      "ingredientId": "ing-lg49yb5",
+      "recipeName": "Taboulé libanais",
+      "name": "Jus de citron",
+      "qtyNumber": 1,
+      "unit": "pièce(s)",
+      "bought": false
+    },
+    {
+      "recipeId": "recipe-r94y23w",
+      "ingredientId": "ing-xmyew02",
+      "recipeName": "Taboulé libanais",
+      "name": "Huile d’holive",
+      "qtyNumber": 4,
+      "unit": "c. à soupe",
+      "bought": false
+    },
+    {
+      "recipeId": "recipe-r94y23w",
+      "ingredientId": "ing-yxlllvj",
+      "recipeName": "Taboulé libanais",
+      "name": "Cumin en poudre",
+      "qtyNumber": 1,
+      "unit": "Pincée",
+      "bought": true
     }
   ]
 }
