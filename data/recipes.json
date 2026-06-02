@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-02T16:37:41.597Z",
+  "exportedAt": "2026-06-02T16:46:06.906Z",
   "recipes": [
     {
       "badge": "Soleil",
@@ -12,6 +12,66 @@
           "name": "Pâte brisée",
           "qty": 1,
           "unit": "pièce"
+        },
+        {
+          "id": "ing-16xv028",
+          "name": "Courgette verte",
+          "qty": 1,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-4zbt6ft",
+          "name": "Courgette jaune",
+          "qty": 1,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-wgw6ez1",
+          "name": "Poivron rouge",
+          "qty": 1,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-0hxi9ph",
+          "name": "Poivron jaune",
+          "qty": 1,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-5mjwkwf",
+          "name": "Aubergine",
+          "qty": 1,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-emh3bu7",
+          "name": "Crème liquide",
+          "qty": 20,
+          "unit": "cl"
+        },
+        {
+          "id": "ing-qf1hujj",
+          "name": "Oeufs",
+          "qty": 3,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-14hwbnj",
+          "name": "Sel",
+          "qty": 1,
+          "unit": "pincée"
+        },
+        {
+          "id": "ing-tcakmya",
+          "name": "Poivre",
+          "qty": 1,
+          "unit": "pincée"
+        },
+        {
+          "id": "ing-n1ax57p",
+          "name": "Huile d’olive",
+          "qty": 1,
+          "unit": "filet"
         }
       ],
       "steps": [
