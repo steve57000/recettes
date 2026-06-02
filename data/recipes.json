@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-02T11:49:43.692Z",
+  "exportedAt": "2026-06-02T11:50:57.272Z",
   "recipes": [
     {
       "badge": "Signature",
@@ -746,7 +746,7 @@
       "name": "Concombre",
       "qtyNumber": 1,
       "unit": "Unité",
-      "bought": false
+      "bought": true
     },
     {
       "recipeId": "recipe-r94y23w",
