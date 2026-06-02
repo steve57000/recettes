@@ -20,6 +20,39 @@ let githubAutoLoadStarted = false;
 
 const INITIAL_RECIPES_URL = './data/recipes.json';
 
+const UNIT_OPTIONS = [
+  { label: 'g', type: 'mass', factor: 1, aliases: ['gramme', 'grammes', 'gr'] },
+  { label: 'kg', type: 'mass', factor: 1000, aliases: ['kilo', 'kilos', 'kilogramme', 'kilogrammes'] },
+  { label: 'mg', type: 'mass', factor: 0.001, aliases: ['milligramme', 'milligrammes'] },
+  { label: 'ml', type: 'volume', factor: 1, aliases: ['millilitre', 'millilitres'] },
+  { label: 'cl', type: 'volume', factor: 10, aliases: ['centilitre', 'centilitres'] },
+  { label: 'dl', type: 'volume', factor: 100, aliases: ['décilitre', 'decilitre', 'décilitres', 'decilitres'] },
+  { label: 'L', type: 'volume', factor: 1000, aliases: ['l', 'litre', 'litres'] },
+  { label: 'c. à café', type: 'volume', factor: 5, aliases: ['cc', 'café', 'cuillère à café', 'cuillere a cafe', 'cuillère a café', 'cuillères à café'] },
+  { label: 'c. à soupe', type: 'volume', factor: 15, aliases: ['cs', 'soupe', 'cuillère à soupe', 'cuillere a soupe', 'cuillère a soupe', 'cuillères à soupe'] },
+  { label: 'pièce', type: 'count', aliases: ['pièce(s)', 'piece', 'pieces', 'unité', 'unite', 'unités', 'u'] },
+  { label: 'tranche', type: 'count', aliases: ['tranches'] },
+  { label: 'gousse', type: 'count', aliases: ['gousses'] },
+  { label: 'branche', type: 'count', aliases: ['branches'] },
+  { label: 'feuille', type: 'count', aliases: ['feuilles'] },
+  { label: 'bouquet', type: 'count', aliases: ['bouquets'] },
+  { label: 'botte', type: 'count', aliases: ['botte(s)', 'bottes'] },
+  { label: 'brin', type: 'count', aliases: ['brins'] },
+  { label: 'poignée', type: 'count', aliases: ['poignee', 'poignées', 'poignees'] },
+  { label: 'pincée', type: 'count', aliases: ['pincee', 'pincées', 'pincees'] },
+  { label: 'filet', type: 'count', aliases: ['filets'] },
+  { label: 'boîte', type: 'count', aliases: ['boîte(s)', 'boite', 'boites', 'boîtes'] },
+  { label: 'sachet', type: 'count', aliases: ['sachets'] },
+  { label: 'bocal', type: 'count', aliases: ['bocaux'] },
+  { label: 'pot', type: 'count', aliases: ['pots'] },
+  { label: 'verre', type: 'count', aliases: ['verres'] },
+  { label: 'bol', type: 'count', aliases: ['bols'] },
+  { label: 'tasse', type: 'count', aliases: ['tasses', 'cup', 'cups'] },
+  { label: 'convenance', type: 'free', aliases: ['à convenance', 'a convenance', 'selon goût', 'selon gout', 'qs'] },
+];
+
+const UNIT_ALIASES = new Map(UNIT_OPTIONS.flatMap((unit) => [unit.label, ...(unit.aliases || [])].map((alias) => [normalizeFacetKey(alias), unit])));
+
 const defaultState = {
   users: [{ username: 'admin', password: 'admin123' }],
   recipes: [],
@@ -51,7 +84,13 @@ function load() {
 
 function normalizeShoppingItems(items) {
   return Array.isArray(items)
-    ? items.map((item) => ({ ...item, bought: Boolean(item.bought) }))
+    ? items.map((item) => ({
+      ...item,
+      name: normalizeDisplayLabel(item.name),
+      unit: normalizeUnit(item.unit),
+      qtyNumber: Number(item.qtyNumber) || 0,
+      bought: Boolean(item.bought),
+    }))
     : [];
 }
 
@@ -80,7 +119,7 @@ async function loadInitialRecipes() {
 }
 
 function normalizeRecipe(recipe) {
-  return {
+  const normalized = {
     badge: 'Maison',
     difficulty: 'Maison',
     baseServings: 2,
@@ -88,10 +127,16 @@ function normalizeRecipe(recipe) {
     ingredients: [],
     steps: [],
     ...recipe,
-    ingredients: Array.isArray(recipe.ingredients) ? recipe.ingredients : [],
-    steps: normalizeSteps(recipe.steps),
-    rating: clampRating(recipe.rating),
-    tags: normalizeTags(recipe.tags || recipe.tag || recipe.badge || recipe.category),
+  };
+  return {
+    ...normalized,
+    category: normalizeDisplayLabel(normalized.category || 'Mes recettes'),
+    badge: normalizeDisplayLabel(normalized.badge || 'Maison'),
+    difficulty: normalizeDisplayLabel(normalized.difficulty || 'Maison'),
+    ingredients: normalizeIngredients(normalized.ingredients),
+    steps: normalizeSteps(normalized.steps),
+    rating: clampRating(normalized.rating),
+    tags: normalizeTags(normalized.tags || normalized.tag || normalized.badge || normalized.category),
   };
 }
 
@@ -100,9 +145,64 @@ function clampRating(value) {
   return Math.min(5, Math.max(1, rating || 3));
 }
 
+function normalizeFacetKey(value) {
+  return String(value || '')
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[œŒ]/g, 'oe')
+    .replace(/[æÆ]/g, 'ae')
+    .replace(/[’'`´]/g, ' ')
+    .replace(/[#.,;:!?()[\]{}]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .toLocaleLowerCase('fr-FR');
+}
+
+function normalizeDisplayLabel(value) {
+  const text = String(value || '').replace(/[#]+/g, '').replace(/\s+/g, ' ').trim();
+  if (!text) return '';
+  const lower = text.toLocaleLowerCase('fr-FR');
+  return lower.replace(/(^|[\/\-])([\p{L}])/gu, (match, before, letter) => `${before}${letter.toLocaleUpperCase('fr-FR')}`);
+}
+
+function normalizeTagLabel(value) {
+  return String(value || '').replace(/^#+/, '').replace(/\s+/g, ' ').trim().toLocaleLowerCase('fr-FR');
+}
+
+function uniqueByFacet(values, formatter = normalizeDisplayLabel) {
+  const map = new Map();
+  values.forEach((value) => {
+    const label = formatter(value);
+    const key = normalizeFacetKey(label);
+    if (key && !map.has(key)) map.set(key, label);
+  });
+  return Array.from(map.values());
+}
+
 function normalizeTags(value) {
   const raw = Array.isArray(value) ? value : String(value || '').split(/[,;#]/);
-  return Array.from(new Set(raw.map((tag) => String(tag).trim()).filter(Boolean)));
+  return uniqueByFacet(raw, normalizeTagLabel);
+}
+
+function normalizeUnit(value) {
+  const unit = UNIT_ALIASES.get(normalizeFacetKey(value));
+  return unit ? unit.label : 'pièce';
+}
+
+function unitInfo(value) {
+  return UNIT_ALIASES.get(normalizeFacetKey(value)) || UNIT_ALIASES.get(normalizeFacetKey(normalizeUnit(value)));
+}
+
+function normalizeIngredients(ingredients) {
+  return Array.isArray(ingredients)
+    ? ingredients.map((ingredient) => ({
+      ...ingredient,
+      id: ingredient.id || uid('ing'),
+      name: normalizeDisplayLabel(ingredient.name),
+      qty: Number(ingredient.qty) || 0,
+      unit: normalizeUnit(ingredient.unit),
+    })).filter((ingredient) => ingredient.name)
+    : [];
 }
 
 function renderStars(value, label = 'Note de la recette') {
@@ -469,7 +569,7 @@ function uid(prefix = 'id') {
 }
 
 function emptyIngredient(values = {}) {
-  return { id: values.id || uid('ing'), name: values.name || '', qty: values.qty ?? 1, unit: values.unit || 'g' };
+  return { id: values.id || uid('ing'), name: normalizeDisplayLabel(values.name), qty: values.qty ?? 1, unit: normalizeUnit(values.unit || 'g') };
 }
 
 function emptyStep(values = {}) {
@@ -489,6 +589,20 @@ function formatQty(value) {
   return Number.isInteger(n) ? String(n) : n.toFixed(2).replace(/\.00$/, '').replace(/0$/, '');
 }
 
+function renderUnitOptions(selectedUnit) {
+  const selected = normalizeUnit(selectedUnit);
+  const groups = [
+    ['Poids', UNIT_OPTIONS.filter((unit) => unit.type === 'mass')],
+    ['Volume', UNIT_OPTIONS.filter((unit) => unit.type === 'volume')],
+    ['Comptage & cuisine', UNIT_OPTIONS.filter((unit) => !['mass', 'volume'].includes(unit.type))],
+  ];
+  return groups.map(([label, units]) => `<optgroup label="${esc(label)}">${units.map((unit) => `<option value="${esc(unit.label)}" ${unit.label === selected ? 'selected' : ''}>${esc(unit.label)}</option>`).join('')}</optgroup>`).join('');
+}
+
+function renderOptionDatalist(id, values, formatter = normalizeDisplayLabel) {
+  return `<datalist id="${esc(id)}">${uniqueByFacet(values, formatter).sort((a, b) => a.localeCompare(b, 'fr')).map((value) => `<option value="${esc(value)}"></option>`).join('')}</datalist>`;
+}
+
 function asCssImage(recipe) {
   if (recipe.photoData || recipe.photoUrl) {
     return `linear-gradient(135deg, rgba(36, 20, 13, 0.06), rgba(36, 20, 13, 0.2)), url(${recipe.photoData || recipe.photoUrl})`;
@@ -497,52 +611,86 @@ function asCssImage(recipe) {
 }
 
 function categories() {
-  return ['Tout voir', ...Array.from(new Set(state.recipes.map((r) => r.category || 'Mes recettes')))];
+  return ['Tout voir', ...uniqueByFacet(state.recipes.map((r) => r.category || 'Mes recettes')).sort((a, b) => a.localeCompare(b, 'fr'))];
 }
 
 function currentFilters() {
   const filters = { name: '', ingredients: [], tags: [], ...(state.filters || {}) };
-  filters.ingredients = Array.isArray(filters.ingredients) ? filters.ingredients : [];
-  filters.tags = Array.isArray(filters.tags) ? filters.tags : [];
+  filters.ingredients = Array.isArray(filters.ingredients) ? filters.ingredients.map(normalizeFacetKey).filter(Boolean) : [];
+  filters.tags = Array.isArray(filters.tags) ? filters.tags.map(normalizeFacetKey).filter(Boolean) : [];
   return filters;
 }
 
+function buildFacetOptions(values, formatter = normalizeDisplayLabel) {
+  const map = new Map();
+  values.forEach((value) => {
+    const label = formatter(value);
+    const key = normalizeFacetKey(label);
+    if (!key) return;
+    const option = map.get(key) || { key, label, count: 0 };
+    option.count += 1;
+    if (label.length < option.label.length || option.label === key) option.label = label;
+    map.set(key, option);
+  });
+  return Array.from(map.values()).sort((a, b) => a.label.localeCompare(b.label, 'fr'));
+}
+
 function ingredientOptions() {
-  return Array.from(new Set(state.recipes.flatMap((recipe) => recipe.ingredients.map((ingredient) => ingredient.name.trim()).filter(Boolean)))).sort((a, b) => a.localeCompare(b, 'fr'));
+  return buildFacetOptions(state.recipes.flatMap((recipe) => recipe.ingredients.map((ingredient) => ingredient.name)));
 }
 
 function tagOptions() {
-  return Array.from(new Set(state.recipes.flatMap((recipe) => normalizeTags(recipe.tags || recipe.category || recipe.badge)))).sort((a, b) => a.localeCompare(b, 'fr'));
+  return buildFacetOptions(state.recipes.flatMap((recipe) => normalizeTags(recipe.tags || recipe.category || recipe.badge)), normalizeTagLabel);
+}
+
+function optionLabel(options, key, fallback = '') {
+  return options.find((option) => option.key === key)?.label || fallback || key;
 }
 
 function recipeMatchesFilters(recipe) {
   const filters = currentFilters();
-  const haystack = `${recipe.name || ''} ${recipe.description || ''}`.toLowerCase();
-  const recipeIngredients = recipe.ingredients.map((ingredient) => ingredient.name.toLowerCase());
-  const recipeTags = normalizeTags(recipe.tags || recipe.category || recipe.badge).map((tag) => tag.toLowerCase());
-  const categoryMatches = state.activeCategory === 'Tout voir' || (recipe.category || 'Mes recettes') === state.activeCategory;
-  const nameMatches = !filters.name || haystack.includes(filters.name.toLowerCase());
-  const ingredientsMatch = filters.ingredients.every((selected) => recipeIngredients.some((ingredient) => ingredient.includes(selected.toLowerCase())));
-  const tagsMatch = filters.tags.every((selected) => recipeTags.includes(selected.toLowerCase()));
+  const haystack = normalizeFacetKey(`${recipe.name || ''} ${recipe.description || ''} ${normalizeTags(recipe.tags || '').join(' ')}`);
+  const recipeIngredients = recipe.ingredients.map((ingredient) => normalizeFacetKey(ingredient.name));
+  const recipeTags = normalizeTags(recipe.tags || recipe.category || recipe.badge).map(normalizeFacetKey);
+  const categoryMatches = state.activeCategory === 'Tout voir' || normalizeFacetKey(recipe.category || 'Mes recettes') === normalizeFacetKey(state.activeCategory);
+  const nameMatches = !filters.name || haystack.includes(normalizeFacetKey(filters.name));
+  const ingredientsMatch = filters.ingredients.every((selected) => recipeIngredients.some((ingredient) => ingredient.includes(selected)));
+  const tagsMatch = filters.tags.every((selected) => recipeTags.includes(selected));
   return categoryMatches && nameMatches && ingredientsMatch && tagsMatch;
 }
 
+function shoppingQuantity(item) {
+  const unit = normalizeUnit(item.unit);
+  const info = unitInfo(unit);
+  if (!info || !info.factor) return { qtyNumber: Number(item.qtyNumber) || 0, unit };
+  return { qtyNumber: (Number(item.qtyNumber) || 0) * info.factor, unit: info.type === 'mass' ? 'g' : 'ml' };
+}
+
 function shoppingKey(item) {
-  return `${String(item.name || '').trim().toLowerCase()}__${String(item.unit || '').trim().toLowerCase()}`;
+  const quantity = shoppingQuantity(item);
+  return `${normalizeFacetKey(item.name)}__${quantity.unit}`;
+}
+
+function readableShoppingQuantity(item) {
+  const qty = Number(item.qtyNumber) || 0;
+  if (item.unit === 'g' && Math.abs(qty) >= 1000) return { qtyNumber: qty / 1000, unit: 'kg' };
+  if (item.unit === 'ml' && Math.abs(qty) >= 1000) return { qtyNumber: qty / 1000, unit: 'L' };
+  return item;
 }
 
 function shoppingSummary() {
   const map = new Map();
   state.shopping.forEach((item) => {
+    const quantity = shoppingQuantity(item);
     const key = shoppingKey(item);
-    const existing = map.get(key) || { ...item, key, qtyNumber: 0, recipes: new Set(), bought: true };
-    existing.qtyNumber += Number(item.qtyNumber) || 0;
+    const existing = map.get(key) || { ...item, key, name: normalizeDisplayLabel(item.name), unit: quantity.unit, qtyNumber: 0, recipes: new Set(), bought: true };
+    existing.qtyNumber += quantity.qtyNumber;
     existing.recipes.add(item.recipeName);
     existing.bought = existing.bought && Boolean(item.bought);
     map.set(key, existing);
   });
   return Array.from(map.values())
-    .map((item) => ({ ...item, recipes: Array.from(item.recipes) }))
+    .map((item) => ({ ...readableShoppingQuantity(item), key: item.key, recipes: Array.from(item.recipes) }))
     .sort((a, b) => Number(a.bought) - Number(b.bought) || a.name.localeCompare(b.name, 'fr'));
 }
 
@@ -739,23 +887,25 @@ function renderFilterDropdown(type, title, options, selected) {
   return `<details class="filter-dropdown" data-filter-panel="${type}">
     <summary><span>${title}</span><strong>${selected.length || 'Tout'}</strong></summary>
     <div class="filter-menu">
-      ${options.map((option) => `<label class="filter-option"><input type="checkbox" data-filter-${type}="${esc(option)}" ${selected.includes(option) ? 'checked' : ''}/><span>${esc(option)}</span></label>`).join('') || '<p class="small">Aucun choix disponible.</p>'}
+      ${options.map((option) => `<label class="filter-option"><input type="checkbox" data-filter-${type}="${esc(option.key)}" ${selected.includes(option.key) ? 'checked' : ''}/><span>${esc(option.label)} <small>${option.count}</small></span></label>`).join('') || '<p class="small">Aucun choix disponible.</p>'}
     </div>
   </details>`;
 }
 
 function renderSearchFilters() {
   const filters = currentFilters();
+  const ingredients = ingredientOptions();
+  const tags = tagOptions();
   return `<section class="search-lab panel" aria-label="Filtres de recherche">
-    <div class="search-title"><p class="eyebrow">Recherche gourmande</p><h2>Trouvez l’inspiration en quelques secondes</h2></div>
+    <div class="search-title"><p class="eyebrow">Recherche gourmande</p><h2>Trouvez l’inspiration en quelques secondes</h2><p class="small">Les accents, majuscules, apostrophes et doublons sont uniformisés pour des filtres fiables.</p></div>
     <label class="name-filter"><span>Nom de la recette</span><input id="filter-name" placeholder="Ex : salade, tarte, poulet..." value="${esc(filters.name)}" /></label>
     <div class="smart-filters">
-      ${renderFilterDropdown('ingredient', 'Ingrédients', ingredientOptions(), filters.ingredients)}
-      ${renderFilterDropdown('tag', 'Tags', tagOptions(), filters.tags)}
+      ${renderFilterDropdown('ingredient', 'Ingrédients', ingredients, filters.ingredients)}
+      ${renderFilterDropdown('tag', 'Tags', tags, filters.tags)}
     </div>
     <div class="selected-filters">
-      ${filters.ingredients.map((item) => `<button class="filter-chip" data-remove-filter="ingredient" data-value="${esc(item)}">${esc(item)} ×</button>`).join('')}
-      ${filters.tags.map((item) => `<button class="filter-chip tag-chip" data-remove-filter="tag" data-value="${esc(item)}">#${esc(item)} ×</button>`).join('')}
+      ${filters.ingredients.map((item) => `<button class="filter-chip" data-remove-filter="ingredient" data-value="${esc(item)}">${esc(optionLabel(ingredients, item))} ×</button>`).join('')}
+      ${filters.tags.map((item) => `<button class="filter-chip tag-chip" data-remove-filter="tag" data-value="${esc(item)}">#${esc(optionLabel(tags, item))} ×</button>`).join('')}
       ${(filters.name || filters.ingredients.length || filters.tags.length) ? '<button class="filter-reset secondary" id="clear-filters">Réinitialiser les filtres</button>' : '<span class="small">Ajoutez des ingrédients ou tags pour composer votre menu parfait.</span>'}
     </div>
   </section>`;
@@ -878,14 +1028,19 @@ function renderRecipeModal() {
       <div class="form-scroll">
         <div class="form-grid">
           <label>Nom<input id="r-name" placeholder="Ex : Lasagnes de famille" /></label>
-          <label>Menu / catégorie<input id="r-category" placeholder="Salades, Plats, Desserts..." value="Mes recettes" /></label>
+          <label>Menu / catégorie<input id="r-category" list="category-options" placeholder="Salades, Plats, Desserts..." value="Mes recettes" /></label>
           <label>Personnes<input id="r-base" type="number" min="1" value="2" /></label>
           <label>Temps (min)<input id="r-time" type="number" min="1" value="20" /></label>
-          <label>Difficulté<input id="r-difficulty" placeholder="Facile, Moyen, Chef..." value="Maison" /></label>
-          <label>Badge<input id="r-badge" placeholder="Signature, Express..." value="Nouveau" /></label>
-          <label>Tags<input id="r-tags" placeholder="rapide, été, végétarien..." /></label>
+          <label>Difficulté<input id="r-difficulty" list="difficulty-options" placeholder="Facile, Moyen, Chef..." value="Maison" /></label>
+          <label>Badge<input id="r-badge" list="badge-options" placeholder="Signature, Express..." value="Nouveau" /></label>
+          <label>Tags<input id="r-tags" list="tag-options" placeholder="rapide, été, végétarien..." /></label>
           <label>Note<input id="r-rating" type="hidden" value="3" /><span class="rating-picker" id="rating-picker" aria-label="Choisir une note">${[1, 2, 3, 4, 5].map((value) => `<button type="button" class="rating-button" data-rate="${value}">★</button>`).join('')}</span></label>
         </div>
+        ${renderOptionDatalist('category-options', state.recipes.map((recipe) => recipe.category || 'Mes recettes'))}
+        ${renderOptionDatalist('difficulty-options', [...state.recipes.map((recipe) => recipe.difficulty || 'Maison'), 'Facile', 'Moyen', 'Difficile', 'Chef'])}
+        ${renderOptionDatalist('badge-options', [...state.recipes.map((recipe) => recipe.badge || 'Maison'), 'Nouveau', 'Signature', 'Express', 'Familial'])}
+        ${renderOptionDatalist('tag-options', state.recipes.flatMap((recipe) => normalizeTags(recipe.tags || recipe.category || recipe.badge)), normalizeTagLabel)}
+        ${renderOptionDatalist('ingredient-name-options', state.recipes.flatMap((recipe) => recipe.ingredients.map((ingredient) => ingredient.name)))}
         <label>Description<textarea id="r-description" placeholder="Courte description appétissante"></textarea></label>
         <div class="steps-head"><div><h3>Déroulé de la recette</h3><p class="small">Rédigez la préparation étape par étape pour obtenir une lecture élégante et guidée.</p></div></div>
         <div id="steps" class="steps-editor"></div>
@@ -1212,9 +1367,9 @@ function captureIngredientRows() {
   if (!container) return;
   ingredientRows = ingredientRows.map((row) => ({
     id: row.id,
-    name: container.querySelector(`[data-in="name-${row.id}"]`)?.value.trim() || '',
+    name: normalizeDisplayLabel(container.querySelector(`[data-in="name-${row.id}"]`)?.value || ''),
     qty: Number(container.querySelector(`[data-in="qty-${row.id}"]`)?.value) || 0,
-    unit: container.querySelector(`[data-in="unit-${row.id}"]`)?.value.trim() || 'u',
+    unit: normalizeUnit(container.querySelector(`[data-in="unit-${row.id}"]`)?.value || 'pièce'),
   }));
 }
 
@@ -1224,9 +1379,9 @@ function drawIngredientRows(focusId) {
   container.innerHTML = `${ingredientRows
     .map(
       (r, index) => `<div class="ingredient-row" data-row-id="${esc(r.id)}">
-        <label><span>Ingrédient</span><input data-in="name-${r.id}" placeholder="Ex : Tomates" value="${esc(r.name)}" /></label>
+        <label><span>Ingrédient</span><input data-in="name-${r.id}" list="ingredient-name-options" placeholder="Ex : Tomates" value="${esc(r.name)}" /></label>
         <label><span>Quantité</span><input data-in="qty-${r.id}" type="number" min="0" step="0.1" value="${esc(r.qty)}" /></label>
-        <label><span>Unité</span><input data-in="unit-${r.id}" placeholder="g, pièce..." value="${esc(r.unit)}" /></label>
+        <label><span>Unité</span><select data-in="unit-${r.id}">${renderUnitOptions(r.unit)}</select></label>
         <button class="secondary tiny" data-remove-ing="${esc(r.id)}" ${ingredientRows.length === 1 ? 'disabled' : ''}>Retirer</button>
         <small>Ligne ${index + 1}</small>
       </div>`,
@@ -1281,11 +1436,11 @@ async function saveRecipeFromForm() {
     ...existing,
     id: existing.id || uid('recipe'),
     name,
-    category: document.getElementById('r-category').value.trim() || 'Mes recettes',
+    category: normalizeDisplayLabel(document.getElementById('r-category').value) || 'Mes recettes',
     baseServings: Number(document.getElementById('r-base').value) || 1,
     time: Number(document.getElementById('r-time').value) || 20,
-    difficulty: document.getElementById('r-difficulty').value.trim() || 'Maison',
-    badge: document.getElementById('r-badge').value.trim() || 'Nouveau',
+    difficulty: normalizeDisplayLabel(document.getElementById('r-difficulty').value) || 'Maison',
+    badge: normalizeDisplayLabel(document.getElementById('r-badge').value) || 'Nouveau',
     tags: normalizeTags(document.getElementById('r-tags').value),
     rating: clampRating(document.getElementById('r-rating').value),
     description: document.getElementById('r-description').value.trim(),
@@ -1297,7 +1452,7 @@ async function saveRecipeFromForm() {
     sourceUrl: document.getElementById('r-source').value.trim(),
     sourceName: document.getElementById('r-source').value.trim() ? 'Source web' : '',
     image: existing.image || 'linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)',
-    ingredients: ingredientRows.filter((x) => x.name).map((x) => ({ ...x, id: x.id || uid('ing'), qty: Number(x.qty) || 0 })),
+    ingredients: ingredientRows.filter((x) => x.name).map((x) => ({ ...x, id: x.id || uid('ing'), name: normalizeDisplayLabel(x.name), qty: Number(x.qty) || 0, unit: normalizeUnit(x.unit) })),
   });
 
   if (!recipe.ingredients.length) return alert('Ajoutez au moins un ingrédient');

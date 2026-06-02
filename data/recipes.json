@@ -17,7 +17,7 @@
           "id": "tomates",
           "name": "Tomates",
           "qty": 4,
-          "unit": "pièce(s)"
+          "unit": "pièce"
         },
         {
           "id": "thon",
@@ -29,13 +29,13 @@
           "id": "oeufs",
           "name": "Œufs",
           "qty": 2,
-          "unit": "pièce(s)"
+          "unit": "pièce"
         },
         {
           "id": "olives",
           "name": "Olives noires",
           "qty": 15,
-          "unit": "pièce(s)"
+          "unit": "pièce"
         },
         {
           "id": "huile",
@@ -47,13 +47,13 @@
           "id": "ing-9nr4stb",
           "name": "Anchois",
           "qty": 1,
-          "unit": "boîte(s)"
+          "unit": "boîte"
         },
         {
           "id": "ing-b44dct6",
           "name": "Radis",
           "qty": 4,
-          "unit": "pièce(s)"
+          "unit": "pièce"
         },
         {
           "id": "ing-jzfainr",
@@ -113,7 +113,7 @@
       "photoData": "",
       "rating": 4,
       "tags": [
-        "Signature"
+        "signature"
       ]
     },
     {
@@ -160,7 +160,7 @@
         },
         {
           "id": "ing-h0gyqcn",
-          "name": "Crème frâiche semi-épaisse",
+          "name": "Crème frâiche semi-Épaisse",
           "qty": 10,
           "unit": "cl"
         },
@@ -174,13 +174,13 @@
           "id": "ing-2dzm0bw",
           "name": "Sel",
           "qty": 1,
-          "unit": "u"
+          "unit": "pièce"
         },
         {
           "id": "ing-lo9dhui",
           "name": "Poivre",
           "qty": 1,
-          "unit": "u"
+          "unit": "pièce"
         }
       ],
       "steps": [
@@ -218,7 +218,7 @@
       "photoData": "",
       "rating": 3,
       "tags": [
-        "Réconfortant"
+        "réconfortant"
       ]
     },
     {
@@ -231,11 +231,11 @@
           "id": "poulet",
           "name": "Concombre",
           "qty": 2,
-          "unit": "pièces"
+          "unit": "pièce"
         },
         {
           "id": "oignons",
-          "name": "Yaourt Grec",
+          "name": "Yaourt grec",
           "qty": 300,
           "unit": "g"
         },
@@ -267,19 +267,19 @@
           "id": "ing-ctoiia9",
           "name": "Aneth",
           "qty": 5,
-          "unit": "brins"
+          "unit": "brin"
         },
         {
           "id": "ing-513uiqx",
           "name": "Gros sel",
           "qty": 1,
-          "unit": "u"
+          "unit": "pièce"
         },
         {
           "id": "ing-auw1p80",
           "name": "Poivre",
           "qty": 1,
-          "unit": "u"
+          "unit": "pièce"
         }
       ],
       "steps": [
@@ -309,7 +309,7 @@
       "photoData": "",
       "rating": 3,
       "tags": [
-        "Mission maillot de bain"
+        "mission maillot de bain"
       ]
     },
     {
@@ -340,7 +340,7 @@
           "id": "oeufs",
           "name": "Jaunes d’œufs",
           "qty": 4,
-          "unit": "pièces"
+          "unit": "pièce"
         },
         {
           "id": "sucre",
@@ -373,7 +373,7 @@
       "notes": "Pour un rendu pro, alternez les pointes des fraises vers l’extérieur.",
       "rating": 3,
       "tags": [
-        "Pâtisserie"
+        "pâtisserie"
       ]
     },
     {
@@ -392,7 +392,7 @@
           "id": "carottes",
           "name": "Carottes",
           "qty": 3,
-          "unit": "pièces"
+          "unit": "pièce"
         },
         {
           "id": "bouillon",
@@ -437,7 +437,7 @@
       "notes": "Inutile d’éplucher le potimarron si la peau est fine.",
       "rating": 3,
       "tags": [
-        "Douceur"
+        "douceur"
       ]
     },
     {
@@ -468,7 +468,7 @@
           "id": "passion",
           "name": "Fruit de la passion",
           "qty": 2,
-          "unit": "pièces"
+          "unit": "pièce"
         },
         {
           "id": "yaourt",
@@ -496,7 +496,7 @@
       "photoData": "",
       "rating": 3,
       "tags": [
-        "Vitaminé"
+        "vitaminé"
       ]
     },
     {
@@ -586,37 +586,37 @@
           "id": "ing-ve66sr4",
           "name": "Persil plat",
           "qty": 1,
-          "unit": "Botte(s)"
+          "unit": "botte"
         },
         {
           "id": "ing-k5b9fhe",
           "name": "Menthe",
           "qty": 0.5,
-          "unit": "Botte(s)"
+          "unit": "botte"
         },
         {
           "id": "ing-qa4dcyb",
           "name": "Coriandre",
           "qty": 1,
-          "unit": "Botte(s)"
+          "unit": "botte"
         },
         {
           "id": "ing-zpenfg6",
           "name": "Tomate(s)",
           "qty": 4,
-          "unit": "Pièce(s)"
+          "unit": "pièce"
         },
         {
           "id": "ing-bwzfwgw",
           "name": "Concombre",
           "qty": 1,
-          "unit": "Unité"
+          "unit": "pièce"
         },
         {
           "id": "ing-s90dps4",
           "name": "Oignon rouge",
           "qty": 0.5,
-          "unit": "Unité"
+          "unit": "pièce"
         },
         {
           "id": "ing-60svpat",
@@ -628,7 +628,7 @@
           "id": "ing-lg49yb5",
           "name": "Jus de citron",
           "qty": 1,
-          "unit": "pièce(s)"
+          "unit": "pièce"
         },
         {
           "id": "ing-xmyew02",
@@ -640,19 +640,19 @@
           "id": "ing-yxlllvj",
           "name": "Cumin en poudre",
           "qty": 1,
-          "unit": "Pincée"
+          "unit": "pincée"
         },
         {
           "id": "ing-16b6jdd",
           "name": "Sel",
           "qty": 1,
-          "unit": "u"
+          "unit": "pièce"
         },
         {
           "id": "ing-4e1cjc9",
           "name": "Poivre",
           "qty": 1,
-          "unit": "u"
+          "unit": "pièce"
         }
       ],
       "steps": [
@@ -698,7 +698,84 @@
       "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
       "rating": 3,
       "tags": [
-        "Nouveau"
+        "nouveau"
+      ]
+    },
+    {
+      "badge": "Nouveau",
+      "difficulty": "Maison",
+      "baseServings": 4,
+      "time": 10,
+      "ingredients": [
+        {
+          "id": "ing-xngx7a8",
+          "name": "Tortilla de blé",
+          "qty": 4,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-3joiqq5",
+          "name": "Blanc de poulet",
+          "qty": 2,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-0phpfxh",
+          "name": "Salade laitue",
+          "qty": 4,
+          "unit": "feuille"
+        },
+        {
+          "id": "ing-79tdgk2",
+          "name": "Tomates",
+          "qty": 1,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-0x15naj",
+          "name": "Moutarde",
+          "qty": 1,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-mfge441",
+          "name": "Huile d'olive",
+          "qty": 1,
+          "unit": "c. à soupe"
+        }
+      ],
+      "steps": [
+        {
+          "id": "step-5i6a3u8",
+          "text": "Coupez la tomate en fines tranches. Épépinez-les et faites-les dégorger en les plaçant dans une passoire saupoudrées de sel."
+        },
+        {
+          "id": "step-vcm5d1b",
+          "text": "Taillez les filets de poulet en fines lanières et faites-les cuire à la poêle avec l'huile d'olive."
+        },
+        {
+          "id": "step-23rd1db",
+          "text": "Tartinez les tortillas de moutarde. Disposez ensuite la laitue, les morceaux de poulet et les rondelles de tomate dégorgées que vous aurez pris soin de bien rincer. Salez et poivrez à votre convenance."
+        },
+        {
+          "id": "step-wjue1sd",
+          "text": "Enroulez ensuite fermement et placez le tout au réfrigérateur dans du film alimentaire pour garder le wrap bien compact."
+        }
+      ],
+      "id": "recipe-o2vtqlc",
+      "name": "Wraps au poulet",
+      "category": "Pic-Nic",
+      "description": "Un petit repas sur le pouce, un pique-nique ou un apéro dinatoire ? Pensez aux wraps au poulet, tellement plus sympas que les sandwichs traditionnels, mais aussi plus pratiques ! Cette recette toute simple allie poulet, salade, tomate et moutarde ou mayonnaise.",
+      "notes": "Vous pouvez choisir toutes sortes de sauces et d’accompagnements pour vos wraps au poulet : mayonnaise, huile d’olive, béarnaise, sauce au curry, vinaigrette, sauce au fromage frais et ciboulette, crème fraîche et jus de citron… Vous pouvez également ajouter d'autres crudités comme des bâtonnets de concombre, des oignons rouges, des lamelles de poivrons… au gré des saisons !",
+      "photoUrl": "https://img.cuisineaz.com/660x495/2013/12/20/i97834-wraps-poulet.webp",
+      "photoData": "",
+      "videoUrl": "",
+      "sourceUrl": "",
+      "sourceName": "",
+      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
+      "rating": 3,
+      "tags": [
+        "nouveau"
       ]
     }
   ],
