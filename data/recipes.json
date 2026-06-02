@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-02T20:46:12.396Z",
+  "exportedAt": "2026-06-02T20:47:10.643Z",
   "recipes": [
     {
       "badge": "Signature",
@@ -1342,106 +1342,6 @@
       "favorite": true
     }
   ],
-  "shoppingUpdatedAt": "2026-06-02T20:46:11.483Z",
-  "shopping": [
-    {
-      "recipeId": "recipe-qs46obj",
-      "ingredientId": "ing-832pfzn",
-      "recipeName": "Velouté de radis roses au chèvre frais",
-      "name": "Radis",
-      "qtyNumber": 500,
-      "unit": "g",
-      "bought": false
-    },
-    {
-      "recipeId": "recipe-qs46obj",
-      "ingredientId": "ing-69p7lqx",
-      "recipeName": "Velouté de radis roses au chèvre frais",
-      "name": "Pomme de terre",
-      "qtyNumber": 1,
-      "unit": "pièce",
-      "bought": false
-    },
-    {
-      "recipeId": "recipe-qs46obj",
-      "ingredientId": "ing-rxfi3ue",
-      "recipeName": "Velouté de radis roses au chèvre frais",
-      "name": "Oignon",
-      "qtyNumber": 1,
-      "unit": "pièce",
-      "bought": false
-    },
-    {
-      "recipeId": "recipe-qs46obj",
-      "ingredientId": "ing-sszh60o",
-      "recipeName": "Velouté de radis roses au chèvre frais",
-      "name": "Bouillon de volaille",
-      "qtyNumber": 50,
-      "unit": "cl",
-      "bought": false
-    },
-    {
-      "recipeId": "recipe-qs46obj",
-      "ingredientId": "ing-x1bft6t",
-      "recipeName": "Velouté de radis roses au chèvre frais",
-      "name": "Chèvre frais",
-      "qtyNumber": 80,
-      "unit": "g",
-      "bought": false
-    },
-    {
-      "recipeId": "recipe-qs46obj",
-      "ingredientId": "ing-gddmmjl",
-      "recipeName": "Velouté de radis roses au chèvre frais",
-      "name": "Huile d'olive",
-      "qtyNumber": 2,
-      "unit": "c. à soupe",
-      "bought": false
-    },
-    {
-      "recipeId": "recipe-uarmizf",
-      "ingredientId": "ing-xo7j6c7",
-      "recipeName": "Citron givrés au basilic",
-      "name": "Gros citron",
-      "qtyNumber": 4,
-      "unit": "pièce",
-      "bought": false
-    },
-    {
-      "recipeId": "recipe-uarmizf",
-      "ingredientId": "ing-hhxfj7t",
-      "recipeName": "Citron givrés au basilic",
-      "name": "Basilic",
-      "qtyNumber": 6,
-      "unit": "feuille",
-      "bought": false
-    },
-    {
-      "recipeId": "recipe-uarmizf",
-      "ingredientId": "ing-tdz8fda",
-      "recipeName": "Citron givrés au basilic",
-      "name": "Eau",
-      "qtyNumber": 10,
-      "unit": "cl",
-      "bought": false
-    },
-    {
-      "recipeId": "recipe-uarmizf",
-      "ingredientId": "ing-2r87ypn",
-      "recipeName": "Citron givrés au basilic",
-      "name": "Sucre",
-      "qtyNumber": 100,
-      "unit": "g",
-      "bought": false
-    },
-    {
-      "recipeId": "recipe-uarmizf",
-      "ingredientId": "ing-ije0akg",
-      "recipeName": "Citron givrés au basilic",
-      "name": "Blanc d'oeuf",
-      "qtyNumber": 2,
-      "unit": "pièce",
-      "bought": false
-    }
-  ]
+  "shoppingUpdatedAt": "2026-06-02T20:47:10.641Z",
+  "shopping": []
 }
