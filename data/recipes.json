@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-02T18:21:42.153Z",
+  "exportedAt": "2026-06-02T18:22:54.458Z",
   "recipes": [
     {
       "badge": "Fraîcheur",
@@ -39,7 +39,7 @@
         },
         {
           "id": "ing-vcnv496",
-          "name": "Estragon (hachée)",
+          "name": "Estragon",
           "qty": 1,
           "unit": "c. à soupe"
         },
@@ -67,11 +67,11 @@
         },
         {
           "id": "step-ls8r0nf",
-          "text": "Ajoutez le yaourt grec, la moutarde, le jus de citron frais, l'échalote hachée et l'éstragon haché et mélangez tous les ingrédients jusqu'à obtenir une préparation homogène. Assaisonnez de sel et de poivre."
+          "text": "Ajoutez le yaourt grec, la moutarde, le jus de citron frais, l'échalote hachée et l'estragon haché et mélangez tous les ingrédients jusqu'à obtenir une préparation homogène. Assaisonnez de sel et de poivre."
         },
         {
           "id": "step-sf1brq4",
-          "text": "Servez les rillettes de sardines à l'éstragon avec du pain grillé ou des tranches de baguette."
+          "text": "Servez les rillettes de sardines à l'estragon avec du pain grillé ou des tranches de baguette."
         }
       ],
       "id": "recipe-td6d943",
