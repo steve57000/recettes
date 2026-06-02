@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-02T11:50:57.272Z",
+  "exportedAt": "2026-06-02T12:28:16.276Z",
   "recipes": [
     {
       "badge": "Signature",
@@ -764,7 +764,7 @@
       "name": "Boulgour cuit",
       "qtyNumber": 120,
       "unit": "g",
-      "bought": false
+      "bought": true
     },
     {
       "recipeId": "recipe-r94y23w",
@@ -773,7 +773,7 @@
       "name": "Jus de citron",
       "qtyNumber": 1,
       "unit": "pièce(s)",
-      "bought": false
+      "bought": true
     },
     {
       "recipeId": "recipe-r94y23w",
