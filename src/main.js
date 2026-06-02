@@ -144,6 +144,7 @@ function normalizeRecipe(recipe) {
     ingredients: normalizeIngredients(normalized.ingredients),
     steps: normalizeSteps(normalized.steps),
     rating: clampRating(normalized.rating),
+    favorite: Boolean(normalized.favorite || normalized.isFavorite),
     tags: normalizeTags(normalized.tags || normalized.tag || normalized.badge || normalized.category),
   };
 }
@@ -216,6 +217,16 @@ function normalizeIngredients(ingredients) {
 function renderStars(value, label = 'Note de la recette') {
   const rating = clampRating(value);
   return `<span class="rating-stars" aria-label="${esc(label)} : ${rating}/5">${Array.from({ length: 5 }, (_, index) => `<span class="star ${index < rating ? 'is-full' : 'is-empty'}">★</span>`).join('')}</span>`;
+}
+
+function isRecipeFavorite(recipe) {
+  return Boolean(recipe?.favorite);
+}
+
+function renderFavoriteButton(recipe, compact = false) {
+  const favorite = isRecipeFavorite(recipe);
+  const label = favorite ? `Retirer ${recipe.name} des favoris` : `Ajouter ${recipe.name} aux favoris`;
+  return `<button type="button" class="favorite-toggle ${favorite ? 'is-favorite' : ''} ${compact ? 'is-compact' : ''}" data-fav="${esc(recipe.id)}" aria-pressed="${favorite ? 'true' : 'false'}" aria-label="${esc(label)}" title="${esc(label)}"><span aria-hidden="true">${favorite ? '♥' : '♡'}</span></button>`;
 }
 
 function normalizeSteps(steps) {
@@ -832,15 +843,17 @@ function currentRoute() {
   if (hash.startsWith('#recette/')) return { page: 'recipe', id: hash.slice('#recette/'.length) };
   if (hash === '#sauvegarde') return { page: 'backup' };
   if (hash === '#courses') return { page: 'shopping' };
+  if (hash === '#favoris') return { page: 'favorites' };
   return { page: 'home', anchor: hash };
 }
 
 function renderHeader() {
   const route = currentRoute();
-  const activePage = route.page === 'shopping' ? 'shopping' : route.page === 'backup' ? 'backup' : 'home';
+  const activePage = route.page === 'shopping' ? 'shopping' : route.page === 'backup' ? 'backup' : route.page === 'favorites' ? 'favorites' : 'home';
   const shoppingItems = shoppingOpenCount();
   const navItems = [
     { page: 'home', href: '#top', label: 'Recettes' },
+    { page: 'favorites', href: '#favoris', label: 'Favoris', badge: state.recipes.filter(isRecipeFavorite).length, badgeLabel: 'recette en favori' },
     { page: 'shopping', href: '#courses', label: 'Courses', badge: shoppingItems },
     { page: 'backup', href: '#sauvegarde', label: 'Sauvegardes' },
   ];
@@ -848,7 +861,7 @@ function renderHeader() {
       <a class="brand" href="#top"><span class="brand-mark">✦</span><span>Maison Saison <small>Premium</small></span></a>
       <button class="menu-toggle ghost" id="menu-toggle" aria-expanded="${state.menuOpen ? 'true' : 'false'}" aria-controls="top-menu"><span>☰</span> Menu</button>
       <nav id="top-menu" class="top-menu" aria-label="Menu principal">
-        ${navItems.map((item) => `<a class="menu-link ${activePage === item.page ? 'is-current' : ''}" href="${item.href}" ${activePage === item.page ? 'aria-current="page"' : ''}><span>${item.label}</span>${item.badge ? `<strong class="shopping-badge" aria-label="${item.badge} produit${item.badge > 1 ? 's' : ''} à acheter">${item.badge}</strong>` : ''}</a>`).join('')}
+        ${navItems.map((item) => `<a class="menu-link ${activePage === item.page ? 'is-current' : ''}" href="${item.href}" ${activePage === item.page ? 'aria-current="page"' : ''}><span>${item.label}</span>${item.badge ? `<strong class="shopping-badge" aria-label="${item.badge} ${item.badgeLabel || `produit${item.badge > 1 ? 's' : ''} à acheter`}${item.badgeLabel && item.badge > 1 ? 's' : ''}">${item.badge}</strong>` : ''}</a>`).join('')}
         <button class="nav-action" data-create>Ajoutez recette</button>
       </nav>
       <button class="ghost logout-button" id="logout">Déconnexion</button>
@@ -923,8 +936,8 @@ function renderShoppingSection() {
           </div>
         </div>
         <div class="shopping-view-options" role="radiogroup" aria-label="Affichage de la liste de courses">
-          <label><input type="radio" name="shopping-view-mode" value="all" ${shoppingMode === 'all' ? 'checked' : ''} /> Tous les ingrédients regroupés</label>
-          <label><input type="radio" name="shopping-view-mode" value="recipes" ${shoppingMode === 'recipes' ? 'checked' : ''} /> Liste par recette(s)</label>
+          <label><input type="radio" name="shopping-view-mode" value="all" ${shoppingMode === 'all' ? 'checked' : ''} /> <span>Tous les ingrédients regroupés</span></label>
+          <label><input type="radio" name="shopping-view-mode" value="recipes" ${shoppingMode === 'recipes' ? 'checked' : ''} /> <span>Liste par recette(s)</span></label>
         </div>
         ${shoppingMode === 'recipes' ? renderShoppingRecipeChoices() : ''}
       </section>
@@ -985,6 +998,25 @@ function renderSearchFilters() {
   </section>`;
 }
 
+function renderFavoritesSection() {
+  const favorites = state.recipes.filter(isRecipeFavorite);
+  return `<section id="favoris" class="favorites-section panel">
+    <div class="favorites-head">
+      <div><p class="eyebrow">Favoris</p><h2>Recettes à faire prochainement</h2><p class="small">Cliquez sur le cœur d’une recette pour la garder ici et la retrouver rapidement.</p></div>
+      <strong>${favorites.length}</strong>
+    </div>
+    <div class="recipe-grid favorite-grid">${favorites.map(recipeCard).join('') || '<p class="small">Aucun favori pour le moment. Touchez le cœur sur une recette pour l’ajouter ici.</p>'}</div>
+  </section>`;
+}
+
+function renderFavoritesPage() {
+  return `<section class="page-hero premium-glass">
+      <a class="secondary-link button-link" href="#top">← Retour aux recettes</a>
+      <div><p class="eyebrow">Favoris</p><h1>Vos recettes à faire prochainement.</h1><p class="lead">Retrouvez uniquement les recettes marquées avec le cœur pour préparer vos prochains repas rapidement.</p></div>
+    </section>${renderFavoritesSection()}`;
+}
+
+
 function renderHomePage(filteredRecipes, totalIngredients) {
   return `<section class="hero premium-glass">
         <div>
@@ -1006,7 +1038,7 @@ function renderHomePage(filteredRecipes, totalIngredients) {
         <div class="category-menu">${categories().map((cat) => `<button class="nav-pill ${state.activeCategory === cat ? 'is-active' : ''}" data-cat="${esc(cat)}">${esc(cat)}</button>`).join('')}</div>
       </section>
 
-      <section class="recipe-grid">${filteredRecipes.map(recipeCard).join('') || '<p class="small">Aucune recette dans ce menu.</p>'}</section>`;
+      <section class="recipe-grid recipes-results">${filteredRecipes.map(recipeCard).join('') || '<p class="small">Aucune recette dans ce menu.</p>'}</section>`;
 }
 
 
@@ -1060,7 +1092,7 @@ function render() {
   const filteredRecipes = state.recipes.filter(recipeMatchesFilters);
   const totalIngredients = state.recipes.reduce((sum, recipe) => sum + recipe.ingredients.length, 0);
   const route = currentRoute();
-  const content = route.page === 'backup' ? renderBackupPage() : route.page === 'shopping' ? renderShoppingPage() : route.page === 'recipe' ? renderRecipePage(route.id) : renderHomePage(filteredRecipes, totalIngredients);
+  const content = route.page === 'backup' ? renderBackupPage() : route.page === 'shopping' ? renderShoppingPage() : route.page === 'favorites' ? renderFavoritesPage() : route.page === 'recipe' ? renderRecipePage(route.id) : renderHomePage(filteredRecipes, totalIngredients);
 
   root.innerHTML = `${renderHeader()}<main id="top" class="page-shell">${content}${renderRecipeModal()}</main>`;
 
@@ -1138,10 +1170,10 @@ function renderRecipeModal() {
 
 function recipeCard(r) {
   return `<article class="recipe-card">
-    <div class="recipe-visual" style="background-image:${esc(asCssImage(r))}"><span>${esc(r.badge || 'Maison')}</span></div>
+    <div class="recipe-visual" style="background-image:${esc(asCssImage(r))}"><span>${esc(r.badge || 'Maison')}</span>${renderFavoriteButton(r, true)}</div>
     <div class="recipe-body">
       <div class="recipe-meta"><span>${esc(r.category || 'Mes recettes')}</span><span>${esc(r.time || 20)} min</span><span>${esc(r.difficulty || 'Facile')}</span></div>
-      <h3>${esc(r.name)}</h3>
+      <div class="recipe-title-row"><h3>${esc(r.name)}</h3></div>
       ${renderStars(r.rating, `Note ${r.name}`)}
       <p>${esc(r.description || 'Recette personnelle à adapter selon vos envies.')}</p>
       <div class="tag-row">${normalizeTags(r.tags || r.category || r.badge).slice(0, 4).map((tag) => `<span>#${esc(tag)}</span>`).join('')}</div>
@@ -1156,7 +1188,7 @@ function recipeCard(r) {
 }
 
 function updateRecipeResults() {
-  const grid = document.querySelector('.recipe-grid');
+  const grid = document.querySelector('.recipes-results');
   if (!grid) return;
   const recipes = state.recipes.filter(recipeMatchesFilters);
   grid.innerHTML = recipes.map(recipeCard).join('') || '<p class="small">Aucune recette ne correspond à ces filtres.</p>';
@@ -1174,7 +1206,24 @@ function updateRatingPicker(value = 3) {
   });
 }
 
+function toggleRecipeFavorite(recipeId) {
+  const recipe = state.recipes.find((item) => item.id === recipeId);
+  if (!recipe) return;
+  recipe.favorite = !isRecipeFavorite(recipe);
+  save();
+  render();
+  scheduleGithubSync('Mise à jour des favoris Maison Saison');
+}
+
 function bindRecipeCardActions(scope = document) {
+  scope.querySelectorAll('[data-fav]').forEach((b) => {
+    b.onclick = (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      toggleRecipeFavorite(b.getAttribute('data-fav'));
+    };
+  });
+
   scope.querySelectorAll('[data-del]').forEach((b) => {
     b.onclick = () => {
       const id = b.getAttribute('data-del');
@@ -1652,7 +1701,7 @@ function openRecipe(recipeId, options = {}) {
     <div class="detail-cover" style="background-image:${esc(asCssImage(recipe))}"></div>
     <div class="detail-main">
       <p class="eyebrow">Fiche recette</p>
-      <h2>${esc(recipe.name)}</h2>
+      <div class="detail-title-row"><h2>${esc(recipe.name)}</h2>${renderFavoriteButton(recipe)}</div>
       ${renderStars(recipe.rating, `Note ${recipe.name}`)}
       <p class="lead">${esc(recipe.description || '')}</p>
       <div class="recipe-meta"><span>${esc(recipe.category || 'Mes recettes')}</span><span>${esc(recipe.time || 20)} min</span><span>${esc(recipe.difficulty || 'Facile')}</span></div>
@@ -1673,6 +1722,7 @@ function openRecipe(recipeId, options = {}) {
     ${recipe.videoUrl ? `<div class="detail-section media-player"><h3>Vidéo</h3>${videoEmbed(recipe.videoUrl)}</div>` : ''}
   </article>`;
   if (options.scroll !== false) selected.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  bindRecipeCardActions(selected);
   selected.querySelector('[data-edit-detail]').onclick = () => editRecipe(recipe.id);
 
   const redraw = (options = {}) => {
