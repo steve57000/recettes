@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-02T14:58:24.235Z",
+  "exportedAt": "2026-06-02T15:19:19.560Z",
   "recipes": [
     {
       "badge": "Signature",
@@ -77,13 +77,13 @@
           "id": "ing-jd7peav",
           "name": "Sel",
           "qty": 0,
-          "unit": "à convenance"
+          "unit": "convenance"
         },
         {
           "id": "ing-iin25ev",
           "name": "Poivre",
           "qty": 0,
-          "unit": "à convenance"
+          "unit": "convenance"
         }
       ],
       "steps": [
@@ -163,7 +163,7 @@
         },
         {
           "id": "ing-h0gyqcn",
-          "name": "Crème fraîche semi-épaisse",
+          "name": "Crème fraîche semi-Épaisse",
           "qty": 10,
           "unit": "cl"
         },
@@ -177,13 +177,13 @@
           "id": "ing-2dzm0bw",
           "name": "Sel",
           "qty": 0,
-          "unit": "à convenance"
+          "unit": "convenance"
         },
         {
           "id": "ing-lo9dhui",
           "name": "Poivre",
           "qty": 0,
-          "unit": "à convenance"
+          "unit": "convenance"
         }
       ],
       "steps": [
@@ -279,13 +279,13 @@
           "id": "ing-513uiqx",
           "name": "Gros sel",
           "qty": 0,
-          "unit": "à convenance"
+          "unit": "convenance"
         },
         {
           "id": "ing-auw1p80",
           "name": "Poivre",
           "qty": 0,
-          "unit": "à convenance"
+          "unit": "convenance"
         }
       ],
       "steps": [
@@ -580,7 +580,7 @@
       ],
       "id": "recipe-o2vtqlc",
       "name": "Wraps au poulet",
-      "category": "Pique-nique",
+      "category": "Pique-Nique",
       "description": "Un petit repas sur le pouce, un pique-nique ou un apéro dinatoire ? Pensez aux wraps au poulet, tellement plus sympas que les sandwichs traditionnels, mais aussi plus pratiques ! Cette recette toute simple allie poulet, salade, tomate et moutarde ou mayonnaise.",
       "notes": "Vous pouvez choisir toutes sortes de sauces et d’accompagnements pour vos wraps au poulet : mayonnaise, huile d’olive, béarnaise, sauce au curry, vinaigrette, sauce au fromage frais et ciboulette, crème fraîche et jus de citron… Vous pouvez également ajouter d'autres crudités comme des bâtonnets de concombre, des oignons rouges, des lamelles de poivrons… au gré des saisons !",
       "photoUrl": "https://img.cuisineaz.com/660x495/2013/12/20/i97834-wraps-poulet.webp",
@@ -667,13 +667,13 @@
           "id": "ing-16b6jdd",
           "name": "Sel",
           "qty": 0,
-          "unit": "à convenance"
+          "unit": "convenance"
         },
         {
           "id": "ing-4e1cjc9",
           "name": "Poivre",
           "qty": 0,
-          "unit": "à convenance"
+          "unit": "convenance"
         }
       ],
       "steps": [
@@ -726,123 +726,5 @@
       ]
     }
   ],
-  "shopping": [
-    {
-      "recipeId": "salade-nicoise-premium",
-      "ingredientId": "salade",
-      "recipeName": "Salade niçoise rapide",
-      "name": "Salade mesclum",
-      "qtyNumber": 1,
-      "unit": "poignée",
-      "bought": false
-    },
-    {
-      "recipeId": "salade-nicoise-premium",
-      "ingredientId": "tomates",
-      "recipeName": "Salade niçoise rapide",
-      "name": "Tomates",
-      "qtyNumber": 4,
-      "unit": "pièce",
-      "bought": false
-    },
-    {
-      "recipeId": "salade-nicoise-premium",
-      "ingredientId": "thon",
-      "recipeName": "Salade niçoise rapide",
-      "name": "Thon",
-      "qtyNumber": 200,
-      "unit": "g",
-      "bought": false
-    },
-    {
-      "recipeId": "salade-nicoise-premium",
-      "ingredientId": "oeufs",
-      "recipeName": "Salade niçoise rapide",
-      "name": "Œufs",
-      "qtyNumber": 2,
-      "unit": "pièce",
-      "bought": false
-    },
-    {
-      "recipeId": "salade-nicoise-premium",
-      "ingredientId": "olives",
-      "recipeName": "Salade niçoise rapide",
-      "name": "Olives noires",
-      "qtyNumber": 15,
-      "unit": "pièce",
-      "bought": false
-    },
-    {
-      "recipeId": "salade-nicoise-premium",
-      "ingredientId": "huile",
-      "recipeName": "Salade niçoise rapide",
-      "name": "Huile d’olive",
-      "qtyNumber": 3,
-      "unit": "c. à soupe",
-      "bought": false
-    },
-    {
-      "recipeId": "salade-nicoise-premium",
-      "ingredientId": "ing-9nr4stb",
-      "recipeName": "Salade niçoise rapide",
-      "name": "Anchois",
-      "qtyNumber": 1,
-      "unit": "boîte",
-      "bought": false
-    },
-    {
-      "recipeId": "salade-nicoise-premium",
-      "ingredientId": "ing-b44dct6",
-      "recipeName": "Salade niçoise rapide",
-      "name": "Radis",
-      "qtyNumber": 4,
-      "unit": "pièce",
-      "bought": false
-    },
-    {
-      "recipeId": "salade-nicoise-premium",
-      "ingredientId": "ing-jzfainr",
-      "recipeName": "Salade niçoise rapide",
-      "name": "Poivron vert",
-      "qtyNumber": 1,
-      "unit": "pièce",
-      "bought": false
-    },
-    {
-      "recipeId": "salade-nicoise-premium",
-      "ingredientId": "ing-8denkl3",
-      "recipeName": "Salade niçoise rapide",
-      "name": "Vinaigre de vin",
-      "qtyNumber": 2,
-      "unit": "c. à soupe",
-      "bought": false
-    },
-    {
-      "recipeId": "salade-nicoise-premium",
-      "ingredientId": "ing-cmq7cjm",
-      "recipeName": "Salade niçoise rapide",
-      "name": "Moutarde",
-      "qtyNumber": 1,
-      "unit": "c. à café",
-      "bought": false
-    },
-    {
-      "recipeId": "salade-nicoise-premium",
-      "ingredientId": "ing-jd7peav",
-      "recipeName": "Salade niçoise rapide",
-      "name": "Sel",
-      "qtyNumber": 0,
-      "unit": "à convenance",
-      "bought": false
-    },
-    {
-      "recipeId": "salade-nicoise-premium",
-      "ingredientId": "ing-iin25ev",
-      "recipeName": "Salade niçoise rapide",
-      "name": "Poivre",
-      "qtyNumber": 0,
-      "unit": "à convenance",
-      "bought": false
-    }
-  ]
+  "shopping": []
 }
