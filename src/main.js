@@ -27,6 +27,7 @@ let githubSyncQueued = false;
 let githubAutoLoadStarted = false;
 
 const INITIAL_RECIPES_URL = './data/recipes.json';
+const PRINT_IMAGE_LOAD_TIMEOUT = 6000;
 
 const UNIT_OPTIONS = [
   { label: 'g', type: 'mass', factor: 1, aliases: ['gramme', 'grammes', 'gr'] },
@@ -1262,21 +1263,80 @@ function renderPrintableRecipe(recipe, servings = recipe.baseServings) {
   </section>`;
 }
 
-function printRecipe(recipeId) {
+function waitForNextFrame() {
+  return new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+}
+
+function waitForImageReady(image, timeout = PRINT_IMAGE_LOAD_TIMEOUT) {
+  if (!image || !image.getAttribute('src')) return Promise.resolve();
+
+  const decodeImage = () => (typeof image.decode === 'function' ? image.decode().catch(() => undefined) : Promise.resolve());
+  if (image.complete) return image.naturalWidth > 0 ? decodeImage() : Promise.resolve();
+
+  return new Promise((resolve) => {
+    let settled = false;
+    const finish = () => {
+      if (settled) return;
+      settled = true;
+      clearTimeout(timer);
+      image.removeEventListener('load', onLoad);
+      image.removeEventListener('error', onError);
+      resolve();
+    };
+    const onLoad = () => { decodeImage().finally(finish); };
+    const onError = finish;
+    const timer = setTimeout(finish, timeout);
+
+    image.addEventListener('load', onLoad, { once: true });
+    image.addEventListener('error', onError, { once: true });
+  });
+}
+
+async function waitForPrintableRecipeReady(printDocument) {
+  const images = Array.from(printDocument.querySelectorAll('img'));
+  await Promise.all(images.map((image) => waitForImageReady(image)));
+  if (document.fonts?.ready) {
+    await Promise.race([
+      document.fonts.ready.catch(() => undefined),
+      new Promise((resolve) => setTimeout(resolve, 1500)),
+    ]);
+  }
+  await waitForNextFrame();
+}
+
+async function printRecipe(recipeId, triggerButton = null) {
   const recipe = state.recipes.find((item) => item.id === recipeId);
   if (!recipe) return;
   const servings = printServingsForRecipe(recipe);
   document.querySelectorAll('.print-recipe-document').forEach((node) => node.remove());
   document.body.insertAdjacentHTML('beforeend', renderPrintableRecipe(recipe, servings));
+  const printDocument = document.querySelector('.print-recipe-document');
   document.body.classList.add('printing-recipe');
+
+  const previousLabel = triggerButton?.textContent;
+  if (triggerButton) {
+    triggerButton.disabled = true;
+    triggerButton.textContent = 'Préparation…';
+  }
 
   const cleanup = () => {
     document.body.classList.remove('printing-recipe');
     document.querySelectorAll('.print-recipe-document').forEach((node) => node.remove());
     window.removeEventListener('afterprint', cleanup);
+    if (triggerButton) {
+      triggerButton.disabled = false;
+      triggerButton.textContent = previousLabel;
+    }
   };
-  window.addEventListener('afterprint', cleanup);
-  window.print();
+
+  try {
+    if (printDocument) await waitForPrintableRecipeReady(printDocument);
+    window.addEventListener('afterprint', cleanup);
+    window.print();
+  } catch (error) {
+    console.error('Préparation du PDF impossible', error);
+    cleanup();
+  }
 }
 
 function updateRecipeResults() {
@@ -1338,7 +1398,7 @@ function bindRecipeCardActions(scope = document) {
     b.onclick = (event) => {
       event.preventDefault();
       event.stopPropagation();
-      printRecipe(b.getAttribute('data-print'));
+      printRecipe(b.getAttribute('data-print'), b);
     };
   });
 
