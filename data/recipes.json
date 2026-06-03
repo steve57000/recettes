@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-02T20:47:10.643Z",
+  "exportedAt": "2026-06-03T08:45:26.881Z",
   "recipes": [
     {
       "badge": "Signature",
@@ -734,6 +734,102 @@
       "favorite": false
     },
     {
+      "badge": "Veloutés & crèmes",
+      "difficulty": "Facile",
+      "baseServings": 4,
+      "time": 20,
+      "ingredients": [
+        {
+          "id": "ing-832pfzn",
+          "name": "Radis",
+          "qty": 500,
+          "unit": "g"
+        },
+        {
+          "id": "ing-69p7lqx",
+          "name": "Pomme de terre",
+          "qty": 1,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-rxfi3ue",
+          "name": "Oignon",
+          "qty": 1,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-sszh60o",
+          "name": "Bouillon de volaille",
+          "qty": 50,
+          "unit": "cl"
+        },
+        {
+          "id": "ing-x1bft6t",
+          "name": "Chèvre frais",
+          "qty": 80,
+          "unit": "g"
+        },
+        {
+          "id": "ing-gddmmjl",
+          "name": "Huile d'olive",
+          "qty": 2,
+          "unit": "c. à soupe"
+        },
+        {
+          "id": "ing-t4ez9f9",
+          "name": "Sel",
+          "qty": 1,
+          "unit": "pincée"
+        },
+        {
+          "id": "ing-v65vton",
+          "name": "Poivre",
+          "qty": 1,
+          "unit": "pincée"
+        }
+      ],
+      "steps": [
+        {
+          "id": "step-qbmnrm7",
+          "text": "Rincez les radis à l'eau claire, coupez les fanes, puis coupez-les en morceaux."
+        },
+        {
+          "id": "step-4cgi1sr",
+          "text": "Epluchez la pomme de terre et coupez là en cubes. Emincez l'oignon."
+        },
+        {
+          "id": "step-72f5m5z",
+          "text": "Faites chauffer un peu d'huile d'olive dans une grande casserole. Ajoutez l'oignon émincé et faites-le revenir pendant quelques minutes. Ajoutez les radis et les cubes de pomme de terre. Mélangez bien, puis couvrez de bouillon de volaille."
+        },
+        {
+          "id": "step-tns7jtr",
+          "text": "Portez à ébullition, puis laissez mijoter à feu doux pendant une vingtaine de minutes."
+        },
+        {
+          "id": "step-9ks1ccs",
+          "text": "Ajoutez le chèvre frais et passez le tout au mixeur plongeant jusqu'à obtenir une préparation bien lisse. Assaisonnez de sel et de poivre. Servez sans attendre."
+        }
+      ],
+      "id": "recipe-qs46obj",
+      "name": "Velouté de radis roses au chèvre frais",
+      "category": "Entrées",
+      "tags": [
+        "entrée",
+        "velouté",
+        "printemps"
+      ],
+      "rating": 3,
+      "description": "Pour une entrée printanière, fraîche et légère, essayez ce velouté tout rose qui allie chèvre frais et radis ! Quelques minutes sur le feu, un mixeur plongeant pour lier le tout et quelques aromates pour rendre ce velouté inoubliable !",
+      "notes": "Pour plus de gourmandise ajoutez des graines de sésame sur le dessus avec un filet d'huile d'olive.",
+      "photoUrl": "https://cache.marieclaire.fr/data/photo/w1000_ci/7b/recette-de-veloute-de-radis-rose-au-chevre-frais.webp",
+      "photoData": "",
+      "videoUrl": "",
+      "sourceUrl": "https://www.marieclaire.fr/cuisine/recette-de-veloute-de-radis-roses-au-chevre-frais,1511330.asp",
+      "sourceName": "Source web",
+      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
+      "favorite": true
+    },
+    {
       "badge": "Soleil",
       "difficulty": "Facile",
       "baseServings": 4,
@@ -849,102 +945,6 @@
       "sourceName": "Source web",
       "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
       "favorite": false
-    },
-    {
-      "badge": "Veloutés & crèmes",
-      "difficulty": "Facile",
-      "baseServings": 4,
-      "time": 20,
-      "ingredients": [
-        {
-          "id": "ing-832pfzn",
-          "name": "Radis",
-          "qty": 500,
-          "unit": "g"
-        },
-        {
-          "id": "ing-69p7lqx",
-          "name": "Pomme de terre",
-          "qty": 1,
-          "unit": "pièce"
-        },
-        {
-          "id": "ing-rxfi3ue",
-          "name": "Oignon",
-          "qty": 1,
-          "unit": "pièce"
-        },
-        {
-          "id": "ing-sszh60o",
-          "name": "Bouillon de volaille",
-          "qty": 50,
-          "unit": "cl"
-        },
-        {
-          "id": "ing-x1bft6t",
-          "name": "Chèvre frais",
-          "qty": 80,
-          "unit": "g"
-        },
-        {
-          "id": "ing-gddmmjl",
-          "name": "Huile d'olive",
-          "qty": 2,
-          "unit": "c. à soupe"
-        },
-        {
-          "id": "ing-t4ez9f9",
-          "name": "Sel",
-          "qty": 1,
-          "unit": "pincée"
-        },
-        {
-          "id": "ing-v65vton",
-          "name": "Poivre",
-          "qty": 1,
-          "unit": "pincée"
-        }
-      ],
-      "steps": [
-        {
-          "id": "step-qbmnrm7",
-          "text": "Rincez les radis à l'eau claire, coupez les fanes, puis coupez-les en morceaux."
-        },
-        {
-          "id": "step-4cgi1sr",
-          "text": "Epluchez la pomme de terre et coupez là en cubes. Emincez l'oignon."
-        },
-        {
-          "id": "step-72f5m5z",
-          "text": "Faites chauffer un peu d'huile d'olive dans une grande casserole. Ajoutez l'oignon émincé et faites-le revenir pendant quelques minutes. Ajoutez les radis et les cubes de pomme de terre. Mélangez bien, puis couvrez de bouillon de volaille."
-        },
-        {
-          "id": "step-tns7jtr",
-          "text": "Portez à ébullition, puis laissez mijoter à feu doux pendant une vingtaine de minutes."
-        },
-        {
-          "id": "step-9ks1ccs",
-          "text": "Ajoutez le chèvre frais et passez le tout au mixeur plongeant jusqu'à obtenir une préparation bien lisse. Assaisonnez de sel et de poivre. Servez sans attendre."
-        }
-      ],
-      "id": "recipe-qs46obj",
-      "name": "Velouté de radis roses au chèvre frais",
-      "category": "Entrées",
-      "tags": [
-        "entrée",
-        "velouté",
-        "printemps"
-      ],
-      "rating": 3,
-      "description": "Pour une entrée printanière, fraîche et légère, essayez ce velouté tout rose qui allie chèvre frais et radis ! Quelques minutes sur le feu, un mixeur plongeant pour lier le tout et quelques aromates pour rendre ce velouté inoubliable !",
-      "notes": "Pour plus de gourmandise ajoutez des graines de sésame sur le dessus avec un filet d'huile d'olive.",
-      "photoUrl": "https://cache.marieclaire.fr/data/photo/w1000_ci/7b/recette-de-veloute-de-radis-rose-au-chevre-frais.webp",
-      "photoData": "",
-      "videoUrl": "",
-      "sourceUrl": "https://www.marieclaire.fr/cuisine/recette-de-veloute-de-radis-roses-au-chevre-frais,1511330.asp",
-      "sourceName": "Source web",
-      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
-      "favorite": true
     },
     {
       "badge": "Fraîcheur",
@@ -1342,6 +1342,16 @@
       "favorite": true
     }
   ],
-  "shoppingUpdatedAt": "2026-06-02T20:47:10.641Z",
-  "shopping": []
+  "shoppingUpdatedAt": "2026-06-03T08:45:25.977Z",
+  "shopping": [
+    {
+      "recipeId": "recipe-uarmizf",
+      "ingredientId": "ing-ije0akg",
+      "recipeName": "Citron givrés au basilic",
+      "name": "Blanc d'oeuf",
+      "qtyNumber": 2,
+      "unit": "pièce",
+      "bought": false
+    }
+  ]
 }
