@@ -17,7 +17,7 @@ Application frontend statique pour gérer un carnet de recettes complet, compati
   - nom, catégorie/menu, temps, difficulté, badge
   - description, étapes et notes du chef
   - ingrédients illimités avec quantités et unités
-  - URL de photo, upload de photo locale, URL vidéo et URL source
+  - URL de photo, upload de photo locale avec optimisation automatique (redimensionnement, compression et conversion WebP/JPEG), URL vidéo et URL source
 - Correction du système d’ingrédients : ajouter une ligne ne supprime plus les ingrédients déjà saisis
 - Modification complète d’une recette existante depuis la carte ou la fiche détail
 - Suppression des recettes

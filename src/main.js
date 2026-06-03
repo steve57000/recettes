@@ -1,5 +1,13 @@
 const KEY = 'recettes-app-premium-v1';
 const BACKUP_FILENAME = 'maison-saison-recettes.json';
+const IMAGE_OPTIMIZATION = {
+  maxWidth: 1600,
+  maxHeight: 1200,
+  quality: 0.78,
+  targetType: 'image/webp',
+  fallbackType: 'image/jpeg',
+};
+
 
 const githubDefaults = {
   enabled: false,
@@ -1162,10 +1170,11 @@ function renderRecipeModal() {
         <label>Notes du chef<textarea id="r-notes" placeholder="Astuce, conservation, dressage..."></textarea></label>
         <div class="form-grid media-grid">
           <label>URL photo<input id="r-photo" placeholder="https://...jpg" /></label>
-          <label>Ajouter une photo locale<input id="r-file" type="file" accept="image/*" /></label>
+          <label>Ajouter une photo locale<input id="r-file" type="file" accept="image/*" /><small class="image-optimization-hint">Conversion automatique en WebP/JPEG, redimensionnement et compression avant sauvegarde.</small></label>
           <label>URL vidéo<input id="r-video" placeholder="YouTube, Vimeo, MP4..." /></label>
           <label>URL source / site<input id="r-source" placeholder="https://site-de-recette.fr/..." /></label>
         </div>
+        <div id="r-image-status" class="image-optimization-status" aria-live="polite">Les photos locales sont optimisées automatiquement pour réduire le poids du carnet.</div>
         <div class="ingredients-head"><div><h3>Ingrédients</h3><p class="small">Ajoutez autant de lignes que nécessaire : les champs déjà saisis sont conservés.</p></div></div>
         <div id="ingredients" class="ingredients-editor"></div>
       </div>
@@ -1399,6 +1408,8 @@ function bindEvents(root) {
 
   const saveRecipe = document.getElementById('save-recipe');
   if (saveRecipe) saveRecipe.onclick = saveRecipeFromForm;
+  const recipeFile = document.getElementById('r-file');
+  if (recipeFile) recipeFile.onchange = updateImageOptimizationStatus;
 
   root.querySelectorAll('[data-close-form]').forEach((button) => {
     button.onclick = closeRecipeForm;
@@ -1652,6 +1663,93 @@ function readFileAsDataUrl(file) {
   });
 }
 
+function formatFileSize(bytes) {
+  const value = Number(bytes) || 0;
+  if (value < 1024) return `${value} o`;
+  if (value < 1024 * 1024) return `${Math.round(value / 102.4) / 10} Ko`;
+  return `${Math.round(value / 1024 / 102.4) / 10} Mo`;
+}
+
+function setImageOptimizationStatus(message, tone = 'info') {
+  const status = document.getElementById('r-image-status');
+  if (!status) return;
+  status.textContent = message;
+  status.dataset.tone = tone;
+}
+
+function updateImageOptimizationStatus(event) {
+  const file = event?.target?.files?.[0];
+  if (!file) {
+    setImageOptimizationStatus('Les photos locales sont optimisées automatiquement pour réduire le poids du carnet.');
+    return;
+  }
+  setImageOptimizationStatus(`Photo sélectionnée : ${formatFileSize(file.size)}. Elle sera redimensionnée à ${IMAGE_OPTIMIZATION.maxWidth}×${IMAGE_OPTIMIZATION.maxHeight} px max puis compressée au moment de l’enregistrement.`);
+}
+
+function loadImage(dataUrl) {
+  return new Promise((resolve, reject) => {
+    const image = new Image();
+    image.onload = () => resolve(image);
+    image.onerror = reject;
+    image.src = dataUrl;
+  });
+}
+
+function canvasToBlob(canvas, type, quality) {
+  return new Promise((resolve) => {
+    canvas.toBlob((blob) => resolve(blob), type, quality);
+  });
+}
+
+async function canvasToOptimizedDataUrl(canvas) {
+  const preferredBlob = await canvasToBlob(canvas, IMAGE_OPTIMIZATION.targetType, IMAGE_OPTIMIZATION.quality);
+  const blob = preferredBlob?.type === IMAGE_OPTIMIZATION.targetType
+    ? preferredBlob
+    : await canvasToBlob(canvas, IMAGE_OPTIMIZATION.fallbackType, IMAGE_OPTIMIZATION.quality);
+  if (!blob) return '';
+  return readFileAsDataUrl(blob);
+}
+
+async function optimizeImageFile(file) {
+  const originalDataUrl = await readFileAsDataUrl(file);
+  if (!originalDataUrl) return { dataUrl: '', message: 'Lecture de la photo impossible.', tone: 'warning' };
+
+  try {
+    const image = await loadImage(originalDataUrl);
+    const width = image.naturalWidth || image.width;
+    const height = image.naturalHeight || image.height;
+    if (!width || !height) throw new Error('Dimensions de photo invalides');
+
+    const scale = Math.min(1, IMAGE_OPTIMIZATION.maxWidth / width, IMAGE_OPTIMIZATION.maxHeight / height);
+    const targetWidth = Math.max(1, Math.round(width * scale));
+    const targetHeight = Math.max(1, Math.round(height * scale));
+    const canvas = document.createElement('canvas');
+    canvas.width = targetWidth;
+    canvas.height = targetHeight;
+    const context = canvas.getContext('2d', { alpha: true });
+    context.drawImage(image, 0, 0, targetWidth, targetHeight);
+
+    const optimizedDataUrl = await canvasToOptimizedDataUrl(canvas);
+    if (!optimizedDataUrl) throw new Error('Compression de photo impossible');
+
+    const selectedDataUrl = optimizedDataUrl.length < originalDataUrl.length ? optimizedDataUrl : originalDataUrl;
+    const savedBytes = Math.max(0, Math.round((originalDataUrl.length - selectedDataUrl.length) * 0.75));
+    const dimensions = `${targetWidth}×${targetHeight} px`;
+    const message = selectedDataUrl === optimizedDataUrl
+      ? `Photo optimisée (${dimensions}) : ${formatFileSize(file.size)} → environ ${formatFileSize(Math.round(optimizedDataUrl.length * 0.75))}, ${formatFileSize(savedBytes)} économisés.`
+      : `Photo déjà légère (${dimensions}) : la version la plus compacte a été conservée.`;
+
+    return { dataUrl: selectedDataUrl, message, tone: 'success' };
+  } catch (error) {
+    console.warn('Optimisation de photo impossible, conservation du fichier original', error);
+    return {
+      dataUrl: originalDataUrl,
+      message: 'Optimisation indisponible pour ce fichier : la photo originale a été conservée.',
+      tone: 'warning',
+    };
+  }
+}
+
 async function saveRecipeFromForm() {
   captureIngredientRows();
   captureStepRows();
@@ -1659,7 +1757,13 @@ async function saveRecipeFromForm() {
   if (!name) return alert('Nom requis');
   const file = document.getElementById('r-file').files[0];
   const existing = state.recipes.find((r) => r.id === state.editingId) || {};
-  const photoData = file ? await readFileAsDataUrl(file) : existing.photoData || '';
+  const saveButton = document.getElementById('save-recipe');
+  if (saveButton) saveButton.disabled = true;
+  if (file) setImageOptimizationStatus('Optimisation de la photo en cours…');
+  const optimizedPhoto = file ? await optimizeImageFile(file) : null;
+  if (optimizedPhoto) setImageOptimizationStatus(optimizedPhoto.message, optimizedPhoto.tone);
+  const photoData = optimizedPhoto ? optimizedPhoto.dataUrl : existing.photoData || '';
+  if (saveButton) saveButton.disabled = false;
   const recipe = normalizeRecipe({
     ...existing,
     id: existing.id || uid('recipe'),
