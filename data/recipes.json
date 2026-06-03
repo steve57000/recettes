@@ -1,6 +1,94 @@
 {
-  "exportedAt": "2026-06-03T14:34:57.824Z",
+  "exportedAt": "2026-06-03T15:06:54.130Z",
   "recipes": [
+    {
+      "badge": "Fraîcheur",
+      "difficulty": "Facile",
+      "baseServings": 4,
+      "time": 20,
+      "ingredients": [
+        {
+          "id": "ing-ub0vfdq",
+          "name": "Brioche",
+          "qty": 4,
+          "unit": "tranche"
+        },
+        {
+          "id": "ing-7qrh9ho",
+          "name": "Beurre",
+          "qty": 10,
+          "unit": "g"
+        },
+        {
+          "id": "ing-soaj05q",
+          "name": "Fromage frais",
+          "qty": 50,
+          "unit": "g"
+        },
+        {
+          "id": "ing-isr8ri3",
+          "name": "Moutarde douce",
+          "qty": 1,
+          "unit": "c. à café"
+        },
+        {
+          "id": "ing-by9wpe5",
+          "name": "Aneth frais haché",
+          "qty": 1,
+          "unit": "c. à soupe"
+        },
+        {
+          "id": "ing-p9p915x",
+          "name": "Saumon fumé",
+          "qty": 4,
+          "unit": "tranche"
+        },
+        {
+          "id": "ing-nzmuzuo",
+          "name": "Pomme granny-Smith",
+          "qty": 1,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-fzlp5o9",
+          "name": "Oignon rouge",
+          "qty": 0.2,
+          "unit": "pièce"
+        }
+      ],
+      "steps": [
+        {
+          "id": "step-edwzgd2",
+          "text": "Faites griller légèrement les tranches de brioche dans une poêle avec un peu de beurre jusqu'à ce qu'elles soient dorées."
+        },
+        {
+          "id": "step-nvw8t01",
+          "text": "Dans un bol, mélangez le fromage frais avec la moutarde et l'aneth. Tartinez généreusement les tranches de brioche avec cette préparation. Ajoutez une tranche de saumon fumé sur chaque tartine."
+        },
+        {
+          "id": "step-9qcknod",
+          "text": "Coupez la pomme en fine julienne, émincez l'oignon rouge. Disposez la pomme et l'oignon rouge sur le saumon fumé. Servez sans attendre."
+        }
+      ],
+      "id": "recipe-rkgiql2",
+      "name": "Tartines briochées au saumon fumé",
+      "category": "Entrées",
+      "tags": [
+        "rapide",
+        "été",
+        "frais"
+      ],
+      "rating": 3,
+      "description": "De délicates tartines briochées, légèrement dorées, garnies de saumon fumé fondant, d'une touche de fromage frais onctueux et d'un filet de citron. Une bouchée douce et raffinée, à la fois fraîche et gourmande.",
+      "notes": "Ajoute le zeste d'un citron juste avant de servir pour garder toute la fraîcheur et le fondant.",
+      "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPIsxrTfds2K_UZJ9hNENrMczrgb9ftPsyxQ&s",
+      "photoData": "",
+      "videoUrl": "",
+      "sourceUrl": "https://www.grandfrais.com/recettes/tartines-briochees-au-saumon-fume",
+      "sourceName": "Source web",
+      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
+      "favorite": false
+    },
     {
       "badge": "Familial",
       "difficulty": "Facile",
