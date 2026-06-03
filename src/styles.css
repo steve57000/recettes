@@ -2451,7 +2451,8 @@ summary:focus-visible {
 
   .card-actions {
     display: grid;
-    grid-template-columns: 1fr 1fr auto;
+    grid-template-columns: 1fr 1fr;
+    padding-right: 3.65rem;
   }
 
   .card-actions button:not(.icon-danger) {
@@ -3181,9 +3182,55 @@ label,
 }
 
 .trash-icon {
-  width: 1.18rem;
-  height: 1.18rem;
-  fill: currentColor;
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  object-fit: contain;
+}
+
+.recipe-body {
+  position: relative;
+}
+
+.recipe-delete-button {
+  position: absolute;
+  right: 1.35rem;
+  bottom: 4.55rem;
+  z-index: 1;
+  width: 3rem;
+  height: 3rem;
+  min-height: 3rem;
+  padding: 0.5rem;
+  border: 1px solid rgba(201, 42, 42, 0.16);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 14px 28px rgba(201, 42, 42, 0.12);
+  backdrop-filter: blur(10px);
+}
+
+.recipe-delete-button:hover,
+.recipe-delete-button:focus-visible {
+  background: #fff5f5;
+  box-shadow: 0 18px 34px rgba(201, 42, 42, 0.18);
+}
+
+.media-links {
+  padding-right: 3.6rem;
+}
+
+@media (max-width: 520px) {
+  .recipe-delete-button {
+    right: 1rem;
+    bottom: 4.3rem;
+    width: 2.85rem;
+    height: 2.85rem;
+    min-height: 2.85rem;
+  }
+
+  .trash-icon {
+    width: 1.85rem;
+    height: 1.85rem;
+  }
 }
 
 .ingredient-list label {
@@ -3285,8 +3332,12 @@ body.printing-recipe .print-recipe-document {
 
   html,
   body {
-    width: 210mm;
-    min-height: 297mm;
+    width: auto;
+    min-width: 0;
+    min-height: 0;
+    height: auto;
+    margin: 0 !important;
+    overflow: visible !important;
     background: #fff !important;
     color: #25160f !important;
   }
@@ -3299,7 +3350,10 @@ body.printing-recipe .print-recipe-document {
     display: block !important;
     position: static;
     width: auto;
+    min-height: 0;
+    margin: 0;
     opacity: 1;
+    overflow: visible;
   }
 
   .print-recipe-sheet {
@@ -3307,6 +3361,8 @@ body.printing-recipe .print-recipe-document {
     flex-direction: column;
     gap: 4.2mm;
     min-height: 0;
+    height: auto;
+    page-break-after: auto;
     color: #25160f;
     font-family: var(--font);
     font-size: 9.4pt;
@@ -3472,7 +3528,7 @@ body.printing-recipe .print-recipe-document {
   }
 
   .print-footer {
-    margin-top: auto;
+    margin-top: 3mm;
     padding-top: 2mm;
     border-top: 0.2mm solid #f0ded5;
     color: #8b6b5d;
