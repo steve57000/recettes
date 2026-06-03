@@ -1205,7 +1205,7 @@ function recipeCard(r) {
         <button data-open="${esc(r.id)}">Voir</button>
         ${renderPrintButton(r, true)}
         <button class="secondary" data-edit="${esc(r.id)}">Modifier</button>
-        <button class="icon-danger recipe-delete-button" title="Supprimer" aria-label="Supprimer ${esc(r.name)}" data-del="${esc(r.id)}"><img class="trash-icon" src="./assets/corbeille.png" alt="" aria-hidden="true" loading="lazy" /></button>
+        <button class="icon-danger recipe-delete-button" title="Supprimer" aria-label="Supprimer ${esc(r.name)}" data-del="${esc(r.id)}"><img class="trash-icon" src="../assets/corbeille.png" alt="" aria-hidden="true" loading="lazy" /></button>
       </div>
       <div class="media-links">${r.videoUrl ? '<span>🎬 vidéo</span>' : ''}${r.sourceUrl ? `<a class="source" href="${esc(r.sourceUrl)}" target="_blank" rel="noreferrer">Source web</a>` : ''}</div>
     </div>
