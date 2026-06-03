@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-03T08:58:29.473Z",
+  "exportedAt": "2026-06-03T08:59:26.675Z",
   "recipes": [
     {
       "badge": "Signature",
@@ -1342,17 +1342,8 @@
       "favorite": true
     }
   ],
-  "shoppingUpdatedAt": "2026-06-03T08:58:28.567Z",
+  "shoppingUpdatedAt": "2026-06-03T08:59:26.669Z",
   "shopping": [
-    {
-      "recipeId": "recipe-uarmizf",
-      "ingredientId": "ing-ije0akg",
-      "recipeName": "Citron givrés au basilic",
-      "name": "Blanc d'oeuf",
-      "qtyNumber": 2,
-      "unit": "pièce",
-      "bought": false
-    },
     {
       "recipeId": "recipe-qs46obj",
       "ingredientId": "ing-832pfzn",
@@ -1423,6 +1414,96 @@
       "name": "Poivre",
       "qtyNumber": 1,
       "unit": "pincée",
+      "bought": false
+    },
+    {
+      "recipeId": "risotto-champignons",
+      "ingredientId": "riz",
+      "recipeName": "Risotto crémeux aux champignons",
+      "name": "Riz arborio",
+      "qtyNumber": 300,
+      "unit": "g",
+      "bought": false
+    },
+    {
+      "recipeId": "risotto-champignons",
+      "ingredientId": "champignons",
+      "recipeName": "Risotto crémeux aux champignons",
+      "name": "Champignons",
+      "qtyNumber": 250,
+      "unit": "g",
+      "bought": false
+    },
+    {
+      "recipeId": "risotto-champignons",
+      "ingredientId": "bouillon",
+      "recipeName": "Risotto crémeux aux champignons",
+      "name": "Bouillon de légumes",
+      "qtyNumber": 75,
+      "unit": "cl",
+      "bought": false
+    },
+    {
+      "recipeId": "risotto-champignons",
+      "ingredientId": "parmesan",
+      "recipeName": "Risotto crémeux aux champignons",
+      "name": "Parmesan",
+      "qtyNumber": 90,
+      "unit": "g",
+      "bought": false
+    },
+    {
+      "recipeId": "risotto-champignons",
+      "ingredientId": "vin",
+      "recipeName": "Risotto crémeux aux champignons",
+      "name": "Ail",
+      "qtyNumber": 1,
+      "unit": "gousse",
+      "bought": false
+    },
+    {
+      "recipeId": "risotto-champignons",
+      "ingredientId": "oignon",
+      "recipeName": "Risotto crémeux aux champignons",
+      "name": "Oignon",
+      "qtyNumber": 1,
+      "unit": "pièce",
+      "bought": false
+    },
+    {
+      "recipeId": "risotto-champignons",
+      "ingredientId": "ing-h0gyqcn",
+      "recipeName": "Risotto crémeux aux champignons",
+      "name": "Crème fraîche semi-Épaisse",
+      "qtyNumber": 10,
+      "unit": "cl",
+      "bought": false
+    },
+    {
+      "recipeId": "risotto-champignons",
+      "ingredientId": "ing-w7n7jq3",
+      "recipeName": "Risotto crémeux aux champignons",
+      "name": "Huile d'olive",
+      "qtyNumber": 2,
+      "unit": "c. à soupe",
+      "bought": false
+    },
+    {
+      "recipeId": "risotto-champignons",
+      "ingredientId": "ing-2dzm0bw",
+      "recipeName": "Risotto crémeux aux champignons",
+      "name": "Sel",
+      "qtyNumber": 0,
+      "unit": "à convenance",
+      "bought": false
+    },
+    {
+      "recipeId": "risotto-champignons",
+      "ingredientId": "ing-lo9dhui",
+      "recipeName": "Risotto crémeux aux champignons",
+      "name": "Poivre",
+      "qtyNumber": 0,
+      "unit": "à convenance",
       "bought": false
     }
   ]
