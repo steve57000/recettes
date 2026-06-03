@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-03T13:51:07.347Z",
+  "exportedAt": "2026-06-03T13:53:01.340Z",
   "recipes": [
     {
       "badge": "Fraîcheur",
@@ -32,16 +32,28 @@
           "unit": "pièce"
         },
         {
-          "id": "ing-73l4pje",
+          "id": "ing-o0gkk6v",
+          "name": "Olives",
+          "qty": 80,
+          "unit": "g"
+        },
+        {
+          "id": "ing-q2b9qp2",
           "name": "Sel",
           "qty": 1,
           "unit": "pincée"
         },
         {
-          "id": "ing-i2cmpe4",
+          "id": "ing-cgiztlu",
           "name": "Poivre",
           "qty": 1,
           "unit": "pincée"
+        },
+        {
+          "id": "ing-u6d1jyr",
+          "name": "Vinaigrette",
+          "qty": 1,
+          "unit": "à convenance"
         }
       ],
       "steps": [
