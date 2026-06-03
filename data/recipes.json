@@ -1,6 +1,121 @@
 {
-  "exportedAt": "2026-06-03T15:06:54.130Z",
+  "exportedAt": "2026-06-03T15:34:52.600Z",
   "recipes": [
+    {
+      "badge": "Pâtisserie",
+      "difficulty": "Facile",
+      "baseServings": 1,
+      "time": 90,
+      "ingredients": [
+        {
+          "id": "ing-6784bq0",
+          "name": "Biscuits (spéculoos ou petits-Beurre)",
+          "qty": 120,
+          "unit": "g"
+        },
+        {
+          "id": "ing-cx4a3wp",
+          "name": "Beurre",
+          "qty": 30,
+          "unit": "g"
+        },
+        {
+          "id": "ing-qfr33rm",
+          "name": "Fromage frais",
+          "qty": 825,
+          "unit": "g"
+        },
+        {
+          "id": "ing-noe2bwo",
+          "name": "Sucre (pour le cheesecake)",
+          "qty": 130,
+          "unit": "g"
+        },
+        {
+          "id": "ing-z55a035",
+          "name": "Crème fraîche épaisse",
+          "qty": 90,
+          "unit": "g"
+        },
+        {
+          "id": "ing-ejh8qb5",
+          "name": "Extrait de vanille",
+          "qty": 1,
+          "unit": "c. à soupe"
+        },
+        {
+          "id": "ing-x4hvwko",
+          "name": "Oeuf",
+          "qty": 3,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-ool98xq",
+          "name": "Fraises",
+          "qty": 250,
+          "unit": "g"
+        },
+        {
+          "id": "ing-n96iieh",
+          "name": "Eau de fleur d'oranger",
+          "qty": 2,
+          "unit": "c. à soupe"
+        },
+        {
+          "id": "ing-k815rfb",
+          "name": "Sucre (pour la compotée)",
+          "qty": 50,
+          "unit": "g"
+        }
+      ],
+      "steps": [
+        {
+          "id": "step-ygujxk2",
+          "text": "Préchauffez le four à 180°C."
+        },
+        {
+          "id": "step-frvc466",
+          "text": "Mixez les biscuits pour les réduire en poudre. Ajoutez le beurre fondu et mélangez le tout. Répartissez la couche biscuitée dans un moule à charnière et tassez bien. Enfournez pour 7 minutes de cuisson, puis laissez refroidir."
+        },
+        {
+          "id": "step-qkgt4b5",
+          "text": "Baissez le four à 160°C."
+        },
+        {
+          "id": "step-4cp13u7",
+          "text": "Fouettez le fromage frais jusqu'à obtenir une texture lisse. Ajoutez le sucre, la crème et la vanille. Incorporez les oeufs un à un en mélangeant bien entre chaque ajout."
+        },
+        {
+          "id": "step-i9ftmqe",
+          "text": "Répartissez le mélange sur la bse biscuitée, puis enfournez pour 30 minutes. Baissez le four à 150°C et poursuivez la cuisson pendant 35 minutes. Eteignez le four et laissez reposer 30 minutes sans ouvrir la porte, puis entrouvrez le four et laissez reposer de nouveau 30 minutes. Laissez refroidir complètement, filmez et placez au réfrigérateur au moins 6 heures."
+        },
+        {
+          "id": "step-2fcbvho",
+          "text": "Rincez et équetez les fraises, puis coupez-les en deux ou en quatre. Placez les fraises dans une petite casserole, ajoutez le sucre, l'eau de fleur d'oranger et faites compoter le tout pendant 5 minutes à feu doux."
+        },
+        {
+          "id": "step-ewxoafh",
+          "text": "Au moment de servir, démoulez le cheesecake et nappez de compotée de fraises."
+        }
+      ],
+      "id": "recipe-rkf0fhb",
+      "name": "Cheesecake aux fraises",
+      "category": "Desserts",
+      "tags": [
+        "pâtisserie",
+        "fruité"
+      ],
+      "rating": 3,
+      "description": "Un cheesecake onctueux à la texture fondante, posé sur un biscuit croustillant, surmonté de fraises fraîches et juteuses. Un dessert frais, gourmand et iresistiblement fruité.",
+      "notes": "Pour un dressage élégant, démoule le cheesecake bien froid puis nappe le de compotée de fraises, puis dispose les fraises en rosace sur le dessus, en partant du centre.",
+      "photoUrl": "data:image/jpeg;base64,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",
+      "photoData": "",
+      "videoUrl": "",
+      "sourceUrl": "https://www.grandfrais.com/recettes/cheesecake-aux-fraises",
+      "sourceName": "Source web",
+      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
+      "favorite": false
+    },
     {
       "badge": "Fraîcheur",
       "difficulty": "Facile",
