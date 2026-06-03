@@ -3263,6 +3263,16 @@ label,
   display: none;
 }
 
+body.printing-recipe .print-recipe-document {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: -10000px;
+  width: 210mm;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .print-recipe-button.is-compact {
   padding-inline: 0.9rem;
 }
@@ -3287,6 +3297,9 @@ label,
 
   body.printing-recipe .print-recipe-document {
     display: block !important;
+    position: static;
+    width: auto;
+    opacity: 1;
   }
 
   .print-recipe-sheet {
