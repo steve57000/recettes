@@ -622,6 +622,13 @@ function formatIngredientAmount(qtyNumber, unit) {
   return `${formatQty(qtyNumber)} ${normalizedUnit}`.trim();
 }
 
+function renderIngredientAmount(qtyNumber, unit) {
+  const normalizedUnit = normalizeUnit(unit);
+  const info = unitInfo(normalizedUnit);
+  if (info?.type === 'free') return `<span class="amount-unit">${esc(normalizedUnit)}</span>`;
+  return `<span class="amount-qty">${esc(formatQty(qtyNumber))}</span><span class="amount-unit">${esc(normalizedUnit)}</span>`;
+}
+
 function renderUnitOptions(selectedUnit) {
   const selected = normalizeUnit(selectedUnit);
   const groups = [
@@ -1182,7 +1189,7 @@ function recipeCard(r) {
       <div class="card-actions">
         <button data-open="${esc(r.id)}">Voir</button>
         <button class="secondary" data-edit="${esc(r.id)}">Modifier</button>
-        <button class="icon-danger" title="Supprimer" aria-label="Supprimer ${esc(r.name)}" data-del="${esc(r.id)}"><span aria-hidden="true">🗑</span></button>
+        <button class="icon-danger" title="Supprimer" aria-label="Supprimer ${esc(r.name)}" data-del="${esc(r.id)}"><svg class="trash-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6l1 2h4v2H4V5h4l1-2Zm1 6v9h2V9h-2Zm4 0v9h2V9h-2ZM6 9h2l1 12h6l1-12h2l-1.2 13.2A2 2 0 0 1 14.8 24H9.2a2 2 0 0 1-2-1.8L6 9Z"/></svg></button>
       </div>
       <div class="media-links">${r.videoUrl ? '<span>🎬 vidéo</span>' : ''}${r.sourceUrl ? `<a class="source" href="${esc(r.sourceUrl)}" target="_blank" rel="noreferrer">Source web</a>` : ''}</div>
     </div>
@@ -1794,7 +1801,7 @@ function openRecipe(recipeId, options = {}) {
       .map((i) => {
         const qtyNumber = ingredientQuantityForServings(i, recipe, servings);
         const checked = state.shopping.some(ingredientShoppingMatch(recipe.id, i.id));
-        return `<li class="ingredient-choice ${checked ? 'is-selected' : ''}"><label><input type="checkbox" data-check="${esc(i.id)}" ${checked ? 'checked' : ''}/> <span>${esc(i.name)}</span><strong>${esc(formatIngredientAmount(qtyNumber, i.unit))}</strong></label></li>`;
+        return `<li class="ingredient-choice ${checked ? 'is-selected' : ''}"><label><input type="checkbox" data-check="${esc(i.id)}" ${checked ? 'checked' : ''}/> <span>${esc(i.name)}</span><strong class="ingredient-amount">${renderIngredientAmount(qtyNumber, i.unit)}</strong></label></li>`;
       })
       .join('');
 
