@@ -2990,3 +2990,25 @@ label,
     height: 1.55rem;
   }
 }
+
+/* Empilement global : le header reste au-dessus de la section de recherche,
+   tandis que les menus déroulants des filtres restent devant les sections suivantes. */
+.site-header {
+  z-index: 200;
+}
+
+.search-lab {
+  z-index: 20;
+}
+
+.filter-dropdown[open] {
+  z-index: 30;
+}
+
+.filter-menu {
+  z-index: 40;
+}
+
+.recipe-modal {
+  z-index: 400;
+}
