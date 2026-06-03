@@ -3372,10 +3372,9 @@ label,
   }
 
   .print-recipe-content {
-    display: grid;
-    grid-template-columns: minmax(44mm, 0.82fr) minmax(0, 1.4fr);
-    gap: 5mm;
-    align-items: start;
+    display: flex;
+    flex-direction: column;
+    gap: 4mm;
   }
 
   .print-section,
@@ -3397,6 +3396,11 @@ label,
     margin: 0;
     padding: 0;
     list-style: none;
+  }
+
+  .print-ingredients ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 5mm;
   }
 
   .print-ingredients li {
