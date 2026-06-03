@@ -555,6 +555,8 @@ function updateShoppingBadge() {
 
 function updateShoppingPanel() {
   updateShoppingBadge();
+  const clearShopping = document.getElementById('clear-shopping');
+  if (clearShopping) clearShopping.textContent = shoppingClearButtonLabel();
   const shoppingList = document.querySelector('.shopping-list');
   if (!shoppingList) return;
   const previousItems = Array.from(shoppingList.querySelectorAll('.shopping-item'));
@@ -924,7 +926,7 @@ function renderShoppingSection() {
   return `<section class="shopping-page-actions">
         <button class="secondary" id="mark-shopping-open">Tout à acheter</button>
         <button class="secondary" id="mark-shopping-bought">Tout acheté</button>
-        <button class="secondary danger-soft" id="clear-shopping">Vider la liste</button>
+        <button class="secondary danger-soft" id="clear-shopping">${esc(shoppingClearButtonLabel())}</button>
       </section>
 
       <section class="shopping-view-panel panel">
@@ -1256,10 +1258,50 @@ function currentShoppingMode() {
   return mode === 'recipes' ? 'recipes' : 'all';
 }
 
+function explicitShoppingRecipeSelection() {
+  const availableIds = shoppingRecipeIds();
+  return Array.isArray(state.shoppingView?.recipeIds) ? state.shoppingView.recipeIds.filter((id) => availableIds.includes(id)) : [];
+}
+
 function currentShoppingRecipeFilter() {
   const availableIds = shoppingRecipeIds();
-  const selectedIds = Array.isArray(state.shoppingView?.recipeIds) ? state.shoppingView.recipeIds.filter((id) => availableIds.includes(id)) : [];
+  const selectedIds = explicitShoppingRecipeSelection();
   return new Set(selectedIds.length ? selectedIds : availableIds);
+}
+
+function shoppingClearScope() {
+  if (currentShoppingMode() !== 'recipes') return { mode: 'all', recipeIds: new Set(shoppingRecipeIds()) };
+  const explicitIds = explicitShoppingRecipeSelection();
+  const recipeIds = explicitIds.length ? explicitIds : shoppingRecipeIds();
+  return { mode: 'recipes', recipeIds: new Set(recipeIds) };
+}
+
+function shoppingClearButtonLabel() {
+  const scope = shoppingClearScope();
+  if (scope.mode !== 'recipes') return 'Vider la liste';
+  const totalRecipes = shoppingRecipeIds().length;
+  if (!totalRecipes || scope.recipeIds.size >= totalRecipes) return 'Vider la liste';
+  return `Vider ${scope.recipeIds.size > 1 ? 'les recettes sélectionnées' : 'la recette sélectionnée'}`;
+}
+
+function clearShoppingScope() {
+  const scope = shoppingClearScope();
+  if (!state.shopping.length || !scope.recipeIds.size) return false;
+
+  if (scope.mode !== 'recipes') {
+    state.shopping = [];
+    state.shoppingView = { mode: 'all', recipeIds: [] };
+    return true;
+  }
+
+  const previousSelectedIds = explicitShoppingRecipeSelection();
+  state.shopping = state.shopping.filter((item) => !scope.recipeIds.has(item.recipeId));
+  const remainingIds = new Set(shoppingRecipeIds());
+  state.shoppingView = {
+    mode: state.shopping.length ? 'recipes' : 'all',
+    recipeIds: previousSelectedIds.filter((id) => remainingIds.has(id)),
+  };
+  return true;
 }
 
 function shoppingSummaryForRecipe(recipeId) {
@@ -1429,11 +1471,10 @@ function bindEvents(root) {
 
   const clearShopping = document.getElementById('clear-shopping');
   if (clearShopping) clearShopping.onclick = () => {
-    state.shopping = [];
-    state.shoppingView = { mode: 'all', recipeIds: [] };
+    if (!clearShoppingScope()) return;
     touchShopping();
     save();
-    updateShoppingPanel();
+    render();
     syncToGitHub('Liste de courses vidée Maison Saison');
   };
 
