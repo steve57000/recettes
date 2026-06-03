@@ -229,6 +229,11 @@ function renderFavoriteButton(recipe, compact = false) {
   return `<button type="button" class="favorite-toggle ${favorite ? 'is-favorite' : ''} ${compact ? 'is-compact' : ''}" data-fav="${esc(recipe.id)}" aria-pressed="${favorite ? 'true' : 'false'}" aria-label="${esc(label)}" title="${esc(label)}"><svg class="favorite-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false"><path class="favorite-icon-shape" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.08C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" /></svg></button>`;
 }
 
+function renderPrintButton(recipe, compact = false) {
+  const label = compact ? 'Imprimer' : 'Imprimer la recette';
+  return `<button type="button" class="secondary print-recipe-button ${compact ? 'is-compact' : ''}" data-print="${esc(recipe.id)}" aria-label="${esc(`Imprimer ${recipe.name} en PDF`)}">${label}</button>`;
+}
+
 function normalizeSteps(steps) {
   if (Array.isArray(steps)) {
     return steps
@@ -1188,12 +1193,81 @@ function recipeCard(r) {
       <div class="tag-row">${normalizeTags(r.tags || r.category || r.badge).slice(0, 4).map((tag) => `<span>#${esc(tag)}</span>`).join('')}</div>
       <div class="card-actions">
         <button data-open="${esc(r.id)}">Voir</button>
+        ${renderPrintButton(r, true)}
         <button class="secondary" data-edit="${esc(r.id)}">Modifier</button>
         <button class="icon-danger" title="Supprimer" aria-label="Supprimer ${esc(r.name)}" data-del="${esc(r.id)}"><svg class="trash-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6l1 2h4v2H4V5h4l1-2Zm1 6v9h2V9h-2Zm4 0v9h2V9h-2ZM6 9h2l1 12h6l1-12h2l-1.2 13.2A2 2 0 0 1 14.8 24H9.2a2 2 0 0 1-2-1.8L6 9Z"/></svg></button>
       </div>
       <div class="media-links">${r.videoUrl ? '<span>🎬 vidéo</span>' : ''}${r.sourceUrl ? `<a class="source" href="${esc(r.sourceUrl)}" target="_blank" rel="noreferrer">Source web</a>` : ''}</div>
     </div>
   </article>`;
+}
+
+function printableRecipeImage(recipe) {
+  const src = recipe.photoData || recipe.photoUrl || '';
+  return /^data:image\//.test(src) || /^https?:\/\//.test(src) || /^\.\//.test(src) ? src : '';
+}
+
+function printServingsForRecipe(recipe) {
+  const route = currentRoute();
+  const input = route.page === 'recipe' && route.id === recipe.id ? document.getElementById('servings') : null;
+  return Math.max(1, Number(input?.value) || Number(recipe.baseServings) || 1);
+}
+
+function renderPrintableRecipe(recipe, servings = recipe.baseServings) {
+  const ingredients = recipe.ingredients.map((ingredient) => {
+    const qtyNumber = ingredientQuantityForServings(ingredient, recipe, servings);
+    return `<li><span>${esc(ingredient.name)}</span><strong>${esc(formatIngredientAmount(qtyNumber, ingredient.unit))}</strong></li>`;
+  }).join('');
+  const steps = normalizeSteps(recipe.steps).map((step, index) => `<li><span>${index + 1}</span><p>${esc(step.text)}</p></li>`).join('');
+  const image = printableRecipeImage(recipe);
+
+  return `<section class="print-recipe-document" aria-label="Recette imprimable">
+    <article class="print-recipe-sheet">
+      <header class="print-recipe-header ${image ? 'has-print-image' : ''}">
+        <div>
+          <p class="print-eyebrow">Maison Saison · Fiche recette</p>
+          <h1>${esc(recipe.name)}</h1>
+          ${recipe.description ? `<p class="print-lead">${esc(recipe.description)}</p>` : ''}
+        </div>
+        ${image ? `<img src="${esc(image)}" alt="${esc(recipe.name)}" />` : ''}
+      </header>
+      <dl class="print-recipe-meta">
+        <div><dt>Portions</dt><dd>${esc(servings)} personne${servings > 1 ? 's' : ''}</dd></div>
+        <div><dt>Temps</dt><dd>${esc(recipe.time || 20)} min</dd></div>
+        <div><dt>Difficulté</dt><dd>${esc(recipe.difficulty || 'Facile')}</dd></div>
+        <div><dt>Catégorie</dt><dd>${esc(recipe.category || 'Mes recettes')}</dd></div>
+      </dl>
+      <div class="print-recipe-content">
+        <section class="print-section print-ingredients">
+          <h2>Ingrédients</h2>
+          <ul>${ingredients || '<li><span>Aucun ingrédient renseigné</span></li>'}</ul>
+        </section>
+        <section class="print-section print-steps">
+          <h2>Préparation</h2>
+          <ol>${steps || '<li><span>1</span><p>Aucune étape renseignée.</p></li>'}</ol>
+        </section>
+      </div>
+      ${recipe.notes ? `<aside class="print-note"><strong>Note du chef</strong><p>${esc(recipe.notes)}</p></aside>` : ''}
+      <footer class="print-footer">PDF / impression généré depuis Maison Saison</footer>
+    </article>
+  </section>`;
+}
+
+function printRecipe(recipeId) {
+  const recipe = state.recipes.find((item) => item.id === recipeId);
+  if (!recipe) return;
+  const servings = printServingsForRecipe(recipe);
+  document.querySelectorAll('.print-recipe-document').forEach((node) => node.remove());
+  document.body.insertAdjacentHTML('beforeend', renderPrintableRecipe(recipe, servings));
+  document.body.classList.add('printing-recipe');
+
+  const cleanup = () => {
+    document.body.classList.remove('printing-recipe');
+    document.querySelectorAll('.print-recipe-document').forEach((node) => node.remove());
+    window.removeEventListener('afterprint', cleanup);
+  };
+  window.addEventListener('afterprint', cleanup);
+  window.print();
 }
 
 function updateRecipeResults() {
@@ -1249,6 +1323,14 @@ function bindRecipeCardActions(scope = document) {
 
   scope.querySelectorAll('[data-edit]').forEach((b) => {
     b.onclick = () => editRecipe(b.getAttribute('data-edit'));
+  });
+
+  scope.querySelectorAll('[data-print]').forEach((b) => {
+    b.onclick = (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      printRecipe(b.getAttribute('data-print'));
+    };
   });
 
   scope.querySelectorAll('[data-open]').forEach((b) => {
@@ -1753,7 +1835,7 @@ function openRecipe(recipeId, options = {}) {
       ${renderStars(recipe.rating, `Note ${recipe.name}`)}
       <p class="lead">${esc(recipe.description || '')}</p>
       <div class="recipe-meta"><span>${esc(recipe.category || 'Mes recettes')}</span><span>${esc(recipe.time || 20)} min</span><span>${esc(recipe.difficulty || 'Facile')}</span></div>
-      <div class="detail-actions"><button class="secondary" data-edit-detail="${esc(recipe.id)}">Modifier cette recette</button>${recipe.sourceUrl ? `<a class="button-link secondary-link" href="${esc(recipe.sourceUrl)}" target="_blank" rel="noreferrer">Ouvrir la source</a>` : ''}</div>
+      <div class="detail-actions">${renderPrintButton(recipe)}<button class="secondary" data-edit-detail="${esc(recipe.id)}">Modifier cette recette</button>${recipe.sourceUrl ? `<a class="button-link secondary-link" href="${esc(recipe.sourceUrl)}" target="_blank" rel="noreferrer">Ouvrir la source</a>` : ''}</div>
     </div>
     <div class="serving-box"><label for="servings">Personnes</label><input id="servings" type="number" min="1" value="${esc(recipe.baseServings)}" /><small id="servings-hint">Quantités synchronisées avec les courses.</small></div>
     <div class="detail-section ingredient-picker-section">

@@ -3227,3 +3227,208 @@ label,
     min-height: 44px;
   }
 }
+
+.print-recipe-document {
+  display: none;
+}
+
+.print-recipe-button.is-compact {
+  padding-inline: 0.9rem;
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 9mm;
+  }
+
+  html,
+  body {
+    width: 210mm;
+    min-height: 297mm;
+    background: #fff !important;
+    color: #25160f !important;
+  }
+
+  body.printing-recipe > :not(.print-recipe-document) {
+    display: none !important;
+  }
+
+  body.printing-recipe .print-recipe-document {
+    display: block !important;
+  }
+
+  .print-recipe-sheet {
+    display: flex;
+    flex-direction: column;
+    gap: 4.2mm;
+    min-height: 0;
+    color: #25160f;
+    font-family: var(--font);
+    font-size: 9.4pt;
+    line-height: 1.28;
+    break-inside: avoid;
+  }
+
+  .print-recipe-header {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6mm;
+    align-items: start;
+    padding-bottom: 3.5mm;
+    border-bottom: 0.35mm solid #f05a37;
+  }
+
+  .print-recipe-header.has-print-image {
+    grid-template-columns: minmax(0, 1fr) 42mm;
+  }
+
+  .print-recipe-header img {
+    width: 42mm;
+    height: 34mm;
+    border-radius: 6mm;
+    object-fit: cover;
+  }
+
+  .print-eyebrow {
+    margin: 0 0 1.4mm;
+    color: #b94b2f;
+    font-size: 7.8pt;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .print-recipe-header h1 {
+    margin: 0;
+    font-size: clamp(22pt, 7vw, 32pt);
+    line-height: 0.92;
+    letter-spacing: -0.055em;
+  }
+
+  .print-lead {
+    margin: 2.4mm 0 0;
+    max-width: 170mm;
+    color: #5f4a40;
+    font-size: 10pt;
+  }
+
+  .print-recipe-meta {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 2mm;
+    margin: 0;
+  }
+
+  .print-recipe-meta div {
+    padding: 2mm 2.6mm;
+    border: 0.25mm solid #ead3c7;
+    border-radius: 4mm;
+    background: #fff8ed;
+  }
+
+  .print-recipe-meta dt {
+    color: #8b6b5d;
+    font-size: 7pt;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .print-recipe-meta dd {
+    margin: 0.7mm 0 0;
+    font-weight: 900;
+  }
+
+  .print-recipe-content {
+    display: grid;
+    grid-template-columns: minmax(44mm, 0.82fr) minmax(0, 1.4fr);
+    gap: 5mm;
+    align-items: start;
+  }
+
+  .print-section,
+  .print-note {
+    break-inside: avoid;
+  }
+
+  .print-section h2 {
+    margin: 0 0 2.2mm;
+    font-size: 13pt;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  .print-ingredients ul,
+  .print-steps ol {
+    display: grid;
+    gap: 1.45mm;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .print-ingredients li {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) max-content;
+    gap: 2mm;
+    align-items: baseline;
+    padding-bottom: 1.25mm;
+    border-bottom: 0.2mm solid #f0ded5;
+  }
+
+  .print-ingredients strong {
+    color: #b94b2f;
+    font-size: 8.8pt;
+    white-space: nowrap;
+  }
+
+  .print-steps li {
+    display: grid;
+    grid-template-columns: 7mm minmax(0, 1fr);
+    gap: 2.1mm;
+    break-inside: avoid;
+  }
+
+  .print-steps li > span {
+    display: grid;
+    place-items: center;
+    width: 6.4mm;
+    height: 6.4mm;
+    border-radius: 50%;
+    background: #f05a37;
+    color: #fff;
+    font-size: 7.6pt;
+    font-weight: 900;
+  }
+
+  .print-steps p {
+    margin: 0;
+  }
+
+  .print-note {
+    margin: 0;
+    padding: 2.4mm 3mm;
+    border-left: 1mm solid #f05a37;
+    border-radius: 3mm;
+    background: #fff8ed;
+  }
+
+  .print-note strong {
+    display: block;
+    margin-bottom: 0.8mm;
+  }
+
+  .print-note p {
+    margin: 0;
+  }
+
+  .print-footer {
+    margin-top: auto;
+    padding-top: 2mm;
+    border-top: 0.2mm solid #f0ded5;
+    color: #8b6b5d;
+    font-size: 7pt;
+    text-align: center;
+  }
+}
