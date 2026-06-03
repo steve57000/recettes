@@ -2,3 +2,5 @@
 # Generate them locally with: python3 scripts/generate_brand_assets.py --output assets
 /assets/*.png
 /assets/*.ico
+
+/idea/*
