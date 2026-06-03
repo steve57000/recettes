@@ -53,4 +53,7 @@ Pour éviter les blocages de demande d’extraction liés aux fichiers binaires,
 ```bash
 python3 scripts/generate_brand_assets.py --output assets
 ```
-
+Sur windows :
+```bash
+py scripts/generate_brand_assets.py --output assets
+```
