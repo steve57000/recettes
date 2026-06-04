@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-04T16:08:26.458Z",
+  "exportedAt": "2026-06-04T16:10:44.737Z",
   "recipes": [
     {
       "badge": "Fraîcheur",
@@ -341,7 +341,7 @@
       "sourceUrl": "https://www.grandfrais.com/recettes/cheesecake-aux-fraises",
       "sourceName": "Source web",
       "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
-      "favorite": false
+      "favorite": true
     },
     {
       "badge": "Fraîcheur",
