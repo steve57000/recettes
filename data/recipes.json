@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-04T16:39:15.982Z",
+  "exportedAt": "2026-06-04T16:40:14.883Z",
   "recipes": [
     {
       "badge": "Fraîcheur",
@@ -1749,13 +1749,13 @@
         {
           "id": "ing-16b6jdd",
           "name": "Sel",
-          "qty": 0,
+          "qty": 1,
           "unit": "à convenance"
         },
         {
           "id": "ing-4e1cjc9",
           "name": "Poivre",
-          "qty": 0,
+          "qty": 1,
           "unit": "à convenance"
         }
       ],
