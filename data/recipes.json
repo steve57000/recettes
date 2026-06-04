@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-04T16:40:14.883Z",
+  "exportedAt": "2026-06-04T16:41:17.625Z",
   "recipes": [
     {
       "badge": "Fraîcheur",
@@ -1431,13 +1431,13 @@
         {
           "id": "ing-jd7peav",
           "name": "Sel",
-          "qty": 0,
+          "qty": 1,
           "unit": "à convenance"
         },
         {
           "id": "ing-iin25ev",
           "name": "Poivre",
-          "qty": 0,
+          "qty": 1,
           "unit": "à convenance"
         }
       ],
@@ -1532,13 +1532,13 @@
         {
           "id": "ing-2dzm0bw",
           "name": "Sel",
-          "qty": 0,
+          "qty": 1,
           "unit": "à convenance"
         },
         {
           "id": "ing-lo9dhui",
           "name": "Poivre",
-          "qty": 0,
+          "qty": 1,
           "unit": "à convenance"
         }
       ],
@@ -1635,13 +1635,13 @@
         {
           "id": "ing-513uiqx",
           "name": "Gros sel",
-          "qty": 0,
+          "qty": 1,
           "unit": "à convenance"
         },
         {
           "id": "ing-auw1p80",
           "name": "Poivre",
-          "qty": 0,
+          "qty": 1,
           "unit": "à convenance"
         }
       ],
