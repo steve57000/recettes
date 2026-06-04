@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-04T16:21:44.475Z",
+  "exportedAt": "2026-06-04T16:29:02.461Z",
   "recipes": [
     {
       "badge": "Fraîcheur",
@@ -1675,7 +1675,8 @@
         "frais",
         "léger",
         "été",
-        "végétarien"
+        "végétarien",
+        "rapide"
       ],
       "favorite": false
     },
@@ -1792,7 +1793,7 @@
       "name": "Taboulé libanais",
       "category": "Salades",
       "description": "",
-      "notes": "Vous pouvez ajouter 70g de grains de grenade",
+      "notes": "Vous pouvez ajouter 70g de grains de grenade.",
       "photoUrl": "https://assets.afcdn.com/recipe/20190704/94646_w600.jpg",
       "photoData": "",
       "videoUrl": "",
