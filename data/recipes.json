@@ -1,6 +1,98 @@
 {
-  "exportedAt": "2026-06-04T16:41:17.625Z",
+  "exportedAt": "2026-06-04T17:17:48.999Z",
   "recipes": [
+    {
+      "badge": "Fraîcheur",
+      "difficulty": "Facile",
+      "baseServings": 4,
+      "time": 20,
+      "ingredients": [
+        {
+          "id": "ing-87l3ecq",
+          "name": "Petits champignons de paris",
+          "qty": 32,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-9k3bwj3",
+          "name": "Fromage frais",
+          "qty": 70,
+          "unit": "g"
+        },
+        {
+          "id": "ing-m5r5kst",
+          "name": "Crème fraîche liquide",
+          "qty": 20,
+          "unit": "cl"
+        },
+        {
+          "id": "ing-6iysirm",
+          "name": "Citron",
+          "qty": 1,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-x7jnlfr",
+          "name": "Aneth frais haché",
+          "qty": 2,
+          "unit": "c. à café"
+        },
+        {
+          "id": "ing-jo9x6el",
+          "name": "Saumon fumé",
+          "qty": 2,
+          "unit": "tranche"
+        },
+        {
+          "id": "ing-lhjgku6",
+          "name": "Sel",
+          "qty": 1,
+          "unit": "à convenance"
+        },
+        {
+          "id": "ing-mupz33j",
+          "name": "Poivre",
+          "qty": 1,
+          "unit": "à convenance"
+        }
+      ],
+      "steps": [
+        {
+          "id": "step-vcyvuvf",
+          "text": "Au robot, fouettez le fromage avec le zeste de citron et l'aneth haché. Assaisonnez de sel et de poivre. Ajoutez la crème liquide et montez le tout en chantilly. Placez le tout dans une poche à douille munie d'une douille cannelée."
+        },
+        {
+          "id": "step-hbty5fv",
+          "text": "Coupez le suamon en morceaux de la taille des têtes des champignons."
+        },
+        {
+          "id": "step-o1l7l49",
+          "text": "Nettoyez et retirez les pieds des champignons. Epluchez les champignons et coupez la base pour qu'ils soient plus plats. Citronnez-les pour éviter qu'ils ne noircissent."
+        },
+        {
+          "id": "step-2qx35ax",
+          "text": "Assemblez les macarrons. Pour cela, prenez une tête de champigon, déposez un morceau de saumon fumé, pochez la chantilly et couvrez le tout délicatement d'un deuxième champigon. Placez au frais jusqu'au moment de serrvir."
+        }
+      ],
+      "id": "recipe-fbi28ui",
+      "name": "Macarons aux champignons de paris et au saumon fumé",
+      "category": "Festifs",
+      "tags": [
+        "frais",
+        "léger",
+        "amuse bouche"
+      ],
+      "rating": 3,
+      "description": "Délicats et raffinés, ces macarons salés associent la douceur des champignons de Paris à la finesse du saumon fumé. Entre coques fondantes et garniture crémeuse, chaque bouchée dévoile un équilibre gourmand et élégant, parfait pour un apéritif chic ou une entrée originale.",
+      "notes": "Pour des macarons salés encore plus savoureux, préparez-les quelques heures à l’avance et laissez-les reposer au frais : les coques s’imprégneront délicatement des saveurs du saumon fumé et des champignons pour une texture encore plus fondante.",
+      "photoUrl": "https://www.grandfrais.com/images/institBackoffice/recette/divers/65607b9e00b1f_650x500.webp",
+      "photoData": "",
+      "videoUrl": "",
+      "sourceUrl": "https://www.grandfrais.com/recettes/macarons-aux-champignons-de-paris-et-au-saumon-fume",
+      "sourceName": "Source web",
+      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
+      "favorite": false
+    },
     {
       "badge": "Fraîcheur",
       "difficulty": "Facile",
