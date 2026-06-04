@@ -1,6 +1,85 @@
 {
-  "exportedAt": "2026-06-04T17:17:48.999Z",
+  "exportedAt": "2026-06-04T18:00:24.079Z",
   "recipes": [
+    {
+      "badge": "Réconfort",
+      "difficulty": "Difficile",
+      "baseServings": 4,
+      "time": 45,
+      "ingredients": [
+        {
+          "id": "ing-p54bn07",
+          "name": "Patates douces",
+          "qty": 300,
+          "unit": "g"
+        },
+        {
+          "id": "ing-2e3wvq1",
+          "name": "Pommes de terre",
+          "qty": 200,
+          "unit": "g"
+        },
+        {
+          "id": "ing-hsqcubn",
+          "name": "Oeuf",
+          "qty": 1,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-di82tqb",
+          "name": "Farine",
+          "qty": 200,
+          "unit": "g"
+        },
+        {
+          "id": "ing-1oputo4",
+          "name": "Sel",
+          "qty": 1,
+          "unit": "à convenance"
+        },
+        {
+          "id": "ing-6kcg31y",
+          "name": "Poivre",
+          "qty": 1,
+          "unit": "à convenance"
+        }
+      ],
+      "steps": [
+        {
+          "id": "step-9fxas3t",
+          "text": "Nettoyez les patates douces et les pommes de terre, épluchez-les et détaillez-les en morceaux. Faites-les cuire pendant 20 minutes dans l'eau bouillante salée."
+        },
+        {
+          "id": "step-ke03dp4",
+          "text": "Egouttez-les et écrasez-les à la fourchette. Ajoutez le jaune d'oeuf, le sel et le poivre. Pétrissez le tout jusqu'à l'obtention d'une pâte lisse."
+        },
+        {
+          "id": "step-sge2h2h",
+          "text": "Séparez la pâte en cinq pâtons et façonnez des boudins. Coupez-les en trançons d'environ 3 cm et formez les gnocchis en les faisant rouler sur les dents d'une fourchette."
+        },
+        {
+          "id": "step-duz6qch",
+          "text": "Portez une casserole d'eau à ébullition et plongez les gnocchis 2 à 3 minutes ( l'orsqu'ils sont cuits, ils remontent à la surface ). Servez sans attendre."
+        }
+      ],
+      "id": "recipe-ql3mx3g",
+      "name": "Gnocchis de patate douce",
+      "category": "Accompagnements",
+      "tags": [
+        "végétarien",
+        "douceur"
+      ],
+      "rating": 3,
+      "description": "Moelleux et réconfortants, ces gnocchis de patate douce séduisent par leur texture fondante et leur légère touche sucrée. Dorés à la poêle ou nappés d’une sauce crémeuse, ils offrent une assiette gourmande aux saveurs douces et chaleureuses, parfaite pour un repas plein de douceur.",
+      "notes": "Pour des gnocchis bien moelleux, ajoutez la farine petit à petit afin de garder une pâte souple et légère. Faites-les ensuite légèrement dorer au beurre après cuisson pour obtenir un extérieur croustillant et un cœur fondant irrésistible.",
+      "photoUrl": "https://www.grandfrais.com/images/institBackoffice/recette/divers/65605af403ec7_gnocchi-patate-douce-650.webp",
+      "photoData": "",
+      "videoUrl": "",
+      "sourceUrl": "https://www.grandfrais.com/recettes/gnocchis-de-patate-douce",
+      "sourceName": "Source web",
+      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
+      "favorite": false
+    },
     {
       "badge": "Fraîcheur",
       "difficulty": "Facile",
