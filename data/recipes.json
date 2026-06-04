@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-04T11:06:50.007Z",
+  "exportedAt": "2026-06-04T11:08:29.726Z",
   "recipes": [
     {
       "badge": "Signature",
@@ -2088,13 +2088,49 @@
       "favorite": false
     }
   ],
-  "shoppingUpdatedAt": "2026-06-04T11:06:49.095Z",
+  "shoppingUpdatedAt": "2026-06-04T11:08:28.819Z",
   "shopping": [
+    {
+      "recipeId": "recipe-3e56doy",
+      "ingredientId": "ing-wgw6ez1",
+      "recipeName": "Quiche spirale aux légumes du soleil",
+      "name": "Poivron rouge",
+      "qtyNumber": 1,
+      "unit": "pièce",
+      "bought": false
+    },
     {
       "recipeId": "recipe-3e56doy",
       "ingredientId": "ing-0hxi9ph",
       "recipeName": "Quiche spirale aux légumes du soleil",
       "name": "Poivron jaune",
+      "qtyNumber": 1,
+      "unit": "pièce",
+      "bought": false
+    },
+    {
+      "recipeId": "recipe-3e56doy",
+      "ingredientId": "ing-5mjwkwf",
+      "recipeName": "Quiche spirale aux légumes du soleil",
+      "name": "Aubergine",
+      "qtyNumber": 1,
+      "unit": "pièce",
+      "bought": false
+    },
+    {
+      "recipeId": "recipe-3e56doy",
+      "ingredientId": "ing-16xv028",
+      "recipeName": "Quiche spirale aux légumes du soleil",
+      "name": "Courgette verte",
+      "qtyNumber": 1,
+      "unit": "pièce",
+      "bought": false
+    },
+    {
+      "recipeId": "recipe-3e56doy",
+      "ingredientId": "ing-4zbt6ft",
+      "recipeName": "Quiche spirale aux légumes du soleil",
+      "name": "Courgette jaune",
       "qtyNumber": 1,
       "unit": "pièce",
       "bought": false
