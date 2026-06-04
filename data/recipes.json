@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-04T16:36:13.355Z",
+  "exportedAt": "2026-06-04T16:37:57.473Z",
   "recipes": [
     {
       "badge": "Fraîcheur",
@@ -601,13 +601,13 @@
           "id": "ing-0otqkph",
           "name": "Sel",
           "qty": 1,
-          "unit": "pincée"
+          "unit": "à convenance"
         },
         {
           "id": "ing-ixal4w2",
           "name": "Poivre",
           "qty": 1,
-          "unit": "pincée"
+          "unit": "à convenance"
         }
       ],
       "steps": [
@@ -695,13 +695,13 @@
           "id": "ing-q2b9qp2",
           "name": "Sel",
           "qty": 1,
-          "unit": "pincée"
+          "unit": "à convenance"
         },
         {
           "id": "ing-cgiztlu",
           "name": "Poivre",
           "qty": 1,
-          "unit": "pincée"
+          "unit": "à convenance"
         },
         {
           "id": "ing-u6d1jyr",
@@ -883,13 +883,13 @@
           "id": "ing-8gljua6",
           "name": "Sel",
           "qty": 1,
-          "unit": "pincée"
+          "unit": "à convenance"
         },
         {
           "id": "ing-k48z964",
           "name": "Poivre",
           "qty": 1,
-          "unit": "pincée"
+          "unit": "à convenance"
         }
       ],
       "steps": [
