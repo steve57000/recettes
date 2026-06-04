@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-04T09:02:23.866Z",
+  "exportedAt": "2026-06-04T09:04:49.895Z",
   "recipes": [
     {
       "badge": "Signature",
@@ -2088,7 +2088,7 @@
       "favorite": false
     }
   ],
-  "shoppingUpdatedAt": "2026-06-04T09:02:22.955Z",
+  "shoppingUpdatedAt": "2026-06-04T09:04:48.987Z",
   "shopping": [
     {
       "recipeId": "recipe-3e56doy",
@@ -2187,6 +2187,96 @@
       "name": "Huile d’olive",
       "qtyNumber": 1,
       "unit": "filet",
+      "bought": false
+    },
+    {
+      "recipeId": "recipe-rkf0fhb",
+      "ingredientId": "ing-6784bq0",
+      "recipeName": "Cheesecake aux fraises",
+      "name": "Biscuits (spéculoos ou petits-Beurre)",
+      "qtyNumber": 120,
+      "unit": "g",
+      "bought": false
+    },
+    {
+      "recipeId": "recipe-rkf0fhb",
+      "ingredientId": "ing-cx4a3wp",
+      "recipeName": "Cheesecake aux fraises",
+      "name": "Beurre",
+      "qtyNumber": 30,
+      "unit": "g",
+      "bought": false
+    },
+    {
+      "recipeId": "recipe-rkf0fhb",
+      "ingredientId": "ing-qfr33rm",
+      "recipeName": "Cheesecake aux fraises",
+      "name": "Fromage frais",
+      "qtyNumber": 825,
+      "unit": "g",
+      "bought": false
+    },
+    {
+      "recipeId": "recipe-rkf0fhb",
+      "ingredientId": "ing-noe2bwo",
+      "recipeName": "Cheesecake aux fraises",
+      "name": "Sucre (pour le cheesecake)",
+      "qtyNumber": 130,
+      "unit": "g",
+      "bought": false
+    },
+    {
+      "recipeId": "recipe-rkf0fhb",
+      "ingredientId": "ing-z55a035",
+      "recipeName": "Cheesecake aux fraises",
+      "name": "Crème fraîche épaisse",
+      "qtyNumber": 90,
+      "unit": "g",
+      "bought": false
+    },
+    {
+      "recipeId": "recipe-rkf0fhb",
+      "ingredientId": "ing-ejh8qb5",
+      "recipeName": "Cheesecake aux fraises",
+      "name": "Extrait de vanille",
+      "qtyNumber": 1,
+      "unit": "c. à soupe",
+      "bought": false
+    },
+    {
+      "recipeId": "recipe-rkf0fhb",
+      "ingredientId": "ing-x4hvwko",
+      "recipeName": "Cheesecake aux fraises",
+      "name": "Oeuf",
+      "qtyNumber": 3,
+      "unit": "pièce",
+      "bought": false
+    },
+    {
+      "recipeId": "recipe-rkf0fhb",
+      "ingredientId": "ing-ool98xq",
+      "recipeName": "Cheesecake aux fraises",
+      "name": "Fraises",
+      "qtyNumber": 250,
+      "unit": "g",
+      "bought": false
+    },
+    {
+      "recipeId": "recipe-rkf0fhb",
+      "ingredientId": "ing-n96iieh",
+      "recipeName": "Cheesecake aux fraises",
+      "name": "Eau de fleur d'oranger",
+      "qtyNumber": 2,
+      "unit": "c. à soupe",
+      "bought": false
+    },
+    {
+      "recipeId": "recipe-rkf0fhb",
+      "ingredientId": "ing-k815rfb",
+      "recipeName": "Cheesecake aux fraises",
+      "name": "Sucre (pour la compotée)",
+      "qtyNumber": 50,
+      "unit": "g",
       "bought": false
     }
   ]
