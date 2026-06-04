@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-04T16:16:24.900Z",
+  "exportedAt": "2026-06-04T16:17:29.485Z",
   "recipes": [
     {
       "badge": "Fraîcheur",
@@ -1125,7 +1125,7 @@
       ],
       "id": "recipe-td6d943",
       "name": "Rillettes de sardines à l'estragon",
-      "category": "Appéro",
+      "category": "Entrées",
       "tags": [
         "été",
         "frais",
@@ -1339,10 +1339,11 @@
       ],
       "id": "recipe-3e56doy",
       "name": "Quiche spirale aux légumes du soleil",
-      "category": "Tartes chaude",
+      "category": "Plats",
       "tags": [
         "végétarien",
-        "été"
+        "été",
+        "tarte chaude"
       ],
       "rating": 3,
       "description": "Une délicieuse quiche spirale colorée aux légumes du soleil, fondante, parfumée, elle apporte fraîcheur et gourmandise à chaque bouchée.",
