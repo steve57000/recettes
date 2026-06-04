@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-04T16:19:45.509Z",
+  "exportedAt": "2026-06-04T16:20:44.974Z",
   "recipes": [
     {
       "badge": "Fraîcheur",
@@ -102,7 +102,7 @@
       "tags": [
         "léger",
         "été",
-        "végétarient"
+        "végétarien"
       ],
       "rating": 3,
       "description": "Un taboulé frais et parfumé, mêlant semoule légère, herbes fraîches ciselées et légumes croquants, sublimé par des vrevettes juteuses et délicatement assaisonnées. Une salade ensoleillée, à la fois légère, gourmande et pleine de fraîcheur.",
@@ -215,7 +215,7 @@
       "category": "Entrées",
       "tags": [
         "pique-nique",
-        "végétarient"
+        "végétarien"
       ],
       "rating": 3,
       "description": "Un cake moelleux et parfumé où la courgette apporte une texture fondante, la feta une touche salée et crémeuse, et l'aneth un fraîcheur délicatement aromatique. Parfait pour une pause gourmande, à partager en toute simplicité.",
@@ -734,7 +734,7 @@
       "tags": [
         "rapide",
         "été",
-        "végétarient"
+        "végétarien"
       ],
       "rating": 3,
       "description": "Croquants et pleins de fraîcheur, les haricots verts se mêlent aus tomates juteuses, à la feta fondante et aux olives parfumées pour une salade ensoleillée aux saveurs grecques. Une assiettte légère, colorée et ultra gourmande, parfaite pour l'été.",
@@ -918,7 +918,7 @@
       "name": "Ratatouille",
       "category": "Plats",
       "tags": [
-        "vegétarient",
+        "vegétarien",
         "soleil"
       ],
       "rating": 3,
