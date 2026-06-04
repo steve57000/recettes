@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-04T16:31:22.268Z",
+  "exportedAt": "2026-06-04T16:32:58.006Z",
   "recipes": [
     {
       "badge": "Fraîcheur",
@@ -1689,7 +1689,7 @@
         {
           "id": "ing-ve66sr4",
           "name": "Persil plat",
-          "qty": 1,
+          "qty": 0.5,
           "unit": "botte"
         },
         {
@@ -1724,7 +1724,7 @@
         },
         {
           "id": "ing-60svpat",
-          "name": "Boulgour cuit",
+          "name": "Boulgour",
           "qty": 120,
           "unit": "g"
         },
