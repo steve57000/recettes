@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-04T11:05:07.202Z",
+  "exportedAt": "2026-06-04T11:06:50.007Z",
   "recipes": [
     {
       "badge": "Signature",
@@ -2088,6 +2088,16 @@
       "favorite": false
     }
   ],
-  "shoppingUpdatedAt": "2026-06-04T11:05:06.291Z",
-  "shopping": []
+  "shoppingUpdatedAt": "2026-06-04T11:06:49.095Z",
+  "shopping": [
+    {
+      "recipeId": "recipe-3e56doy",
+      "ingredientId": "ing-0hxi9ph",
+      "recipeName": "Quiche spirale aux légumes du soleil",
+      "name": "Poivron jaune",
+      "qtyNumber": 1,
+      "unit": "pièce",
+      "bought": false
+    }
+  ]
 }
