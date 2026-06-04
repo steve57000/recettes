@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-04T16:34:58.533Z",
+  "exportedAt": "2026-06-04T16:36:13.355Z",
   "recipes": [
     {
       "badge": "Fraîcheur",
@@ -185,7 +185,7 @@
           "id": "ing-ib1lxpv",
           "name": "Poivre",
           "qty": 1,
-          "unit": "pincée"
+          "unit": "à convenance"
         }
       ],
       "steps": [
@@ -489,13 +489,13 @@
           "id": "ing-3md1fk2",
           "name": "Sel",
           "qty": 1,
-          "unit": "pincée"
+          "unit": "à convenance"
         },
         {
           "id": "ing-fsjjq8t",
           "name": "Poivre",
           "qty": 1,
-          "unit": "pincée"
+          "unit": "à convenance"
         }
       ],
       "steps": [
