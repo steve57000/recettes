@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-04T16:20:44.974Z",
+  "exportedAt": "2026-06-04T16:21:44.475Z",
   "recipes": [
     {
       "badge": "Fraîcheur",
@@ -1054,7 +1054,7 @@
       "badge": "Fraîcheur",
       "difficulty": "Facile",
       "baseServings": 4,
-      "time": 15,
+      "time": 20,
       "ingredients": [
         {
           "id": "ing-ekbb0i9",
