@@ -12,7 +12,7 @@ body {
     radial-gradient(circle at 88% 8%, rgba(255, 107, 107, 0.22), transparent 30rem),
     linear-gradient(180deg, #fffaf4 0%, var(--bg) 52%, #fff7ec 100%);
   color: var(--text);
-  font-family: var(--font);
+  font-family: var(--font), serif;
 }
 
 a { color: inherit; }
@@ -435,12 +435,9 @@ label {
 }
 
 .icon-danger {
-  width: 44px;
-  padding: 0;
-  background: #fff5f5;
   color: var(--danger);
-  border: 1px solid #ffc9c9;
   box-shadow: none;
+  border: 1px solid var(--danger);
 }
 
 .source,
@@ -1637,7 +1634,7 @@ label {
   flex-wrap: wrap;
   gap: 0.35rem;
   min-height: 28px;
-  margin-bottom: 0.6rem;
+  margin-bottom: 2rem;
 }
 
 .tag-row span {
@@ -3164,16 +3161,6 @@ label,
   }
 }
 
-.icon-danger {
-  width: 46px;
-  min-height: 46px;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  color: var(--danger);
-  box-shadow: none;
-}
-
 .icon-danger:hover,
 .icon-danger:focus-visible {
   background: rgba(201, 42, 42, 0.08);
@@ -3191,27 +3178,8 @@ label,
 .recipe-body {
   position: relative;
 }
-
-.recipe-delete-button {
-  position: absolute;
-  right: 1.35rem;
-  bottom: 4.55rem;
-  z-index: 1;
-  width: 3rem;
-  height: 3rem;
-  min-height: 3rem;
-  padding: 0.5rem;
-  border: 1px solid rgba(201, 42, 42, 0.16);
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.82);
-  box-shadow: 0 14px 28px rgba(201, 42, 42, 0.12);
-  backdrop-filter: blur(10px);
-}
-
-.recipe-delete-button:hover,
-.recipe-delete-button:focus-visible {
-  background: #fff5f5;
-  box-shadow: 0 18px 34px rgba(201, 42, 42, 0.18);
+.card-actions > .icon-danger {
+  margin-top: 10px;
 }
 
 .media-links {
@@ -3219,13 +3187,6 @@ label,
 }
 
 @media (max-width: 520px) {
-  .recipe-delete-button {
-    right: 1rem;
-    bottom: 4.3rem;
-    width: 2.85rem;
-    height: 2.85rem;
-    min-height: 2.85rem;
-  }
 
   .trash-icon {
     width: 1.85rem;
@@ -3299,11 +3260,6 @@ label,
     padding: 0.3rem 0.54rem;
     font-size: 0.9rem;
   }
-
-  .icon-danger {
-    width: 44px;
-    min-height: 44px;
-  }
 }
 
 .print-recipe-document {
@@ -3364,7 +3320,7 @@ body.printing-recipe .print-recipe-document {
     height: auto;
     page-break-after: auto;
     color: #25160f;
-    font-family: var(--font);
+    font-family: var(--font), serif;
     font-size: 9.4pt;
     line-height: 1.28;
     break-inside: avoid;

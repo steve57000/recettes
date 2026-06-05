@@ -139,8 +139,8 @@ async function loadInitialRecipes() {
 
 function normalizeRecipe(recipe) {
   const normalized = {
-    badge: 'Maison',
-    difficulty: 'Maison',
+    badge: 'Nouveau',
+    difficulty: 'Moyen',
     baseServings: 2,
     time: 20,
     ingredients: [],
@@ -149,9 +149,9 @@ function normalizeRecipe(recipe) {
   };
   return {
     ...normalized,
-    category: normalizeDisplayLabel(normalized.category || 'Mes recettes'),
-    badge: normalizeDisplayLabel(normalized.badge || 'Maison'),
-    difficulty: normalizeDisplayLabel(normalized.difficulty || 'Maison'),
+    category: normalizeDisplayLabel(normalized.category || ''),
+    badge: normalizeDisplayLabel(normalized.badge || 'Nouveau'),
+    difficulty: normalizeDisplayLabel(normalized.difficulty || 'Moyen'),
     ingredients: normalizeIngredients(normalized.ingredients),
     steps: normalizeSteps(normalized.steps),
     rating: clampRating(normalized.rating),
@@ -1233,16 +1233,16 @@ function renderRecipeModal() {
         <div class="form-grid">
           <label>Nom<input id="r-name" placeholder="Ex : Lasagnes de famille" /></label>
           <label>Menu / catégorie<input id="r-category" list="category-options" placeholder="Salades, Plats, Desserts..." value="Mes recettes" /></label>
-          <label>Personnes<input id="r-base" type="number" min="1" value="2" /></label>
-          <label>Temps (min)<input id="r-time" type="number" min="1" value="20" /></label>
-          <label>Difficulté<input id="r-difficulty" list="difficulty-options" placeholder="Facile, Moyen, Chef..." value="Maison" /></label>
+          <label>Personnes<input id="r-base" type="number" min="2" value="4" /></label>
+          <label>Temps (min)<input id="r-time" type="number" min="5" value="20" /></label>
+          <label>Difficulté<input id="r-difficulty" list="difficulty-options" placeholder="Facile, Moyen, Chef..." value="Moyen" /></label>
           <label>Badge<input id="r-badge" list="badge-options" placeholder="Signature, Express..." value="Nouveau" /></label>
           <label>Tags<input id="r-tags" list="tag-options" placeholder="rapide, été, végétarien..." /></label>
-          <label>Note<input id="r-rating" type="hidden" value="3" /><span class="rating-picker" id="rating-picker" aria-label="Choisir une note">${[1, 2, 3, 4, 5].map((value) => `<button type="button" class="rating-button" data-rate="${value}">★</button>`).join('')}</span></label>
+          <label>Note<input id="r-rating" type="hidden" value="0" /><span class="rating-picker" id="rating-picker" aria-label="Choisir une note">${[1, 2, 3, 4, 5].map((value) => `<button type="button" class="rating-button" data-rate="${value}">★</button>`).join('')}</span></label>
         </div>
         ${renderOptionDatalist('category-options', state.recipes.map((recipe) => recipe.category || 'Mes recettes'))}
-        ${renderOptionDatalist('difficulty-options', [...state.recipes.map((recipe) => recipe.difficulty || 'Maison'), 'Facile', 'Moyen', 'Difficile', 'Chef'])}
-        ${renderOptionDatalist('badge-options', [...state.recipes.map((recipe) => recipe.badge || 'Maison'), 'Nouveau', 'Signature', 'Express', 'Familial'])}
+        ${renderOptionDatalist('difficulty-options', [...state.recipes.map((recipe) => recipe.difficulty || 'Moyen'), 'Facile', 'Moyen', 'Difficile', 'Chef'])}
+        ${renderOptionDatalist('badge-options', [...state.recipes.map((recipe) => recipe.badge || 'Nouveau'), 'Nouveau', 'Signature', 'Express', 'Familial', 'Gourmand', 'Sans rancune !!!'])}
         ${renderOptionDatalist('tag-options', state.recipes.flatMap((recipe) => normalizeTags(recipe.tags || recipe.category || recipe.badge)), normalizeTagLabel)}
         ${renderOptionDatalist('ingredient-name-options', state.recipes.flatMap((recipe) => recipe.ingredients.map((ingredient) => ingredient.name)))}
         <label>Description<textarea id="r-description" placeholder="Courte description appétissante"></textarea></label>
@@ -1278,9 +1278,9 @@ function recipeCard(r) {
       <div class="tag-row">${normalizeTags(r.tags || r.category || r.badge).slice(0, 4).map((tag) => `<span>#${esc(tag)}</span>`).join('')}</div>
       <div class="card-actions">
         <button data-open="${esc(r.id)}">Voir</button>
-        ${renderPrintButton(r, true)}
         <button class="secondary" data-edit="${esc(r.id)}">Modifier</button>
-        <button class="icon-danger recipe-delete-button" title="Supprimer" aria-label="Supprimer ${esc(r.name)}" data-del="${esc(r.id)}"><img class="trash-icon" src="./assets/corbeille.png" alt="" aria-hidden="true" loading="lazy" /></button>
+        ${renderPrintButton(r, true)}
+        <button class="icon-danger secondary" title="Supprimer" aria-label="Supprimer ${esc(r.name)}" data-del="${esc(r.id)}">Supprimé</button>
       </div>
       <div class="media-links">${r.videoUrl ? '<span>🎬 vidéo</span>' : ''}${r.sourceUrl ? `<a class="source" href="${esc(r.sourceUrl)}" target="_blank" rel="noreferrer">Source web</a>` : ''}</div>
     </div>
