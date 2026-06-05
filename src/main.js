@@ -81,6 +81,8 @@ let hasStoredShoppingState = false;
 const state = load();
 let ingredientRows = [emptyIngredient()];
 let stepRows = [emptyStep()];
+let recipeReturnTarget = null;
+let pendingRecipeScroll = null;
 
 function load() {
   try {
@@ -870,6 +872,75 @@ function currentRoute() {
   return { page: 'home', anchor: hash };
 }
 
+function currentHash() {
+  return window.location.hash || '#top';
+}
+
+function rememberRecipeReturn(trigger, recipeId) {
+  const route = currentRoute();
+  if (route.page === 'recipe' && recipeReturnTarget?.recipeId === recipeId) return;
+  if (!['home', 'favorites', 'shopping', 'backup'].includes(route.page)) return;
+
+  const grid = trigger?.closest?.('.recipe-grid');
+  const gridSelector = grid?.classList.contains('favorite-grid')
+    ? '.favorite-grid'
+    : grid?.classList.contains('recipes-results')
+      ? '.recipes-results'
+      : '.recipe-grid';
+
+  recipeReturnTarget = {
+    recipeId,
+    page: route.page,
+    hash: currentHash(),
+    gridSelector,
+    scrollY: window.scrollY,
+  };
+}
+
+function recipeCardSelector(recipeId) {
+  if (window.CSS?.escape) return `[data-recipe-card="${CSS.escape(recipeId)}"]`;
+  return `[data-recipe-card="${String(recipeId).replace(/"/g, '\\"')}"]`;
+}
+
+function scrollRecipeCardIntoView(target) {
+  if (!target?.recipeId) return;
+  const root = target.gridSelector ? document.querySelector(target.gridSelector) : document;
+  const card = root?.querySelector?.(recipeCardSelector(target.recipeId))
+    || document.querySelector(recipeCardSelector(target.recipeId));
+
+  if (card) {
+    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    card.classList.add('is-return-target');
+    window.setTimeout(() => card.classList.remove('is-return-target'), 900);
+    return;
+  }
+
+  if (Number.isFinite(target.scrollY)) window.scrollTo({ top: target.scrollY, behavior: 'smooth' });
+}
+
+function scheduleRecipeReturnScroll(target = recipeReturnTarget) {
+  if (!target) return;
+  pendingRecipeScroll = target;
+  window.setTimeout(() => {
+    if (!pendingRecipeScroll) return;
+    const scrollTarget = pendingRecipeScroll;
+    pendingRecipeScroll = null;
+    scrollRecipeCardIntoView(scrollTarget);
+  }, 80);
+}
+
+function returnToRememberedRecipe(recipeId, fallbackHash = '#recettes') {
+  const target = recipeReturnTarget?.recipeId === recipeId ? recipeReturnTarget : null;
+  if (!target || target.page === 'recipe') {
+    window.location.hash = fallbackHash;
+    return;
+  }
+
+  scheduleRecipeReturnScroll(target);
+  if (currentHash() === target.hash) render();
+  else window.location.hash = target.hash;
+}
+
 function renderHeader() {
   const route = currentRoute();
   const activePage = route.page === 'shopping' ? 'shopping' : route.page === 'backup' ? 'backup' : route.page === 'favorites' ? 'favorites' : 'home';
@@ -1084,8 +1155,9 @@ function renderRecipePage(recipeId) {
   if (!recipe) {
     return `<article class="panel page-panel"><p class="eyebrow">Recette introuvable</p><h2>Impossible d’ouvrir cette fiche</h2><p class="small">La recette a peut-être été supprimée.</p><a class="button-link" href="#recettes">Retour aux recettes</a></article>`;
   }
+  const returnHref = recipeReturnTarget?.recipeId === recipe.id ? recipeReturnTarget.hash : '#recettes';
   return `<section class="page-hero recipe-page-hero premium-glass">
-      <a class="secondary-link button-link" href="#recettes">← Retour aux recettes</a>
+      <a class="secondary-link button-link" href="${esc(returnHref)}" data-return-recipe="${esc(recipe.id)}">← Retour aux recettes</a>
       <div><p class="eyebrow">Lecture recette</p><h1>${esc(recipe.name)}</h1><p class="lead">Une page dédiée pour cuisiner confortablement, avec les ingrédients, les portions et les étapes en pleine largeur.</p></div>
     </section>
     <section id="selected" class="selected-zone recipe-page-zone"></section>`;
@@ -1124,6 +1196,9 @@ function render() {
   drawIngredientRows();
   drawStepRows();
   if (route.page === 'recipe') openRecipe(route.id, { scroll: false });
+  if (recipeReturnTarget && route.page === recipeReturnTarget.page && currentHash() === recipeReturnTarget.hash && !state.formOpen) {
+    scheduleRecipeReturnScroll(recipeReturnTarget);
+  }
   if (!githubAutoLoadStarted && githubConfig().enabled && githubConfigured()) {
     githubAutoLoadStarted = true;
     setTimeout(() => loadFromGitHub(true), 0);
@@ -1193,7 +1268,7 @@ function renderRecipeModal() {
 }
 
 function recipeCard(r) {
-  return `<article class="recipe-card">
+  return `<article class="recipe-card" data-recipe-card="${esc(r.id)}">
     <div class="recipe-visual" style="background-image:${esc(asCssImage(r))}"><span>${esc(r.badge || 'Maison')}</span>${renderFavoriteButton(r, true)}</div>
     <div class="recipe-body">
       <div class="recipe-meta"><span>${esc(r.category || 'Mes recettes')}</span><span>${esc(r.time || 20)} min</span><span>${esc(r.difficulty || 'Facile')}</span></div>
@@ -1304,6 +1379,50 @@ async function waitForPrintableRecipeReady(printDocument) {
   await waitForNextFrame();
 }
 
+function removePrintFrames() {
+  document.querySelectorAll('.print-recipe-frame').forEach((node) => node.remove());
+}
+
+function buildPrintFrameHtml(recipe, servings) {
+  return `<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>${esc(recipe.name)} - Impression</title>
+    <link rel="stylesheet" href="./src/styles.css" />
+    <style>
+      html, body { margin: 0; background: #fff !important; }
+      .print-recipe-document {
+        display: block !important;
+        position: static !important;
+        width: auto !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+      }
+    </style>
+  </head>
+  <body class="printing-recipe">${renderPrintableRecipe(recipe, servings)}</body>
+</html>`;
+}
+
+function createPrintFrame(recipe, servings) {
+  removePrintFrames();
+  const frame = document.createElement('iframe');
+  frame.className = 'print-recipe-frame';
+  frame.setAttribute('title', `Impression ${recipe.name}`);
+  frame.srcdoc = buildPrintFrameHtml(recipe, servings);
+  document.body.appendChild(frame);
+  return frame;
+}
+
+function waitForPrintFrame(frame) {
+  return new Promise((resolve) => {
+    if (frame.contentDocument?.readyState === 'complete') return resolve();
+    frame.addEventListener('load', resolve, { once: true });
+  });
+}
+
 async function printRecipe(recipeId, triggerButton = null) {
   const recipe = state.recipes.find((item) => item.id === recipeId);
   if (!recipe) return;
@@ -1391,7 +1510,11 @@ function bindRecipeCardActions(scope = document) {
   });
 
   scope.querySelectorAll('[data-edit]').forEach((b) => {
-    b.onclick = () => editRecipe(b.getAttribute('data-edit'));
+    b.onclick = () => {
+      const recipeId = b.getAttribute('data-edit');
+      rememberRecipeReturn(b, recipeId);
+      editRecipe(recipeId);
+    };
   });
 
   scope.querySelectorAll('[data-print]').forEach((b) => {
@@ -1403,7 +1526,18 @@ function bindRecipeCardActions(scope = document) {
   });
 
   scope.querySelectorAll('[data-open]').forEach((b) => {
-    b.onclick = () => { window.location.hash = `recette/${b.getAttribute('data-open')}`; };
+    b.onclick = () => {
+      const recipeId = b.getAttribute('data-open');
+      rememberRecipeReturn(b, recipeId);
+      window.location.hash = `recette/${recipeId}`;
+    };
+  });
+
+  scope.querySelectorAll('[data-return-recipe]').forEach((b) => {
+    b.onclick = (event) => {
+      event.preventDefault();
+      returnToRememberedRecipe(b.getAttribute('data-return-recipe'));
+    };
   });
 }
 
@@ -1898,6 +2032,7 @@ async function saveRecipeFromForm() {
   const name = document.getElementById('r-name').value.trim();
   if (!name) return alert('Nom requis');
   const file = document.getElementById('r-file').files[0];
+  const wasEditing = Boolean(state.editingId);
   const existing = state.recipes.find((r) => r.id === state.editingId) || {};
   const saveButton = document.getElementById('save-recipe');
   if (saveButton) saveButton.disabled = true;
@@ -1938,8 +2073,12 @@ async function saveRecipeFromForm() {
   ingredientRows = [emptyIngredient()];
   stepRows = [emptyStep()];
   save();
-  window.location.hash = `recette/${recipe.id}`;
-  render();
+  if (wasEditing && recipeReturnTarget?.recipeId === recipe.id && recipeReturnTarget.page !== 'recipe') {
+    returnToRememberedRecipe(recipe.id);
+  } else {
+    window.location.hash = `recette/${recipe.id}`;
+    render();
+  }
   scheduleGithubSync('Enregistrement de recette Maison Saison');
 }
 
@@ -1954,12 +2093,17 @@ function openRecipeForm() {
 }
 
 function closeRecipeForm() {
+  const closingRecipeId = state.editingId;
   state.editingId = null;
   state.formOpen = false;
   ingredientRows = [emptyIngredient()];
   stepRows = [emptyStep()];
   save();
-  render();
+  if (closingRecipeId && recipeReturnTarget?.recipeId === closingRecipeId && recipeReturnTarget.page !== 'recipe') {
+    returnToRememberedRecipe(closingRecipeId);
+  } else {
+    render();
+  }
 }
 
 function editRecipe(recipeId) {
