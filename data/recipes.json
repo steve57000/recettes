@@ -1,6 +1,101 @@
 {
-  "exportedAt": "2026-06-07T15:14:20.883Z",
+  "exportedAt": "2026-06-07T15:48:43.711Z",
   "recipes": [
+    {
+      "badge": "Asiatiques",
+      "difficulty": "Moyen",
+      "baseServings": 4,
+      "time": 85,
+      "ingredients": [
+        {
+          "id": "ing-ro5qhhv",
+          "name": "Anneaux d'encornet",
+          "qty": 400,
+          "unit": "g"
+        },
+        {
+          "id": "ing-aaluh7s",
+          "name": "Carottes",
+          "qty": 2,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-lzfg9e7",
+          "name": "Gingembre",
+          "qty": 1,
+          "unit": "à convenance"
+        },
+        {
+          "id": "ing-80lsbhr",
+          "name": "Huile de sésame",
+          "qty": 20,
+          "unit": "ml"
+        },
+        {
+          "id": "ing-0mubwvb",
+          "name": "Nouilles asiatiques",
+          "qty": 240,
+          "unit": "g"
+        },
+        {
+          "id": "ing-brw8vmt",
+          "name": "Oignons",
+          "qty": 2,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-xxdjhz4",
+          "name": "Poireaux",
+          "qty": 2,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-bb89vdn",
+          "name": "Sauce soja salée",
+          "qty": 50,
+          "unit": "ml"
+        }
+      ],
+      "steps": [
+        {
+          "id": "step-vjdun5y",
+          "text": "Pour les encornets, saisissez-les très rapidement à feu vif (1 à 2 minutes max) et retirez-les dès qu’ils deviennent opaques. Les mettre de côté."
+        },
+        {
+          "id": "step-hw4cv7d",
+          "text": "Pour les légumes, épluchez et coupez la carotte en fins bâtonnets. Emincez l'oignon. Coupez et retirez la base abîmée du poireau. Incisez-le en deux dans la longueur et rincez-le soigneusement. Emincez-le. Dans une sauteuse, faites chauffez un filet d'huile de cuisson à feu moyen à vif. Faites revenir la carotte, l'oignon et le poireau 10 minutes. Salez légèrement, poivrez. Pelez et hachez l'ail et le gingembre. Au bout des 10 minutes, ajoutez l'ail, le gingembre. Poursuivez la cuisson 5 minutes supplémentaires. En parallèle, faites cuire les nouilles asiatiques."
+        },
+        {
+          "id": "step-isb26hc",
+          "text": "Pour les nouilles asiatiques, dans une casserole, portez à ébullition de l'eau salée. Faites cuire les nouilles asiatiques selon les indications du paquet. Egouttez-les et passez-les sous l'eau froide pour stopper la cuisson."
+        },
+        {
+          "id": "step-catefzh",
+          "text": "Une fois le tout cuit, ajoutez les nouilles asiatiques et la sauce soja dans la sauteuse des légumes et des encornets. Faites revenir le tout 2 minutes à feu vif pour que le tout soit chaud. Goûtez et rectifiez l'assaisonnement si nécessaire."
+        },
+        {
+          "id": "step-srilma4",
+          "text": "Servez sans attendre vos nouilles sautées aux encornets et au poireau. Arrosez le tout d'huile de sésame."
+        }
+      ],
+      "id": "recipe-q7rocqn",
+      "name": "Nouilles sautées aux encornets, poireau et huile de sésame",
+      "category": "Plats",
+      "tags": [
+        "plat chaud",
+        "asiatiques"
+      ],
+      "rating": 3,
+      "description": "Des nouilles sautées au wok, enrobées d’une huile de sésame parfumée, accompagnées d’encornets tendres et de poireaux fondants… un plat gourmand, équilibré et délicatement parfumé aux accents asiatiques.",
+      "notes": "Fais bien chauffer ton wok ou ta grande poêle avant d’ajouter les ingrédients. La cuisson doit être très vive pour saisir les encornets et donner ce léger goût grillé typique du sauté asiatique, sans qu’ils rendent trop d’eau.",
+      "photoUrl": "https://img.cuisineactuelle.fr/1200x675/2025/01/28/i59960-nouilles-sautees-aux-legumes-la-recette-incontournable-du-nouvel-an-chinois.jpg",
+      "photoData": "",
+      "videoUrl": "",
+      "sourceUrl": "",
+      "sourceName": "",
+      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
+      "favorite": false
+    },
     {
       "badge": "Gourmand",
       "difficulty": "Moyen",
