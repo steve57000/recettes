@@ -1,6 +1,103 @@
 {
-  "exportedAt": "2026-06-07T14:09:04.211Z",
+  "exportedAt": "2026-06-07T15:14:20.883Z",
   "recipes": [
+    {
+      "badge": "Gourmand",
+      "difficulty": "Moyen",
+      "baseServings": 4,
+      "time": 65,
+      "ingredients": [
+        {
+          "id": "ing-dsg9ihv",
+          "name": "Champignons de paris blancs",
+          "qty": 400,
+          "unit": "g"
+        },
+        {
+          "id": "ing-0miluob",
+          "name": "Crème liquide",
+          "qty": 200,
+          "unit": "ml"
+        },
+        {
+          "id": "ing-8xfmx3v",
+          "name": "Vin blanc",
+          "qty": 20,
+          "unit": "cl"
+        },
+        {
+          "id": "ing-1s2h0o4",
+          "name": "Côtes de porc sans os",
+          "qty": 4,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-bwvpboo",
+          "name": "Ail",
+          "qty": 2,
+          "unit": "gousse"
+        },
+        {
+          "id": "ing-882fvle",
+          "name": "Oignons",
+          "qty": 2,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-apzgvvs",
+          "name": "Persil plat",
+          "qty": 1,
+          "unit": "botte"
+        },
+        {
+          "id": "ing-jgtowi7",
+          "name": "Riz basmati",
+          "qty": 300,
+          "unit": "g"
+        },
+        {
+          "id": "ing-w5bw9i8",
+          "name": "Moutarde",
+          "qty": 2,
+          "unit": "c. à soupe"
+        }
+      ],
+      "steps": [
+        {
+          "id": "step-c99ipcj",
+          "text": "Pour la sauce forestière, émincez l'oignon. Coupez les champignons de Paris en fines tranches. Pressez ou hachez l'ail. Dans une sauteuse, faites chauffez un filet d'huile d'olive à feu vif. Faites revenir l'oignon, l'ail et les champignons 10 minutes environ sans les saler au début, afin qu’ils dorent et concentrent leurs arômes. Salez, poivrez. Déglace ensuite avec un peu de vin blanc pour récupérer tous les sucs de cuisson. Au bout des 10 minutes, ajoutez la crème et laissez mijoter à feu doux 3 minutes supplémentaires. Puis ajoute la moutarde hors du feu pour garder toute sa puissance et éviter qu’elle ne devienne amère. Goûtez et rectifiez l'assaisonnement si nécessaire. En parallèle, faites cuire le riz."
+        },
+        {
+          "id": "step-1683mg0",
+          "text": "Pour le riz, portez à ébullition une casserole d'eau salée. Rincez le riz abondamment, il faut bien le nettoyer, l'eau doit être claire. Faites cuire le riz selon les indications du paquet. Pendant le cuisson du riz, préparez les côtes de porc."
+        },
+        {
+          "id": "step-5hxkv6n",
+          "text": "Pour les côtes de porc, salez et poivrez les côtes de porc. Dans une poêle, faites chauffez un filet d'huile d'olive a feu vif. Saisissez les côtes de porc 1 minutes de chaque côté pour les dorer. Baissez sur feu moyen et poursuivez la cuisson 2 à 3 minutes de chaque côté jusqu'à ce qu'elles soient cuites à cœur (la chair n'est plus rose). En parallèle, effeuillez et ciselez le persil."
+        },
+        {
+          "id": "step-moe0yms",
+          "text": "Servez votre côte de porc nappée de sauce forestière et accompagnée du riz. Parsemez le tout de persil."
+        }
+      ],
+      "id": "recipe-wxx2r3i",
+      "name": "Côte de porc à la forestière",
+      "category": "Plats",
+      "tags": [
+        "plat chaud",
+        "réconfortent"
+      ],
+      "rating": 3,
+      "description": "Une côte de porc tendre et dorée, nappée d’une sauce forestière onctueuse aux champignons et relevée d’une pointe de moutarde… un plat généreux, parfumé et réconfortant qui sent bon la cuisine traditionnelle.",
+      "notes": "Après cuisson des côtes de porc, laisse-les reposer 2 à 3 minutes sous une feuille d’aluminium avant de les napper de sauce. Elles resteront plus juteuses et la viande sera encore plus tendre à la dégustation.",
+      "photoUrl": "https://www.bi-gout.com/wp-content/uploads/2025/11/Araignee-de-porc-sauce-champignon.jpeg",
+      "photoData": "",
+      "videoUrl": "",
+      "sourceUrl": "https://cuisinons-tous.com/plats/viandes-poissons/cotes-de-porc-forestieres/",
+      "sourceName": "Source web",
+      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
+      "favorite": false
+    },
     {
       "badge": "Douceur",
       "difficulty": "Difficile",
