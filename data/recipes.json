@@ -1,6 +1,109 @@
 {
-  "exportedAt": "2026-06-07T15:48:43.711Z",
+  "exportedAt": "2026-06-07T16:16:36.099Z",
   "recipes": [
+    {
+      "badge": "Gourmand",
+      "difficulty": "Moyen",
+      "baseServings": 4,
+      "time": 75,
+      "ingredients": [
+        {
+          "id": "ing-d7evivt",
+          "name": "Cébette",
+          "qty": 1,
+          "unit": "botte"
+        },
+        {
+          "id": "ing-ucxfdls",
+          "name": "Gingembre",
+          "qty": 1,
+          "unit": "à convenance"
+        },
+        {
+          "id": "ing-ip9919g",
+          "name": "Oignons",
+          "qty": 5,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-loaq1uj",
+          "name": "Riz basmati",
+          "qty": 300,
+          "unit": "g"
+        },
+        {
+          "id": "ing-o5sv7fv",
+          "name": "Sauce soja salée",
+          "qty": 80,
+          "unit": "ml"
+        },
+        {
+          "id": "ing-sjvvcyn",
+          "name": "Boeuf",
+          "qty": 700,
+          "unit": "g"
+        },
+        {
+          "id": "ing-7orcu9h",
+          "name": "Maïzena",
+          "qty": 2,
+          "unit": "c. à café"
+        },
+        {
+          "id": "ing-s95vb8m",
+          "name": "Sésame doré",
+          "qty": 20,
+          "unit": "g"
+        },
+        {
+          "id": "ing-o2vrk9z",
+          "name": "Vinaigre blanc",
+          "qty": 2,
+          "unit": "c. à soupe"
+        },
+        {
+          "id": "ing-d4k19sl",
+          "name": "Eau tiède",
+          "qty": 2,
+          "unit": "c. à soupe"
+        }
+      ],
+      "steps": [
+        {
+          "id": "step-9wusg7t",
+          "text": "Pour la marinade, épluchez et hachez finement le gingembre. Dans un bol, diluez la maïzena dans l'eau tiède. Ajoutez la sauce soja, le gingembre, le vinaigre et les émincés de bœuf. Poivrez. Mélangez bien et laissez mariner au réfrigérateur pendant 15 à 30 minutes. Cela va l’attendrir et lui donner une texture bien moelleuse après cuisson. Pendant ce temps, faites cuire le riz."
+        },
+        {
+          "id": "step-wsj5m11",
+          "text": "Pour le riz, portez à ébullition une casserole d'eau salée. Faites cuire le riz selon les indications du paquet. Pendant la cuisson du riz, faites cuire le bœuf aux oignons."
+        },
+        {
+          "id": "step-id791xv",
+          "text": "Pour le bœuf aux oignons, émincez les oignons. Dans une sauteuse, faites chauffer un filet d'huile de cuisson à feu moyen à vif. Faites revenir les oignons à feu moyen assez longtemps jusqu’à ce qu’ils deviennent bien fondants et légèrement sucrés. Tu obtiendras une sauce plus ronde et beaucoup plus parfumée. Au bout des 5 minutes de cuisson, ajoutez les émincés de bœuf avec la marinade et poursuivez la cuisson 7 minutes supplémentaires. Goûtez et rectifiez l'assaisonnement si nécessaire. Retirez la base de la cébette et émincez-la."
+        },
+        {
+          "id": "step-lvebx1m",
+          "text": "Servez votre bœuf aux oignons accompagné du riz et parsemé de cébette et de sésame doré."
+        }
+      ],
+      "id": "recipe-cme6h6n",
+      "name": "Bœuf aux oignons",
+      "category": "Plats",
+      "tags": [
+        "plat chaud",
+        "réconfortent"
+      ],
+      "rating": 3,
+      "description": "De fines lamelles de bœuf tendrement saisies, enrobées d’une sauce savoureuse et parfumée, accompagnées d’oignons fondants légèrement caramélisés… un plat généreux, gourmand et plein de caractère.",
+      "notes": "Sers ton bœuf aux oignons dans un plat bien chaud, en formant un petit dôme au centre, puis parsème de quelques oignons caramélisés sur le dessus. Ajoute un peu de ciboulette ciselée ou de graines de sésame pour apporter de la couleur et une touche gourmande.",
+      "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIHdo5Ez6fSg8TP3OnT6MIYua1uAaJjFI9vyBaH17Ijw&s",
+      "photoData": "",
+      "videoUrl": "",
+      "sourceUrl": "https://www.marmiton.org/recettes/recette_boeuf-aux-oignons-a-la-chinoise_36375.aspx",
+      "sourceName": "Source web",
+      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
+      "favorite": false
+    },
     {
       "badge": "Asiatiques",
       "difficulty": "Moyen",
