@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-07T13:07:36.787Z",
+  "exportedAt": "2026-06-07T13:11:58.399Z",
   "recipes": [
     {
       "badge": "Réconfort",
@@ -489,7 +489,7 @@
         },
         {
           "id": "step-2fcbvho",
-          "text": "Rincez et équetez les fraises, puis coupez-les en deux ou en quatre. Placez les fraises dans une petite casserole, ajoutez le sucre, l'eau de fleur d'oranger et faites compoter le tout pendant 5 minutes à feu doux. Une fois refroidi"
+          "text": "Rincez et équeutez les fraises, puis coupez-les en deux ou en quatre. Placez les fraises dans une petite casserole, ajoutez le sucre, l'eau de fleur d'oranger et faites compoter le tout pendant 5 minutes à feu doux. Laissez refroidir, puis mixez la compotée, puis la passez au chinois afin de retirer les pépins et avoir une texture bien lisse."
         },
         {
           "id": "step-ewxoafh",
@@ -2060,8 +2060,207 @@
         "à emporter"
       ],
       "favorite": false
+    },
+    {
+      "badge": "Pâtisserie",
+      "difficulty": "Chef",
+      "baseServings": 8,
+      "time": 75,
+      "ingredients": [
+        {
+          "id": "pate",
+          "name": "Pâte sablée",
+          "qty": 1,
+          "unit": "pièce"
+        },
+        {
+          "id": "fraises",
+          "name": "Fraises",
+          "qty": 650,
+          "unit": "g"
+        },
+        {
+          "id": "lait",
+          "name": "Lait",
+          "qty": 50,
+          "unit": "cl"
+        },
+        {
+          "id": "oeufs",
+          "name": "Jaunes d’œufs",
+          "qty": 4,
+          "unit": "pièce"
+        },
+        {
+          "id": "sucre",
+          "name": "Sucre",
+          "qty": 110,
+          "unit": "g"
+        },
+        {
+          "id": "vanille",
+          "name": "Vanille",
+          "qty": 1,
+          "unit": "gousse"
+        }
+      ],
+      "steps": [
+        {
+          "id": "step-c1p5gb4",
+          "text": "Cuire la pâte à blanc. Préparer une crème pâtissière vanillée et la refroidir. Garnir le fond de tarte, disposer les fraises coupées et napper légèrement. Réserver au frais avant dégustation."
+        }
+      ],
+      "id": "tarte-fraises",
+      "name": "Tarte aux fraises pâtissière",
+      "category": "Desserts",
+      "image": "linear-gradient(135deg, rgba(255, 107, 107, 0.8), rgba(255, 236, 153, 0.76)), url(https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?auto=format&fit=crop&w=1200&q=80)",
+      "photoUrl": "https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?auto=format&fit=crop&w=1200&q=80",
+      "videoUrl": "",
+      "sourceName": "",
+      "sourceUrl": "",
+      "description": "Un dessert vitrine avec pâte croustillante, crème vanillée et fraises brillantes.",
+      "notes": "Pour un rendu pro, alternez les pointes des fraises vers l’extérieur.",
+      "rating": 3,
+      "tags": [
+        "pâtisserie",
+        "dessert",
+        "fruité",
+        "week-end"
+      ],
+      "favorite": false
+    },
+    {
+      "badge": "Douceur",
+      "difficulty": "Facile",
+      "baseServings": 4,
+      "time": 35,
+      "ingredients": [
+        {
+          "id": "potimarron",
+          "name": "Potimarron",
+          "qty": 1,
+          "unit": "pièce"
+        },
+        {
+          "id": "carottes",
+          "name": "Carottes",
+          "qty": 3,
+          "unit": "pièce"
+        },
+        {
+          "id": "bouillon",
+          "name": "Bouillon de légumes",
+          "qty": 80,
+          "unit": "cl"
+        },
+        {
+          "id": "creme",
+          "name": "Crème",
+          "qty": 15,
+          "unit": "cl"
+        },
+        {
+          "id": "noisettes",
+          "name": "Noisettes",
+          "qty": 50,
+          "unit": "g"
+        },
+        {
+          "id": "oignon",
+          "name": "Oignon",
+          "qty": 1,
+          "unit": "pièce"
+        }
+      ],
+      "steps": [
+        {
+          "id": "step-z83p5ij",
+          "text": "Couper le potimarron et les carottes. Faire suer l’oignon, ajouter les légumes et couvrir de bouillon. Cuire 25 minutes puis mixer avec crème. Servir avec noisettes torréfiées."
+        }
+      ],
+      "id": "soupe-potimarron",
+      "name": "Velouté potimarron & noisettes",
+      "category": "Entrées",
+      "image": "linear-gradient(135deg, rgba(240, 90, 55, 0.86), rgba(255, 190, 118, 0.76)), url(https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=80)",
+      "photoUrl": "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=80",
+      "videoUrl": "",
+      "sourceName": "",
+      "sourceUrl": "",
+      "description": "Une entrée veloutée, rapide et élégante, avec une finition noisette qui change tout.",
+      "notes": "Inutile d’éplucher le potimarron si la peau est fine.",
+      "rating": 3,
+      "tags": [
+        "douceur",
+        "soupe",
+        "automne",
+        "végétarien"
+      ],
+      "favorite": false
+    },
+    {
+      "badge": "Vitaminé",
+      "difficulty": "Facile",
+      "baseServings": 2,
+      "time": 8,
+      "ingredients": [
+        {
+          "id": "mangue",
+          "name": "Mangue",
+          "qty": 1,
+          "unit": "pièce"
+        },
+        {
+          "id": "banane",
+          "name": "Banane",
+          "qty": 1,
+          "unit": "pièce"
+        },
+        {
+          "id": "orange",
+          "name": "Jus d’orange",
+          "qty": 25,
+          "unit": "cl"
+        },
+        {
+          "id": "passion",
+          "name": "Fruit de la passion",
+          "qty": 2,
+          "unit": "pièce"
+        },
+        {
+          "id": "yaourt",
+          "name": "Yaourt grec",
+          "qty": 120,
+          "unit": "g"
+        }
+      ],
+      "steps": [
+        {
+          "id": "step-3kmoj3j",
+          "text": "Mixer mangue, banane, jus d’orange, yaourt et pulpe de passion. Ajouter quelques glaçons et mixer à nouveau. Servir immédiatement."
+        }
+      ],
+      "id": "smoothie-mangue",
+      "name": "Smoothie mangue passion",
+      "category": "Boissons fraîches",
+      "image": "linear-gradient(135deg, rgba(255, 193, 7, 0.85), rgba(255, 111, 97, 0.72)), url(https://images.unsplash.com/photo-1502741224143-90386d7f8c82?auto=format&fit=crop&w=1200&q=80)",
+      "photoUrl": "https://images.unsplash.com/photo-1502741224143-90386d7f8c82?auto=format&fit=crop&w=1200&q=80",
+      "videoUrl": "",
+      "sourceName": "",
+      "sourceUrl": "",
+      "description": "Une boisson minute, ultra fraîche, idéale pour brunchs et goûters.",
+      "notes": "Remplacez le yaourt par du lait de coco pour une version vegan.",
+      "photoData": "",
+      "rating": 3,
+      "tags": [
+        "vitaminé",
+        "boisson",
+        "express",
+        "fruité"
+      ],
+      "favorite": false
     }
   ],
-  "shoppingUpdatedAt": "2026-06-04T16:18:48.743Z",
+  "shoppingUpdatedAt": "2026-06-06T10:33:25.662Z",
   "shopping": []
 }
