@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-07T13:11:58.399Z",
+  "exportedAt": "2026-06-07T13:24:41.978Z",
   "recipes": [
     {
       "badge": "Réconfort",
@@ -1485,19 +1485,19 @@
       "steps": [
         {
           "id": "step-njtg589",
-          "text": "Découpez les légumes en fines lamelles à l'aide d'un couteau ou d'un économe dans la longueur."
+          "text": "Préchauffez le four à 180°C."
         },
         {
           "id": "step-rqqsyh0",
-          "text": "Portez une casserole d'eau salée à ébullition et plongez-y les légumes pendant 30 secondes. Egouttez-les."
+          "text": "Abaissez la pâte brisée dans un moule beurré. Piquez le fond de la tarte avec une fourchette. Y ajoutez un peut de chapelure  au fond pour apporter un peut de croustillante, puis y mettre un fond de tarte en papier sulfurisé et y déposer un poids, faire cuire a blanc 10 minutes. Laissez refroidir."
         },
         {
           "id": "step-y01i5ro",
-          "text": "Abaissez la pâte brisée dans un moule beurré. Piquez le fond de la tarte avec une fourchette."
+          "text": "Découpez les légumes en fines lamelles à l'aide d'un couteau, d'un économe, ou d'une mandoline, dans la longueur."
         },
         {
           "id": "step-qohqs64",
-          "text": "Préchauffez le four à 180°C."
+          "text": "Portez une casserole d'eau salée à ébullition et plongez-y les légumes pendant 30 secondes. Egouttez-les."
         },
         {
           "id": "step-iiei8qp",
@@ -1518,7 +1518,7 @@
       ],
       "rating": 3,
       "description": "Une délicieuse quiche spirale colorée aux légumes du soleil, fondante, parfumée, elle apporte fraîcheur et gourmandise à chaque bouchée.",
-      "notes": "",
+      "notes": "Badigeonne légèrement les légumes d’huile d’olive avant cuisson pour éviter qu’ils sèchent et pour obtenir un joli effet doré.",
       "photoUrl": "https://www.fresh.fr/wp-content/uploads/2022/07/Quiche-spirale-aux-legumes-du-soleil-scaled-e1656948212616-1200x650.jpg",
       "photoData": "",
       "videoUrl": "",
