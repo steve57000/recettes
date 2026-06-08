@@ -1,6 +1,149 @@
 {
-  "exportedAt": "2026-06-08T13:46:29.288Z",
+  "exportedAt": "2026-06-08T14:29:34.451Z",
   "recipes": [
+    {
+      "badge": "Asiatiques",
+      "difficulty": "Difficile",
+      "baseServings": 2,
+      "time": 20,
+      "ingredients": [
+        {
+          "id": "ing-nxymw6j",
+          "name": "Huile de sésame",
+          "qty": 1,
+          "unit": "c. à soupe"
+        },
+        {
+          "id": "ing-wjyqjap",
+          "name": "Sauce soja light",
+          "qty": 1,
+          "unit": "c. à soupe"
+        },
+        {
+          "id": "ing-e6amn6y",
+          "name": "Sauce soja dark",
+          "qty": 1,
+          "unit": "c. à soupe"
+        },
+        {
+          "id": "ing-l5rcbvt",
+          "name": "Sauce d'huître",
+          "qty": 1,
+          "unit": "c. à soupe"
+        },
+        {
+          "id": "ing-uln9ei8",
+          "name": "Ail",
+          "qty": 7,
+          "unit": "gousse"
+        },
+        {
+          "id": "ing-hrkm476",
+          "name": "Sucre",
+          "qty": 1,
+          "unit": "c. à café"
+        },
+        {
+          "id": "ing-4a6apcs",
+          "name": "Sel",
+          "qty": 1,
+          "unit": "pincée"
+        },
+        {
+          "id": "ing-sjv3bu9",
+          "name": "Riz",
+          "qty": 300,
+          "unit": "g"
+        },
+        {
+          "id": "ing-16alc82",
+          "name": "Echalotes",
+          "qty": 2,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-vqfy61y",
+          "name": "Piment",
+          "qty": 1,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-ihzs16t",
+          "name": "Pousses d'oignons",
+          "qty": 2,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-xanpdc1",
+          "name": "Oeufs",
+          "qty": 3,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-2ewj8rs",
+          "name": "Huile végétale",
+          "qty": 1,
+          "unit": "à convenance"
+        },
+        {
+          "id": "ing-v1daku7",
+          "name": "Oignons frit",
+          "qty": 1,
+          "unit": "à convenance"
+        }
+      ],
+      "steps": [
+        {
+          "id": "step-xpxwat6",
+          "text": "Idéalement cuire le riz la veille et réfrigéré (mais surtout, bien lavé le riz avant la cuisson)."
+        },
+        {
+          "id": "step-y6bt4g6",
+          "text": "Pour la sauce, mettre dans un bol, 1 cuillère à soupe d'huile de sésame, 1 cuillère à soupe de sauce soja light, 1 cuillère à soupe de sauce soja dark, 1 cuillère à soupe de sauce huître, 3 gousses d'ail émincées, 1 cuillère à café de sucre, 1 pincée de sel. Mélangez le tout."
+        },
+        {
+          "id": "step-8t9bfwl",
+          "text": "Faites chauffez le wok à feu moyen-fort avec 1.5 cm d'huile au fond (si vous avez une casserole large, mettez juste un fond d'huile). Y verser 4 gousses d'ail tranchées finement et mélangez jusqu'à ce qu'il commence à brunir."
+        },
+        {
+          "id": "step-75kkhdy",
+          "text": "Ajoutez 2 échalotes coupez en dès, les 2 jeunes pousses d'oignon émincées et faire sauter en mélangeant constamment 2 à 3 minutes."
+        },
+        {
+          "id": "step-g0k3o92",
+          "text": "Rajoutez 3 œufs battus et mélangez doucement pendant 2 minutes de manière à casser un peut l'œuf."
+        },
+        {
+          "id": "step-6r62ws3",
+          "text": "Rajoutez ensuite le riz et mélangez pendant 3 minutes. Une cuillerée de piment émincé peut s'ajouter ici si vous n'avez pas peur d'avoir un plaisir intense en bouche."
+        },
+        {
+          "id": "step-8dd58fm",
+          "text": "Rajoutez la sauce et faire encore sauter 5 minutes."
+        },
+        {
+          "id": "step-94ssd7u",
+          "text": "Servir et saupoudrez d'oignons frit."
+        }
+      ],
+      "id": "recipe-znt5xd0",
+      "name": "Riz frit",
+      "category": "Plats",
+      "tags": [
+        "plat chaud",
+        "asiatiques"
+      ],
+      "rating": 3,
+      "description": "La meilleur recette de riz frit. Orgasme gustatif garanti mais attention, risque d'addiction élevé !!",
+      "notes": "Sers le riz frit dans un bol retourné au centre de l’assiette pour une jolie forme. Ajoute quelques rondelles de cebete, des graines de sésame et un filet de sauce soja ou d’huile de sésame. Pour une touche encore plus appétissante, termine avec un œuf au plat ou quelques herbes fraîches sur le dessus.",
+      "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS60NkPOqEkX29nS2vNdVrsGg3C-jzA3z9-oA&s",
+      "photoData": "",
+      "videoUrl": "",
+      "sourceUrl": "https://marcwiner.com/riz-frit-edition-orgasme-gustatif/",
+      "sourceName": "Source web",
+      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
+      "favorite": false
+    },
     {
       "badge": "Familial",
       "difficulty": "Moyen",
@@ -1803,9 +1946,9 @@
     },
     {
       "badge": "Soleil",
-      "difficulty": "Facile",
+      "difficulty": "Difficile",
       "baseServings": 4,
-      "time": 30,
+      "time": 100,
       "ingredients": [
         {
           "id": "ing-0hmzr5a",
@@ -1881,7 +2024,7 @@
         },
         {
           "id": "step-rqqsyh0",
-          "text": "Abaissez la pâte brisée dans un moule beurré. Piquez le fond de la tarte avec une fourchette. Y ajoutez un peut de chapelure  au fond pour apporter un peut de croustillante, puis y mettre un fond de tarte en papier sulfurisé et y déposer un poids, faire cuire a blanc 10 minutes. Laissez refroidir."
+          "text": "Abaissez la pâte brisée dans un moule beurré. Piquez le fond de la tarte avec une fourchette. Y ajoutez un peut de chapelure  au fond pour apporter un peut de croustillante, puis y mettre un fond de tarte en papier sulfurisé et y déposer un poids, faire cuire a blanc 20 minutes. Laissez refroidir."
         },
         {
           "id": "step-y01i5ro",
@@ -1889,7 +2032,7 @@
         },
         {
           "id": "step-qohqs64",
-          "text": "Portez une casserole d'eau salée à ébullition et plongez-y les légumes pendant 30 secondes. Egouttez-les."
+          "text": "Portez une casserole d'eau salée à ébullition et plongez-y les légumes pendant 30 secondes. Egouttez-les, et essorez-les bien. Les faire légèrement dorée a la poêle afin de les caraméliser."
         },
         {
           "id": "step-iiei8qp",
@@ -1897,7 +2040,7 @@
         },
         {
           "id": "step-sgb1uhb",
-          "text": "Ajoutez délicatement l'appareil par-dessus puis enfournez pour 30 minutes de cuisson à 180°C. Servez bien chaud avec une petite salade verte."
+          "text": "Ajoutez délicatement l'appareil par-dessus puis enfournez pour 50 minutes de cuisson à 180°C.  Laissez la reposer un peut pour que la tarte fige. Servez avec une petite salade verte."
         }
       ],
       "id": "recipe-3e56doy",
