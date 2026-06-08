@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-08T13:10:33.144Z",
+  "exportedAt": "2026-06-08T13:11:17.817Z",
   "recipes": [
     {
       "badge": "Gourmand",
@@ -2380,74 +2380,6 @@
       "favorite": false
     },
     {
-      "badge": "Pâtisserie",
-      "difficulty": "Chef",
-      "baseServings": 8,
-      "time": 75,
-      "ingredients": [
-        {
-          "id": "pate",
-          "name": "Pâte sablée",
-          "qty": 1,
-          "unit": "pièce"
-        },
-        {
-          "id": "fraises",
-          "name": "Fraises",
-          "qty": 650,
-          "unit": "g"
-        },
-        {
-          "id": "lait",
-          "name": "Lait",
-          "qty": 50,
-          "unit": "cl"
-        },
-        {
-          "id": "oeufs",
-          "name": "Jaunes d’œufs",
-          "qty": 4,
-          "unit": "pièce"
-        },
-        {
-          "id": "sucre",
-          "name": "Sucre",
-          "qty": 110,
-          "unit": "g"
-        },
-        {
-          "id": "vanille",
-          "name": "Vanille",
-          "qty": 1,
-          "unit": "gousse"
-        }
-      ],
-      "steps": [
-        {
-          "id": "step-c1p5gb4",
-          "text": "Cuire la pâte à blanc. Préparer une crème pâtissière vanillée et la refroidir. Garnir le fond de tarte, disposer les fraises coupées et napper légèrement. Réserver au frais avant dégustation."
-        }
-      ],
-      "id": "tarte-fraises",
-      "name": "Tarte aux fraises pâtissière",
-      "category": "Desserts",
-      "image": "linear-gradient(135deg, rgba(255, 107, 107, 0.8), rgba(255, 236, 153, 0.76)), url(https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?auto=format&fit=crop&w=1200&q=80)",
-      "photoUrl": "https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?auto=format&fit=crop&w=1200&q=80",
-      "videoUrl": "",
-      "sourceName": "",
-      "sourceUrl": "",
-      "description": "Un dessert vitrine avec pâte croustillante, crème vanillée et fraises brillantes.",
-      "notes": "Pour un rendu pro, alternez les pointes des fraises vers l’extérieur.",
-      "rating": 3,
-      "tags": [
-        "pâtisserie",
-        "dessert",
-        "fruité",
-        "week-end"
-      ],
-      "favorite": false
-    },
-    {
       "badge": "Douceur",
       "difficulty": "Facile",
       "baseServings": 4,
@@ -2514,71 +2446,8 @@
         "végétarien"
       ],
       "favorite": false
-    },
-    {
-      "badge": "Vitaminé",
-      "difficulty": "Facile",
-      "baseServings": 2,
-      "time": 8,
-      "ingredients": [
-        {
-          "id": "mangue",
-          "name": "Mangue",
-          "qty": 1,
-          "unit": "pièce"
-        },
-        {
-          "id": "banane",
-          "name": "Banane",
-          "qty": 1,
-          "unit": "pièce"
-        },
-        {
-          "id": "orange",
-          "name": "Jus d’orange",
-          "qty": 25,
-          "unit": "cl"
-        },
-        {
-          "id": "passion",
-          "name": "Fruit de la passion",
-          "qty": 2,
-          "unit": "pièce"
-        },
-        {
-          "id": "yaourt",
-          "name": "Yaourt grec",
-          "qty": 120,
-          "unit": "g"
-        }
-      ],
-      "steps": [
-        {
-          "id": "step-3kmoj3j",
-          "text": "Mixer mangue, banane, jus d’orange, yaourt et pulpe de passion. Ajouter quelques glaçons et mixer à nouveau. Servir immédiatement."
-        }
-      ],
-      "id": "smoothie-mangue",
-      "name": "Smoothie mangue passion",
-      "category": "Boissons fraîches",
-      "image": "linear-gradient(135deg, rgba(255, 193, 7, 0.85), rgba(255, 111, 97, 0.72)), url(https://images.unsplash.com/photo-1502741224143-90386d7f8c82?auto=format&fit=crop&w=1200&q=80)",
-      "photoUrl": "https://images.unsplash.com/photo-1502741224143-90386d7f8c82?auto=format&fit=crop&w=1200&q=80",
-      "videoUrl": "",
-      "sourceName": "",
-      "sourceUrl": "",
-      "description": "Une boisson minute, ultra fraîche, idéale pour brunchs et goûters.",
-      "notes": "Remplacez le yaourt par du lait de coco pour une version vegan.",
-      "photoData": "",
-      "rating": 3,
-      "tags": [
-        "vitaminé",
-        "boisson",
-        "express",
-        "fruité"
-      ],
-      "favorite": false
     }
   ],
-  "shoppingUpdatedAt": "2026-06-08T13:10:32.211Z",
+  "shoppingUpdatedAt": "2026-06-08T13:11:16.857Z",
   "shopping": []
 }
