@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-09T12:52:44.115Z",
+  "exportedAt": "2026-06-09T12:59:12.049Z",
   "recipes": [
     {
       "badge": "Apéro",
@@ -56,7 +56,24 @@
           "unit": "à convenance"
         }
       ],
-      "steps": [],
+      "steps": [
+        {
+          "id": "step-up6pv6m",
+          "text": "Pelez l'oignon, le coupez en quatre et le mettre dans le bol mixeur. Ajoutez 50g de tomates séchées. Mixez."
+        },
+        {
+          "id": "step-3fewatb",
+          "text": "Poussez le mélange vers le fond du bol mixeur à l'aide de la spatule. Mettre 250g de camembert bien fait dans le bol mixeur. Mixez."
+        },
+        {
+          "id": "step-mwkgir2",
+          "text": "Mettre 75g de beurre mou dans le bol mixeur. Ajoutez 200g de crème aigre, le sel, le poivre, le paprika. Mixez."
+        },
+        {
+          "id": "step-ztrzqf3",
+          "text": "Assaisonnez de nouveau et servir avec des gressins ou sur des tartines. La crème de camembert peut se conserver environ 1 semaine au réfrigérateur."
+        }
+      ],
       "id": "recipe-l88btk5",
       "name": "Crème de camembert",
       "category": "Entrées",
