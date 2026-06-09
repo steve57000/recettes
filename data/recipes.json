@@ -1,6 +1,35 @@
 {
-  "exportedAt": "2026-06-09T14:04:59.118Z",
+  "exportedAt": "2026-06-09T14:13:19.207Z",
   "recipes": [
+    {
+      "badge": "Nouveau",
+      "difficulty": "Moyen",
+      "baseServings": 4,
+      "time": 20,
+      "ingredients": [
+        {
+          "id": "ing-l24klpi",
+          "name": "Lait",
+          "qty": 60,
+          "unit": "cl"
+        }
+      ],
+      "steps": [],
+      "id": "recipe-0sfjol1",
+      "name": "Île flottante géante aux pralines roses",
+      "category": "Mes recettes",
+      "tags": [],
+      "rating": 3,
+      "description": "",
+      "notes": "",
+      "photoUrl": "",
+      "photoData": "",
+      "videoUrl": "",
+      "sourceUrl": "",
+      "sourceName": "",
+      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
+      "favorite": false
+    },
     {
       "badge": "Amuse bouche",
       "difficulty": "Facile",
