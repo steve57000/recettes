@@ -1,6 +1,39 @@
 {
-  "exportedAt": "2026-06-09T12:59:12.049Z",
+  "exportedAt": "2026-06-09T13:04:33.549Z",
   "recipes": [
+    {
+      "badge": "Pâtisserie",
+      "difficulty": "Facile",
+      "baseServings": 6,
+      "time": 52,
+      "ingredients": [
+        {
+          "id": "ing-99eoprc",
+          "name": "Oeufs",
+          "qty": 3,
+          "unit": "pièce"
+        }
+      ],
+      "steps": [],
+      "id": "recipe-2gsds1q",
+      "name": "Bûche au citron meringué",
+      "category": "Festifs",
+      "tags": [
+        "pâtisserie",
+        "dessert",
+        "douceur"
+      ],
+      "rating": 3,
+      "description": "",
+      "notes": "",
+      "photoUrl": "",
+      "photoData": "",
+      "videoUrl": "",
+      "sourceUrl": "",
+      "sourceName": "",
+      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
+      "favorite": false
+    },
     {
       "badge": "Apéro",
       "difficulty": "Facile",
