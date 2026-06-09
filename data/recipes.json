@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-09T13:04:33.549Z",
+  "exportedAt": "2026-06-09T13:33:42.305Z",
   "recipes": [
     {
       "badge": "Pâtisserie",
@@ -10,11 +10,76 @@
         {
           "id": "ing-99eoprc",
           "name": "Oeufs",
-          "qty": 3,
+          "qty": 6,
           "unit": "pièce"
+        },
+        {
+          "id": "ing-21j5qra",
+          "name": "Sucre",
+          "qty": 240,
+          "unit": "g"
+        },
+        {
+          "id": "ing-59jlcd9",
+          "name": "Farine",
+          "qty": 75,
+          "unit": "g"
+        },
+        {
+          "id": "ing-9dl3f0z",
+          "name": "Levure chimique",
+          "qty": 0.5,
+          "unit": "c. à café"
+        },
+        {
+          "id": "ing-7i9dijn",
+          "name": "Citrons",
+          "qty": 2,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-qx1xeoa",
+          "name": "Maïzena",
+          "qty": 1,
+          "unit": "c. à soupe"
+        },
+        {
+          "id": "ing-72x13qr",
+          "name": "Beurre",
+          "qty": 70,
+          "unit": "g"
         }
       ],
-      "steps": [],
+      "steps": [
+        {
+          "id": "step-44dqr74",
+          "text": "Commencez par préparer le biscuit roulé. Pour cela, préchauffez le four à 180°C."
+        },
+        {
+          "id": "step-br0hakq",
+          "text": "Séparez 3 blancs des jaunes d'œuf. Fouettez les jaunes d'œufs avec 75g de sucre jusqu'à ce que le mélange blanchisse, puis ajoutez 75g de farine et 1 demi cuillère à café de levure chimique et mélangez."
+        },
+        {
+          "id": "step-ejnj4rd",
+          "text": "Montez les blancs en neige et incorporez-les délicatement au mélange précédent."
+        },
+        {
+          "id": "step-dyk67i9",
+          "text": "Etalez uniformément la pâte sur une plaque recouverte de papier cuisson, puis enfournez pour 10 à 12 minutes. Démoulez le biscuit en retournant la plaque sur un torchon humide, retirez délicatement le papier cuisson et roulez tout de suite le gâteau dans le torchon. Laissez refroidir."
+        },
+        {
+          "id": "step-rch47gi",
+          "text": "Pendant ce temps, préparez ensuite la crème au citron : dans une casserole, faites chauffer le jus et le zeste de deux citrons, 100g de sucre, 1 cuillère à soupe de Maïzena et 3 œufs battus. Faites cuire en fouettant constamment jusqu'à ce que le mélange épaississe. Hors du feu, incorporez 70g de beurre. Filmez au contact et réservez au frais."
+        },
+        {
+          "id": "step-cx5py0l",
+          "text": "Etalez la crème de citron sur le biscuit refroidi, puis roulez-le de nouveau sur lui-même. Filmez, puis réservez au frais."
+        },
+        {
+          "id": "step-gkmumr9",
+          "text": "Montez 2 blancs en neige et incorporez 65g de sucre petit à petit. a l'aide d'une spatule, recouvrez le biscuit roulé de meringue, puis dorez légèrement la meringue au chalumeau."
+        }
+      ],
       "id": "recipe-2gsds1q",
       "name": "Bûche au citron meringué",
       "category": "Festifs",
@@ -24,13 +89,13 @@
         "douceur"
       ],
       "rating": 3,
-      "description": "",
-      "notes": "",
-      "photoUrl": "",
+      "description": "Une bûche au citron meringuée fraîche et légère, mêlant l’acidité pétillante du citron à la douceur d’une meringue fondante et délicatement dorée. Un dessert élégant et gourmand, à la fois aérien, crémeux et intensément parfumé.",
+      "notes": "Pour une belle tenue, laisse bien la bûche reposer plusieurs heures au frais avant de pocher la meringue et de la dorer au chalumeau ou au four juste avant de servir.",
+      "photoUrl": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxITEhUTExIWFhUXFxUXFxUXFxUXFRUXFRUWFxUVFhcYHSggGBolHRUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OGhAQGislHyItLSstKy0tLS0tLS8tLTAtLS8tLS0rLS0tLS0uLS0tLS0tKy0tLS0tLS0tLS0tLS0tLf/AABEIARMAtwMBIgACEQEDEQH/xAAcAAABBQEBAQAAAAAAAAAAAAAFAAIDBAYHAQj/xAA7EAACAQIFAgQEAwcDBAMAAAABAgADEQQFEiExQVEGImFxEzKBkUKhsQcUI1LB0fBicuEzgrLxFUOi/8QAGgEAAgMBAQAAAAAAAAAAAAAAAgMAAQQFBv/EACkRAAICAgICAQQBBQEAAAAAAAABAhEDIRIxBFFBEyJh8DJxgZGh0QX/2gAMAwEAAhEDEQA/AOV0UJIA3JIAHcnYTT+KvCTYNKTF9RceYWsFPYSHwBl3xsbSFtlOs/8Abx+dp0P9p+H10v8AbBrVhr0cdinhnR/2f+GMLVofHqqKrFmGg/LTseCvVjzv0IiM+eOGHKQ3FieSXFHOJPQXcQt4yw1GnjKqUAAg0+UfKraRqUel/tuILoqb7Qoz5wUvZXHjKvR2bwp4doCgjEBiyg36biYzx9gqdOqQkbk+bYylS0oW09NuPbtAGa4x3Ylyb+s5fjYZrM25WdLLNcAW8aDHPIxOwjlsmWSLGoskVZTCSHLLNFJFTSGstwJbpFTmorY7HByZWppCWEqlZLVwGmV9FojmpGhRcTQ5Zn70jqU78EHcEdjGeI/E9TEKEIVVBvZb7nubmAyZBUMqONWSciGoYqYjWjqXM0/Bn+Qzl2C1Sziss0jiGfAaU316gCwAsD23uf0hTxPh0RQw2vcaf6iYnmaycTUoxaOdVqVjFJ8Yd4puT0ZJLYR/YzgN6lYjqFH0Fz+v5TT+ME1K31j/ANmeA+FhKe25XWfdt5Ln6XU/WaEtGS9nC8wpaajD1jcPi6iX0Oy32Olit/Q2O8K+KsPpqBu8CCLpNbDemPWaHwxQRqq6+Li/t1meWXsHiSpuIrNFyi0h2GSjK2d/FGilLhQlvS1rfnOKeI9PxW08XkzeIKhXTqNoIrOWN5z/ABfEeKTkzZlyRcaRUIntKncgRxEdTNiDOn8GGtnScn/Z2r0lapUILAGwHF5lfEeRthappk3HIPcGbXIfHlMUVWop1KALjraZbxPm37zVL2sOAPSczC86yff0bpxhx1/YEYRRedX8G5VQbDq5UMxJvfpY8W/zmcpow/lGb1qItTcqDyBx9jGeTBzWisfVGo8WYSnTqaU4Kgkc2JJ/tBvhrKExFYq5OlVLEDYncC1/rKFTFNUNySzH6kmJatfDsKihkI622N+hiYxaVXsdLoPeK/DFKjRNakxGkgFWN76iB5TzfeYdzCed+Iq+IAWow0jfSosL9z3MDapqwxkl9xmmxGeqY2eiaBJdweLZCCpII6g2MuYrM3fd2LHuTeClEfBcE3YSk0OqVLxSKexiAO05PRCU7dlAH2gvNkuphqmLKYLzBdjNJjRynxZhboT2MxgnTM2oagw95zWqmliOxih0vYhHq0jE9EopMuYcXIE1mC8LVnp6xTYra97fp3mVy+oAwJ7zuOH8TYX4QqCsgWw8txqG3y6Ob+k53mZZwaUUb/HSatnF8dhtJtKghPPMYtSq7KLBmYgdgSSBBd5rxtuKsRlrlonptLdLeUacI4QSp6Cx7LdGjLK07Qhg8CxXVoNu9jaeV6dpi+rbo2/TpDMtxISorNwOfS4teGM6zSl8FlDBiwsAP19JmqplZ4X0VKSkwHkcU0RMZ4JLToljtLwyp7XsZpc0uxCg2DwJKix70bR9NYXIHiJaceactUqcs1MtqBNeg6e/9YDyJPYzgBnWKT1lijUxTidnLgC0FY6qoBuRLpy8lSS5gfMMpUjk/eazAjM48qWNjOa58gFZrTouLwQUkXnNs3oFKrA94t9jn0VBNzhfAmrLxiizCq3mRNtOnpfrcjeZTJMAa9enRH42APtyx+wM+hs5woTDpTA2VRtKoFM+cASJItUwn4qwHwsQwA8reYfWCQsHTDVpkpaIGeWnolBElMwjg6liIOSWKTRc1aGwdHc8pph6SshGgqLTAZ8pp1qiEWsxsPQ7gj0tLvhbxlSp0FpVQwKXAKi4YXuOuxgDxBnH7xWaoBpGwUdbDi/ryZx/G8aWPI7WvZulltWVatSRapEXnmqdRIzNmn8IrTasoe1r9e/SdHzCjTNJtQFgDb0PS04xh65U3Bhep4gqsulnJHqSZkzePKU+SHQmqPMztqNpVpSF61zJaU1JUhbdsv0TOm5WKdSkr9GHHboROXJCeXZ/VoKVWxXmzAmx9LGZs2Nz6GJ0iv4owAoVio+U+ZfYnj6cRQdmuOes5dzcn7AdAB2imrGpKKT7Eyq9HZ9fltB2K4l1uJSxXE6BzDI5mPOZgvGeFsVcfWb/ADUeaZzxDhddFvTeLkOW0e/scyn4mJasRtTGkf7m5/L/AMp13Pxe49IB/ZTk/wADB0iR5qn8Rv8Au3A+1h9Joc1Fy0tdC32cl8e5dqoioBuhsfYzC0qV52TH4QOtSmRsQZy2hhtNQoeQSJmyS4o1448mUWoGR6J08eBENPeoRUI6AaQe1uT7znuLoFHZDypKn3BsZmweVHLaj8DsmHiVFWSWjlWP0TQ5AKJ5TMmBjUSSAQbCSLuV5VVrkimt7ckmwHuY3McuqUG01FsbXB5BHcGHPB+c0qIdKh0hiCGsSOLWNpD4vzenXZBT3VNXmta5a3F+m0zLJk+txr7fY1wjwu9mfvPNURjqa3M1CSxQF4YwWEvLGT5E7i9pospy4K9mHA47zFl8mK6NUMXsBvg7ShiFtNtndFBTLAAEW42v6TD42rLwZOeyZEkUHikbvFNqMjZ2atmKjm/2gfHZ9TXoT9Jo3prbgQdjMKh/CJtOejC47NzUbZbQTmGJdnpUbbVXRCfRmAP5TRZthVVrgWgPM1OkOvz02Dr7qbj9IuQ5HasDSCKoGwAA/KV8YNjKfh/H1q+GpVSgUuoJW/FxJsXVcDdftCFAKutnnNPGlD4WJ1DbWAfqJ053ubkTjnjfN2qYpwy6QnlUeneIlHlo0Qnx2aun+0JxSsaQNQC2vV5Sf5itvyvMVWrF2LMbkkknuSbkwYMZHrjPSZ8fiRxW4rsdLyVLthKnDfh/KP3ippvZQNTHra9rD1mYp470hjJPEbYd9are4sVPUe/SVmx5XF8Ow8eXHe2aLxD4aFFPiIxIuAQbXF+CCJngkKZt4wOIAQUtKXuRe5J97DaU2zEMLCko9ReIwY86jU1sdPJhb0yv8OeFZaVi3CzX+DPCdV6+utSHw0+ZHHzahyB1ttNHGfyhTnD2YXTCXh/LWr1kpqD5juewAuT9hOnt4JwZr03RPKdTFb+Q6elj0v09ITwWDw+CpoUACM7kubWu/AJ6dAPaG4Oti/qr4WyvlFJaaBLWI2N+doE8SYnTUAp/NsABzc9BCua06+LpAUCKdRW+Zr6Sm+1wN/QwVTShh/hFwtbEEjcsQisT5d+/YTmLx+M+/t9mqOXV/PoyOa5pVJK1CbqbFTtYjuO8C1a14d8W5VVXEVXffU2q4/1DaAf3QmdLFi19pnyZvZXZ4pM2BPSKP4MT9RHdGlPES6wlWus0GQyedrA+Hw/xHWn/ADED6HmaPOKOxkHhHChsSCfwgn68QWhiejoGEpBEVRwABI8VxLMr1+JBZncUm85P+0zKSK61VGzix9xOv4td4C8QYBaibjg3EX8je40cToZa56Qnhsjc9Ju8Pl6g8C0vsqdAIygEkYmh4bJ6S0nhy3Sa4OOBGfEkoIzK5JaS08tt0mkooGICi7GwAHc8TQ5P4dB2rqQWPlHUBSCb+9iJUmkWtgrwt4QFQJXZhYPfRbnSe/uJvdLFgVOkaSbW3J/tvB1TG/Bp/wDT8i2F1+UgN5i38ptv63kGY4io2JommCU+HsVO3nYcrbfYd9pmnlS/0MjjbPc2zekqKWYqpVlDA7q69NozJP4tJhU3XUulTuCbAr9NwZ6cHh6OqqfMHqErTO6hwN2A6bC8BZbi63x64+MFqU6mtqLgWZfwupG/y6d/SK5SU/u/x/396GcYuNR/yX/EOZVBSaqu1FXFOsF+ZUH49ubHkdjKObNhbCohWolRQGUbhiu4Zex9R2gXMsdUrs64d9Arsy1VN9B/mI9diL+sp5P4WxSCoK9hS3sVZRpXsATAckrdX+/uhkYaVugTWxWIqYllDA03GkM7XCqDfkfrH4/Lmo6SzodRsAjaul99toWw+OSkRh6LWS5Gjy6jtfVqAjK1BmqOWUKrC/exXb84eLK4lZMakBqRikzUyOm3QjgzydBMxNUbtfFP+iR1/EZPFOQeKcuFAiovyMdx2MBjHLLTTKotY/M6z9AojPD61FxCMrnUTb0sebxn72DDfg3D6q5cjZRt7mQhtylXuJVxDVh0BhOQVoIJnqtZyd1tBWdVWsB06w9jhvAWd0yaT25AJH0i+mNW0BwR3jwyTntTxLU3FvSVmz2setozkDo6JiMQq8ETxKFeoyKtJ/PYqSrabEgar/y78zP+GPDWIx1L4i1rMapQIQbMqim1Rtd9iFckC2+kztr1aYJVjpCqpVjdSi2sR91vvtvFSzLpBqHso5fltPDKz097sqm5J+QkMfTrx6Ruc4xBVGonZBdDs27E6lIO+5G4lXFVGrh3w9cKVYta6tRqi5Gk/wCrpcEHf02JCmtUYc1aa6wRpBsSDazEE9B95lnPl9q2x0Y8XyZUyeg4VrgikFNkPzHbYb+kiqYplFSnhqI00V2W/wD1VAW5DDg2Y29j3kOMxumv+8WJRalmKkkgWUKQvG4T33I962JzdKNf4lGoPhVE1Hfyi5I4tcWKn87jaDjTUUm+tX+PgKW23XZFj83pNQpVd1YHQ6G1+GK3APpa45vBWfYfEYgHE01BWoUsVLalTQVYPpF+v0tC+W5G4qFzSp1abKTpBv5jvcahfvaWq9ajRVU+GaJA4DtqRf5rC199t+bHtCpz/lr9/oS1D+O/3+oFpZEadHRVam631IiB1qAse5bb3uINxWLNIMRUHwlZQQLW2uDpNrn3JnuOzupVqg3JQ6rKb8fDVqd7995UzaqujQadVE4T4dhfoo6gj0MCo3cRicqqQ1MNrxBxKlXRlFiTxcWJB442lrNMKxBOkMAu1iQR2PaRU/4NGpTAbUo1FBpJu3A2FgT6SpimxBpUShHxL+em2wA9e9peuibNF4Rw4roQ9MgLsG20nuPeKQZDj6tFWLlLHot9N+4JimzG1xVmTInydGh8dBThmUm22q/a3H52nHRjCGKnkG00GbZ82PxiYam16YcPWYfLZDfQD2FvqYBzgI9eqyfKXa3tfaWnsGtF3C40mb/wJjlAZSfNecwwrBTNJltUbEGzdCDDUinGzslKvee1HmIy/Nayjdg3vzCa5y56CXYPFhDGiDcSBpJOwtvee1MTUbqBKlbBo/8A1CWHbgfaBVhJ0cixuXmpXqfBUlSxtYbTSN+zauxX4ZBosit8ViBpuo1hlG4Ia4t7TqOV5JRKIwXSt7MAObny+w/vNG2HXTpsAvFtrWlU30yNpGbpMiCklEoQtviKLgiyFRZeVPy727dpfOCqrWD/ABAy9A3zgbgqSB5hv77dYxsmU1Fbnpq6gQpiNKKSBuqk9zsL2iseFx79jJ5bAuMw+HTzBU1VWtcKNtwjv3v0vAmX3qYirRrHTfUigbJTSmoFNaZ42ILW5uT0tBOfLiKrhVqaCildJ4s+5AbpZhe+/EgzirWd9OFVjU0oGJsDrQHU2/Nh8MXHO3aIl9skuOh8VyX8tkozU4cVMOfO9RGRAbEB0bQlz2BN782XqZQreHq4bzUHCk6tSMoJJN7tU1bD6deISy3CkhmxlGqpFS6sSKY5FgLsNQv3G8t4/wARAEpSaoptsLnUTfewGwUbnUT09YLipL7noJScX9qJcvr/AA6YUppO9m1liSo/mKrfe19u+5mLp507szNXXX8Qko5LHSusG6gX3uBboAJcXMDVqU3Jcs/m06WIsUAUMwBPO997Xt0k2Eo1lrGyUqbsCSQ+okDqRo9hc2lraSXwTptv5IsHWSvUQMWVyDpCABX0je7MtxYdJcqrQo/xAw+cqWduLX8q6thvbiTpiBTfQ5Bci3xOrPYFlX1sRZewlCrWWlSYBGWzEj4lM333cp0b07XhaK2WaVEioawGzLcgEgaf9QO1+dwZBhKy1KdTSNi1uS1unzEfpLNB6pp3qJoXRuhIFhzuR6frG/v9HSFUbdQvH3lpX0U37Mr4lxVQP8JbhUsLgc7RQ3W8xJIG8U0rQhq2AqdOlgqZo0iGqsP4jjp6Awcag7SpTbuZKbd5SINZyeBC2VX56wVSRmO15qcny9uZZEGMFVba94ZosJDhMPYbwguHhIpklIiEcsy/4hJO6joOSe0GpSP0mj8P0yEZr9ePYf8Av7SMAtMQq7LYkbL0vba/bpI6zsQBcj26/WOc3Mgr1goufoOszZM1Ju6SDjC3+R1vU/cx5ckW5vBv796frLFDFA87GZsXnQnKlLY2WCSVtFTOsv12ZNmAAtt5rkASPDZTclLKtXTuwLAlfR+R14tC4M8DaQWHIH1t/wATdGSnqQl3Ho5rnuHXB4ih11syupBYoxtoN2uWuWH0vYcxtWs9Vtdj8VkIamhVagBYFDuRay3vv1InnjzFYl3StTppUt5luB5W4B352jvDdEMi4iu1n3JAVUVbci4LauOQRzxEcdtGjlpMdTw1RSGqEhV6q5sQO6KCDweLcRPiUKvVUPqAuSFLMVGoJYcsNz979paNLV8amzFA2yAEAsumx3INrk++143C4QU3WirVCoQ2uGBpqwPkDnYjyiy8rp7Scb66LuuwRl+nFJrqU7VVYKWVwqsDwWXff0Ivft0vYnLmV1IbUdwS5Opjxe/QAWAHr6yy+LSjZELbkAsb1XLkiyEE3JIJ34FjBuZ5gWayndT8w626D2MjSSolvv4LOeVwAyDdnFnNzYDoIMwdGwiG5ud5OV2hpbsBnpinqU7xRoBzo6um8LZblNSpbY2nQ8v8M0aYtbf1hanl6CwC/aMURdoyOX5GV6flD2AwDD0MNU8KBwLDtJUW0viVzIKWFPWTLh5ZVjPTxzLoqyuKfpNDhLLSAHYfc7n87wfhMKz7nZe/f0Ev0xZSttlOx7gjr67xWRtfv7+S1s8IgnMHu59NoXMDYum2onSbb9JyP/Rv6aS9mzxq5ECie2iE97zipo3BPB1NQ35/pJgJUwHJ9pdInovFm54032c3LGpNAh8up0qNRmQM3ygEahuSRYW7H8pjcRhmamFVGcIw/hqVF9A2UEkeUG1/9trWm8zNGZCANgNRN+D8trdZiKdCqlfS9QgOLKmmxAHXbYAX5sOQN9ppyK6dFY3VkGRYTEth2o1m67NUp620HlSreUkHg3Yb9bSTDFlJugHwFsvxG0Hz/O40JYg8CwHBFo5ceSyUkbSgVgQTauwJAWsmoWbgk/7vaCMBjTSL/wAIqXsygklrXJU1C2+rgn3ttaApJ1Qxpq7LmPr1QGLNbUw0qdyF0722GnntfeCqSSeoHc6mNz/nEkp0rQ1DYDkeBdpKik9J6tO8lxFZaSlmPEYkCzzE4hKK3YgTyYnOMwas172UcD+vvFDAbO41cI68p9t5ChmwAB9ZSxmBQ8gf1HsYyxJnD7xJ7S/icvK7r5h+f/MqI1zYbntLsggISwWXfifjovf3kmDwgXdt27dB/wAy7qlEPY4p5dt73kYaSM220FoiZmf/AJs73CgXtp1Xa4JBvb9JYGZ/6d7cAi/BNu3SWsXgw2xQEE3IsLb89IKxeVea6m19iADve1uoFhvzecyU5xezfFY5BRK6kbrbpuOsWmm/Gk+3/EEnD1F+XS2+1wdrdzfj2Eq4qpobXUsBZQbbEM38rn37X4gOcJfyS/uglifwzR0qIU3Ha3Mlmfw2bqGF3YhhdVPwyDYdCoufz4Ms4XNG31KCLkgjyi2sjk7EiNhKEVUdC5Y5vsI4nEBCOuxuPtv+UyWIWklV6iqxZgOTey8X3Ow+bf1MOYtlb4rlrLTVQNwABc6ma+3/AAJh1zj+LUFcIxp+ayoboGBRFNQtZmIciwFhdt5oclSXyLjF7ZXw2cD4bMObOAwJOpndiq6iLsqK17HYah1lOgCTdrknqdzIcPh1udK2BJIHbsJdWVCNLYUnb0SgyQcyOlTuZbsEBZjGoETutNSxNuvtMRnWbNWba+gHYd/UyfPc0NU6QbIOP9Xr7QSVt2MIBsgZzfrPJZWncxSwaPo81SpF+O9/1lgPeR1QLG/aAKmYOgLW1WsNIvuO/pyIKn7Jxvo0oMHZlh2W9SnyPmX+Yenr+spYfPlLBGurkE6edhYHj3EMUquoQ07BpoE4DOFccwnTrgzmni7GfuWKBBGmpqNvVbE/kw+0L5L4oRwLm0in7LcPRuQ0kVtoKw2PVusIU6gtzCAJrxrID0insqi7Imw46bSn/wDGAXtbf7+/WEp5FS8fHLtBrLJdMDVMp2AI2HHU787nff8AtIkytEXyrp2AYqo34529BtD0US/Ch3HQxeTL5BGNwyfBqKw8rroYcXHJ26nc+8wmOwOpm0ppDNqPUsQLLqPoL2HqZ1BgLSA0V/lH2mhYlS/Av6r2cyo5c/RTLFLJap5UzoopKOglXHYtKYJPT8pfBIn1GYethPhfNa8xfiDNjVOhfk7/AM3/ABL3ivxD8Z2RL6eCf5vQeko5bkdSsbgfpJQVgQLb/PyktGiTv0m5w3gwD5iTCFHw0ADsPWSmVoxOFw1+hinQaeSgdOOv9p5C4k5GizbMS10RWt+J7GwHaZnxLWxFGrSNOkaiOpDsp81NdrGx2PN7dbSy+LrMn8TEMKltPw12NiOqqOx5MzPjPMFqrTUVLvRDMQD5CAAFDnqbjjraY+a4/keoU99Gexec16OJYLUDm4Gu17gbDtc259SZ2fwq7GirOSSVub87zhOT4RsRWRQSWLDUep33M7Fnec08LS+CG82nzkfgUDr6noI6GkKnswn7VMQKtWmo3sah+l1UH/8AJmOwINNtiR7EiWc0xxrVWqEkDhR2UbAf53MrqvrCXRTSs22RZrV2Gs/UA/pabXA5pUFrgEehsfsf7zlWT4mxA/vNxlmIvt+sJMjVm4oZmOoI9/78S/SxIPBmXw7Hky9SaGKaNBqnt4JSuR1kwxJllBCeGU0xUmWuJKISGMJnpcQdisyVZXRKsnxeJCC5nLPGfiJnJpUztezsP/Ef1P0lrxj4ouTSptv+Jh+H0Hr+kBeH8nNU6mHlH5wW7GJULw7kDVGDva21hOi5dgggsB7/AOfaeZfgNIsPYQymAYG7EWB+/wDxCSBbI6a3ttePemRtb9P6S0jq3UWt0PX6e05l488WuxNDCkBFI+JUH/2EH5B3Xbc9eOOb6K7NRmWDfEgLTrGnT5Z6ZBduwVgfKL297dOqnPa3j7EABUCl+SdNl4Nxpvc/UxSaJs88QeNDU1rSLfxCCzjkKFA0qYOwGU1cSxZV0U9r1H8qKALc9fpLSPgsOLrT1sPx1d/sg2g3NPFzvsu9uCdlH+1RsJljjNEsns1GFrYfAIxpNqqEWauw3t/LSXoPUzKZpnDVjbcLe+53Y92PUwJVxL1DqdiTJaZjeNCudlkPFeRao5Dc2ElEsJ5UN5uco2mWyXBHtxNtl2EsAfz/AM5lpBWFcPU2l6iZUo04QpLDAZKsdeeBJ6VkBHXi1RhMbeWSib4hg/F5XTqfMW+jsv6S1eIXbYSE6AtLwnggb/BBPqWb9SbwnQwVNBZVsBxYS9h8P1NtunePJtwn1H6SUSxUaIFu9gQPr/aTmqN9Vv8APSV8Jirub88AdB3kOaBV32Ftyx4AHWWUAvFCqKNVlxHwQ2xYKCfXnuO05DmtRC1sKXCqDdnqM+q34iGA0+wtCvjXxEcTV0If4amw/wBR/mgqtglFM02JBa19PPPBmdyuWh6jUdhHCZXqZRSa71BqG99CcgFvXv7T2avwzlCoERR52W57iw2A7CKNSAbOPFi25JJ9Y5VnqpJAJYlIegkoaMSmTwISwWUM+9pQaKlNSTDeWZbe1wYWy3w/a11moy/KVXpKoNaIcoyy1jb6zS0cPsJ5RohRYCW6ftCopsVOnJReeflPQwl0DZJqM8Lxt54DIQcWjWMQaeEyFjbmTYXm3Ui33kTGOR7cgmQov0KdwV3HrIKT6SFNx79RH4nGqi6iwUf5zM9nVW6/GpV1IU7i/TqBI3RErDuNpr85OnsRtOX+P/GRrfwKR8g+Yj8RH9JT8U+OKtYfCXyoNifxN/YTJYcamueOsTOd9dDYxrvsv5LhlLKz33NgOu3J9hNx4W8NUHfVVZ2INwtwAO19r3gTw7ljVW1FgiDqd7DsB1M6PkOWU0UmmSxJ3Zz/AEHSFCPyyTl8IvYXA0KTEqCCeTck27DtFLy0rbswt6RRok+esL4XrtytoawXgpj8xnSlwi9pKKI7SqC0ZDBeE1HSHsPk6KPlhU0xwLSRaclEsp0cEOLS0uFHaThLSRZZTZD8Kwnh4k7PIrC8hQ0e8eqRX7TzV6yEHzwie3ngHMhD3REVjNRjHYyiz2qCPaMSpGNUt6yEv6SEJ6lYHmxHY7wFnWUPXpu6utKlTBHFixhJlJg7P8oNenoFRkPofKfcRWaDnGkMxyUXbORUcJrraNXW15dzSmmGsmq7XF/aeZj4exeHZtKEg/jG/wD6gtcM5O6tf1BvAWOXK29FuaSpLZsMr8T0VK+UkdgJ1HIMypVKYFMAG1z3+s4zkeVOWuUP2nUfCdI07eUC+1+segH1sOMzkkWNrxQxhkte8UsGzPiPPSKKWQ9pjeWBPIpCCaIRRSEPHjWiikINvFFFIQ8MeJ7FIQQitFFIQhZRG6B2iikINA5jTFFIWN6xHCp/Iv2EUUhBi0VHAEmw4sV94opCGm/D9ooopQJ//9k=",
       "photoData": "",
       "videoUrl": "",
-      "sourceUrl": "",
-      "sourceName": "",
+      "sourceUrl": "https://odelices.ouest-france.fr/recette/buche-noel-citron-meringue-r5357/",
+      "sourceName": "Source web",
       "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
       "favorite": false
     },
