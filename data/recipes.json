@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-09T13:44:09.240Z",
+  "exportedAt": "2026-06-09T14:04:59.118Z",
   "recipes": [
     {
       "badge": "Amuse bouche",
@@ -12,9 +12,64 @@
           "name": "Poireaux",
           "qty": 150,
           "unit": "pièce"
+        },
+        {
+          "id": "ing-4t0nvwe",
+          "name": "Feuille de brick",
+          "qty": 8,
+          "unit": "feuille"
+        },
+        {
+          "id": "ing-8sjrq96",
+          "name": "Saumon fumé",
+          "qty": 150,
+          "unit": "g"
+        },
+        {
+          "id": "ing-7p6lc4z",
+          "name": "Fromage frais aux fines herbes",
+          "qty": 60,
+          "unit": "g"
+        },
+        {
+          "id": "ing-b20gt22",
+          "name": "Citron",
+          "qty": 1,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-01fm87h",
+          "name": "Beurre",
+          "qty": 20,
+          "unit": "g"
         }
       ],
-      "steps": [],
+      "steps": [
+        {
+          "id": "step-9y49ohm",
+          "text": "Rincez les poireaux à l'eau claire et émincez-les. Faites-les cuire à la poêle dans un peu de beurre, pendant 10 minutes. Laissez refroidir."
+        },
+        {
+          "id": "step-qx2e04a",
+          "text": "Préchauffez le four à 200°C."
+        },
+        {
+          "id": "step-f2rjui4",
+          "text": "Mélangez le fromage frais, les zestes de citron et les poireaux, puis assaisonnez de poivre."
+        },
+        {
+          "id": "step-4moa06t",
+          "text": "Coupez les bords des feuilles de brick pour obtenir des carrés, puis coupez-les à nouveau en deux pour obtenir deux rectangles. Déposez au centre de chaque rectangles une cuillerée du mélange fromage frais-poireaux, puis déposez une tranche de saumon fumé."
+        },
+        {
+          "id": "step-lmjql2z",
+          "text": "Roulez le rectangle sur lui-même et nouez les extrémités avec de la ficelle, de façon à obtenir la forme d'un bonbon. Placez les bonbons sur une plaque de cuisson recouverte de papier sulfurisé."
+        },
+        {
+          "id": "step-udp9vzo",
+          "text": "Badigeonnez chaque bonbon d'un peu de beurre fondu et enfournez pour 10 minutes environ, jusqu'à ce qu'ils soient dorés et croustillant."
+        }
+      ],
       "id": "recipe-etv31n7",
       "name": "Bonbons croustillant saumon poireaux",
       "category": "Festifs",
