@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-09T12:51:15.926Z",
+  "exportedAt": "2026-06-09T12:52:44.115Z",
   "recipes": [
     {
       "badge": "Apéro",
@@ -66,13 +66,13 @@
         "apéro"
       ],
       "rating": 3,
-      "description": "",
-      "notes": "",
-      "photoUrl": "",
+      "description": "Une crème de camembert onctueuse et généreuse, au goût délicatement corsé. Fondante en bouche, elle révèle toute la douceur du camembert avec une texture veloutée et réconfortante, parfaite à tartiner ou à déguster en dip convivial.",
+      "notes": "Pour une crème de camembert encore plus savoureuse, laissez le camembert revenir à température ambiante avant de le mixer : la texture sera plus lisse et les arômes plus développés. Ajoutez quelques noix concassées ou un filet de miel au moment du service pour une touche gourmande et raffinée.",
+      "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnX1xf6kQvTeZHG7AsI2DJJ-1H0zauoq41Hw&s",
       "photoData": "",
       "videoUrl": "",
-      "sourceUrl": "",
-      "sourceName": "",
+      "sourceUrl": "https://www.cuisineaz.com/recettes/sauce-camembert-54703.aspx",
+      "sourceName": "Source web",
       "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
       "favorite": false
     },
