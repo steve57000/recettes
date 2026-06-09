@@ -1,6 +1,35 @@
 {
-  "exportedAt": "2026-06-09T13:33:42.305Z",
+  "exportedAt": "2026-06-09T13:37:02.177Z",
   "recipes": [
+    {
+      "badge": "Nouveau",
+      "difficulty": "Moyen",
+      "baseServings": 4,
+      "time": 20,
+      "ingredients": [
+        {
+          "id": "ing-1hzhw52",
+          "name": "Poireaux",
+          "qty": 150,
+          "unit": "pièce"
+        }
+      ],
+      "steps": [],
+      "id": "recipe-etv31n7",
+      "name": "Bonbons croustillants",
+      "category": "Mes recettes",
+      "tags": [],
+      "rating": 3,
+      "description": "",
+      "notes": "",
+      "photoUrl": "",
+      "photoData": "",
+      "videoUrl": "",
+      "sourceUrl": "",
+      "sourceName": "",
+      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
+      "favorite": false
+    },
     {
       "badge": "Pâtisserie",
       "difficulty": "Facile",
