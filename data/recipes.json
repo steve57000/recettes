@@ -1,6 +1,81 @@
 {
-  "exportedAt": "2026-06-08T17:54:07.474Z",
+  "exportedAt": "2026-06-09T12:51:15.926Z",
   "recipes": [
+    {
+      "badge": "Apéro",
+      "difficulty": "Facile",
+      "baseServings": 8,
+      "time": 5,
+      "ingredients": [
+        {
+          "id": "ing-axjrfsp",
+          "name": "Oignons",
+          "qty": 60,
+          "unit": "g"
+        },
+        {
+          "id": "ing-jdatz4h",
+          "name": "Tomates séchées",
+          "qty": 50,
+          "unit": "g"
+        },
+        {
+          "id": "ing-6ih6hd6",
+          "name": "Camembert 45%mg",
+          "qty": 250,
+          "unit": "g"
+        },
+        {
+          "id": "ing-2xdapup",
+          "name": "Beurre",
+          "qty": 75,
+          "unit": "g"
+        },
+        {
+          "id": "ing-lolbhbc",
+          "name": "Sel",
+          "qty": 1,
+          "unit": "à convenance"
+        },
+        {
+          "id": "ing-dpdbygb",
+          "name": "Poivre",
+          "qty": 1,
+          "unit": "à convenance"
+        },
+        {
+          "id": "ing-xcwoqsp",
+          "name": "Crème aigre 10%mg",
+          "qty": 200,
+          "unit": "g"
+        },
+        {
+          "id": "ing-qtxr4nl",
+          "name": "Paprika",
+          "qty": 1,
+          "unit": "à convenance"
+        }
+      ],
+      "steps": [],
+      "id": "recipe-l88btk5",
+      "name": "Crème de camembert",
+      "category": "Entrées",
+      "tags": [
+        "rapide",
+        "été",
+        "apéro"
+      ],
+      "rating": 3,
+      "description": "",
+      "notes": "",
+      "photoUrl": "",
+      "photoData": "",
+      "videoUrl": "",
+      "sourceUrl": "",
+      "sourceName": "",
+      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
+      "favorite": false
+    },
     {
       "badge": "Douceur",
       "difficulty": "Facile",
