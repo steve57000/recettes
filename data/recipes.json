@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-17T11:23:06.446Z",
+  "exportedAt": "2026-06-17T11:54:42.928Z",
   "recipes": [
     {
       "badge": "Pâtisserie",
@@ -79,31 +79,99 @@
       "ingredients": [
         {
           "id": "ing-nguxqed",
-          "name": "Farine",
-          "qty": 300,
+          "name": "Pâte brisée",
+          "qty": 1,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-6oypcsb",
+          "name": "Fromage blanc 40%mg",
+          "qty": 1,
+          "unit": "kg"
+        },
+        {
+          "id": "ing-lozrols",
+          "name": "Sucre",
+          "qty": 180,
           "unit": "g"
+        },
+        {
+          "id": "ing-gm2irex",
+          "name": "Farine",
+          "qty": 70,
+          "unit": "g"
+        },
+        {
+          "id": "ing-euqr7zt",
+          "name": "Extrait de vanille",
+          "qty": 1,
+          "unit": "c. à soupe"
+        },
+        {
+          "id": "ing-5d8mv88",
+          "name": "Crème liquide",
+          "qty": 100,
+          "unit": "ml"
+        },
+        {
+          "id": "ing-brfc4v0",
+          "name": "Citron",
+          "qty": 1,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-6yr6z0t",
+          "name": "Oeufs",
+          "qty": 5,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-ua0u8dj",
+          "name": "Sel",
+          "qty": 1,
+          "unit": "pincée"
         }
       ],
       "steps": [
         {
           "id": "step-db6dh5k",
-          "text": "Pour la pâte brisée maison, dans un petit saladier, mélangez 300g de farine et 1.5 cuillère à café de sel. Ajoutez 150g de beurre mou (à température ambiante et non fondu) coupé en petits morceaux et pétrir du bout des doigts pendant quelques minutes jusqu'à l'obtention d'un mélange sableux."
-        },
-        {
-          "id": "step-qe5glf8",
-          "text": "Ajoutez 80ml d'eau et former rapidement une boule de pâte. Filmez et placez au réfrigérateur pour 30 minutes minimum."
-        },
-        {
-          "id": "step-m1ncz5y",
-          "text": "Pour la garniture, préchauffez le four à 180°C. Préparez un moule à manqué (ou charnière) d'environ 26 cm, beurré et fariné."
+          "text": "Préparez la pâte brisée maison."
         },
         {
           "id": "step-a9f33lk",
-          "text": "Séparez les 5 blancs d'œufs des jaunes (les blancs dans un petit saladier, les jaunes dans un petit bol)."
+          "text": "Pour la garniture, Préchauffez le four à 180°C. Préparez un moule à manqué (ou charnière) d'environ 26cm, beurré et fariné.  Séparez les blancs d'œufs des jaunes (les blancs dans un petit saladier, les jaunes dans un petit bol)."
         },
         {
           "id": "step-siftmn3",
-          "text": "Dans un grand saladier, mélangez 1kg de fromage banc ferme (40% de mg), 180g de sucre,"
+          "text": "Dans un grand saladier, mélangez le fromage banc ferme, le sucre, la farine, la crème, la vanille et le zeste de citron. Battre jusqu'à ce que tout les ingrédients soient bien mélangés."
+        },
+        {
+          "id": "step-sw0ikw3",
+          "text": "Ajoutez les jaunes d'œufs et mélangez à nouveau. Réservez."
+        },
+        {
+          "id": "step-86znevt",
+          "text": "Battre les blancs (avec une pincée de sel) en neige ferme."
+        },
+        {
+          "id": "step-hegb9ln",
+          "text": "Incorporez délicatement les blancs en neige au reste de la préparation à l'aide d'une cuillère en bois."
+        },
+        {
+          "id": "step-3opv35n",
+          "text": "Etalez la pâte brisée au rouleau en un grand disque assez épais (un peu plus qu'une pâte brisée du commerce). Foncez le moule avec la pâte (jusqu'en haut) en coupant si besoin ce qui déborde du moule. Piquez la pâte à l'aide d'une fourchette."
+        },
+        {
+          "id": "step-fia61nf",
+          "text": "Versez la préparation dans le moule et enfournez à 180°C pendant 50 minutes à 1 heure en surveillant la cuisson dès 45 minutes afin de la recouvrir de papier aluminium si elle dore de trop. La tarte doit être joliment dorée (voir très dorée). En fin de cuisson la tarte gonfle. Une fois cuite, laissez reposer la tarte dans le four éteint et ouvert, quelques minutes, jusqu'à ce que la tarte redescende à hauteur du moule."
+        },
+        {
+          "id": "step-rv136vj",
+          "text": "Sortir la tarte du four. Placez une grille de refroidissement sur le moule et retournez la tarte d'un coup sec. Si la tarte coule après quelques minutes à l'envers, replacez la dans le moule et laissez la refroidir complètement dans le moule avant de la démouler. Sinon, laissez la tarte refroidir complètement à l'envers. Une fois refroidie, retournez la tarte sur une assiette de présentation et palcer au frigo pour quelques heures avant de la déguster."
+        },
+        {
+          "id": "step-akzp1qj",
+          "text": "Décorez en saupoudrant de sucre glace et servir avec un coulis de fruit rouge si souhaitez."
         }
       ],
       "id": "recipe-v9qck5a",
