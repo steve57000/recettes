@@ -1,6 +1,118 @@
 {
-  "exportedAt": "2026-06-17T17:52:46.009Z",
+  "exportedAt": "2026-06-17T18:26:21.473Z",
   "recipes": [
+    {
+      "badge": "Douceur",
+      "difficulty": "Facile",
+      "baseServings": 4,
+      "time": 15,
+      "ingredients": [
+        {
+          "id": "ing-c2xwcv9",
+          "name": "Sucre roux",
+          "qty": 100,
+          "unit": "g"
+        },
+        {
+          "id": "ing-qe7luxx",
+          "name": "Biscuits cuillère",
+          "qty": 24,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-bh3m25r",
+          "name": "Cacao amer",
+          "qty": 30,
+          "unit": "g"
+        },
+        {
+          "id": "ing-9ascmus",
+          "name": "Oeufs",
+          "qty": 3,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-s2f2i2s",
+          "name": "Sucre vanillé",
+          "qty": 1,
+          "unit": "sachet"
+        },
+        {
+          "id": "ing-tkezsw4",
+          "name": "Mascarpone",
+          "qty": 250,
+          "unit": "g"
+        },
+        {
+          "id": "ing-xz1nhen",
+          "name": "Café",
+          "qty": 50,
+          "unit": "cl"
+        },
+        {
+          "id": "ing-p2mjb0u",
+          "name": "Amaretto, marsala ou rhum",
+          "qty": 1,
+          "unit": "à convenance"
+        }
+      ],
+      "steps": [
+        {
+          "id": "step-7sulznl",
+          "text": "Séparez les blancs des jaunes d'œufs."
+        },
+        {
+          "id": "step-sztd5xd",
+          "text": "Mélangez les jaunes avec le sucre roux et le sucre vanillé (ou gousse de vanille)."
+        },
+        {
+          "id": "step-w6jwj3y",
+          "text": "Ajoutez le mascarpone fouettez."
+        },
+        {
+          "id": "step-jdms663",
+          "text": "Montez les blancs en neige et les incorporez délicatement à la spatule au mélange précédent. Réservez au frais."
+        },
+        {
+          "id": "step-ka27n1e",
+          "text": "Dans le fond du plat, y mettre a votre convenance, l'Amaretto, le Rhum ou du Marsala."
+        },
+        {
+          "id": "step-1i8i9rf",
+          "text": "Mouillez les biscuits dans le café rapidement avant d'en tapissez le fond du plat."
+        },
+        {
+          "id": "step-63a1oqq",
+          "text": "Recouvrir d'une couche de crème au mascarpone puis répétez l'opération en alternant couche de biscuits et couche de crème en terminant par cette dernière."
+        },
+        {
+          "id": "step-4on7t8b",
+          "text": "Saupoudrez de cacao."
+        },
+        {
+          "id": "step-e1maocp",
+          "text": "Mettre au réfrigérateur 4 heures minimum puis dégustez frais."
+        }
+      ],
+      "id": "recipe-eko8pxv",
+      "name": "Tiramisu",
+      "category": "Desserts",
+      "tags": [
+        "gourmand",
+        "dessert",
+        "crémeux"
+      ],
+      "rating": 3,
+      "description": "Un dessert italien onctueux et gourmand, mêlant biscuits imbibés de café, crème mascarpone légère et poudre de cacao. Un parfait équilibre entre douceur et intensité, pour une fin de repas tout en élégance et en gourmandise.",
+      "notes": "Laissez le tiramisu reposer au minimum 4 heures, idéalement une nuit, pour que les saveurs se développent pleinement.",
+      "photoUrl": "",
+      "photoData": "",
+      "videoUrl": "",
+      "sourceUrl": "https://www.marmiton.org/recettes/recette_tiramisu-recette-originale_12023.aspx",
+      "sourceName": "Source web",
+      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
+      "favorite": false
+    },
     {
       "badge": "Croustillant",
       "difficulty": "Moyen",
