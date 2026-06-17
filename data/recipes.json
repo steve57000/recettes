@@ -1,6 +1,121 @@
 {
-  "exportedAt": "2026-06-17T17:09:50.973Z",
+  "exportedAt": "2026-06-17T17:31:00.584Z",
   "recipes": [
+    {
+      "badge": "Réconfort",
+      "difficulty": "Facile",
+      "baseServings": 6,
+      "time": 50,
+      "ingredients": [
+        {
+          "id": "ing-lx08zo1",
+          "name": "Pâte feuilletée",
+          "qty": 1,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-vp1hli5",
+          "name": "Beurre",
+          "qty": 10,
+          "unit": "g"
+        },
+        {
+          "id": "ing-of3o9ik",
+          "name": "Poireaux",
+          "qty": 3,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-du3g48t",
+          "name": "Lardons",
+          "qty": 400,
+          "unit": "g"
+        },
+        {
+          "id": "ing-6cvgy03",
+          "name": "Fromage râpé",
+          "qty": 100,
+          "unit": "g"
+        },
+        {
+          "id": "ing-lm5js1r",
+          "name": "Crème fraîche épaisse",
+          "qty": 25,
+          "unit": "cl"
+        },
+        {
+          "id": "ing-dyr0g4r",
+          "name": "Oeufs",
+          "qty": 3,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-fl1ycqc",
+          "name": "Sel",
+          "qty": 1,
+          "unit": "à convenance"
+        },
+        {
+          "id": "ing-d2w2628",
+          "name": "Poivre",
+          "qty": 1,
+          "unit": "à convenance"
+        },
+        {
+          "id": "ing-0osk4mf",
+          "name": "Noix de muscade",
+          "qty": 1,
+          "unit": "à convenance"
+        }
+      ],
+      "steps": [
+        {
+          "id": "step-wc7ks3a",
+          "text": "Préchauffez le four à 210°C. Etalez la pâte feuilletée dans un moule à tarte, en piquant le fond avec une fourchette. Faire cuire la pâte à blanc avec un poids pendant 10 minutes à 180°C chaleur tournante, puis retirez le poids et faire cuire 10 minutes pour que la fond colore. Laissez-la refroidir sur une grille."
+        },
+        {
+          "id": "step-o4x0sih",
+          "text": "Lavez puis émincez les poireaux. les faire dorer a feu doux dans du beurre jusqu'à ce qu'ils soient bien tendres."
+        },
+        {
+          "id": "step-vzsurrf",
+          "text": "Faire dorer les lardons à part. Les égouttez soigneusement avant de les ajoutez aux poireaux."
+        },
+        {
+          "id": "step-ncbssfy",
+          "text": "Faire l'appareil : mêlez les œufs, la crème, le sel et le poivre et la muscade."
+        },
+        {
+          "id": "step-0bg70fq",
+          "text": "Etalez les poireaux et les lardons sur la pâte."
+        },
+        {
+          "id": "step-28qjppl",
+          "text": "Parsemez de fromage râpé, couvrir avec l'appareil."
+        },
+        {
+          "id": "step-fbai323",
+          "text": "Mettre au four 25 minutes."
+        }
+      ],
+      "id": "recipe-eyfzp89",
+      "name": "Tarte aux poireaux",
+      "category": "Plats",
+      "tags": [
+        "automne",
+        "léger"
+      ],
+      "rating": 3,
+      "description": "Une tarte savoureuse garnie de poireaux fondants délicatement mijotés, liés par un appareil crémeux et parfumé. Sa pâte croustillante contraste parfaitement avec la douceur des légumes pour un plat simple, gourmand et réconfortant.",
+      "notes": "Faites revenir les poireaux à feu doux jusqu’à ce qu’ils soient bien tendres afin de révéler toute leur douceur naturelle.",
+      "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZpSYRQ3w5ROotQk0Jt3cPX90K82Ve9VkQE9x3GLhImA&s=10",
+      "photoData": "",
+      "videoUrl": "",
+      "sourceUrl": "https://www.marmiton.org/recettes/recette_tarte-aux-poireaux-et-aux-lardons_12850.aspx",
+      "sourceName": "Source web",
+      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
+      "favorite": false
+    },
     {
       "badge": "Nouveau",
       "difficulty": "Facile",
