@@ -1,6 +1,81 @@
 {
-  "exportedAt": "2026-06-17T17:31:00.584Z",
+  "exportedAt": "2026-06-17T17:52:46.009Z",
   "recipes": [
+    {
+      "badge": "Croustillant",
+      "difficulty": "Moyen",
+      "baseServings": 4,
+      "time": 55,
+      "ingredients": [
+        {
+          "id": "ing-pg3uc2q",
+          "name": "Pomme de terre",
+          "qty": 1,
+          "unit": "kg"
+        },
+        {
+          "id": "ing-pbgnnox",
+          "name": "Oeuf",
+          "qty": 1,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-4mvg5fw",
+          "name": "Farine",
+          "qty": 2,
+          "unit": "c. à soupe"
+        },
+        {
+          "id": "ing-pyiz0yg",
+          "name": "Cebette",
+          "qty": 4,
+          "unit": "brin"
+        },
+        {
+          "id": "ing-z83zbbt",
+          "name": "Persil plat",
+          "qty": 1,
+          "unit": "botte"
+        },
+        {
+          "id": "ing-9ms46ar",
+          "name": "Huile végétale",
+          "qty": 50,
+          "unit": "cl"
+        }
+      ],
+      "steps": [
+        {
+          "id": "step-q70kmnk",
+          "text": "Râper les pommes de terre à l’aide d’une râpe ou d’un robot culinaire muni d’un disque à râper. Avec les mains, presser fermement des poignées de pommes de terre râpées afin d’évacuer un maximum de liquide. Mettre ensuite dans un grand bol et réserver."
+        },
+        {
+          "id": "step-c2vw92u",
+          "text": "Fouetter ensemble l'œuf, la farine, le sel et le poivre. Incorporer dans les pommes de terre. Ajouter les oignons verts et le persil et mélanger jusqu’à ce qu’ils soient uniformément répartis."
+        },
+        {
+          "id": "step-mli2bzk",
+          "text": "Chauffer 1 c. à soupe d’huile à feu moyen dans une grande poêle antiadhésive. Une fois l’huile bien chaude, prendre 1/3 tasse de préparation. Placer dans la poêle et aplatir immédiatement à l’aide d’une fourchette de manière à former une galette. Le contour sera inégal. Vous devriez pouvoir cuire 3 galettes à la fois. Ne pas les entasser. Cuire jusqu’à ce qu’elles soient dorées et croustillantes, environ 5 à 6 minutes par côté."
+        }
+      ],
+      "id": "recipe-dqzal7y",
+      "name": "Les râpés de pomme de terre",
+      "category": "Plats",
+      "tags": [
+        "végétarien",
+        "entrer"
+      ],
+      "rating": 3,
+      "description": "Croustillants à l’extérieur et moelleux à cœur, les râpés de pommes de terre séduisent par leur texture gourmande et leur saveur authentique. Dorés à souhait, ils accompagnent parfaitement viandes, poissons ou salades pour un repas convivial et réconfortant.",
+      "notes": "Pressez bien les pommes de terre râpées avant cuisson pour éliminer l’excès d’eau et obtenir des râpés bien croustillants.",
+      "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrmQy4pkOA02B8q6awIhsbDvbzQhso2oxtGtQ1f02Wxw&s=10",
+      "photoData": "",
+      "videoUrl": "",
+      "sourceUrl": "https://fr.chatelaine.com/recettes/pommes_de_terre/galettes-de-pommes-de-terre-rapees/",
+      "sourceName": "Source web",
+      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
+      "favorite": false
+    },
     {
       "badge": "Réconfort",
       "difficulty": "Facile",
