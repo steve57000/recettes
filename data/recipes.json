@@ -1,6 +1,59 @@
 {
-  "exportedAt": "2026-06-17T12:16:53.264Z",
+  "exportedAt": "2026-06-17T13:11:08.978Z",
   "recipes": [
+    {
+      "badge": "Gourmand",
+      "difficulty": "Moyen",
+      "baseServings": 6,
+      "time": 65,
+      "ingredients": [
+        {
+          "id": "ing-t9yi7qe",
+          "name": "Sel",
+          "qty": 1,
+          "unit": "g"
+        }
+      ],
+      "steps": [
+        {
+          "id": "step-dm6cp6z",
+          "text": "La veille : Coupez le porc en petits dès. Le mettre dans un saladier. Ajoutez l'huile les échalotes, l'oignon coupé en 4, le laurier, les herbes, les épices. Salez, poivrez. Le couvrir entièrement avec le vin blanc. Couvrir le plat. Le mettre au réfrigérateur."
+        },
+        {
+          "id": "step-2nz3sa1",
+          "text": "Le lendemain : Préchauffez le four à 200°C. Etalez la pâte feuilletée en 2 disques de pâte."
+        },
+        {
+          "id": "step-pdx4faq",
+          "text": "Sortir la viande de la marinade. L'égouttez."
+        },
+        {
+          "id": "step-46ps1gp",
+          "text": "Mettre la viande sur la pâte après l'avoir bien sécher. Prendre soin de retirez le laurier, et les clous de girofle."
+        },
+        {
+          "id": "step-1u2ssmg",
+          "text": "Ramenez les bords de la pâte sur la viande. Posez le second disque de pâte, il devra recouvrir entièrement le dessus de la tourte. Les collez au jaune d'œuf allongé d'un peu d'eau ou de lait."
+        }
+      ],
+      "id": "recipe-hjm2g61",
+      "name": "Tourte Lorraine",
+      "category": "Plats",
+      "tags": [
+        "automne",
+        "gourmand"
+      ],
+      "rating": 3,
+      "description": "Une tourte généreuse et dorée, garnie d’une farce savoureuse mêlant viande tendre et assaisonnements délicats. Enveloppée dans une pâte croustillante et fondante, elle offre un plat réconfortant aux saveurs authentiques et rustiques.",
+      "notes": "Badigeonnez la pâte avec un jaune d’œuf avant cuisson pour obtenir une belle dorure brillante et appétissante. Laissez reposer la tourte quelques minutes après cuisson pour que les jus se répartissent et que la découpe soit parfaite.",
+      "photoUrl": "",
+      "photoData": "",
+      "videoUrl": "",
+      "sourceUrl": "",
+      "sourceName": "",
+      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
+      "favorite": false
+    },
     {
       "badge": "Pâtisserie",
       "difficulty": "Facile",
