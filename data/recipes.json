@@ -1,6 +1,37 @@
 {
-  "exportedAt": "2026-06-17T11:54:42.928Z",
+  "exportedAt": "2026-06-17T12:00:53.209Z",
   "recipes": [
+    {
+      "badge": "Pâtisserie",
+      "difficulty": "Facile",
+      "baseServings": 6,
+      "time": 78,
+      "ingredients": [
+        {
+          "id": "ing-lssk9mj",
+          "name": "Oeuf",
+          "qty": 1,
+          "unit": "pièce"
+        }
+      ],
+      "steps": [],
+      "id": "recipe-9cx7d90",
+      "name": "Pâte sablée",
+      "category": "Pâtes de base",
+      "tags": [
+        "pâtisserie"
+      ],
+      "rating": 3,
+      "description": "Une pâte fine et friable, délicieusement fondante en bouche, au bon goût de beurre. Dorée à la cuisson, elle apporte une base gourmande et croustillante à toutes vos tartes sucrées et desserts.",
+      "notes": "Travaillez-la rapidement pour éviter qu’elle ne chauffe, afin de garder une texture bien sablée après cuisson.",
+      "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsTOujrRzrBvNZJSWYWHjjnCH_wQ3_wtNSMhx_jAmCHg&s",
+      "photoData": "",
+      "videoUrl": "",
+      "sourceUrl": "https://lacuisinedannie.20minutes.fr/recette-pate-sablee-188.html",
+      "sourceName": "Source web",
+      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
+      "favorite": false
+    },
     {
       "badge": "Pâtisserie",
       "difficulty": "Facile",
