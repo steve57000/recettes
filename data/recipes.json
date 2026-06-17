@@ -1,6 +1,35 @@
 {
-  "exportedAt": "2026-06-17T10:02:22.354Z",
+  "exportedAt": "2026-06-17T10:14:08.852Z",
   "recipes": [
+    {
+      "badge": "Nouveau",
+      "difficulty": "Moyen",
+      "baseServings": 4,
+      "time": 20,
+      "ingredients": [
+        {
+          "id": "ing-nguxqed",
+          "name": "Farine",
+          "qty": 300,
+          "unit": "g"
+        }
+      ],
+      "steps": [],
+      "id": "recipe-v9qck5a",
+      "name": "Tarte au fromage blanc",
+      "category": "Mes recettes",
+      "tags": [],
+      "rating": 3,
+      "description": "",
+      "notes": "",
+      "photoUrl": "",
+      "photoData": "",
+      "videoUrl": "",
+      "sourceUrl": "",
+      "sourceName": "",
+      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
+      "favorite": false
+    },
     {
       "badge": "Douceur",
       "difficulty": "Moyen",
