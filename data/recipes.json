@@ -1,6 +1,95 @@
 {
-  "exportedAt": "2026-06-17T18:28:18.616Z",
+  "exportedAt": "2026-06-17T18:43:47.361Z",
   "recipes": [
+    {
+      "badge": "Familial",
+      "difficulty": "Facile",
+      "baseServings": 4,
+      "time": 20,
+      "ingredients": [
+        {
+          "id": "ing-dc17yd2",
+          "name": "Farine",
+          "qty": 300,
+          "unit": "g"
+        },
+        {
+          "id": "ing-wanusct",
+          "name": "Fromage blanc",
+          "qty": 270,
+          "unit": "g"
+        },
+        {
+          "id": "ing-tql8ab9",
+          "name": "Oeufs",
+          "qty": 4,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-dqokrdb",
+          "name": "Ciboulette",
+          "qty": 1,
+          "unit": "bouquet"
+        },
+        {
+          "id": "ing-fjtayt5",
+          "name": "Beurre",
+          "qty": 1,
+          "unit": "à convenance"
+        },
+        {
+          "id": "ing-bttj4vm",
+          "name": "Sel",
+          "qty": 1,
+          "unit": "à convenance"
+        },
+        {
+          "id": "ing-dw0rx50",
+          "name": "Poivre",
+          "qty": 1,
+          "unit": "à convenance"
+        }
+      ],
+      "steps": [
+        {
+          "id": "step-5eyvnx5",
+          "text": "Dans un saladier ou dans un robot mixeur, associez les œufs battus en omelette, la farine préalablement tamisée et le fromage blanc."
+        },
+        {
+          "id": "step-5nz1aag",
+          "text": "Ciselez votre ciboulette et ajoutez-la au mélange avec le sel et le poivre. Dès que vous obtenez une préparation semblable à un pâton, vous pouvez arrêter le robot."
+        },
+        {
+          "id": "step-bslqzkn",
+          "text": "Parallèlement, faites frémir de l'eau salée dans une casserole. Armez-vous d'une c. à café et réalisez avec la pâte des quenelles que vous plongerez par 5 dans l'eau bouillante."
+        },
+        {
+          "id": "step-g1sbcpx",
+          "text": "Dès que vos Kasknepfle remontent à la surface, poursuivez la cuisson pour 2 min. Sortez votre écumoire et récupérez les pâtes alsaciennes."
+        },
+        {
+          "id": "step-ej1vn0p",
+          "text": "Il ne reste plus qu'à faire revenir les petites pâtes avec un filet d'huile d'olive, pour les rendre dorées à souhait !"
+        }
+      ],
+      "id": "recipe-jg24yv7",
+      "name": "Les Kasknepfle",
+      "category": "Accompagnements",
+      "tags": [
+        "gourmand",
+        "réconfortant"
+      ],
+      "rating": 3,
+      "description": "De petites pâtes maison moelleuses et généreuses, enrobées de fromage fondant et légèrement gratinées. Ce plat réconfortant aux saveurs simples et authentiques séduit par sa texture tendre et son goût gourmand, typique de la cuisine alsacienne.",
+      "notes": "Ajoutez un peu d’oignon doré ou de chapelure croustillante sur le dessus pour apporter du contraste et encore plus de gourmandise.",
+      "photoUrl": "",
+      "photoData": "",
+      "videoUrl": "",
+      "sourceUrl": "https://www.cuisineaz.com/recettes/kasknepfle-quenelles-ou-pates-alsaciennes-au-fromage-blanc-121108.aspx",
+      "sourceName": "Source web",
+      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
+      "favorite": false
+    },
     {
       "badge": "Douceur",
       "difficulty": "Facile",
