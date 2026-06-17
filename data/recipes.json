@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-17T10:48:52.896Z",
+  "exportedAt": "2026-06-17T11:03:38.211Z",
   "recipes": [
     {
       "badge": "Pâtisserie",
@@ -12,9 +12,48 @@
           "name": "Farine",
           "qty": 200,
           "unit": "g"
+        },
+        {
+          "id": "ing-s2i6cun",
+          "name": "Beurre",
+          "qty": 100,
+          "unit": "g"
+        },
+        {
+          "id": "ing-u2rbwzy",
+          "name": "Sel",
+          "qty": 1.5,
+          "unit": "c. à café"
+        },
+        {
+          "id": "ing-ggay6fx",
+          "name": "Eau",
+          "qty": 50,
+          "unit": "ml"
         }
       ],
-      "steps": [],
+      "steps": [
+        {
+          "id": "step-7g42djw",
+          "text": "Mettre la farine, le sel et le beurre coupé en petits morceaux dans un saladier. Effritez le tout à la main."
+        },
+        {
+          "id": "step-4c6tfv3",
+          "text": "Ajoutez l'eau progressivement en mélangeant jusqu'à former une boule souple sans être molle, en arrêtant dès que la pâte se met en boule et ne colle plus. Laissez reposer 20 à 30 minutes au frais."
+        },
+        {
+          "id": "step-2c8lgs6",
+          "text": "Etalez la pâte sur un plan de travail fariné avec un rouleau à pâtisserie. Tournez la pâte d'un 1/4 de tour régulièrement pour étaler la pâte le plus possible selon une forme circulaire et sur une épaisseur homogène d'environ 3mm."
+        },
+        {
+          "id": "step-maoqej1",
+          "text": "Foncez le moule : déposez la pâte sur le moule recouvert de papier cuisson, et adhérez la pâte en la pressant légèrement sur le moule. Découpez la pâte sur les bords du moule avec un couteau ou en passant le rouleau sur les bords. Elle est prête à accueillir une garniture après l'avoir piqué à la pointe d'une fourchette."
+        },
+        {
+          "id": "step-56qqwk1",
+          "text": "Pour cuire une pâte à blanc : c'est à dire sans la garniture qu'on rajoute après : il faut mettre du poids sur la pâte pour éviter que la cuisson ne la déforme. La cuisson se fait dans un four préchauffé entre 180°C/200°C pendant 10/15 minutes. Il faut surveiller la fin de la cuisson: quand les bords commencent à dorer, il faut retirer le papier cuisson et les noyaux et poursuivre encore la cuisson 4/5 min en surveillant la coloration. La pâte est à point lorsque les bords se détachent du moule."
+        }
+      ],
       "id": "recipe-s0ymuwj",
       "name": "Pâte brisée",
       "category": "Pâtes de base",
@@ -24,7 +63,7 @@
       "rating": 3,
       "description": "Une pâte croustillante et délicatement dorée, à la texture légère et fondante. Simple et savoureuse, elle constitue la base idéale pour toutes vos tartes, qu’elles soient sucrées ou salées.",
       "notes": "Laissez reposer la pâte au frais avant de l’étaler pour obtenir une texture plus homogène et limiter son rétrécissement à la cuisson, piquez le fond de pâte à la fourchette avant cuisson pour éviter qu’il ne gonfle et garantir une base bien régulière.",
-      "photoUrl": "",
+      "photoUrl": "https://ellemijotequelquechose.com/wp-content/uploads/2021/03/Pate-sablee-facile-et-delicieuse.jpg",
       "photoData": "",
       "videoUrl": "",
       "sourceUrl": "https://lacuisinedannie.20minutes.fr/recette-pate-brisee-187.html",
