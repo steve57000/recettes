@@ -1,6 +1,111 @@
 {
-  "exportedAt": "2026-06-17T13:29:10.227Z",
+  "exportedAt": "2026-06-17T16:28:30.062Z",
   "recipes": [
+    {
+      "badge": "Gourmand",
+      "difficulty": "Facile",
+      "baseServings": 6,
+      "time": 65,
+      "ingredients": [
+        {
+          "id": "ing-ycjnzfc",
+          "name": "Pâte feuilletée",
+          "qty": 2,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-h6bmos6",
+          "name": "Beurre",
+          "qty": 100,
+          "unit": "g"
+        },
+        {
+          "id": "ing-gxt806b",
+          "name": "Persil plat",
+          "qty": 1,
+          "unit": "botte"
+        },
+        {
+          "id": "ing-l99v0f8",
+          "name": "Champignon de paris",
+          "qty": 300,
+          "unit": "g"
+        },
+        {
+          "id": "ing-8y9we30",
+          "name": "Eau",
+          "qty": 1,
+          "unit": "c. à soupe"
+        },
+        {
+          "id": "ing-7jbiqh1",
+          "name": "Cuisse de grenouille déossée",
+          "qty": 600,
+          "unit": "g"
+        },
+        {
+          "id": "ing-e95df9i",
+          "name": "Ail",
+          "qty": 1,
+          "unit": "gousse"
+        },
+        {
+          "id": "ing-mq180iv",
+          "name": "Crème fraîche épaisse",
+          "qty": 200,
+          "unit": "g"
+        },
+        {
+          "id": "ing-azhan1g",
+          "name": "Oeuf",
+          "qty": 1,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-9rzozlw",
+          "name": "Sel",
+          "qty": 1,
+          "unit": "à convenance"
+        },
+        {
+          "id": "ing-qpza8nq",
+          "name": "Poivre",
+          "qty": 1,
+          "unit": "à convenance"
+        }
+      ],
+      "steps": [
+        {
+          "id": "step-qdaiufx",
+          "text": "Essuyez soigneusement au papier absorbant la chair de grenouilles. Faites saisir les cuisses de grenouilles dans le beurre puis ajoutez les champignons, l'échalote émincée, l'ail émincé, le persil le sel et le poivre. Ajoutez la crème fraîche et faites réduire."
+        },
+        {
+          "id": "step-c3d0sab",
+          "text": "Foncez le moule avec la pâte. Versez la préparation légèrement refroidie. Recouvrez avec l'autre pâte, rabattez les bords afin de former un couvercle. Mélangez le jaune d'œuf avec un peu d'eau et dorez la tourte."
+        },
+        {
+          "id": "step-sda6p05",
+          "text": "Pour finir, faites cuire 15 minutes à 240°C et 60 minutes à 160°C."
+        }
+      ],
+      "id": "recipe-ppw6hgf",
+      "name": "Tourte aux cuisse de grenouilles",
+      "category": "Plats",
+      "tags": [
+        "automne",
+        "gourmand"
+      ],
+      "rating": 3,
+      "description": "Une tourte raffinée et gourmande, garnie de tendres cuisses de grenouilles délicatement parfumées aux herbes et à l’ail. Enveloppée dans une pâte dorée et croustillante, elle révèle des saveurs fines et élégantes qui séduiront les amateurs de cuisine traditionnelle.",
+      "notes": "Faites revenir les cuisses de grenouilles avec ail et persil avant de les incorporer à la tourte afin de développer pleinement leurs arômes.",
+      "photoUrl": "https://img-3.journaldesfemmes.fr/vOVcMsEfJ33ISfEoY9ZKOYE96gU=/750x500/684ed882ffe04368a0067f2e420ff83c/ccmcms-jdf/39898964.jpg",
+      "photoData": "",
+      "videoUrl": "",
+      "sourceUrl": "https://cuisine.journaldesfemmes.fr/recette/320838-tourte-aux-cuisses-de-grenouilles",
+      "sourceName": "Source web",
+      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
+      "favorite": false
+    },
     {
       "badge": "Gourmand",
       "difficulty": "Moyen",
