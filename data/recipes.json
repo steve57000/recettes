@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-17T13:11:08.978Z",
+  "exportedAt": "2026-06-17T13:26:30.993Z",
   "recipes": [
     {
       "badge": "Gourmand",
@@ -9,9 +9,81 @@
       "ingredients": [
         {
           "id": "ing-t9yi7qe",
-          "name": "Sel",
-          "qty": 1,
+          "name": "Porc",
+          "qty": 500,
           "unit": "g"
+        },
+        {
+          "id": "ing-tz83bia",
+          "name": "Echalotte",
+          "qty": 4,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-btvt43c",
+          "name": "Oignon",
+          "qty": 1,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-d3n0cs1",
+          "name": "Laurier",
+          "qty": 2,
+          "unit": "feuille"
+        },
+        {
+          "id": "ing-uj6f4h8",
+          "name": "Persil plat",
+          "qty": 20,
+          "unit": "g"
+        },
+        {
+          "id": "ing-8q3cxli",
+          "name": "Clous de girofle",
+          "qty": 2,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-ru219xr",
+          "name": "Quatre épices",
+          "qty": 1,
+          "unit": "pincée"
+        },
+        {
+          "id": "ing-g1aq8g4",
+          "name": "Sel",
+          "qty": 10,
+          "unit": "g"
+        },
+        {
+          "id": "ing-4cf77gk",
+          "name": "Vin blanc sec",
+          "qty": 50,
+          "unit": "cl"
+        },
+        {
+          "id": "ing-ix51ch9",
+          "name": "Huile végétale",
+          "qty": 1,
+          "unit": "c. à soupe"
+        },
+        {
+          "id": "ing-kkz9onj",
+          "name": "Oeufs",
+          "qty": 2,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-jg73rva",
+          "name": "Crème fraîche épaisse",
+          "qty": 2,
+          "unit": "c. à soupe"
+        },
+        {
+          "id": "ing-d9ssrjk",
+          "name": "Poivre",
+          "qty": 1,
+          "unit": "à convenance"
         }
       ],
       "steps": [
@@ -34,6 +106,18 @@
         {
           "id": "step-1u2ssmg",
           "text": "Ramenez les bords de la pâte sur la viande. Posez le second disque de pâte, il devra recouvrir entièrement le dessus de la tourte. Les collez au jaune d'œuf allongé d'un peu d'eau ou de lait."
+        },
+        {
+          "id": "step-4v8eb9u",
+          "text": "Avec la pointe d'un couteau faire un trou au centre du couvercle. Y enfoncez un petit cylindre de papier alu afin que la cheminée ne se referme pas pendant la cuisson. Pour parfaire la préparation tracez quelques lignes décoratives sur le couvercle. Prendre soin de ne pas couper la pâte."
+        },
+        {
+          "id": "step-3twqvh0",
+          "text": "Cuire 30 minutes dans le four préchauffez à 200°C. Environ 10 minutes avant la fin de la cuisson passez par la cheminée le mélange œuf crème en s'aidant d'un petit entonnoir ce seras plus facile. Dorez la tourte au pinceau avec le reste du jaune d'œuf qui à servi pour coller le couvercle. Remettre à cuire 10 minutes."
+        },
+        {
+          "id": "step-4memrkl",
+          "text": "Sortir du four. La dressez sur un plat de service. Servir chaud aussitôt accompagnée d'une salade."
         }
       ],
       "id": "recipe-hjm2g61",
@@ -46,11 +130,11 @@
       "rating": 3,
       "description": "Une tourte généreuse et dorée, garnie d’une farce savoureuse mêlant viande tendre et assaisonnements délicats. Enveloppée dans une pâte croustillante et fondante, elle offre un plat réconfortant aux saveurs authentiques et rustiques.",
       "notes": "Badigeonnez la pâte avec un jaune d’œuf avant cuisson pour obtenir une belle dorure brillante et appétissante. Laissez reposer la tourte quelques minutes après cuisson pour que les jus se répartissent et que la découpe soit parfaite.",
-      "photoUrl": "",
+      "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTms_-s6gchv_qJjpni5tXx1OlDP4pYV_J-1OWTMX4aSg&s=10",
       "photoData": "",
       "videoUrl": "",
-      "sourceUrl": "",
-      "sourceName": "",
+      "sourceUrl": "https://www.recettes-et-terroirs.com/tourte-lorraine-20748/",
+      "sourceName": "Source web",
       "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
       "favorite": false
     },
