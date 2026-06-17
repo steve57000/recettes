@@ -1,6 +1,38 @@
 {
-  "exportedAt": "2026-06-17T09:30:05.777Z",
+  "exportedAt": "2026-06-17T09:44:26.845Z",
   "recipes": [
+    {
+      "badge": "Douceur",
+      "difficulty": "Moyen",
+      "baseServings": 2,
+      "time": 40,
+      "ingredients": [
+        {
+          "id": "ing-bd71brt",
+          "name": "Oeufs",
+          "qty": 3,
+          "unit": "pièce"
+        }
+      ],
+      "steps": [],
+      "id": "recipe-409k38j",
+      "name": "Madeleines",
+      "category": "Desserts",
+      "tags": [
+        "réconfortant",
+        "gourmand"
+      ],
+      "rating": 3,
+      "description": "De délicieuses madeleines dorées à la texture légère et fondante. Leur parfum délicat de beurre et de vanille en fait une gourmandise incontournable, parfaite pour accompagner un café, un thé ou une pause sucrée à tout moment de la journée.",
+      "notes": "",
+      "photoUrl": "",
+      "photoData": "",
+      "videoUrl": "",
+      "sourceUrl": "",
+      "sourceName": "",
+      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
+      "favorite": false
+    },
     {
       "badge": "Nouveau",
       "difficulty": "Moyen",
@@ -448,7 +480,7 @@
       "rating": 3,
       "description": "Une crème de camembert onctueuse et généreuse, au goût délicatement corsé. Fondante en bouche, elle révèle toute la douceur du camembert avec une texture veloutée et réconfortante, parfaite à tartiner ou à déguster en dip convivial.",
       "notes": "Pour une crème de camembert encore plus savoureuse, laissez le camembert revenir à température ambiante avant de le mixer : la texture sera plus lisse et les arômes plus développés. Ajoutez quelques noix concassées ou un filet de miel au moment du service pour une touche gourmande et raffinée.",
-      "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnX1xf6kQvTeZHG7AsI2DJJ-1H0zauoq41Hw&s",
+      "photoUrl": "https://cdn.recipes.lidl/images-v2/recipes/fr-FR/5e548cb4-3c6f-44aa-b681-51ce44deb539/16x9_768w_dip-au-camembert-au-monsieur-cuisine-1774376238.avif",
       "photoData": "",
       "videoUrl": "",
       "sourceUrl": "https://recettes.lidl.fr/recettes/dip-au-camembert-au-monsieur-cuisine",
