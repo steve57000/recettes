@@ -1,11 +1,11 @@
 {
-  "exportedAt": "2026-06-17T10:14:08.852Z",
+  "exportedAt": "2026-06-17T10:17:41.885Z",
   "recipes": [
     {
-      "badge": "Nouveau",
+      "badge": "Gourmand",
       "difficulty": "Moyen",
-      "baseServings": 4,
-      "time": 20,
+      "baseServings": 8,
+      "time": 70,
       "ingredients": [
         {
           "id": "ing-nguxqed",
@@ -17,16 +17,20 @@
       "steps": [],
       "id": "recipe-v9qck5a",
       "name": "Tarte au fromage blanc",
-      "category": "Mes recettes",
-      "tags": [],
+      "category": "Desserts",
+      "tags": [
+        "crémeux",
+        "dessert",
+        "douceur"
+      ],
       "rating": 3,
-      "description": "",
-      "notes": "",
-      "photoUrl": "",
+      "description": "Une tarte généreuse et aérienne, garnie d’un appareil au fromage blanc délicatement parfumé. Sa texture légère et fondante, associée à une pâte croustillante, en fait un dessert à la fois gourmand et réconfortant.",
+      "notes": "Laissez la tarte refroidir complètement avant de la déguster afin que sa texture soit parfaitement ferme et fondante.",
+      "photoUrl": "https://cdn-0.ellemijotequelquechose.com/wp-content/uploads/2020/10/Tarte-au-fromage-blanc-alsacienne-44.jpg",
       "photoData": "",
       "videoUrl": "",
-      "sourceUrl": "",
-      "sourceName": "",
+      "sourceUrl": "https://ellemijotequelquechose.com/tarte-au-fromage-blanc-alsacienne/",
+      "sourceName": "Source web",
       "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
       "favorite": false
     },
