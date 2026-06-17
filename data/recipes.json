@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-17T11:03:38.211Z",
+  "exportedAt": "2026-06-17T11:23:06.446Z",
   "recipes": [
     {
       "badge": "Pâtisserie",
@@ -301,7 +301,7 @@
       ],
       "id": "recipe-hso043d",
       "name": "Bûche façon tiramisu",
-      "category": "Mes recettes",
+      "category": "Festifs",
       "tags": [],
       "rating": 3,
       "description": "Une bûche façon tiramisu onctueuse et généreuse, où la douceur de la crème mascarpone rencontre l’intensité du café légèrement imbibant des biscuits moelleux. Un dessert fondant, gourmand et raffiné, relevé d’une fine poudre de cacao pour une touche finale élégante et irrésistible.",
@@ -1430,21 +1430,9 @@
       "time": 60,
       "ingredients": [
         {
-          "id": "ing-8dw7mpf",
-          "name": "Farine",
-          "qty": 250,
-          "unit": "g"
-        },
-        {
-          "id": "ing-5l0fp66",
-          "name": "Beurre",
-          "qty": 125,
-          "unit": "g"
-        },
-        {
           "id": "ing-0hjhn15",
           "name": "Sucre",
-          "qty": 220,
+          "qty": 150,
           "unit": "g"
         },
         {
@@ -1456,7 +1444,7 @@
         {
           "id": "ing-j2p47ry",
           "name": "Sel",
-          "qty": 2,
+          "qty": 1,
           "unit": "pincée"
         },
         {
@@ -1482,44 +1470,26 @@
           "name": "Levure chimique",
           "qty": 0.5,
           "unit": "sachet"
+        },
+        {
+          "id": "ing-2b40pqx",
+          "name": "Pâte sablée",
+          "qty": 1,
+          "unit": "pièce"
         }
       ],
       "steps": [
         {
           "id": "step-ktmhpmk",
-          "text": "Préchauffez le four à 180°C."
-        },
-        {
-          "id": "step-jejjfrv",
-          "text": "Pour la pâte sablée, séparez les deux jaunes d'œufs du blanc. Puis fouettez les jaunes d'œufs avec 70g de sucre et 2 cuillères a soupe d'eau pour faire mousser."
-        },
-        {
-          "id": "step-a3v9wzo",
-          "text": "Dans un saladier, mélangez au doigts 250g de farine avec 125g de beurre coupée en cubes et une pincée de sel, faire vite afin de ne pas faire trop fondre le beurre."
-        },
-        {
-          "id": "step-idnrell",
-          "text": "Versez au milieu du sable le mélange liquide a base d'œufs."
-        },
-        {
-          "id": "step-0lgi1um",
-          "text": "Formez une boule avec les paumes et l'écraser 1 à 2 fois pour qu'elle soit plus homogène."
-        },
-        {
-          "id": "step-bnbpy6q",
-          "text": "Mettre du papier sulfuriser au fond du moule, puis foncez le moule avec la pâte sablée."
-        },
-        {
-          "id": "step-qdo7v0q",
-          "text": "Recouvrir de papier sulfuriser, puis mettre les billes de poids, ou des haricots sec. Cuir à blanc 20 à 25 minutes, puis quand la tarte et cuite, baissez le four à 150°c, 120°C pour la meringue."
+          "text": "Préchauffez le four à 180°C. Préparez la pâte sablée, puis précuire la pâte. (voir pâte sablée)."
         },
         {
           "id": "step-tvl0a6q",
-          "text": "Pour la crème citron, lavez 4 citrons, en râpez 2 afin de récupérer le zeste, puis coupez le très fin."
+          "text": "Pour la crème citron, lavez les citrons, en râpez 2 afin de récupérer le zeste, puis coupez le très fin."
         },
         {
           "id": "step-kuzv1sv",
-          "text": "Mettre les zestes très fin dans une casserole avec le jus des citrons, 150g de sucre, et 1 cuillère à soupe de maïzena. Remuez et commencer à faire chauffer à feux doux."
+          "text": "Mettre les zestes très fin dans une casserole avec le jus des citrons, le sucre, et la Maïzena. Remuez et commencer à faire chauffer à feux doux."
         },
         {
           "id": "step-lxwefap",
@@ -1535,7 +1505,7 @@
         },
         {
           "id": "step-ml1omyo",
-          "text": "Quand ils commencent à être ferme, ajoutez 100g de sucre glace puis 1/2 paquet de levure chimique. Fouettez jusqu'à ce que la neige soit ferme."
+          "text": "Quand ils commencent à être ferme, ajoutez le sucre glace puis la levure chimique. Fouettez jusqu'à ce que la neige soit ferme."
         },
         {
           "id": "step-uyjve2u",
