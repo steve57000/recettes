@@ -1,11 +1,11 @@
 {
-  "exportedAt": "2026-06-17T09:44:26.845Z",
+  "exportedAt": "2026-06-17T09:59:28.273Z",
   "recipes": [
     {
       "badge": "Douceur",
       "difficulty": "Moyen",
       "baseServings": 2,
-      "time": 40,
+      "time": 105,
       "ingredients": [
         {
           "id": "ing-bd71brt",
@@ -14,7 +14,24 @@
           "unit": "pièce"
         }
       ],
-      "steps": [],
+      "steps": [
+        {
+          "id": "step-whevj4f",
+          "text": "Préchauffez le four à 240°C.\nDans un saladier, bien fouettez 3 œufs avec 125g de sucre, incorporez 190g de farine et la levure."
+        },
+        {
+          "id": "step-5ldxhgf",
+          "text": "Bien mélangez, puis ajoutez progressivement 80g de beurre et le sucre vanillé."
+        },
+        {
+          "id": "step-uof470g",
+          "text": "Chemisez le moule à madeleine, remplir les alvéoles du moule. Laissez croutez quelques instants, puis mettre au réfrigérateur au moins 1 heures avant cuisson."
+        },
+        {
+          "id": "step-culjpjf",
+          "text": "Enfournez à 240°C, et baissez au bout de 5 minutes à 200°C, laissez encore 10 minutes. Surveillez bien la cuisson."
+        }
+      ],
       "id": "recipe-409k38j",
       "name": "Madeleines",
       "category": "Desserts",
@@ -24,12 +41,12 @@
       ],
       "rating": 3,
       "description": "De délicieuses madeleines dorées à la texture légère et fondante. Leur parfum délicat de beurre et de vanille en fait une gourmandise incontournable, parfaite pour accompagner un café, un thé ou une pause sucrée à tout moment de la journée.",
-      "notes": "",
-      "photoUrl": "",
+      "notes": "Pour des madeleines bien bombées et moelleuses, laissez reposer la pâte au réfrigérateur au moins 1 heure avant la cuisson. Le choc thermique entre la pâte froide et le four chaud favorisera la formation de la célèbre bosse !",
+      "photoUrl": "https://assets.biggreenegg.eu/app/uploads/2020/04/27164723/top-image-madeleines-800x533-1.png",
       "photoData": "",
       "videoUrl": "",
-      "sourceUrl": "",
-      "sourceName": "",
+      "sourceUrl": "https://www.marmiton.org/recettes/recette_madeleines-faciles_17700.aspx",
+      "sourceName": "Source web",
       "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
       "favorite": false
     },
