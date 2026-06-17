@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-17T10:34:31.313Z",
+  "exportedAt": "2026-06-17T10:37:55.607Z",
   "recipes": [
     {
       "badge": "Gourmand",
@@ -101,11 +101,11 @@
       "steps": [
         {
           "id": "step-whevj4f",
-          "text": "Préchauffez le four à 240°C.\nDans un saladier, bien fouettez 3 œufs avec 125g de sucre, incorporez 190g de farine et la levure."
+          "text": "Préchauffez le four à 240°C.\nDans un saladier, bien fouettez les œufs avec le sucre, incorporez la farine et la levure."
         },
         {
           "id": "step-5ldxhgf",
-          "text": "Bien mélangez, puis ajoutez progressivement 80g de beurre et le sucre vanillé."
+          "text": "Bien mélangez, puis ajoutez progressivement le beurre et le sucre vanillé."
         },
         {
           "id": "step-uof470g",
