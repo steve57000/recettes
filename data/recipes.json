@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-17T12:14:30.704Z",
+  "exportedAt": "2026-06-17T12:16:53.264Z",
   "recipes": [
     {
       "badge": "Pâtisserie",
@@ -12,6 +12,30 @@
           "name": "Oeuf",
           "qty": 1,
           "unit": "pièce"
+        },
+        {
+          "id": "ing-etrs5xn",
+          "name": "Sucre",
+          "qty": 80,
+          "unit": "g"
+        },
+        {
+          "id": "ing-l3xxo7o",
+          "name": "Sel",
+          "qty": 1,
+          "unit": "pincée"
+        },
+        {
+          "id": "ing-l9c2cc4",
+          "name": "Farine",
+          "qty": 250,
+          "unit": "g"
+        },
+        {
+          "id": "ing-zgitd1j",
+          "name": "Beurre",
+          "qty": 125,
+          "unit": "g"
         }
       ],
       "steps": [
