@@ -1,6 +1,123 @@
 {
-  "exportedAt": "2026-06-17T16:30:15.066Z",
+  "exportedAt": "2026-06-17T17:09:50.973Z",
   "recipes": [
+    {
+      "badge": "Nouveau",
+      "difficulty": "Facile",
+      "baseServings": 4,
+      "time": 50,
+      "ingredients": [
+        {
+          "id": "ing-7u1cni3",
+          "name": "Pâte feuilletée",
+          "qty": 1,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-kofnpyq",
+          "name": "Oignons jaune doux",
+          "qty": 4,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-9umbz4e",
+          "name": "Beurre",
+          "qty": 50,
+          "unit": "g"
+        },
+        {
+          "id": "ing-ixt5b8f",
+          "name": "Crème fraîche épaisse",
+          "qty": 10,
+          "unit": "cl"
+        },
+        {
+          "id": "ing-cadou6s",
+          "name": "Oeufs",
+          "qty": 2,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-4737941",
+          "name": "Noix de muscade",
+          "qty": 1,
+          "unit": "pincée"
+        },
+        {
+          "id": "ing-kc4jea9",
+          "name": "Fromage râpé",
+          "qty": 50,
+          "unit": "g"
+        },
+        {
+          "id": "ing-fr38owr",
+          "name": "Sel",
+          "qty": 1,
+          "unit": "à convenance"
+        },
+        {
+          "id": "ing-qi1fevr",
+          "name": "Poivre",
+          "qty": 1,
+          "unit": "à convenance"
+        }
+      ],
+      "steps": [
+        {
+          "id": "step-iql9odv",
+          "text": "Préchauffez le four à 200°C. Etalez la pâte feuilletée dans un moule à tarte, en piquant le fond avec une fourchette. Faire cuire la pâte à blanc avec un poids pendant 10 minutes à 180°C chaleur tournante, puis retirez le poids et faire cuire 10 minutes pour que la fond colore. Laissez-la refroidir sur une grille."
+        },
+        {
+          "id": "step-9k3mr97",
+          "text": "Pelez les oignons et les émicer finement."
+        },
+        {
+          "id": "step-nw4cu6r",
+          "text": "Faites revenir les oignons émincés dans le beurre sur feu moyen jusqu'à ce qu'ils deviennent translucides et légèrement dorés. Conseil : la patience est la clé pour caraméliser parfaitement les oignons sans les brûler. En les cuisant lentement à feu doux, les sucres se développent, transformant les oignons en une préparation dorée et savoureuse."
+        },
+        {
+          "id": "step-9umbxe6",
+          "text": "Répartir les oignons sur la pâte."
+        },
+        {
+          "id": "step-8fgpv4l",
+          "text": "Battre les œufs avec la crème fraîche, le sel, le poivre et la noix de muscade. Conseil : ajustez l'assaisonnement en goûtant le mélange."
+        },
+        {
+          "id": "step-m69j246",
+          "text": "Versez ce mélange sur les oignons."
+        },
+        {
+          "id": "step-qjrezqc",
+          "text": "Saupoudrez de fromage râpé pour un goût plus gourmand."
+        },
+        {
+          "id": "step-24vrbte",
+          "text": "Enfournez pendant environ 30 minutes, jusqu'à ce que la tarte soit bien dorée et la garniture prise."
+        },
+        {
+          "id": "step-gjf8six",
+          "text": "Servir chaud, accompagné d'une salade verte pour équilibrer le repas."
+        }
+      ],
+      "id": "recipe-0qefuca",
+      "name": "Tarte à l'oignon",
+      "category": "Plats",
+      "tags": [
+        "automne",
+        "léger"
+      ],
+      "rating": 3,
+      "description": "Une tarte généreuse aux oignons doucement confits, fondants et légèrement caramélisés, sublimés par un appareil crémeux. Sa pâte croustillante et ses saveurs douces et réconfortantes en font un classique gourmand à partager.",
+      "notes": "Prenez le temps de faire cuire les oignons à feu doux pour révéler toute leur douceur et obtenir une texture fondante.",
+      "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJ-TohTlABEmw5Ed_WwppxnxMkGpkdtqbNZKLUdgcZkg&s=10",
+      "photoData": "",
+      "videoUrl": "",
+      "sourceUrl": "https://www.quiveutdufromage.com/r-tarte-a-loignon-traditionnelle",
+      "sourceName": "Source web",
+      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
+      "favorite": false
+    },
     {
       "badge": "Gourmand",
       "difficulty": "Facile",
