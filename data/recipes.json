@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-17T12:00:53.209Z",
+  "exportedAt": "2026-06-17T12:14:30.704Z",
   "recipes": [
     {
       "badge": "Pâtisserie",
@@ -14,7 +14,36 @@
           "unit": "pièce"
         }
       ],
-      "steps": [],
+      "steps": [
+        {
+          "id": "step-u6had63",
+          "text": "Dans un saladier, battre l'œuf, le sucre et la pincée de sel."
+        },
+        {
+          "id": "step-4ez54cx",
+          "text": "Ajoutez la farine d'un seul coup et mélangez du bout des doigts. Effritez la pâte qui prend l'aspect su sable."
+        },
+        {
+          "id": "step-cyg9wte",
+          "text": "Ajoutez le beurre mou (mais surtout pas fondu), puis le parfum éventuel et pétrir la pâte à la main afin d'amalgamer le tout."
+        },
+        {
+          "id": "step-16fz63t",
+          "text": "Mettre la pâte en boule, l'enveloppez d'un linge et la laissez reposer 30 minutes à 1 heure dans le frigo."
+        },
+        {
+          "id": "step-4fu2e3m",
+          "text": "L'abaissez au rouleau sur un plan de travail légèrement fariné."
+        },
+        {
+          "id": "step-usckjw3",
+          "text": "Elle est prête à être utilisée pour réaliser un fond de tarte, des tartelettes, des sablés découpés à l'emporte pièce... Elle attendra au réfrigérateur pour que le beurre soit bien froid à l'enfournement."
+        },
+        {
+          "id": "step-n02lrom",
+          "text": "La faire cuire à blanc : Découpez une feuille de papier cuisson du diamètre du moule et la mettre dans le moule. Piquez le fond de la tarte à la fourchette puis le recouvrir d'une autre feuille de papier cuisson et la recouvrir d'un poids et cuire pendant 20 minutes à 200°C ou 180°C à chaleur tournante. Surveillez la coloration des bords. Au bout de 10 minutes de cuisson retirez le papier cuisson avec le poids pour que le fond colore. Bien surveillez la fin de cuisson et sortir la pâte dès qu'elle prend la couleur blond doré. Laissez refroidir sur une grille."
+        }
+      ],
       "id": "recipe-9cx7d90",
       "name": "Pâte sablée",
       "category": "Pâtes de base",
