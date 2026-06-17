@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-17T09:59:28.273Z",
+  "exportedAt": "2026-06-17T10:02:22.354Z",
   "recipes": [
     {
       "badge": "Douceur",
@@ -12,6 +12,36 @@
           "name": "Oeufs",
           "qty": 3,
           "unit": "pièce"
+        },
+        {
+          "id": "ing-gqqhn1s",
+          "name": "Sucre",
+          "qty": 125,
+          "unit": "g"
+        },
+        {
+          "id": "ing-vrzedaj",
+          "name": "Farine",
+          "qty": 190,
+          "unit": "g"
+        },
+        {
+          "id": "ing-eur1hwg",
+          "name": "Beurre",
+          "qty": 80,
+          "unit": "g"
+        },
+        {
+          "id": "ing-eyorxbc",
+          "name": "Sucre vanillé",
+          "qty": 1,
+          "unit": "sachet"
+        },
+        {
+          "id": "ing-58rmw7r",
+          "name": "Levure chimique",
+          "qty": 1.5,
+          "unit": "sachet"
         }
       ],
       "steps": [
