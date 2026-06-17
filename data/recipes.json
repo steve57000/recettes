@@ -1,6 +1,37 @@
 {
-  "exportedAt": "2026-06-17T10:37:55.607Z",
+  "exportedAt": "2026-06-17T10:48:52.896Z",
   "recipes": [
+    {
+      "badge": "Pâtisserie",
+      "difficulty": "Facile",
+      "baseServings": 6,
+      "time": 30,
+      "ingredients": [
+        {
+          "id": "ing-wl8r15j",
+          "name": "Farine",
+          "qty": 200,
+          "unit": "g"
+        }
+      ],
+      "steps": [],
+      "id": "recipe-s0ymuwj",
+      "name": "Pâte brisée",
+      "category": "Pâtes de base",
+      "tags": [
+        "pâtisserie"
+      ],
+      "rating": 3,
+      "description": "Une pâte croustillante et délicatement dorée, à la texture légère et fondante. Simple et savoureuse, elle constitue la base idéale pour toutes vos tartes, qu’elles soient sucrées ou salées.",
+      "notes": "Laissez reposer la pâte au frais avant de l’étaler pour obtenir une texture plus homogène et limiter son rétrécissement à la cuisson, piquez le fond de pâte à la fourchette avant cuisson pour éviter qu’il ne gonfle et garantir une base bien régulière.",
+      "photoUrl": "",
+      "photoData": "",
+      "videoUrl": "",
+      "sourceUrl": "https://lacuisinedannie.20minutes.fr/recette-pate-brisee-187.html",
+      "sourceName": "Source web",
+      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
+      "favorite": false
+    },
     {
       "badge": "Gourmand",
       "difficulty": "Moyen",
