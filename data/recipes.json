@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-17T10:17:41.885Z",
+  "exportedAt": "2026-06-17T10:34:31.313Z",
   "recipes": [
     {
       "badge": "Gourmand",
@@ -14,7 +14,28 @@
           "unit": "g"
         }
       ],
-      "steps": [],
+      "steps": [
+        {
+          "id": "step-db6dh5k",
+          "text": "Pour la pâte brisée maison, dans un petit saladier, mélangez 300g de farine et 1.5 cuillère à café de sel. Ajoutez 150g de beurre mou (à température ambiante et non fondu) coupé en petits morceaux et pétrir du bout des doigts pendant quelques minutes jusqu'à l'obtention d'un mélange sableux."
+        },
+        {
+          "id": "step-qe5glf8",
+          "text": "Ajoutez 80ml d'eau et former rapidement une boule de pâte. Filmez et placez au réfrigérateur pour 30 minutes minimum."
+        },
+        {
+          "id": "step-m1ncz5y",
+          "text": "Pour la garniture, préchauffez le four à 180°C. Préparez un moule à manqué (ou charnière) d'environ 26 cm, beurré et fariné."
+        },
+        {
+          "id": "step-a9f33lk",
+          "text": "Séparez les 5 blancs d'œufs des jaunes (les blancs dans un petit saladier, les jaunes dans un petit bol)."
+        },
+        {
+          "id": "step-siftmn3",
+          "text": "Dans un grand saladier, mélangez 1kg de fromage banc ferme (40% de mg), 180g de sucre,"
+        }
+      ],
       "id": "recipe-v9qck5a",
       "name": "Tarte au fromage blanc",
       "category": "Desserts",
