@@ -1,6 +1,141 @@
 {
-  "exportedAt": "2026-06-18T17:23:25.578Z",
+  "exportedAt": "2026-06-18T18:17:09.638Z",
   "recipes": [
+    {
+      "badge": "Apéro",
+      "difficulty": "Difficile",
+      "baseServings": 10,
+      "time": 110,
+      "ingredients": [
+        {
+          "id": "ing-5x8j1kv",
+          "name": "Pâte brisée",
+          "qty": 2,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-rb1601p",
+          "name": "Magret de canard",
+          "qty": 1,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-vc8eopm",
+          "name": "Foie gras de canard",
+          "qty": 190,
+          "unit": "g"
+        },
+        {
+          "id": "ing-hjfpif9",
+          "name": "Farce de veau",
+          "qty": 350,
+          "unit": "g"
+        },
+        {
+          "id": "ing-2h5djid",
+          "name": "Farce de porc",
+          "qty": 350,
+          "unit": "g"
+        },
+        {
+          "id": "ing-74zb3cg",
+          "name": "Oeuf",
+          "qty": 2,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-cv0grjp",
+          "name": "Cognac",
+          "qty": 25,
+          "unit": "g"
+        },
+        {
+          "id": "ing-fvuzexa",
+          "name": "Porto rouge",
+          "qty": 25,
+          "unit": "g"
+        },
+        {
+          "id": "ing-95o4jav",
+          "name": "Sel",
+          "qty": 18,
+          "unit": "g"
+        },
+        {
+          "id": "ing-9jzvavp",
+          "name": "Poivre",
+          "qty": 2.5,
+          "unit": "g"
+        },
+        {
+          "id": "ing-8r7j3ww",
+          "name": "Pistaches",
+          "qty": 60,
+          "unit": "g"
+        },
+        {
+          "id": "ing-mmo72rr",
+          "name": "Crème fraîche épaisse",
+          "qty": 50,
+          "unit": "g"
+        },
+        {
+          "id": "ing-l3i9oj9",
+          "name": "Bouillon de boeuf",
+          "qty": 500,
+          "unit": "ml"
+        },
+        {
+          "id": "ing-pcm1o4r",
+          "name": "Feuilles de gélatine",
+          "qty": 5,
+          "unit": "feuille"
+        }
+      ],
+      "steps": [
+        {
+          "id": "step-ssh1ap6",
+          "text": "Pour la pâte brisée, réalisez la recette de pâte brisée en doublant les doses pour avoir assez de pâte pour réaliser le pâté en croute."
+        },
+        {
+          "id": "step-vrii204",
+          "text": "Préchauffez le four à 220°C. Pour la réalisation de la farce : enlevez le gras du magret de canard avec un couteau et coupez la chaire en gros cubes. Coupez aussi le foie gras en gros cubes. Emondée les pistaches."
+        },
+        {
+          "id": "step-slrmq48",
+          "text": "Mélangez les deux farces (veau et porc). Ajoutez les œufs, le porto, le cognac, le sel et le poivre. Mélangez à la main votre préparation. Terminez en ajoutant les cubes de foie gras, de canard, les pistaches émondée et la crème."
+        },
+        {
+          "id": "step-o2moy1a",
+          "text": "Pour le montage : chemisez votre moule à pâté en croute avec du papier sulfuriser puis y déposez la pâte sur le fond et les côtés. Remplissez de farce en évitant le plus possible les bulles d'aire. Collez à l'aide de la dorure le couvercle de pâte. Faites 3 cheminées d'environ 2cm dans le couvercle. Dorez bien l'ensemble avec l'œuf battu."
+        },
+        {
+          "id": "step-bf0uxqj",
+          "text": "Pour la cuisson : enfournez votre pâté dans un four préchauffé à 220°C et cuire pendant 10 minutes. Baissez le four à 170°C et faites cuire pendant 40 minutes. La température à cœur doit atteindre 65°C. Laissez refroidir 30 minutes à température ambiante après cuisson."
+        },
+        {
+          "id": "step-f717wqf",
+          "text": "Pour la préparation de la gelée : Faire bouillir le bouillon de bœuf et faites-y fondre la gélatine, préalablement réhydratée dans un bol avec de l'eau froide. Rectifiez l'assaisonnement. A l'aide d'un entonnoir à piston, coulez la gelée par les cheminées. Laissez prendre la gelée au frais. Laissez au réfrigérateur 24 heures avant de démouler et de servir votre pâté en croute."
+        }
+      ],
+      "id": "recipe-bvk9erv",
+      "name": "Pâté en croute",
+      "category": "Entrées",
+      "tags": [
+        "apéro",
+        "amuse bouche"
+      ],
+      "rating": 3,
+      "description": "Une pâte dorée et croustillante qui renferme une farce généreuse de viandes savoureuses, subtilement assaisonnée et fondante en bouche. Une spécialité traditionnelle, gourmande et élégante, parfaite en entrée ou lors d’un repas convivial.",
+      "notes": "Pour un pâté en croûte encore plus savoureux, laisse-le reposer une nuit au réfrigérateur après cuisson avant de le découper. Les saveurs se développent et la coupe est plus nette et plus jolie",
+      "photoUrl": "https://www.maspatule.com/blog/wp-content/uploads/2018/12/P1170239-800x601.jpg",
+      "photoData": "",
+      "videoUrl": "",
+      "sourceUrl": "https://www.maspatule.com/blog/2018/12/14/meilleure-recette-de-pate-en-croute/?srsltid=",
+      "sourceName": "Source web",
+      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
+      "favorite": false
+    },
     {
       "badge": "Pâtisserie",
       "difficulty": "Facile",
