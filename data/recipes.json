@@ -1,6 +1,151 @@
 {
-  "exportedAt": "2026-06-18T16:35:13.864Z",
+  "exportedAt": "2026-06-18T17:12:00.179Z",
   "recipes": [
+    {
+      "badge": "Familial",
+      "difficulty": "Moyen",
+      "baseServings": 4,
+      "time": 60,
+      "ingredients": [
+        {
+          "id": "ing-np9ywpk",
+          "name": "Farine",
+          "qty": 125,
+          "unit": "g"
+        },
+        {
+          "id": "ing-8wmgcsa",
+          "name": "Oeufs",
+          "qty": 2,
+          "unit": "pièce"
+        },
+        {
+          "id": "ing-luk75vu",
+          "name": "Crème liquide",
+          "qty": 30,
+          "unit": "cl"
+        },
+        {
+          "id": "ing-t7fcp7j",
+          "name": "Beurre",
+          "qty": 100,
+          "unit": "g"
+        },
+        {
+          "id": "ing-ttq56kc",
+          "name": "Lait",
+          "qty": 25,
+          "unit": "cl"
+        },
+        {
+          "id": "ing-0o5rv6f",
+          "name": "Sel",
+          "qty": 1,
+          "unit": "pincée"
+        },
+        {
+          "id": "ing-lm9aiu5",
+          "name": "Jambon cru",
+          "qty": 400,
+          "unit": "g"
+        },
+        {
+          "id": "ing-txtfyqe",
+          "name": "Champignon de paris",
+          "qty": 250,
+          "unit": "g"
+        },
+        {
+          "id": "ing-sylanjz",
+          "name": "Echalotes",
+          "qty": 50,
+          "unit": "g"
+        },
+        {
+          "id": "ing-eoyt95s",
+          "name": "Ail",
+          "qty": 1,
+          "unit": "gousse"
+        },
+        {
+          "id": "ing-7518ynk",
+          "name": "Thym",
+          "qty": 1,
+          "unit": "brin"
+        },
+        {
+          "id": "ing-13x6eza",
+          "name": "Gruyère râpé",
+          "qty": 60,
+          "unit": "g"
+        },
+        {
+          "id": "ing-ldmojhg",
+          "name": "Chapelure",
+          "qty": 40,
+          "unit": "g"
+        },
+        {
+          "id": "ing-4mrle7y",
+          "name": "Sel",
+          "qty": 1,
+          "unit": "à convenance"
+        },
+        {
+          "id": "ing-s11d0jm",
+          "name": "Poivre",
+          "qty": 1,
+          "unit": "à convenance"
+        }
+      ],
+      "steps": [
+        {
+          "id": "step-52ov5ef",
+          "text": "Faire la pâte à crêpes : dans un saladier, mettre la farine, les œufs, la crème (10cl), le beurre (20g), le lait et le sel. Mélangez le tout pour qu'il n'y est pas de grumeaux. Laissez reposer 1 heures au réfrigérateur."
+        },
+        {
+          "id": "step-qftj2on",
+          "text": "Cuire les crêpes très fines."
+        },
+        {
+          "id": "step-2bbrrwg",
+          "text": "Dans une sauteuse, faire revenir le jambon cru émincé, les échalotes ciselées, les champignons émincés, la gousse d'ail écrasée. Assaisonnez avec le poivre et le thym, ne pas ajoutez de sel le jambon sale déjà la préparation."
+        },
+        {
+          "id": "step-cfb0fgp",
+          "text": "Mettre la crème (20cl) et laissez réduire quelques temps pour lier la préparation."
+        },
+        {
+          "id": "step-5xwp6u0",
+          "text": "Préchauffez le four sur grille. Garnir les crêpes et les pliez."
+        },
+        {
+          "id": "step-sjfmgnw",
+          "text": "Les déposez dans un plat à gratin beurré. Parsemez de gruyère râpé, de chapelure et arrosez de beurre fondu."
+        },
+        {
+          "id": "step-7qd29vr",
+          "text": "Faire gratinez à four chaud et servir immédiatement."
+        }
+      ],
+      "id": "recipe-re88esz",
+      "name": "Crêpes vosgiennes",
+      "category": "Plats",
+      "tags": [
+        "automne",
+        "crémeux"
+      ],
+      "rating": 3,
+      "description": "De délicates crêpes dorées garnies de champignons fondants et de jambon cru savoureux, relevées d’une touche de crème onctueuse. Une recette généreuse et parfumée, à la fois rustique et élégante, qui sent bon le terroir.",
+      "notes": "Pour encore plus de goût, fais revenir les champignons à feu vif jusqu’à ce qu’ils rendent toute leur eau avant de les incorporer dans les crêpes 🥞🍄. Ajoute ensuite le jambon cru au dernier moment pour qu’il garde tout son parfum sans devenir trop sec.",
+      "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmLaTwQvqhUifeY9MbClTSbDoLiKRD8d_LHw&s",
+      "photoData": "",
+      "videoUrl": "",
+      "sourceUrl": "https://www.cuisineaz.com/recettes/crepes-salees-au-jambon-champignons-et-bechamel-122273.aspx",
+      "sourceName": "Source web",
+      "image": "linear-gradient(135deg, #74c0fc 0%, #69db7c 100%)",
+      "favorite": false
+    },
     {
       "badge": "Familial",
       "difficulty": "Facile",
