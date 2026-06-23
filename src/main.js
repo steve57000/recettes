@@ -185,8 +185,17 @@ function normalizeDisplayLabel(value) {
   return lower.replace(/(^|[\/\-])([\p{L}])/gu, (match, before, letter) => `${before}${letter.toLocaleUpperCase('fr-FR')}`);
 }
 
+const TAG_CANONICAL_LABELS = {
+  asiatiques: 'asiatique',
+  entrer: 'entrée',
+  herbes: 'herbe',
+  réconfortent: 'réconfortant',
+  'vegétarien': 'végétarien',
+};
+
 function normalizeTagLabel(value) {
-  return String(value || '').replace(/^#+/, '').replace(/\s+/g, ' ').trim().toLocaleLowerCase('fr-FR');
+  const label = String(value || '').replace(/^#+/, '').replace(/\s+/g, ' ').trim().toLocaleLowerCase('fr-FR');
+  return TAG_CANONICAL_LABELS[label] || label;
 }
 
 function uniqueByFacet(values, formatter = normalizeDisplayLabel) {
@@ -1016,8 +1025,6 @@ function renderShoppingRecipeChoices() {
 function renderShoppingSection() {
   const shoppingMode = currentShoppingMode();
   return `<section class="shopping-page-actions">
-        <button class="secondary" id="mark-shopping-open">Tout à acheter</button>
-        <button class="secondary" id="mark-shopping-bought">Tout acheté</button>
         <button class="secondary danger-soft" id="clear-shopping">${esc(shoppingClearButtonLabel())}</button>
       </section>
 
@@ -1195,7 +1202,10 @@ function render() {
   hydrateForm();
   drawIngredientRows();
   drawStepRows();
-  if (route.page === 'recipe') openRecipe(route.id, { scroll: false });
+  if (route.page === 'recipe') {
+    openRecipe(route.id, { scroll: false });
+    requestAnimationFrame(() => window.scrollTo({ top: 0, left: 0, behavior: 'auto' }));
+  }
   if (recipeReturnTarget && route.page === recipeReturnTarget.page && currentHash() === recipeReturnTarget.hash && !state.formOpen) {
     scheduleRecipeReturnScroll(recipeReturnTarget);
   }
@@ -1279,7 +1289,6 @@ function recipeCard(r) {
       <div class="card-actions">
         <button data-open="${esc(r.id)}">Voir</button>
         <button class="secondary" data-edit="${esc(r.id)}">Modifier</button>
-        ${renderPrintButton(r, true)}
         <button class="icon-danger secondary" title="Supprimer" aria-label="Supprimer ${esc(r.name)}" data-del="${esc(r.id)}">Supprimé</button>
       </div>
       <div class="media-links">${r.videoUrl ? '<span>🎬 vidéo</span>' : ''}${r.sourceUrl ? `<a class="source" href="${esc(r.sourceUrl)}" target="_blank" rel="noreferrer">Source web</a>` : ''}</div>
@@ -1756,12 +1765,6 @@ function bindEvents(root) {
   updateRatingPicker(document.getElementById('r-rating')?.value || 3);
 
   bindShoppingListEvents(root);
-
-  const markShoppingOpen = document.getElementById('mark-shopping-open');
-  if (markShoppingOpen) markShoppingOpen.onclick = () => setAllShoppingBought(false);
-
-  const markShoppingBought = document.getElementById('mark-shopping-bought');
-  if (markShoppingBought) markShoppingBought.onclick = () => setAllShoppingBought(true);
 
   const clearShopping = document.getElementById('clear-shopping');
   if (clearShopping) clearShopping.onclick = () => {
