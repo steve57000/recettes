@@ -68,6 +68,7 @@ const defaultState = {
   shopping: [],
   shoppingUpdatedAt: '',
   shoppingView: { mode: 'all', recipeIds: [] },
+  keepAwakeEnabled: false,
   github: githubDefaults,
   sessionUser: null,
   activeCategory: 'Tout voir',
@@ -83,6 +84,8 @@ let ingredientRows = [emptyIngredient()];
 let stepRows = [emptyStep()];
 let recipeReturnTarget = null;
 let pendingRecipeScroll = null;
+let wakeLockSentinel = null;
+let wakeLockStatus = 'Veille écran autorisée';
 
 function load() {
   try {
@@ -287,6 +290,80 @@ function save() {
   localStorage.setItem(KEY, JSON.stringify(state));
 }
 
+async function requestWakeLock() {
+  if (!('wakeLock' in navigator)) {
+    wakeLockStatus = 'Votre navigateur ne prend pas encore en charge le maintien de l’écran éveillé.';
+    updateWakeLockUi();
+    return;
+  }
+  try {
+    wakeLockSentinel = await navigator.wakeLock.request('screen');
+    wakeLockStatus = 'Écran maintenu éveillé pendant la consultation.';
+    wakeLockSentinel.addEventListener('release', () => {
+      wakeLockSentinel = null;
+      if (state.keepAwakeEnabled && currentRoute().page === 'recipe' && document.visibilityState === 'visible') {
+        wakeLockStatus = 'Maintien de l’écran interrompu, tentative de reprise…';
+        updateWakeLockUi();
+        requestWakeLock();
+        return;
+      }
+      wakeLockStatus = state.keepAwakeEnabled ? 'Maintien de l’écran en pause.' : 'Veille écran autorisée';
+      updateWakeLockUi();
+    });
+  } catch (error) {
+    wakeLockStatus = `Maintien de l’écran impossible : ${error.message}`;
+  }
+  updateWakeLockUi();
+}
+
+async function releaseWakeLock() {
+  if (!wakeLockSentinel) {
+    wakeLockStatus = 'Veille écran autorisée';
+    updateWakeLockUi();
+    return;
+  }
+  const sentinel = wakeLockSentinel;
+  wakeLockSentinel = null;
+  await sentinel.release().catch(() => {});
+  wakeLockStatus = 'Veille écran autorisée';
+  updateWakeLockUi();
+}
+
+function updateWakeLockUi() {
+  const toggle = document.getElementById('keep-awake-toggle');
+  if (toggle) {
+    toggle.checked = Boolean(state.keepAwakeEnabled);
+    toggle.setAttribute('aria-pressed', state.keepAwakeEnabled ? 'true' : 'false');
+  }
+  const status = document.getElementById('keep-awake-status');
+  if (status) status.textContent = wakeLockStatus;
+}
+
+function syncWakeLockForRoute(route = currentRoute()) {
+  if (state.keepAwakeEnabled && route.page === 'recipe' && document.visibilityState === 'visible') {
+    if (!wakeLockSentinel) requestWakeLock();
+    else updateWakeLockUi();
+    return;
+  }
+  if (wakeLockSentinel) releaseWakeLock();
+  else {
+    wakeLockStatus = state.keepAwakeEnabled && route.page === 'recipe' ? 'Maintien de l’écran en pause.' : 'Veille écran autorisée';
+    updateWakeLockUi();
+  }
+}
+
+function bindWakeLockToggle(scope) {
+  const toggle = scope.querySelector('#keep-awake-toggle');
+  if (!toggle) return;
+  toggle.onchange = () => {
+    state.keepAwakeEnabled = toggle.checked;
+    save();
+    syncWakeLockForRoute();
+  };
+  updateWakeLockUi();
+}
+
+document.addEventListener('visibilitychange', () => syncWakeLockForRoute());
 
 function githubConfig() {
   return { ...githubDefaults, ...(state.github || {}) };
@@ -979,7 +1056,7 @@ function renderBackupPanel() {
           <div class="backup-layout backup-layout-wide">
             <section class="sync-box">
               <strong>Synchronisation GitHub automatique</strong>
-              <p class="small">Enregistrez automatiquement les recettes dans un fichier JSON de votre dépôt GitHub personnel.</p>
+              <p class="small">Enregistrez automatiquement les recettes et la liste de courses dans un fichier JSON de votre dépôt GitHub personnel.</p>
               <div class="github-grid">
                 <label>Propriétaire<input id="github-owner" placeholder="Ex : steve57000" value="${esc(githubConfig().owner)}" /></label>
                 <label>Dépôt<input id="github-repo" placeholder="Ex : recettes" value="${esc(githubConfig().repo)}" /></label>
@@ -1195,6 +1272,7 @@ function render() {
   const totalIngredients = state.recipes.reduce((sum, recipe) => sum + recipe.ingredients.length, 0);
   const route = currentRoute();
   const content = route.page === 'backup' ? renderBackupPage() : route.page === 'shopping' ? renderShoppingPage() : route.page === 'favorites' ? renderFavoritesPage() : route.page === 'recipe' ? renderRecipePage(route.id) : renderHomePage(filteredRecipes, totalIngredients);
+  syncWakeLockForRoute(route);
 
   root.innerHTML = `${renderHeader()}<main id="top" class="page-shell">${content}${renderRecipeModal()}</main>`;
 
@@ -2160,10 +2238,15 @@ function openRecipe(recipeId, options = {}) {
       <ul id="ing-list" class="ingredient-list"></ul>
     </div>
     <div class="detail-section preparation-section"><h3>Préparation pas à pas</h3>${renderPreparationSteps(recipe)}${recipe.notes ? `<div class="chef-note"><strong>Note du chef</strong><span>${esc(recipe.notes)}</span></div>` : ''}</div>
+    <div class="detail-section keep-awake-section">
+      <label class="keep-awake-toggle check-row"><input id="keep-awake-toggle" type="checkbox" ${state.keepAwakeEnabled ? 'checked' : ''} /> <span>Empêcher le téléphone ou l’écran de se mettre en veille pendant que je cuisine</span></label>
+      <p class="small" id="keep-awake-status">${esc(wakeLockStatus)}</p>
+    </div>
     ${recipe.videoUrl ? `<div class="detail-section media-player"><h3>Vidéo</h3>${videoEmbed(recipe.videoUrl)}</div>` : ''}
   </article>`;
   if (options.scroll !== false) selected.scrollIntoView({ behavior: 'smooth', block: 'start' });
   bindRecipeCardActions(selected);
+  bindWakeLockToggle(selected);
   selected.querySelector('[data-edit-detail]').onclick = () => editRecipe(recipe.id);
 
   const redraw = (options = {}) => {
