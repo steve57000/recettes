@@ -1,4 +1,4 @@
-# Enregistrer automatiquement les recettes dans un JSON GitHub
+# Enregistrer automatiquement les recettes et courses dans un JSON GitHub
 
 Le site est personnel : l’application peut donc écrire directement dans un fichier JSON du dépôt GitHub avec un **token personnel GitHub** renseigné dans l’interface.
 
@@ -14,7 +14,7 @@ Dans le panneau **Courses → Synchronisation GitHub automatique** :
 6. cochez **Activer l’enregistrement automatique sur GitHub** ;
 7. cliquez sur **Enregistrer réglages** puis **Enregistrer maintenant**.
 
-Ensuite, chaque ajout, modification ou suppression de recette déclenche une sauvegarde automatique dans le JSON GitHub. Si GitHub signale qu’une autre sauvegarde a modifié `data/recipes.json` entre la lecture et l’écriture, l’application relit automatiquement la dernière version du fichier et retente l’enregistrement afin d’éviter l’erreur `does not match ...`. Le bouton **Charger depuis GitHub** permet de récupérer le JSON sur un autre appareil.
+Ensuite, chaque ajout, modification ou suppression de recette, ainsi que chaque création ou modification de liste de courses, déclenche une sauvegarde automatique dans le JSON GitHub. Si GitHub signale qu’une autre sauvegarde a modifié `data/recipes.json` entre la lecture et l’écriture, l’application relit automatiquement la dernière version du fichier et retente l’enregistrement afin d’éviter l’erreur `does not match ...`. Le bouton **Charger depuis GitHub** permet de récupérer le JSON sur un autre appareil.
 
 ## Token GitHub conseillé
 
@@ -26,7 +26,7 @@ Créez un token finement limité au dépôt de recettes :
 
 Le token est stocké dans le `localStorage` du navigateur pour ce site personnel. Si le site devient public, il faudra éviter de partager ce token avec d’autres utilisateurs.
 
-## Fichier créé ou mis à jour
+## Données créées ou mises à jour
 
 Par défaut, l’application écrit dans :
 
@@ -34,4 +34,4 @@ Par défaut, l’application écrit dans :
 data/recipes.json
 ```
 
-Si ce fichier n’existe pas encore, GitHub le crée au premier clic sur **Enregistrer maintenant** ou à la première sauvegarde automatique.
+Si ce fichier n’existe pas encore, GitHub le crée au premier clic sur **Enregistrer maintenant** ou à la première sauvegarde automatique. Le JSON contient notamment les clés `recipes`, `shopping` et `shoppingUpdatedAt`, ce qui permet de retrouver la liste de courses depuis un autre appareil connecté au même dépôt GitHub.

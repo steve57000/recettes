@@ -735,6 +735,27 @@ label {
   min-width: 18px;
 }
 
+
+.keep-awake-section {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.keep-awake-toggle {
+  padding: 0.95rem 1rem;
+  border: 1px solid rgba(227, 93, 58, 0.22);
+  border-radius: 18px;
+  background: rgba(255, 248, 237, 0.78);
+}
+
+.keep-awake-toggle span {
+  font-weight: 850;
+}
+
+#keep-awake-status {
+  margin: 0;
+}
+
 .github-status {
   padding: 0.65rem 0.8rem;
   border-radius: 14px;
