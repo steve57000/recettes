@@ -649,7 +649,7 @@
         "soleil",
         "salade",
         "frais",
-        "herbes"
+        "herbe"
       ],
       "favorite": false
     },
@@ -1251,7 +1251,7 @@
       "name": "Ratatouille",
       "category": "Plats",
       "tags": [
-        "vegétarien",
+        "végétarien",
         "soleil"
       ],
       "rating": 3,
@@ -2948,7 +2948,7 @@
       "category": "Plats",
       "tags": [
         "végétarien",
-        "entrer"
+        "entrée"
       ],
       "rating": 3,
       "description": "Croustillants à l’extérieur et moelleux à cœur, les râpés de pommes de terre séduisent par leur texture gourmande et leur saveur authentique. Dorés à souhait, ils accompagnent parfaitement viandes, poissons ou salades pour un repas convivial et réconfortant.",
@@ -4627,7 +4627,7 @@
       "category": "Plats",
       "tags": [
         "plat chaud",
-        "asiatiques"
+        "asiatique"
       ],
       "rating": 3,
       "description": "La meilleur recette de riz frit. Orgasme gustatif garanti mais attention, risque d'addiction élevé !!",
@@ -4700,7 +4700,7 @@
       "category": "Plats",
       "tags": [
         "plat chaud",
-        "réconfortent",
+        "réconfortant",
         "automne"
       ],
       "rating": 3,
@@ -4804,7 +4804,7 @@
       "category": "Plats",
       "tags": [
         "plat chaud",
-        "réconfortent"
+        "réconfortant"
       ],
       "rating": 3,
       "description": "De fines lamelles de bœuf tendrement saisies, enrobées d’une sauce savoureuse et parfumée, accompagnées d’oignons fondants légèrement caramélisés… un plat généreux, gourmand et plein de caractère.",
@@ -4899,7 +4899,7 @@
       "category": "Plats",
       "tags": [
         "plat chaud",
-        "asiatiques"
+        "asiatique"
       ],
       "rating": 3,
       "description": "Des nouilles sautées au wok, enrobées d’une huile de sésame parfumée, accompagnées d’encornets tendres et de poireaux fondants… un plat gourmand, équilibré et délicatement parfumé aux accents asiatiques.",
@@ -4996,7 +4996,7 @@
       "category": "Plats",
       "tags": [
         "plat chaud",
-        "réconfortent"
+        "réconfortant"
       ],
       "rating": 3,
       "description": "Une côte de porc tendre et dorée, nappée d’une sauce forestière onctueuse aux champignons et relevée d’une pointe de moutarde… un plat généreux, parfumé et réconfortant qui sent bon la cuisine traditionnelle.",
