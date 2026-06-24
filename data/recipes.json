@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-21T18:24:56.930Z",
+  "exportedAt": "2026-06-24T05:51:07.063Z",
   "recipes": [
     {
       "badge": "Signature",
@@ -5289,79 +5289,6 @@
       "favorite": false
     }
   ],
-  "shoppingUpdatedAt": "2026-06-21T18:24:56.020Z",
-  "shopping": [
-    {
-      "recipeId": "recipe-eko8pxv",
-      "ingredientId": "ing-c2xwcv9",
-      "recipeName": "Tiramisu",
-      "name": "Sucre roux",
-      "qtyNumber": 100,
-      "unit": "g",
-      "bought": false
-    },
-    {
-      "recipeId": "recipe-eko8pxv",
-      "ingredientId": "ing-qe7luxx",
-      "recipeName": "Tiramisu",
-      "name": "Biscuits cuillère",
-      "qtyNumber": 24,
-      "unit": "pièce",
-      "bought": false
-    },
-    {
-      "recipeId": "recipe-eko8pxv",
-      "ingredientId": "ing-bh3m25r",
-      "recipeName": "Tiramisu",
-      "name": "Cacao amer",
-      "qtyNumber": 30,
-      "unit": "g",
-      "bought": false
-    },
-    {
-      "recipeId": "recipe-eko8pxv",
-      "ingredientId": "ing-9ascmus",
-      "recipeName": "Tiramisu",
-      "name": "Oeufs",
-      "qtyNumber": 3,
-      "unit": "pièce",
-      "bought": false
-    },
-    {
-      "recipeId": "recipe-eko8pxv",
-      "ingredientId": "ing-s2f2i2s",
-      "recipeName": "Tiramisu",
-      "name": "Sucre vanillé",
-      "qtyNumber": 1,
-      "unit": "sachet",
-      "bought": false
-    },
-    {
-      "recipeId": "recipe-eko8pxv",
-      "ingredientId": "ing-tkezsw4",
-      "recipeName": "Tiramisu",
-      "name": "Mascarpone",
-      "qtyNumber": 250,
-      "unit": "g",
-      "bought": false
-    },
-    {
-      "recipeId": "recipe-eko8pxv",
-      "ingredientId": "ing-xz1nhen",
-      "recipeName": "Tiramisu",
-      "name": "Café",
-      "qtyNumber": 50,
-      "unit": "cl",
-      "bought": false
-    },
-    {
-      "recipeId": "recipe-eko8pxv",
-      "ingredientId": "ing-p2mjb0u",
-      "recipeName": "Tiramisu",
-      "name": "Amaretto, marsala ou rhum",
-      "qtyNumber": 1,
-      "unit": "à convenance",
-      "bought": false
-    }
-  ]
+  "shoppingUpdatedAt": "2026-06-24T05:45:42.343Z",
+  "shopping": []
 }
